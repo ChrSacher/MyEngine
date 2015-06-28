@@ -1,0 +1,22 @@
+events occuring which are in interest for us
+
+if u click left mousebutton:
+
+513 WM_LBUTTONDOWN https://msdn.microsoft.com/de-de/library/windows/desktop/ms645607%28v=vs.85%29.aspx
+132 dont care
+132 dont care
+32	dont care
+514 WM_LBUTTONUP  https://msdn.microsoft.com/de-de/library/windows/desktop/ms645608%28v=vs.85%29.aspx
+
+if u click right mousebutton:
+
+516 WM_RBUTTONDOWN https://msdn.microsoft.com/de-de/library/windows/desktop/ms646242%28v=vs.85%29.aspx
+132
+132
+32
+517 WM_RBUTTONUP https://msdn.microsoft.com/de-de/library/windows/desktop/ms646243%28v=vs.85%29.aspx
+123 WM_CONTEXTMENU
+
+
+if u press a key: set the focus maybe?
+
