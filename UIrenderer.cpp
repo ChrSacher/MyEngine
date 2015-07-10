@@ -10,7 +10,6 @@ UIrenderer::UIrenderer()
 	shader->addFragmentShader( "Shaders/2DShader.frag");
 	shader->addAttribute("position");
 	shader->addAttribute("uv");
-	shader->bind();
 	shader->linkShaders();
 	ortho= Matrix4().identity().InitOrthographic(0,640,0,480,-1,1);
 	glGenVertexArrays(1,&vao);
@@ -186,7 +185,6 @@ Skybox::Skybox(Camera3d &Camera,Vector4 Color)
 	shader->addVertexShader("Shaders/Skybox.vert");
 	shader->addFragmentShader( "Shaders/Skybox.frag");
 	shader->addAttribute("position");
-	shader->bind();
 	shader->linkShaders();
 	color = Color;
 	camera = &Camera;

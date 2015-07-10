@@ -1,60 +1,13 @@
-﻿Der Buildvorgang wurde am 29.06.2015 00:33:44 gestartet.
+﻿Der Buildvorgang wurde am 08.07.2015 23:19:41 gestartet.
      1>Projekt "C:\Users\Christian\Documents\GitHub\MyEngine\Javaportc++.vcxproj" auf Knoten "2", Build Ziel(e).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Camera3d.cpp FBO.cpp Lighting.cpp Maingame.cpp Material.cpp Mesh.cpp Object.cpp ParticleSystem.cpp RenderUtil.cpp Scene.cpp Shader.cpp Shadow.cpp Texture.cpp UIrenderer.cpp main.cpp timing.cpp
-         timing.cpp
-     1>c:\users\christian\documents\github\myengine\timing.cpp(23): warning C4244: 'Initialisierung': Konvertierung von 'Uint32' in 'float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\timing.cpp(40): warning C4244: 'Initialisierung': Konvertierung von 'Uint32' in 'float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\timing.cpp(43): warning C4244: 'Initialisierung': Konvertierung von 'Uint32' in 'float', möglicher Datenverlust
-         main.cpp
-         UIrenderer.cpp
-         Texture.cpp
-         Shadow.cpp
-         Shader.cpp
-         Scene.cpp
-     1>c:\users\christian\documents\github\myengine\scene.cpp(84): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\scene.cpp(85): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\scene.cpp(86): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\scene.cpp(88): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\scene.cpp(100): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\scene.cpp(101): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\scene.cpp(102): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\scene.cpp(104): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
-         RenderUtil.cpp
-         ParticleSystem.cpp
-         Object.cpp
-         Mesh.cpp
-     1>c:\users\christian\documents\github\myengine\mesh.cpp(108): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(218): Siehe Deklaration von 'fopen'
-     1>c:\users\christian\documents\github\myengine\mesh.cpp(128): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(237): Siehe Deklaration von 'fscanf'
-     1>c:\users\christian\documents\github\myengine\mesh.cpp(137): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(237): Siehe Deklaration von 'fscanf'
-     1>c:\users\christian\documents\github\myengine\mesh.cpp(143): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(237): Siehe Deklaration von 'fscanf'
-     1>c:\users\christian\documents\github\myengine\mesh.cpp(150): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(237): Siehe Deklaration von 'fscanf'
-     1>c:\users\christian\documents\github\myengine\mesh.cpp(157): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(237): Siehe Deklaration von 'fscanf'
-     1>c:\users\christian\documents\github\myengine\mesh.cpp(259): warning C4244: 'Argument': Konvertierung von 'unsigned int' in 'const float', möglicher Datenverlust
-         Material.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Maingame.cpp Scene.cpp main.cpp
          Maingame.cpp
-     1>c:\users\christian\documents\github\myengine\maingame.cpp(146): warning C4244: 'Argument': Konvertierung von 'Sint32' in 'float', möglicher Datenverlust
-         Lighting.cpp
-         FBO.cpp
-         Camera3d.cpp
-     1>c:\users\christian\documents\github\myengine\camera3d.cpp(3): warning C4305: 'Initialisierung': Verkürzung von 'double' in 'const float'
-     1>c:\users\christian\documents\github\myengine\camera3d.cpp(12): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\camera3d.cpp(26): warning C4305: 'Argument': Verkürzung von 'double' in 'float'
-     1>c:\users\christian\documents\github\myengine\camera3d.cpp(26): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\camera3d.cpp(79): warning C4244: '=': Konvertierung von 'int' in 'float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\camera3d.cpp(80): warning C4244: '=': Konvertierung von 'int' in 'float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\camera3d.cpp(84): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\camera3d.cpp(174): warning C4244: 'Initialisierung': Konvertierung von 'float' in 'const int', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\camera3d.cpp(175): warning C4244: 'Initialisierung': Konvertierung von 'float' in 'const int', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\camera3d.cpp(177): warning C4244: '=': Konvertierung von 'int' in 'float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\camera3d.cpp(178): warning C4244: '=': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\maingame.cpp(109): warning C4244: 'Argument': Konvertierung von 'Sint32' in 'float', möglicher Datenverlust
          Code wird generiert...
+         Überspringen... (keine relevanten Änderungen gefunden)
+         main.cpp
+         Scene.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Christian\Documents\GitHub\MyEngine\Debug\ProperEngine.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib glew32.lib OpengL32.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Christian\Documents\GitHub\MyEngine\Debug\ProperEngine.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Christian\Documents\GitHub\MyEngine\Debug\ProperEngine.lib" /MACHINE:X86 Debug\Camera3d.obj
          Debug\Errors.obj
@@ -72,14 +25,14 @@
          Debug\Scene.obj
          Debug\Shader.obj
          Debug\Shadow.obj
+         Debug\Terrain.obj
          Debug\Texture.obj
          Debug\timing.obj
          Debug\Transform.obj
          Debug\UIrenderer.obj
-     1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: Standardbibliothek "msvcrt.lib" steht in Konflikt mit anderen Bibliotheken; /NODEFAULTLIB:Bibliothek verwenden.
          Javaportc++.vcxproj -> C:\Users\Christian\Documents\GitHub\MyEngine\Debug\ProperEngine.exe
      1>Die Erstellung des Projekts "C:\Users\Christian\Documents\GitHub\MyEngine\Javaportc++.vcxproj" ist abgeschlossen, Build Ziel(e).
 
 Build erfolgreich.
 
-Verstrichene Zeit 00:00:15.08
+Verstrichene Zeit 00:00:01.78

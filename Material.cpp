@@ -15,3 +15,13 @@ Material::~Material(void)
 {
 	TextureCache::lowerCount(texture.ID);
 }
+
+void Material::update(Shader *shader)
+{
+	
+		texture.bind();
+		shader->setUniform("Texture",0);
+		shader->setUniform("specularIntensity",specularIntensity);
+		shader->setUniform("specularPower",specularPower);
+		shader->setbaseColor(color);
+}

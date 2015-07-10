@@ -49,15 +49,16 @@ public:
     ParticleSystem();
     ~ParticleSystem();
 	GLuint vao;
-	GLuint particles_color_buffer;
 	GLuint particles_position_buffer;
 	Shader *shader;
 	Camera3d *camera;
 	int lastParticle;
 	void init();
 	void update(double deltatime);
+	void addParticle(Vector3 &Pos,Vector3 &Vel,Vector4 &Color);
 	void draw();
 	std::vector<Particle> ParticleBuffer;
+	int lastActive;
 };
 
 

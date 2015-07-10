@@ -1,4 +1,4 @@
-#define STB_IMAGE_IMPLEMENTATION
+﻿#define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #include "Texture.h"
 
@@ -24,14 +24,14 @@ Texture::~Texture(void)
 {
 }
 
-void Texture::bind(int unit)
+void Texture::bind(int unit)  const
 {
 	if(unit < 0 || unit > 30) fatalError("Texture unit is too large/too low"); //opengl only has units between 0 - 31
 	util.bindTexture(ID,unit);
 }
 
 
-void Texture::drawTexture(bool check)
+void Texture::drawTexture(bool check)  const
 {
 	if(check)
 	{
@@ -62,7 +62,6 @@ Texture TextureCache::getTexture(std::string texturePath)
 
         return newTexture;
     }
-	printf("loaded cached Texture\n");
 	mit->second.count ++;
     return mit->second.texture;
 }
@@ -113,7 +112,7 @@ void TextureCache::lowerCount(std::string texturePath)
     //check if its not in the map
     if (mit == textureMap.end()) 
 	{
-        printf("Cannot lower count on non existing texture path %s\n",texturePath);
+       std::cout << "Cannot lower count on non existing texture path "<< texturePath << std::endl;
 		return;
     }
 	mit->second.count --;
@@ -140,7 +139,7 @@ void TextureCache::lowerCount(GLuint textureID)
 			return;
 		};
 	};
-	printf("couldn't find ID %d",textureID);
+	std::cout<<"couldn't find ID "<<textureID<<std::endl;
 }
 
 
@@ -167,15 +166,14 @@ bool CubemapTexture::Load()
     for (unsigned int i = 0 ; i < 6 ; i++) 
 	{
 		int width,height,numComponents;
-		printf("loading CubeMapTexture %s\n",fileNames[i].c_str());
+			std::cout << "Loading Cube Texture" <<fileNames[i]<<std::endl;
 		char* data = (char*)stbi_load(fileNames[i].c_str(),&width,&height,&numComponents,4);
         if(data ==NULL)
 		{
-			printf("Couldn't load Cube Texture %s\n",fileNames[i].c_str());
+			std::cout << "Couldn't load Cube Texture" <<fileNames[i]<<std::endl;
 			data = (char*)stbi_load("texture/white.png",&width,&height,&numComponents,4);
 			if(data == NULL)
 			{
-				printf("Couldn't load backup texture\n");
 				fatalError("Was not able to load basic texture\n");
 				return false;
 			}

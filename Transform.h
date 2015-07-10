@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Math/3DMath.h"
- 
+#include "Shader.h"
 class Transform
 {
 public:
@@ -13,12 +13,12 @@ public:
 	Vector3 getPos(){return pos;};
 	Vector3 getRot(){return rot;};
 	Vector3 getScale(){return sca;};
-	bool update;
+	bool hasUpdate;
 	void setPos(Vector3& Pos);
 	void setRot(Vector3& Rot);
 	void setScale(Vector3& Scale);
 	Matrix4 getMatrix();
-
+	void update(Shader* shader){shader->setUniform("modelMatrix[0]",getMatrix());};
 	void calculateMatrix();
 private:
 	Vector3 pos;

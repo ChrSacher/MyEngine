@@ -1,7 +1,7 @@
-﻿#include "Shader.h"
+#include "Shader.h"
 
 GLuint Shader::currentActiveShader = -1;
-
+GLuint Shader::lastActiveShader = -2;
 Shader::Shader() : _numAttributes(0)
 {
 	/*create program */
@@ -10,14 +10,12 @@ Shader::Shader() : _numAttributes(0)
 	 {
 		 fatalError("failed to create programm");
 	 }
-	 pipeline = new ShaderObjectPipeLine();
 }
 
 Shader::~Shader()
 {
 	glUseProgram(0);
 	glDeleteProgram(_programID);
-	delete(pipeline);
 	
 }
 void Shader::addVertexShader(std::string path)
@@ -152,8 +150,11 @@ void Shader::bind()
 
 void Shader::use() 
 {
-    glUseProgram(_programID);
+	if(Shader::currentActiveShader == _programID) return;
+	Shader::lastActiveShader = Shader::currentActiveShader;
 	Shader::currentActiveShader =_programID;
+    glUseProgram(_programID);
+	
     //enable all the attributes we added with addAttribute
     for (int i = 0; i < _numAttributes; i++) 
 	{
@@ -161,12 +162,23 @@ void Shader::use()
     }
 }
 
-
+void Shader::setMVP(Matrix4 &view,Matrix4 &model)
+{
+	setUniform("MVP",view * model);
+}
+void Shader::setMVP(Matrix4 &model)
+{
+	setUniform("MVP",matrices.view * model);
+}
 void Shader::unuse() 
 {
 	//disable the shader
-    glUseProgram(0);
-	Shader::currentActiveShader = -1;
+	if(Shader::lastActiveShader == Shader::currentActiveShader)
+	{
+		Shader::lastActiveShader = 0;
+	}
+    glUseProgram(Shader::lastActiveShader);
+	Shader::currentActiveShader = Shader::lastActiveShader;
     for (int i = 0; i < _numAttributes; i++) 
 	{
         glDisableVertexAttribArray(i);
@@ -222,184 +234,28 @@ GLint Shader::getUniformLocation(const std::string& uniformName)
 	{
 		glUniformMatrix4fv(getUniformLocation(uniformName),1,GL_FALSE,&value[0]);
 	}
-
 	//standard shader specific settings
-	void Shader::setUniform(std::string uniformName,BaseLight value)
-	{
-		setUniform(uniformName + ".base.intensity",value.getIntensity());
-		setUniform(uniformName + ".base.color",value.getColor());
-	}
 
-	void Shader::setmodelMatrix(Transform *transform) 
+	void Shader::setmodelMatrices(std::vector<Matrix4*> &modelMatrices) 
 	{
-		setUniform("modelMatrix[0]",transform->getMatrix());
-		setUniform("MVP[0]",matrices.view * transform->getMatrix());
-	}
-	void Shader::setmodelMatrices(std::vector<Matrix4*> modelMatrices,std::vector<Matrix4*> MVPMatrices) 
-	{
-		std::string string =  "MVP[0]";
 		std::string string2 =  "modelMatrix[0]";
-		if(modelMatrices.size() == MVPMatrices.size())
+		for(unsigned int i = 0; i < modelMatrices.size();i++)
 		{
-			for(unsigned int i = 0; i < modelMatrices.size();i++)
-			{
-				string2 = "modelMatrix[" + std::to_string(i) + "]";
-				setUniform(string2,matrices.view * *modelMatrices[i]);
-				string = "MVP[" + std::to_string(i) + "]";
-				setUniform(string,matrices.view * *MVPMatrices[i]);
-			}
+			string2 = "modelMatrix[" + std::to_string(i) + "]";
+			setUniform(string2, *modelMatrices[i]);
 		}
-		else
-			std::cout << "different ammount of matrices"<<std::endl;
 	}
-	void Shader::setviewMatrix(Camera3d *view)
-	{
-		matrices.view = view->GetViewProjection();
-	};
+	
 
 	void Shader::setbaseColor(Vector3 Color)
 	{
 		setUniform("baseColor",Color);
 	}
+
 	void Shader::setbaseColor(Vector4 Color)
 	{
 		setUniform("baseColor",Color);
 	}
-	void Shader::setSpecular(Material *material)
-	{
-		setUniform("specularIntensity",material->getIntensity());
-		setUniform("specularPower",material->getPower());
-	}
-	void Shader::setCameraPos(Camera3d *view)
-	{
-		setUniform("eyePos",view->getPos());
-	}
-	void Shader::updateCamera(Camera3d *view)
-	{
-		setCameraPos(view);
-		setviewMatrix(view);
-		
-	}
-	void Shader::updateMaterial(Material *material)
-	{
-		material->texture.bind();
-		setUniform("Texture",0);
-		setSpecular(material);
-		setbaseColor(material->color);
-		
-	}
-	void Shader::updateObject(Object *object)
-	{
-		setmodelMatrix(object->transform);
-		updateMaterial(object->material);
-		object->mesh->draw();
-	}
-
-	void Shader::updateDirectionLight(DirectionalLight *light)
-	{
-		setUniform("directionalLight.direction",light->getDirection());
-		setUniform("directionalLight.base.color",light->getBaseLight().getColor());
-		setUniform("directionalLight.base.intensity",light->getBaseLight().getIntensity());
-	}
-	void Shader::updateAmbientLight(AmbientLight *ambient)
-	{
-		setUniform("ambientLight",ambient->getAmbient());
-	}
-
-	void Shader::updatePointLight(std::string uniformname ,PointLight *point)
-	{
-		setUniform(uniformname		   ,point->base);
-		setUniform(uniformname + ".pos",point->pos);
-		setUniform(uniformname + ".atten.constant",point->attenuation.getConstant());
-		setUniform(uniformname + ".atten.exponent",point->attenuation.getExponent());
-		setUniform(uniformname + ".atten.linear",point->attenuation.getLinear());
-		setUniform(uniformname + ".range",point->range);
-
-
-	}
-	void Shader::updateFog(Fog *fog)
-	{
-		setUniform("fog.density",fog->density);
-		setUniform("fog.color",fog->color);
-		setUniform("fog.start",fog->start);
-		setUniform("fog.type",fog->type);
-		setUniform("fog.end",fog->end);
-	}
-
-	void Shader::updatePointLights(std::vector<PointLight> &point)
-	{
-		if(point.size() > MAXPOINTLIGHTS)
-		{
-			fatalError("Too many PointLights passed in\n");
-			return;
-		}
-		for(unsigned int i =0;i<point.size();i++)
-		{
-			std::string string("pointLights[");
-			string.append(std::to_string(i));
-			string = string  + "]";
-			updatePointLight(string,&point[i]);
-		}
-
-
-	}
-
-	void Shader::updateSpotLight(std::string uniformname ,SpotLight *spot)
-	{
-		setUniform(uniformname + ".pointLight"	   ,spot->getPointLight().base);
-		setUniform(uniformname + ".pointLight.pos",spot->getPointLight().pos);
-		setUniform(uniformname + ".pointLight.atten.constant",spot->getPointLight().attenuation.getConstant());
-		setUniform(uniformname + ".pointLight.atten.exponent",spot->getPointLight().attenuation.getExponent());
-		setUniform(uniformname + ".pointLight.atten.linear",spot->getPointLight().attenuation.getLinear());
-		setUniform(uniformname + ".pointLight.range",spot->getPointLight().range);
-		setUniform(uniformname + ".cutoff",spot->getcutoff());
-		setUniform(uniformname + ".dir",spot->getDir());
-
-
-	}
-
-	void Shader::updateSpotLights(std::vector<SpotLight> &spot)
-	{
-		if(spot.size() > MAXPOINTLIGHTS)
-		{
-			fatalError("Too many PointLights passed in\n");
-			return;
-		}
-		for(unsigned int i =0;i<spot.size();i++)
-		{
-			std::string string("spotLights[");
-			string.append(std::to_string(i));
-			string = string  + "]";
-		}
-
-
-	}
-
-	void Shader::renderBatch()
-	{
-		pipeline->renderBatches(this);
-	}
-
-	void Shader::renderShadowBatch()
-	{
-		pipeline->renderShadowBatches(this);
-	}
-
-	void Shader::addObject(Object* object)
-	{
-		pipeline->addObject(object);
-	}
-
-	void Shader::deleteObject(Object* object)
-	{
-		pipeline->deleteObject(object);
-	}
-
-	void Shader::emptyBatch()
-	{
-		pipeline->emptyBatch();
-	}
-
 	//-------------------------------------------------------------------
 
 
@@ -413,8 +269,8 @@ GLint Shader::getUniformLocation(const std::string& uniformName)
 		 }
 		 _numAttributes=0;
 
-	addProgram("BasicShader.vert",GL_VERTEX_SHADER);
-	addProgram("BasicShader.frag",GL_FRAGMENT_SHADER);
+	addProgram("Shaders/BasicShader.vert",GL_VERTEX_SHADER);
+	addProgram("Shaders/BasicShader.frag",GL_FRAGMENT_SHADER);
 
 	  glBindAttribLocation(_programID, _numAttributes++, "positon");
 	  glBindAttribLocation(_programID, _numAttributes++, "normal");
@@ -531,214 +387,4 @@ void BasicShader::unuse()
 
 
 
- Shader::ObjectInformation::ObjectInformation(Object* newObject, GLuint Offset = 0,GLuint Count =  0)
-{
-	object = newObject;
-	offset = Offset;
-	count = Count;
-}
- Shader::ObjectInformation::~ObjectInformation()
-{
 
-}
-Shader::ObjectInformation::ObjectInformation()
-{
-}
-
-
-
- Shader::ObjectBatch::ObjectBatch()
-{
-	glGenVertexArrays(1,&vao);
-	glBindVertexArray(vao);
-	glGenBuffers(1,&vab);
-	lastOffset = 0;
-	maxSize = 2000000;
-	remainingSize = maxSize;
-		//initiliaze buffer with 2mb
-	glBindBuffer(GL_ARRAY_BUFFER,vab);
-	glBufferData(GL_ARRAY_BUFFER,maxSize,NULL,GL_STREAM_DRAW);
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,sizeof(Vertex),(void*)offsetof(Vertex,pos));
-	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(1,2,GL_FLOAT,GL_FALSE,sizeof(Vertex),(void*)offsetof(Vertex,uv));
-	glEnableVertexAttribArray(2);
-	glVertexAttribPointer(2,3,GL_FLOAT,GL_FALSE,sizeof(Vertex),(void*)offsetof(Vertex,normal));
-	glBindVertexArray(0);
-	countObjects = 0;
-	lastDeleteObjectIndex = -1;
-	
-
-}
-
- void Shader::ObjectBatch::loadBuffer()
- {
-	
-	
- }
- void Shader::ObjectBatch::loadBufferLast()
- {
-	glBindBuffer(GL_ARRAY_BUFFER,vab);
-	glBufferSubData(GL_ARRAY_BUFFER,lastInformation.offset * sizeof(Vertex),lastInformation.count * sizeof(Vertex),&lastInformation.object->mesh->model.Vertices[0]);
- }
-
-
- void Shader::ObjectBatch::loadBufferIndexToLast()
- {
-	 if(lastDeleteObjectIndex > 0)
-	 {
-		glBindBuffer(GL_ARRAY_BUFFER,vab);
-		for(auto iter = objects.begin();iter != objects.end();iter++)
-		{	
-			glBufferSubData(GL_ARRAY_BUFFER,iter->second.offset * sizeof(Vertex),iter->second.count * sizeof(Vertex),&iter->second.object->mesh->model.Vertices[0]);
-		}
-		lastDeleteObjectIndex = -1;
-	 }
- }
- Shader::ObjectBatch::~ObjectBatch()
-{
-	glDeleteVertexArrays(1, &vao);
-	glDeleteBuffers(1,&vab);
-}
-
- Shader::ShaderObjectPipeLine::ShaderObjectPipeLine()
-{
-	batches.push_back(new ObjectBatch());
-	countBatches = 1;
-}
- Shader::ShaderObjectPipeLine::~ShaderObjectPipeLine()
-{
-	for(unsigned int i = 0; i < countBatches;i++)
-	{
-		delete(batches[i]);
-	}
-}
-
-void  Shader::ShaderObjectPipeLine::addObject(Object* newObject)
-{
-	for(unsigned int i = 0; i < countBatches;i++)
-	{
-		if(batches[i]->checkSize(newObject))
-		{
-			batches[i]->addObject(newObject);
-			return;
-		}
-	}
-	batches.push_back(new ObjectBatch());
-	countBatches ++;
-	batches[countBatches - 1]->addObject(newObject);
-	
-}
-void  Shader::ShaderObjectPipeLine::deleteObject(Object* removeObject)
-{
-	for(unsigned int i = 0;i < countBatches;i++)
-	{
-		batches[i]->deleteObject(removeObject);
-	}
-	
-}
-
-void Shader::ObjectBatch::deleteObject(Object* removeObject)
-{
-		auto mit = objects.find(removeObject->getID());
-		if(mit == objects.end())
-		{
-			
-		}
-		else
-		{
-			remainingSize += mit->second.count * sizeof(Vertex);
-			objects.erase(removeObject->getID());
-			countObjects -- ;
-		};
-	
-}
-
-bool  Shader::ObjectBatch::checkSize(Object* newObject)
-{
-	if((newObject->mesh->model.Vertices.size() * sizeof(Vertex)) <= remainingSize)
-	{
-		return true;
-	}
-	else return false;
-}
-
-void  Shader::ObjectBatch::addObject(Object* newObject)
-{
-	int i = newObject->mesh->model.Vertices.size();
-	auto mit = objects.find(newObject->getID());
-		if(mit == objects.end())
-		{
-			ObjectInformation x(newObject,lastOffset,i);
-			objects.insert(std::make_pair(newObject->getID(),x));
-			lastInformation = x ;
-			remainingSize -= i * sizeof(Vertex);
-			lastOffset += i;
-			countObjects++;
-			loadBufferLast();
-		}
-		else
-		{
-	
-		}
-}
-
-void  Shader::ShaderObjectPipeLine::renderBatches(Shader* shader)
-{
-	for(unsigned int i = 0; i < countBatches; i++)
-	{
-		batches[i]->render(shader);
-	}
-}
-
-void  Shader::ShaderObjectPipeLine::renderShadowBatches(Shader* shader)
-{
-	for(unsigned int i = 0; i < countBatches; i++)
-	{
-		batches[i]->renderShadow(shader);
-	}
-}
-
-void  Shader::ObjectBatch::render(Shader *shader)
-{
-	glBindVertexArray(vao);
-	loadBufferIndexToLast();
-	for(auto iter = objects.begin();iter != objects.end();iter++)
-	{
-			shader->setmodelMatrix(iter->second.object->transform);
-			shader->updateMaterial(iter->second.object->material);
-			glDrawArrays(GL_TRIANGLES,iter->second.offset,iter->second.count);
-	}
-	glBindVertexArray(0);
-}
-
-void  Shader::ObjectBatch::renderShadow(Shader *shader)
-{
-	glBindVertexArray(vao);
-	loadBufferIndexToLast();
-	for(auto iter = objects.begin();iter != objects.end();iter++)
-	{
-			shader->setUniform("modelMatrix[0]",iter->second.object->transform->getMatrix());
-			glDrawArrays(GL_TRIANGLES,iter->second.offset,iter->second.count);
-	}
-	glBindVertexArray(0);
-}
-
-void Shader::ShaderObjectPipeLine::emptyBatch()
-{
-	for (unsigned int i = 0; i< countBatches; i++)
-    {  
-       batches[i]->emptyBuffer();
-    }
-}
-
- void Shader::ObjectBatch::emptyBuffer()
- {
-
-		objects.clear();
-		glBindBuffer(GL_ARRAY_BUFFER,vab);
-		glBufferData(GL_ARRAY_BUFFER,maxSize,NULL,GL_STREAM_DRAW);
-		lastOffset = 0;
-		remainingSize = maxSize;
-		countObjects = 0;
- }

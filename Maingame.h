@@ -77,8 +77,8 @@ class Maingame
 
 		float fps;
 		float _time;
-		int SCREEN_WIDTH;
-		int SCREEN_HEIGHT;
+		int __screenW,__oldScreenW;
+		int __screenH,__oldScreenH;
 		float maxFPS;
 private:
 		SDL_Event event;

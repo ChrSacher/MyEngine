@@ -22,7 +22,6 @@ ShadowMapFBO::ShadowMapFBO(unsigned int ShadowWidth, unsigned int ShadowHeight,u
 	shader = new Shader();
 		shader->addVertexShader("Shaders/shadowShader.vert");
 		shader->addFragmentShader( "Shaders/shadowShader.frag");
-		shader->bind();
 		shader->linkShaders();
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	return;
@@ -54,8 +53,6 @@ void ShadowMapFBO::BindForReading()
 {  
 	if(isEnabled)
 	{	
-		shader->renderShadowBatch();
-		shader->emptyBatch();
 		shader->unuse();
 		glColorMask(GL_TRUE,GL_TRUE,GL_TRUE,GL_TRUE);
 		depthMVP = Matrix4().identity();
@@ -78,12 +75,4 @@ void ShadowMapFBO::setLightDirection(Vector3 LightDirection)
 	lightDirection = LightDirection;
 	depthViewMatrix = Matrix4().lookAt(lightDirection , Vector3(0,0,0), Vector3(0,1,0));
 	calculateMatrices();
-}
-
-void ShadowMapFBO::addObject(Object *object)
-{
-	if(isEnabled)
-	{
-		 shader->addObject(object);
-	}
 }

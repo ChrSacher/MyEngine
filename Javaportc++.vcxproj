@@ -105,6 +105,7 @@
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Shadow.h" />
     <ClInclude Include="stb_image.h" />
+    <ClInclude Include="Terrain.h" />
     <ClInclude Include="Text.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="timing.h" />
@@ -128,6 +129,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Shadow.cpp" />
+    <ClCompile Include="Terrain.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="timing.cpp" />
     <ClCompile Include="Transform.cpp" />
@@ -137,12 +139,15 @@
     <None Include="Scenes\example.sc" />
     <None Include="Shaders\2DShader.frag" />
     <None Include="Shaders\2DShader.vert" />
+    <None Include="Shaders\BasicShader.frag" />
+    <None Include="Shaders\BasicShader.vert" />
     <None Include="Shaders\particleShader.frag" />
     <None Include="Shaders\particleShader.vert" />
     <None Include="Shaders\shadowShader.frag" />
     <None Include="Shaders\shadowShader.vert" />
     <None Include="Shaders\Skybox.frag" />
     <None Include="Shaders\Skybox.vert" />
+    <None Include="Shaders\terrainShading.vert" />
     <None Include="Shaders\textureShading.frag" />
     <None Include="Shaders\textureShading.vert" />
   </ItemGroup>

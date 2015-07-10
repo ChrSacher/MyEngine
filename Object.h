@@ -18,18 +18,21 @@
 #include <math.h>
 #include "Material.h"
 
+
+
+
 class Object
 {
 public:
 	Object(std::string Name,std::string Objectpath,Vector3 pos = Vector3(0.0f,0.0f,0.0f),Vector3 rot = Vector3(0.0f,0.0f,0.0f),Vector3 skal = Vector3(1.0f,1.0f,1.0f),std::string texturepath = "texture/white.png",Vector3 color = Vector3(1.0f,1.0f,1.0f),bool autoCenter = false);
 	Object(const Object& otherobject);
-	Object();
 	~Object(void);
 	void draw();
 
 	Matrix4& getMatrix();
 	GLuint getID(){return __ID;};
 	std::string getName(){return __objectName;};
+	std::string getPath(){return __filePath;};
 	bool operator==(const Object& other);
 	Object& operator=(const Object& other);
 
@@ -46,4 +49,62 @@ private:
 	
 	
 };
+struct ObjectInformation
+	{
+	public:
+		ObjectInformation(Object* newObject, GLuint Offset,GLuint Count);
+		~ObjectInformation();
+		ObjectInformation();
+		Object* object; //pointer to object for matrices and textures
+		GLuint offset; //offset from all previous objects
+		GLuint count; //number of vertices
+	};
+
+	class ObjectBatch
+	{
+	public:
+		ObjectBatch();
+		~ObjectBatch();
+		enum
+		{
+			VERTEXBUFFER,
+			TEXTUREBUFFER,
+			NORMALBUFFER,
+			INDICESBUFFER,
+			NUMBUFFERS
+		};
+		void addObject(Object* newObject);
+		void deleteObject(Object* removeObject);
+		bool checkSize(Object* newObject);
+		void render(Shader *shader);
+		void renderShadow(Shader *shader);
+		GLuint vao,vab;
+		std::unordered_map<int,ObjectInformation> objects;
+		GLuint lastOffset,remainingSize; //pos,uv,normal size
+		void loadBuffer();
+		void loadBufferLast();
+		void loadBufferIndexToLast();
+		void emptyBuffer();
+		GLuint maxSize;
+		GLuint countObjects;
+		GLuint lastDeleteObjectIndex;
+		ObjectInformation lastInformation;
+	};
+
+	class ShaderObjectPipeLine
+	{
+	public:
+		ShaderObjectPipeLine();
+		~ShaderObjectPipeLine();
+		std::vector<ObjectBatch*> batches;
+		void addObject(Object* newObject);
+		void deleteObject(Object* removeObject);
+		void renderBatches(Shader* shader);
+		void renderBatchesInstanced(Shader* shader);
+		void renderShadowBatches(Shader* shader);
+		void emptyBatch();
+		GLuint countBatches;
+		bool hasChanged;
+		std::map<std::string,std::vector<ObjectInformation*>> instanceMap;
+	};
 

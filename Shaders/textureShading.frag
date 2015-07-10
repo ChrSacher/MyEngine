@@ -42,10 +42,9 @@ struct Fog
    int type;
 };
 
-varying vec2 uv0;
-varying vec3 normal0;
-varying vec4 worldPos0;
-varying vec4 viewworldPos0;
+in vec2 uv0;
+in vec3 normal0;
+in vec4 worldPos0;
 
 uniform sampler2D Texture;
 uniform vec3 baseColor;
@@ -114,25 +113,6 @@ vec4 calcSpotLight(SpotLight spotLight,vec3 normal)
 	return color;
 }
 
-float getFogFactor(Fog params, float dist) 
-{ 
-   	float fResult = 0.0;
-   	if(params.type == 1 && (params.end != params.start))
-   	{
-		fResult = (params.end - dist)/(params.end - params.start);
-		fResult =1.0 - clamp( fResult, 0.0, 1.0 );
-		return fResult;	   
-	}
-	if(params.type == 2)
-	{
-		fResult = exp(-params.density*dist);       
-		fResult = 1.0 - clamp(fResult, 0.0, 1.0);     
-		return fResult; 
-	}
-	return fResult;
-	
-}
-
 void main()
 {
 	vec4 totalLight = vec4(ambientLight,1);
@@ -145,20 +125,14 @@ void main()
 	totalLight += calcDirectionalLight(directionalLight,normal);
 	for(int i = 0;i < MAXPOINTLIGHTS;i++)
 	{
-	if(pointLights[i].base.intensity > 0)
-		totalLight += calcPointLight(pointLights[i],normal);
+	if(pointLights[i].base.intensity > 0){}
+		//totalLight += calcPointLight(pointLights[i],normal);
 	}
 	for(int i = 0;i < MAXSPOTLIGHTS;i++)
 	{
-	if(spotLights[i].pointLight.base.intensity > 0)
-		totalLight += calcSpotLight(spotLights[i],normal);
+	if(spotLights[i].pointLight.base.intensity > 0){}
+		//totalLight += calcSpotLight(spotLights[i],normal);
 	}
 	gl_FragColor = color * totalLight;
-	
-	if(fog.type > 0.1)
-	{
-		float dist = length(viewworldPos0);
-		gl_FragColor = mix(gl_FragColor, fog.color,getFogFactor(fog, dist) ); 
-	}
 	
 }

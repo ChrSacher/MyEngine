@@ -1,9 +1,48 @@
-﻿Der Buildvorgang wurde am 15.06.2015 22:58:08 gestartet.
-     1>Projekt "C:\Users\Christian\Desktop\ProperEngine\Javaportc++\Javaportc++.vcxproj" auf Knoten "2", Build Ziel(e).
-     1>Link:
-         Javaportc++.vcxproj -> C:\Users\Christian\Desktop\ProperEngine\Release\ProperEngine.exe
-     1>Die Erstellung des Projekts "C:\Users\Christian\Desktop\ProperEngine\Javaportc++\Javaportc++.vcxproj" ist abgeschlossen, Build Ziel(e).
+﻿Der Buildvorgang wurde am 29.06.2015 17:27:27 gestartet.
+     1>Projekt "C:\Users\Christian\Documents\GitHub\MyEngine\Javaportc++.vcxproj" auf Knoten "2", Build Ziel(e).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Camera3d.cpp Errors.cpp FBO.cpp InputManager.cpp Lighting.cpp main.cpp Maingame.cpp Material.cpp Math\3DMath.cpp Mesh.cpp Object.cpp ParticleSystem.cpp RenderUtil.cpp Scene.cpp Shader.cpp Shadow.cpp Terrain.cpp Texture.cpp timing.cpp Transform.cpp UIrenderer.cpp
+         Camera3d.cpp
+     1>c:\users\christian\documents\github\myengine\Camera3d.h(7): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "GL\glew.h": No such file or directory
+         Errors.cpp
+         FBO.cpp
+     1>c:\users\christian\documents\github\myengine\FBO.h(3): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
+         InputManager.cpp
+         Lighting.cpp
+     1>c:\users\christian\documents\github\myengine\Lighting.h(3): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
+         main.cpp
+     1>c:\users\christian\documents\github\myengine\Maingame.h(4): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
+         Maingame.cpp
+     1>c:\users\christian\documents\github\myengine\Maingame.h(4): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
+         Material.cpp
+     1>c:\users\christian\documents\github\myengine\Texture.h(6): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
+         3DMath.cpp
+         Mesh.cpp
+     1>c:\users\christian\documents\github\myengine\Mesh.h(3): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
+         Object.cpp
+     1>c:\users\christian\documents\github\myengine\Object.h(2): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
+         ParticleSystem.cpp
+     1>c:\users\christian\documents\github\myengine\ParticleSystem.h(3): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
+         RenderUtil.cpp
+     1>c:\users\christian\documents\github\myengine\RenderUtil.h(3): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
+         Scene.cpp
+     1>c:\users\christian\documents\github\myengine\Scene.h(2): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
+         Shader.cpp
+     1>c:\users\christian\documents\github\myengine\Shader.h(5): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
+         Shadow.cpp
+     1>c:\users\christian\documents\github\myengine\Shadow.h(3): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
+         Terrain.cpp
+     1>c:\users\christian\documents\github\myengine\Terrain.h(3): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
+         Texture.cpp
+     1>c:\users\christian\documents\github\myengine\Texture.h(6): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
+         timing.cpp
+     1>timing.cpp(3): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "SDL.h": No such file or directory
+         Transform.cpp
+         Kompilieren...
+         UIrenderer.cpp
+     1>c:\users\christian\documents\github\myengine\UIrenderer.h(3): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
+     1>Die Erstellung des Projekts "C:\Users\Christian\Documents\GitHub\MyEngine\Javaportc++.vcxproj" ist abgeschlossen, Build Ziel(e) -- FEHLER.
 
-Build erfolgreich.
+Fehler beim Buildvorgang.
 
-Verstrichene Zeit 00:00:00.16
+Verstrichene Zeit 00:00:03.65

@@ -1,5 +1,7 @@
 #include "Lighting.h"
 
+const int MAXPOINTLIGHTS = 4;
+const int MAXSPOTLIGHTS = 4;
 
 AmbientLight::AmbientLight(Vector3 ambient)
 {
@@ -19,6 +21,12 @@ DirectionalLight::DirectionalLight(BaseLight Base ,Vector3 Dir)
 	__ID = ID++;
 	__Identifier = "TEMP";
 }
+void DirectionalLight::update(Shader* shader)
+{
+	shader->setUniform("directionalLight.direction",direction);
+	shader->setUniform("directionalLight.base.color",base.getColor());
+	shader->setUniform("directionalLight.base.intensity",base.getIntensity());
+}
 void AmbientLight::setAmbient(Vector3 newambient)
 {
 	ambientLight=newambient;
@@ -27,6 +35,11 @@ void AmbientLight::setAmbient(Vector3 newambient)
 Vector3 AmbientLight::getAmbient()
 {
 	return ambientLight;
+}
+
+void AmbientLight::update(Shader *shader)
+{
+	shader->setUniform("ambientLight",ambientLight);
 }
 
 PointLight::PointLight(Vector3 Pos,BaseLight Base,Attenuation Atten,float Range)
@@ -39,6 +52,39 @@ PointLight::PointLight(Vector3 Pos,BaseLight Base,Attenuation Atten,float Range)
 	__ID = ID++;
 	__Identifier = "TEMP";
 }
+void BaseLight::update(std::string uniformName,Shader* shader)
+{
+	shader->setUniform(uniformName + ".base.intensity",intensity);
+	shader->setUniform(uniformName + ".base.color",color);
+}
+void PointLight::update(std::string uniformName,Shader *shader)
+{
+
+		base.update(uniformName,shader);
+		shader->setUniform(uniformName + ".pos",pos);
+		shader->setUniform(uniformName + ".atten.constant",attenuation.getConstant());
+		shader->setUniform(uniformName + ".atten.exponent",attenuation.getExponent());
+		shader->setUniform(uniformName + ".atten.linear",attenuation.getLinear());
+		shader->setUniform(uniformName + ".range",range);
+}
+
+void PointLight::update(Shader *shader,std::vector<PointLight> lights)
+{
+
+		if(lights.size() > MAXPOINTLIGHTS)
+		{
+			fatalError("Too many PointLights passed in\n");
+			return;
+		}
+		for(unsigned int i =0;i<lights.size();i++)
+		{
+			std::string string("pointLights[");
+			string.append(std::to_string(i));
+			string = string  + "]";
+			lights[i].update(string,shader);
+		}
+}
+
 SpotLight::SpotLight(PointLight point,Vector3 Dir,float Cutoff)
 {
 	pointLight = point;
@@ -48,7 +94,33 @@ SpotLight::SpotLight(PointLight point,Vector3 Dir,float Cutoff)
 	__ID = ID++;
 	__Identifier = "TEMP";
 }
+void SpotLight::update(std::string uniformname,Shader *shader)
+{
+		pointLight.base.update( uniformname + ".pointLight",shader);
+		shader->setUniform(uniformname + ".pointLight.pos",pointLight.pos);
+		shader->setUniform(uniformname + ".pointLight.atten.constant",pointLight.attenuation.getConstant());
+		shader->setUniform(uniformname + ".pointLight.atten.exponent",pointLight.attenuation.getExponent());
+		shader->setUniform(uniformname + ".pointLight.atten.linear",pointLight.attenuation.getLinear());
+		shader->setUniform(uniformname + ".pointLight.range",pointLight.range);
+		shader->setUniform(uniformname + ".cutoff",cutoff);
+		shader->setUniform(uniformname + ".dir",dir);
+}
+void SpotLight::update(Shader* shader,std::vector<SpotLight> lights)
+{
 
+	if(lights.size() > MAXSPOTLIGHTS)
+		{
+			fatalError("Too many SpotLights passed in\n");
+			return;
+		}
+		for(unsigned int i =0;i<lights.size();i++)
+		{
+			std::string string("spotLights[");
+			string.append(std::to_string(i));
+			string = string  + "]";
+			lights[i].update(string,shader);
+		}	
+}
 Fog::Fog(float Density,Vector4 Color ,float Start ,float End,bool Type)
 {
 	density=Density;
@@ -95,7 +167,14 @@ void Fog::setType(int Type)
 {
 	type=Type;
 }
-
+void Fog::update(Shader* shader)
+{
+	shader->setUniform("fog.density",density);
+	shader->setUniform("fog.color",color);
+	shader->setUniform("fog.start",start);
+	shader->setUniform("fog.type",type);
+	shader->setUniform("fog.end",end);
+}
 //////////////////////////////////////
 //LIGHTING CACHE
 

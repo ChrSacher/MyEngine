@@ -84,6 +84,9 @@
     <ClInclude Include="Scene.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="Terrain.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Errors.cpp">
@@ -146,6 +149,9 @@
     <ClCompile Include="Scene.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="Terrain.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Shaders\textureShading.vert">
@@ -179,6 +185,15 @@
       <Filter>Ressourcendateien</Filter>
     </None>
     <None Include="Scenes\example.sc">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="Shaders\BasicShader.frag">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="Shaders\BasicShader.vert">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="Shaders\terrainShading.vert">
       <Filter>Ressourcendateien</Filter>
     </None>
   </ItemGroup>

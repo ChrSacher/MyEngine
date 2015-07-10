@@ -5,18 +5,17 @@
  
 #include <GL/GLu.h>
 #include "Math/3DMath.h"
-
+#include "Shader.h"
  
 class Material
 {
 public:
-	Material(std::string,Vector3 Color = Vector3(1,1,1),float intensity = 2,float exponent = 32);
-	Material(){}
+	Material(std::string path = "Texture/white.png" ,Vector3 Color = Vector3(1,1,1),float intensity = 2,float exponent = 32);
 	~Material(void);
 
 	Texture texture;
 	Vector3 color;
-
+	void update(Shader *shader);
 	float specularIntensity; //size of the reflection
 	float specularPower; //strength
 

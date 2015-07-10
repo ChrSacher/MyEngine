@@ -4,8 +4,8 @@
 
 Maingame::Maingame(void)
 {
-	SCREEN_HEIGHT = 480;
-	SCREEN_WIDTH = 640;
+	__screenH = 480;
+	__screenW = 640;
 	gamestate.playing=true;
 	gamestate.paused=false;
 	maxFPS=60;
@@ -53,7 +53,7 @@ void Maingame::init()
 		};
 	}
     //Open an SDL window
-    _window = SDL_CreateWindow("Game Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
+    _window = SDL_CreateWindow("Game Engine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, __screenW, __screenH, SDL_WINDOW_OPENGL);
     if (_window == nullptr)
 	{
         fatalError("SDL Window could not be created!");
@@ -80,46 +80,9 @@ void Maingame::init()
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
 	//Set VSYNC
     SDL_GL_SetSwapInterval(1);
-	
-	if (glDebugMessageCallbackARB != NULL && DebugMode) 
-	{
 
-		float i;
-		glGetFloatv(GL_MAJOR_VERSION,&i);
-		if(i >= 4.0f)
-		{
-			glEnable(GL_DEBUG_OUTPUT);
-			glDebugMessageCallback(Core::DebugOutput::myCallback, NULL);
-			glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE,
-							  GL_DONT_CARE, 0, NULL, GL_TRUE);
-		}
-		else
-		{
-			glEnable(GL_ARB_debug_output);
-			glDebugMessageCallback(Core::DebugOutput::myCallback, NULL);
-			glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE,
-							  GL_DONT_CARE, 0, NULL, GL_TRUE);
-		};
-	}
-	glEnable(GL_CULL_FACE);
-	glFrontFace(GL_CW);
-	glCullFace(GL_BACK);
-	glEnableClientState(GL_VERTEX_ARRAY);
-	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-	glReadBuffer(GL_BACK);
-	glDrawBuffer(GL_BACK);
-	glEnable(GL_BLEND);
-	glEnable(GL_DEPTH_TEST);
-	glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
-	glDepthFunc(GL_LESS);
-	glEnable(GL_VERTEX_PROGRAM_POINT_SIZE); //enable shader point operations for particle engine
-	//glEnable(GL_FRAMEBUFFER_SRGB);
-	glClearDepth(1.0f);
-    //Set the background color to blue
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	SDL_ShowCursor(SDL_FALSE); 
-
+	util.initGraphics();
 	SDL_GL_SwapWindow(_window);
 	createObjects();
 	
@@ -145,7 +108,7 @@ void Maingame::handleKeys()
 			{
 				input.setMouseCoords(event.motion.x,event.motion.y);
 				scene->getCamera()->OnMouse(event.motion.x,event.motion.y);
-				SDL_WarpMouseInWindow(_window,SCREEN_WIDTH /2,SCREEN_HEIGHT /2);	
+				SDL_WarpMouseInWindow(_window,__screenW /2,__screenH /2);	
 			};break;
 			case SDL_KEYUP:
 			{
@@ -161,20 +124,27 @@ void Maingame::handleKeys()
 				{
 					case SDL_WINDOWEVENT_RESIZED:
 					{
-						SCREEN_WIDTH = event.window.data1;
-						SCREEN_HEIGHT = event.window.data2 ;
-						scene->getCamera()->updatePerspectiveMatrix(70.0f,SCREEN_WIDTH,SCREEN_HEIGHT,0.1f,1000.0f);
-						glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+						__oldScreenW = __screenW;
+						__oldScreenH = __screenH;
+						__screenW = event.window.data1;
+						__screenH = event.window.data2 ;
+						glViewport(0, 0, __screenW, __screenH);
+						scene->getCamera()->updatePerspectiveMatrix(90.0f,__screenW,__screenH,scene->getCamera()->getZ().x,scene->getCamera()->getZ().y);
 					};break;
 					case SDL_WINDOWEVENT_MAXIMIZED:
 					{
-						SDL_MaximizeWindow(_window);
-						SDL_GetWindowSize(_window, &SCREEN_WIDTH, &SCREEN_HEIGHT);
-						scene->getCamera()->updatePerspectiveMatrix(70.0f,SCREEN_WIDTH,SCREEN_HEIGHT,0.1f,1000.0f);
-						glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-						SDL_SetWindowFullscreen(_window, SDL_WINDOW_FULLSCREEN);
+						SDL_SetWindowFullscreen(_window, SDL_WINDOW_FULLSCREEN_DESKTOP);
+						
 					};break;
+					case SDL_WINDOWEVENT_RESTORED:
+					{
+						
+							SDL_SetWindowFullscreen(_window, SDL_FALSE);
+						
+							
+						};break;
 				}
+ 
 			};break;
 			case SDL_MOUSEBUTTONDOWN:
 			{
@@ -189,6 +159,10 @@ void Maingame::handleKeys()
 	if(input.isKeyDown(SDLK_w))
 	{
 		scene->getCamera()->moveforward();
+	}
+	if(input.isKeyPressed(SDLK_RETURN))
+	{
+		scene->addObject("test","models/box.obj",scene->getCamera()->getPos() + Vector3(1,1,1));
 	}
 	if(input.isKeyDown(SDLK_s))
 	{
@@ -214,25 +188,33 @@ void Maingame::handleKeys()
 	{
 		gamestate.playing=false;
 	}
-	if(input.isKeyPressed(SDLK_F11))
+	if(input.isKeyPressed(SDLK_1))
+	{
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	}
+	if(input.isKeyPressed(SDLK_2))
+	{
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+	}
+	if(input.isKeyPressed(SDLK_UP))
+	{
+		scene->getCamera()->setFov(scene->getCamera()->getFov() + 1);
+	}
+	if(input.isKeyPressed(SDLK_DOWN))
+	{
+		scene->getCamera()->setFov(scene->getCamera()->getFov() - 1);
+	}
+	if(input.isKeyPressed(SDLK_F9))
 	{
 		static bool windowed = true;
 		if(windowed)
 		{
-			SDL_SetWindowFullscreen(_window, SDL_WINDOW_FULLSCREEN);
 			SDL_MaximizeWindow(_window);
-			SDL_GetWindowSize(_window, &SCREEN_WIDTH, &SCREEN_HEIGHT);
-			scene->getCamera()->updatePerspectiveMatrix(70.0f,SCREEN_WIDTH,SCREEN_HEIGHT,0.1f,1000.0f);
-			glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);		
 			windowed = false;
 		}
 		else
 		{
-			SDL_SetWindowFullscreen(_window, SDL_FALSE);
-			SDL_GetWindowSize(_window, &SCREEN_WIDTH, &SCREEN_HEIGHT);
-			scene->getCamera()->updatePerspectiveMatrix(70.0f,SCREEN_WIDTH,SCREEN_HEIGHT,0.1f,1000.0f);
-			glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-			
+			SDL_RestoreWindow(_window);
 			windowed = true;
 		}
 	}
@@ -263,12 +245,12 @@ void Maingame::gameloop()
 	while( gamestate.playing )//Solange es nicht beended ist
 	{ 
 		start = SDL_GetTicks();
-		
+		handleKeys();
 
 		delta+=(float)(start - end);
 		while (delta >= frames) 
 		{
-			handleKeys();
+			
 			update();
 			delta -= frames;
 		}
@@ -289,8 +271,7 @@ void Maingame::close()
 	delete(scene,ui);
 	TextureCache::deleteCache();
 	ModelCache::deleteCache();
-	
-	
+	scene->saveFile("Scenes/example.sc");
 	SDL_DestroyWindow( _window);
 	SDL_GL_DeleteContext(glContext);
 	SDL_Quit();
@@ -310,9 +291,9 @@ void Maingame::run()
 void Maingame::createObjects()
 {
 	
-	scene = new Scene(SCREEN_HEIGHT,SCREEN_WIDTH,"Scenes/example.sc");
-	scene->addLight(AmbientLight(Vector3(0.2f,0.2f,0.2f)));
-	scene->addLight( DirectionalLight(BaseLight(Vector3(1,0.9f,0.8f),0.8f),Vector3(1,1,1)));
+	scene = new Scene(__screenH,__screenW,"Scenes/example.sc");
+	scene->getLightingCache()->addLight(AmbientLight(Vector3(0.2f,0.2f,0.2f)));
+	scene->getLightingCache()->addLight( DirectionalLight(BaseLight(Vector3(1,0.9f,0.8f),0.8f),Vector3(1.0f,0.3f,0.2f)));
 	/*scene->addObject("box","models/box.obj",Vector3(0.0f,0.0f,0.0f),Vector3(0.0f,0.0f,0.0f),Vector3(1.0f,1.0f,1.0f),"",Vector3(1,1,1));
 	scene->addObject("box","models/box.obj",Vector3(0.0f,3.0f,3.0f),Vector3(0.0f,0.0f,0.0f),Vector3(1.0f,1.0f,1.0f),"",Vector3(1,1,1));
 	scene->addObject("box","models/box.obj",Vector3(0.0f,1.5f,1.5f),Vector3(0.0f,0.0f,0.0f),Vector3(1.0f,1.0f,1.0f),"",Vector3(0,0,1));
@@ -321,12 +302,12 @@ void Maingame::createObjects()
 	{
 		scene->addObject("box","models/box.obj",Vector3(0,-4,0),Vector3(0.0f,0.0f,0.0f),Vector3(1.0f,1.0f,1.0f),"",Vector3(1,0,1));
 	}
-	scene->addLight(PointLight(Vector3(0,0,0),BaseLight(Vector3(1,0,0),2.0f),Attenuation(0,0,1),100));*/
-	scene->addFog(Fog(0.05f,Vector4(0.5f,0.5f,0.5f,0.5f),400,500,false));
-	scene->addLight(SpotLight(PointLight(Vector3(0,10,1),BaseLight(Vector3(1,0,1),1),Attenuation(1,0,0),10),Vector3(0,1,0),0.2f));
+	scene->addLight(PointLight(Vector3(0,0,0),BaseLight(Vector3(1,0,0),2.0f),Attenuation(0,0,1),100));
+	scene->addFog(Fog(0.05f,Vector4(0.5f,0.5f,0.5f,0.5f),400,500,false));*/
+	scene->getLightingCache()->addLight(SpotLight(PointLight(Vector3(0,10,1),BaseLight(Vector3(1,0,1),1),Attenuation(1,0,0),10),Vector3(0,1,0),0.2f));
 	ui = new UIrenderer();
-	ui->addButton(UIButton(Vector2(0,0),Vector2(50,50),Vector4(1,0,0,1),true,""));
+	ui->addButton(UIButton(Vector2(0,0),Vector2(50,50),Vector4(1,0,0,1),false,""));
 	ui->addButton(UIButton(Vector2(50,50),Vector2(50,50),Vector4(0,0,1,0.1f),true,""));
-	//scene->saveFile("Scenes/example.sc");
+	
 }
 

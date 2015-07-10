@@ -15,6 +15,8 @@
 #include "Mesh.h"
 #include "Transform.h"
 #include "RenderUtil.h"
+#include "Shader.h"
+
 struct BasicTechniques
 {
 public:
@@ -33,6 +35,7 @@ public:
 	
 	void setAmbient(Vector3 newambient);
 	Vector3 getAmbient();
+	void update(Shader* shader);
 private:
 	Vector3 ambientLight;
 
@@ -49,6 +52,7 @@ public:
 	//getters
 	Vector3 getColor(){return color;};
 	float getIntensity(){return intensity;};
+	void update(std::string uniformName,Shader* shader);
 private:
 	Vector3 color;
 	float intensity;
@@ -61,6 +65,7 @@ public:
 	void setDirection(Vector3 dir){direction=dir;}
 	BaseLight getBaseLight(){return base;};
 	Vector3 getDirection(){return direction;};
+	void update(Shader* shader);
 private:
 	BaseLight base;
 	Vector3 direction;
@@ -96,7 +101,8 @@ public:
 	float range;
 	BaseLight base;
 	Attenuation attenuation;
-
+	void update(std::string uniformName,Shader* shader);
+	static void update(Shader *shader,std::vector<PointLight> lights);
 };
 
 struct SpotLight:public BasicTechniques
@@ -113,6 +119,8 @@ public:
 	PointLight& getPointLight(){return pointLight;}
 	Vector3& getDir(){return dir;}
 	float& getcutoff(){return cutoff;}
+	void update(std::string uniformname,Shader* shader);
+	static void update(Shader* shader,std::vector<SpotLight> lights);
 private:
 	PointLight pointLight;
 	Vector3 dir;
@@ -130,7 +138,7 @@ public:
 	float end; //linear fog only
 	Vector4 color;
 	int type; //0 = fog disabled 1 = linear 2 = exp 
-
+	void update(Shader* shader);
 	void setDensity(float Density);
 	void setStart(float Start);
 	void setEnd(float End);
@@ -156,7 +164,6 @@ public:
 	void addLight(AmbientLight light);
 	void addLight(DirectionalLight light);
 	void addFog(Fog newFog);
-
 	const PointLight& getPointLight(std::string Identifier);
 	const PointLight& getPointLight(GLuint ID);
 	const SpotLight& getSpotLight(std::string Identifier);

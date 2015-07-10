@@ -97,7 +97,7 @@ void Mesh::clearData()
 
 Model OBJLoader::loadOBJ(std::string path,bool autoCenter)
 {
-	printf("Loading OBJ file %s...\n", path.c_str());
+	std::cout << "Loading OBJ" << path<<std::endl;
 
 	std::vector<Vector3> temp_vertices; 
 	std::vector<Vector2> temp_uvs;
@@ -108,7 +108,7 @@ Model OBJLoader::loadOBJ(std::string path,bool autoCenter)
 	FILE * file = fopen(path.c_str(), "r");
 	if( file == NULL )
 	{
-		printf("Impossible to open the file %s ",path.c_str());
+		std::cout << "Impossible to open OBJ" << path<<std::endl;
 		Model model;
 		model.Vertices.push_back(Vertex(1,1,0));
 		model.Vertices.push_back(Vertex(0,1,1));
@@ -157,7 +157,7 @@ Model OBJLoader::loadOBJ(std::string path,bool autoCenter)
 			int matches = fscanf(file, "%d/%d/%d %d/%d/%d %d/%d/%d\n", &vertexIndex[0], &uvIndex[0], &normalIndex[0], &vertexIndex[1], &uvIndex[1], &normalIndex[1], &vertexIndex[2], &uvIndex[2], &normalIndex[2] );
 			if (matches != 9)
 			{
-				printf("File %s cannot be read",path.c_str());
+				std::cout << "File " << path << " cannot be read"<<std::endl;
 				return Model();
 			}
 			vertexIndices.push_back(vertexIndex[0]);
@@ -239,7 +239,6 @@ Model ModelCache::getModel(std::string modelPath,bool autoCenter)
 
         return newModel;
     }
-	printf("loaded cached Model\n");
    return mit->second;
 }
 

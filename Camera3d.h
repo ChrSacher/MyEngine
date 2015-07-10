@@ -10,20 +10,19 @@
 #include "Math/3DMath.h"
 #include "Transform.h"
 #include <math.h>
-
+#include "Shader.h"
 #define PI 3.14159265358979323846f
  
 class Camera3d
 {
 public:
-    Camera3d(Vector3 Pos,float fov,int width,int height,float zNear,float zFar);
-	Camera3d(int WindowWidth, int WindowHeight);
+    Camera3d(Vector3 Pos,float fov ,int width,int height,float zNear = 0.1f,float zFar = 1000.0f);
 	~Camera3d(void);
 	Camera3d(){}
 	Matrix4 perspectiveMatrix;
 	Matrix4 viewMatrix;
     void OnMouse(int x, int y);
-
+	void update(Shader *shader);
 	float cameraspeed;
 	bool updateneeded;
 
@@ -32,6 +31,11 @@ public:
 	Vector3 getDir();
 	Vector3 getPos();
 	Vector3 getUp();
+	float getFov(){return fov;}
+	void setDir(Vector3 Dir){dir = Dir;}
+	void setPos(Vector3 Pos){pos = Pos;}
+	void setUp(Vector3 UP){up = UP;}
+	void setFov(float Nfov);
 	void init();
 	//movement
 	void moveforward(float distance = 0);
@@ -42,16 +46,18 @@ public:
 	void turnleft();
 	void strafeleft();
 	void straferight();
+	Vector2 getZ(){return Vector2(zNear,zFar);}
 private:
 	Vector3 pos;
     Vector3 dir;
     Vector3 up;
 	Vector2 mousePos;
+	float fov;
 	void Update();
 
     int windowWidth;
     int windowHeight;
-
+	float zNear,zFar;
     float AngleH;
     float AngleV;
 

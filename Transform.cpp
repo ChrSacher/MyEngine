@@ -6,7 +6,7 @@ Transform::Transform(const Vector3 &Pos,const Vector3 &Rot,const Vector3 &Scale)
 	pos=Pos;
 	rot=Rot;
 	sca=Scale;
-	update = false;
+	hasUpdate = false;
 	calculateMatrix();
 }
 
@@ -19,10 +19,10 @@ Transform::~Transform(void)
 
 Matrix4 Transform::getMatrix() 
 {
-	if(update)
+	if( hasUpdate)
 	{
 		calculateMatrix();
-		update=false;
+		hasUpdate=false;
 	}
 	return modelMatrix;
 };
@@ -35,15 +35,15 @@ void Transform::calculateMatrix()
 void Transform::setPos(Vector3& Pos)
 {
 	pos = Pos;
-	update = true;
+	 hasUpdate = true;
 }
 void Transform::setRot(Vector3& Rot)
 {
 	rot=Rot;
-	update = true;
+	 hasUpdate = true;
 }
 void Transform::setScale(Vector3& Scale)
 {
 	sca = Scale;
-	update = true;
+	 hasUpdate = true;
 }

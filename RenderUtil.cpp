@@ -19,23 +19,27 @@ void RenderUtil::clearScreen()
 }
 void RenderUtil::initGraphics()
 {
-	glClearColor(0.0f,0.0f,0.0f,0.0f);
 	glEnable(GL_CULL_FACE);
 	glFrontFace(GL_CW);
 	glCullFace(GL_BACK);
-	glEnableClientState(GL_VERTEX_ARRAY);
+	//glEnableClientState(GL_VERTEX_ARRAY);
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	glReadBuffer(GL_BACK);
 	glDrawBuffer(GL_BACK);
 	glEnable(GL_BLEND);
 	glEnable(GL_DEPTH_TEST);
-	glEnable (GL_LINE_SMOOTH);	// Antialiasing für Linien einschalten
-	
 	glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 	glDepthFunc(GL_LESS);
-	glEnable(GL_VERTEX_PROGRAM_POINT_SIZE);
-	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_VERTEX_PROGRAM_POINT_SIZE); //enable shader point operations for particle engine
 	//glEnable(GL_FRAMEBUFFER_SRGB);
+	glClearDepth(1.0f);
+	glPointSize(5);
+	glEnable( GL_POINT_SPRITE ); // GL_POINT_SPRITE_ARB if you're
+                                 // using the functionality as an extension
+    glEnable( GL_POINT_SMOOTH );
+    //Set the background color to blue
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
 std::string RenderUtil::getOpenGLVersion()
