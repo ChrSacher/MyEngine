@@ -1,38 +1,5 @@
-﻿Der Buildvorgang wurde am 08.07.2015 23:19:41 gestartet.
-     1>Projekt "C:\Users\Christian\Documents\GitHub\MyEngine\Javaportc++.vcxproj" auf Knoten "2", Build Ziel(e).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Maingame.cpp Scene.cpp main.cpp
-         Maingame.cpp
-     1>c:\users\christian\documents\github\myengine\maingame.cpp(109): warning C4244: 'Argument': Konvertierung von 'Sint32' in 'float', möglicher Datenverlust
-         Code wird generiert...
-         Überspringen... (keine relevanten Änderungen gefunden)
-         main.cpp
-         Scene.cpp
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Christian\Documents\GitHub\MyEngine\Debug\ProperEngine.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib glew32.lib OpengL32.lib glu32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Christian\Documents\GitHub\MyEngine\Debug\ProperEngine.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Christian\Documents\GitHub\MyEngine\Debug\ProperEngine.lib" /MACHINE:X86 Debug\Camera3d.obj
-         Debug\Errors.obj
-         Debug\FBO.obj
-         Debug\InputManager.obj
-         Debug\Lighting.obj
-         Debug\main.obj
-         Debug\Maingame.obj
-         Debug\Material.obj
-         Debug\3DMath.obj
-         Debug\Mesh.obj
-         Debug\Object.obj
-         Debug\ParticleSystem.obj
-         Debug\RenderUtil.obj
-         Debug\Scene.obj
-         Debug\Shader.obj
-         Debug\Shadow.obj
-         Debug\Terrain.obj
-         Debug\Texture.obj
-         Debug\timing.obj
-         Debug\Transform.obj
-         Debug\UIrenderer.obj
-         Javaportc++.vcxproj -> C:\Users\Christian\Documents\GitHub\MyEngine\Debug\ProperEngine.exe
-     1>Die Erstellung des Projekts "C:\Users\Christian\Documents\GitHub\MyEngine\Javaportc++.vcxproj" ist abgeschlossen, Build Ziel(e).
+﻿Der Buildvorgang wurde am 10.07.2015 13:06:16 gestartet.
 
 Build erfolgreich.
 
-Verstrichene Zeit 00:00:01.78
+Verstrichene Zeit 00:00:00.11
