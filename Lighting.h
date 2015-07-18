@@ -16,6 +16,7 @@
 #include "Transform.h"
 #include "RenderUtil.h"
 #include "Shader.h"
+#include "Object.h"
 
 struct BasicTechniques
 {
@@ -25,8 +26,8 @@ public:
 protected:
 	std::string __Identifier;
 	GLuint __ID;
-	
 };
+
 struct AmbientLight :public BasicTechniques
 {
 public:
@@ -69,7 +70,6 @@ public:
 private:
 	BaseLight base;
 	Vector3 direction;
-
 };
 
 struct Attenuation
@@ -98,6 +98,7 @@ struct PointLight:public BasicTechniques
 public:
 	PointLight(Vector3 Pos = Vector3(0,0,0),BaseLight Base = BaseLight(),Attenuation Atten = Attenuation(),float Range = 0);
 	Vector3 pos;
+	Object *object;
 	float range;
 	BaseLight base;
 	Attenuation attenuation;
@@ -119,12 +120,14 @@ public:
 	PointLight& getPointLight(){return pointLight;}
 	Vector3& getDir(){return dir;}
 	float& getcutoff(){return cutoff;}
+
 	void update(std::string uniformname,Shader* shader);
 	static void update(Shader* shader,std::vector<SpotLight> lights);
 private:
 	PointLight pointLight;
 	Vector3 dir;
 	float cutoff;
+	
 
 };
 
@@ -157,7 +160,21 @@ enum Lights
 struct LightingCache
 {
 public:
-	LightingCache(){};
+	LightingCache()
+	{
+		glGenVertexArrays(1,&vao);
+		glGenBuffers(1,&vab);
+		glBindVertexArray(vao);
+		glBindBuffer(GL_ARRAY_BUFFER,vab);
+		glBufferData(GL_ARRAY_BUFFER,2000000,NULL,GL_STATIC_DRAW);
+		glEnableVertexAttribArray(0);
+		glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,sizeof(Vector3),0);
+		glBindVertexArray(0);
+		shader = new Shader();
+		shader->addVertexShader("res/Shaders/lineShader.vert");
+		shader->addFragmentShader( "res/Shaders/lineShader.frag");
+		shader->linkShaders();
+	};
 	~LightingCache(){};
 	void addLight(PointLight light);
 	void addLight(SpotLight light);
@@ -175,10 +192,20 @@ public:
 	 Fog getFog(){return _fog;};
 	unsigned int getCount(Lights counter);
 	void forceDelete();
+	void draw(Camera3d *camera);
+	void loadBuffer();
+	void clear()
+	{ 
+		_pointLights.clear();
+		_spotLights.clear();
+	}
 private:
 	std::vector<PointLight> _pointLights;
 	std::vector<SpotLight> _spotLights;
 	AmbientLight _ambientLight;
 	DirectionalLight _directionalLight;
 	Fog _fog;
+	GLuint vao,vab;
+	Shader* shader;
+	std::vector<Vertex> vertices;
 };

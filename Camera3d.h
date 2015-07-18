@@ -21,22 +21,24 @@ public:
 	Camera3d(){}
 	Matrix4 perspectiveMatrix;
 	Matrix4 viewMatrix;
+	float cameraspeed;
+
     void OnMouse(int x, int y);
 	void update(Shader *shader);
-	float cameraspeed;
-	bool updateneeded;
+	void updatePerspectiveMatrix(float fov,int width,int height,float zNear,float zFar);
+	void init();
 
 	Matrix4& GetViewProjection();
-	void updatePerspectiveMatrix(float fov,int width,int height,float zNear,float zFar);
 	Vector3 getDir();
 	Vector3 getPos();
 	Vector3 getUp();
+	Vector2 getZ(){return Vector2(zNear,zFar);}
 	float getFov(){return fov;}
 	void setDir(Vector3 Dir){dir = Dir;}
 	void setPos(Vector3 Pos){pos = Pos;}
 	void setUp(Vector3 UP){up = UP;}
 	void setFov(float Nfov);
-	void init();
+	
 	//movement
 	void moveforward(float distance = 0);
 	void movebackward(float distance = 0);
@@ -46,7 +48,7 @@ public:
 	void turnleft();
 	void strafeleft();
 	void straferight();
-	Vector2 getZ(){return Vector2(zNear,zFar);}
+
 private:
 	Vector3 pos;
     Vector3 dir;
@@ -54,6 +56,7 @@ private:
 	Vector2 mousePos;
 	float fov;
 	void Update();
+	bool updateneeded;
 
     int windowWidth;
     int windowHeight;

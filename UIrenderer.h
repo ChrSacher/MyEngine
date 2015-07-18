@@ -7,15 +7,18 @@
 #include "Shader.h"
 #include "Texture.h"
 #include "Camera3d.h"
+#include "Text.h"
+
 class UIButton
 {
 public:
-	UIButton(Vector2 start,Vector2 size,Vector4 Color,bool Render,std::string texturepath);
+	UIButton(Vector2 start,Vector2 size,Vector4 Color,bool Render,std::string texturepath,std::string Name);
 	Vector2 start;
 	Vector2 size;
 	Vector2 rot;
 	Vector4 color;
 	Texture texture;
+	std::string name;
 	int ID;
 	static int IDCounter;
 	bool render;
@@ -29,7 +32,7 @@ public:
 	Shader *shader;
 	std::vector<UIButton> buttons;
 	void addButton(UIButton& newbutton);
-	void addButton(Vector2 Start,Vector2 Size,Vector4 Color,bool Render,std::string texturepath);
+	void addButton(Vector2 Start,Vector2 Size,Vector4 Color,bool Render,std::string texturepath,std::string Name);
 	void draw();
 	Matrix4 ortho;
 	void updateOrtho(float width,float height);
@@ -39,6 +42,7 @@ public:
 		TEXTUREVB,
 		NUMBUFFERS
 	};
+	Text text;
 	GLuint vab[NUMBUFFERS];
 	void loadBuffer();
 };

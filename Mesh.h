@@ -28,9 +28,11 @@ public:
 	Vector3& getPos(){return pos;};
 	Vector2& getUV(){return uv;};
 	Vector3& getNormal(){return normal;};
+	Vector3& getTangent(){return tangent;};
 	Vector3 pos;
 	Vector2 uv;
 	Vector3 normal;
+	Vector3 tangent;
 };
 
 struct Model
@@ -42,8 +44,8 @@ struct Model
 	std::vector<Vertex> Vertices;
 	GLuint count;
 	OBJIndex index;
-	void center();
 	bool valid;
+	void center();
 };
 
 class OBJLoader
@@ -66,14 +68,17 @@ public:
 	void init();
 	void draw();
 	void loadOBJ(std::string path,bool autoCenter = false);
+	void loadOBJuncached(std::string path,bool autoCenter);
 	void loadBufferVertex();
 	void clearData();
-	Model model;
 	std::string getPath(){return filePath;}
+	Model model;
+
 private:
 	bool indiced;
 	GLuint vao ,vab;
 	std::string filePath;
+	
 };
 
 

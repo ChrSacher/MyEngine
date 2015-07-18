@@ -6,12 +6,12 @@ int UIButton::IDCounter = 0;
 UIrenderer::UIrenderer()
 {
 	shader = new Shader();
-	shader->addVertexShader("Shaders/2DShader.vert");
-	shader->addFragmentShader( "Shaders/2DShader.frag");
+	shader->addVertexShader("res/Shaders/2DShader.vert");
+	shader->addFragmentShader( "res/Shaders/2DShader.frag");
 	shader->addAttribute("position");
 	shader->addAttribute("uv");
 	shader->linkShaders();
-	ortho= Matrix4().identity().InitOrthographic(0,640,0,480,-1,1);
+	ortho= Matrix4().identity().InitOrthographic(0,1000,0,1000,-1,1);
 	glGenVertexArrays(1,&vao);
 	glBindVertexArray(vao);
 	glGenBuffers(NUMBUFFERS,vab);
@@ -30,39 +30,42 @@ void UIrenderer::addButton(UIButton& newbutton)
 	loadBuffer();
 }
 
-void UIrenderer::addButton(Vector2 Start,Vector2 Size,Vector4 Color,bool Render,std::string texturepath)
+void UIrenderer::addButton(Vector2 Start,Vector2 Size,Vector4 Color,bool Render,std::string texturepath,std::string Name)
 {
-	buttons.push_back(UIButton(Start,Size,Color,Render,texturepath));
+	buttons.push_back(UIButton(Start,Size,Color,Render,texturepath,Name));
 	std::sort(buttons.begin(), buttons.end());
 	loadBuffer();
 }
 
 void UIrenderer::draw()
 {
-	glDisable(GL_DEPTH_TEST);
+	if(!buttons.size() > 1) return;
 	glDisable(GL_CULL_FACE);
-	glClear(GL_DEPTH_BUFFER_BIT);
 	shader->use();
 	shader->setUniform("ortho",ortho);
 	glBindVertexArray(vao);
 	int offset = 0;
+	std::vector<TextData> data;
 	for(unsigned int i=0;i < buttons.size();i++)
 	{
 		if(buttons[i].render)
 		{
-			shader->setbaseColor(buttons[i].color);
-			buttons[i].texture.bind();
-			glDrawArrays(GL_TRIANGLES,offset,6);		
-			glBindVertexArray(0);	
+			UIButton& temp = buttons[i];
+			shader->setbaseColor(temp.color);
+			temp.texture.bind();
+			glDrawArrays(GL_TRIANGLES,offset,6);	
+			data.push_back(TextData(temp.name,temp.start.x,temp.start.y + temp.size.y/7,temp.size.x,temp.size.y,Vector3(1,1,1)));
+			
 		}
 			offset += 6;
 	}
-	shader->unuse();
+	glBindVertexArray(0);	
+	glClear(GL_DEPTH_BUFFER_BIT);
+	text.RenderText(data);
 	glEnable(GL_CULL_FACE);
-	glEnable(GL_DEPTH_TEST);
 }
 
-UIButton::UIButton(Vector2 Start,Vector2 Size,Vector4 Color,bool Render,std::string texturepath)
+UIButton::UIButton(Vector2 Start,Vector2 Size,Vector4 Color,bool Render,std::string texturepath,std::string Name)
 {
 	start=Start;
 	size=Size;
@@ -70,6 +73,7 @@ UIButton::UIButton(Vector2 Start,Vector2 Size,Vector4 Color,bool Render,std::str
 	render=Render;
 	ID=IDCounter;
 	texture = TextureCache::getTexture(texturepath);
+	name = Name;
 	UIButton::IDCounter++;
 	
 }
@@ -116,6 +120,7 @@ void UIrenderer::loadBuffer()
 void UIrenderer::updateOrtho(float width,float height)
 {
 	ortho = Matrix4().identity().InitOrthographic(0,width,0,height,-1,1);
+	text.setProjection(width,height);
 }
 
 void Skybox::loadSkybox(std::string Directory, std::string posx, std::string negx, std::string posy, std::string negy, std::string posz, std::string negz) 
@@ -182,8 +187,8 @@ void Skybox::setSkyboxTexture(std::string Directory, std::string posx, std::stri
 Skybox::Skybox(Camera3d &Camera,Vector4 Color)
 {
 	shader = new Shader();
-	shader->addVertexShader("Shaders/Skybox.vert");
-	shader->addFragmentShader( "Shaders/Skybox.frag");
+	shader->addVertexShader("res/Shaders/Skybox.vert");
+	shader->addFragmentShader( "res/Shaders/Skybox.frag");
 	shader->addAttribute("position");
 	shader->linkShaders();
 	color = Color;
@@ -213,6 +218,7 @@ void Skybox::renderSkybox()
 	glDeleteBuffers(1,&vbo);
 	cube.releaseCubemap();
 	delete(shader);
+	shader = NULL;
  }
 
    void  Skybox::setCamera(Camera3d* Camera)

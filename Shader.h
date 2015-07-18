@@ -28,8 +28,7 @@ private: //nested class
 public:
 	Shader();
 	~Shader(void);
-	static GLuint currentActiveShader;
-	static GLuint lastActiveShader;
+	
 	//shader operations
     void compileShaders(const std::string& vertexShaderFilePath, const std::string& fragmentShaderFilepath);
     void linkShaders();
@@ -37,6 +36,7 @@ public:
 	void addGeometryShader(std::string path);
 	void addFragmentShader(std::string path);
 	void addProgram(std::string path,int type);
+	void compileShader(const std::string& filePath, GLuint id);	
 	void bind();
 	void use();
 	void unuse();
@@ -58,10 +58,9 @@ public:
 	//
     int _numAttributes;
 	std::vector<GLuint> attachedShaders;
-    void compileShader(const std::string& filePath, GLuint id);	
 	GLuint _programID;
-
-	
+	static GLuint currentActiveShader;
+	static GLuint lastActiveShader;
 	Matrices matrices;
 	//classes are only known to shader
 private:

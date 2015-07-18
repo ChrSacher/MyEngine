@@ -61,7 +61,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;OpengL32.lib;glu32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;OpengL32.lib;glu32.lib;freetype26d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <EntryPointSymbol>
       </EntryPointSymbol>
     </Link>
@@ -88,6 +88,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Camera3d.h" />
+    <ClInclude Include="config.h" />
     <ClInclude Include="Debugger.h" />
     <ClInclude Include="Errors.h" />
     <ClInclude Include="FBO.h" />
@@ -111,6 +112,7 @@
     <ClInclude Include="timing.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="UIrenderer.h" />
+    <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera3d.cpp" />
@@ -130,26 +132,39 @@
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Shadow.cpp" />
     <ClCompile Include="Terrain.cpp" />
+    <ClCompile Include="Text.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="timing.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="UIrenderer.cpp" />
+    <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Scenes\example.sc" />
-    <None Include="Shaders\2DShader.frag" />
-    <None Include="Shaders\2DShader.vert" />
-    <None Include="Shaders\BasicShader.frag" />
-    <None Include="Shaders\BasicShader.vert" />
-    <None Include="Shaders\particleShader.frag" />
-    <None Include="Shaders\particleShader.vert" />
-    <None Include="Shaders\shadowShader.frag" />
-    <None Include="Shaders\shadowShader.vert" />
-    <None Include="Shaders\Skybox.frag" />
-    <None Include="Shaders\Skybox.vert" />
-    <None Include="Shaders\terrainShading.vert" />
-    <None Include="Shaders\textureShading.frag" />
-    <None Include="Shaders\textureShading.vert" />
+    <None Include="res\Scenes\example.sc" />
+    <None Include="res\Shaders\2DShader.frag" />
+    <None Include="res\Shaders\2DShader.vert" />
+    <None Include="res\Shaders\BasicShader.frag" />
+    <None Include="res\Shaders\BasicShader.vert" />
+    <None Include="res\Shaders\BillboardShader.frag" />
+    <None Include="res\Shaders\BillboardShader.vert" />
+    <None Include="res\Shaders\deferredRendering.frag" />
+    <None Include="res\Shaders\deferredRendering.vert" />
+    <None Include="res\Shaders\deferredShading.frag" />
+    <None Include="res\Shaders\deferredShading.vert" />
+    <None Include="res\Shaders\FXAAShader.frag" />
+    <None Include="res\Shaders\FXAAShader.vert" />
+    <None Include="res\Shaders\lineShader.frag" />
+    <None Include="res\Shaders\lineShader.vert" />
+    <None Include="res\Shaders\particleShader.frag" />
+    <None Include="res\Shaders\particleShader.vert" />
+    <None Include="res\Shaders\shadowShader.frag" />
+    <None Include="res\Shaders\shadowShader.vert" />
+    <None Include="res\Shaders\Skybox.frag" />
+    <None Include="res\Shaders\Skybox.vert" />
+    <None Include="res\Shaders\textShader.frag" />
+    <None Include="res\Shaders\textShader.vert" />
+    <None Include="res\Shaders\textureShading.frag" />
+    <None Include="res\Shaders\textureShading.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

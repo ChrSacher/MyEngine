@@ -19,7 +19,7 @@ Terrain::Terrain(std::string Path,std::string Texture,float PW , float PH,bool C
 	printf("Loading terrain %s\n",Path.c_str());
 	path = Path;
 	centered = Center;
-	material = new Material(Texture,Vector3(1,1,1),0,32);
+	material = new Material(Texture,"res/Texture/normal_up.jpg",Vector3(1,1,1),0,32);
 	transform = new Transform();
 	pixelWidth = PW;
 	pixelHeight = PH;
@@ -30,37 +30,32 @@ Terrain::Terrain(std::string Path,std::string Texture,float PW , float PH,bool C
 		calculateNormalMap();
 		loadTerrain();
 	}
-	shader = new Shader();
-	shader->addVertexShader("Shaders/textureShading.vert");
-	shader->addFragmentShader( "Shaders/textureShading.frag");
-	shader->linkShaders();
 	
 }
 
 
 Terrain::~Terrain(void)
 {
-	delete(material,transform,Index);
+	delete(material,transform,Index,shader);
+	material = NULL;
+	transform = NULL;
+	Index = NULL;
+	shader = NULL;
 }
 
 void Terrain::render(Shader* Nshader)
 {
-	Shader* temp = NULL;
-	if(Nshader !=NULL)
-	temp = Nshader;
-	else temp = shader;
 	if(heightMap.size() > 1)
 	{
-		temp->use();
-		material->update(temp);
+		Nshader->use();
+		material->update(Nshader);
 		material->texture.bind(20);
-		temp->setUniform("Texture",20);
-		transform->update(temp);
-		temp->setMVP(transform->getMatrix());
+		Nshader->setUniform("Texture",20);
+		transform->update(Nshader);
+		Nshader->setMVP(transform->getMatrix());
 		glBindVertexArray(Index->vao);
 		glDrawArrays(GL_TRIANGLE_STRIP,0,Index->count);
 		glBindVertexArray(0);
-		temp->unuse();
 	}
 	
 }
@@ -81,9 +76,9 @@ void Terrain::loadTerrain()
 		transform->setPos(Vector3(-width * pixelWidth / 2,0,-height * pixelWidth / 2));	
 	}
 	extension = pixelWidth * 20;
-	for(int i = 0; i < height - 2;i++)
+	for(int i = 0; i < height - 1;i++)
 	{
-		for(int j = 0; j < width - 1;j++)
+		for(int j = 0; j < width ;j++)
 		{
 		
 			tempV.pos = Vector3(j,heightMap[i][j],(i));
@@ -97,7 +92,7 @@ void Terrain::loadTerrain()
 			
 		}
 		i ++;
-		for(int j = width - 2; j >= 0;j--)
+		for(int j = width - 1; j >= 0;j--)
 		{
 			
 			tempV.pos = Vector3(j,heightMap[i + 1][j],(i + 1) );
@@ -154,7 +149,7 @@ void Terrain::calculateNormalMap()
 	}
 	normalMap.push_back(temp1);
 	temp1.clear();
-	for(int i = 1; i < height - 1;i++)
+	for(int i = 1; i < height -1;i++)
 	{
 		std::vector<Vector3> temp ;
 		temp.push_back(Vector3(1,1,1));

@@ -32,6 +32,9 @@
 #include "Shadow.h"
 #include "Debugger.h"
 #include "Scene.h"
+#include "Window.h"
+#include "config.h"
+#include "Text.h"
 //check for memory leaks
 #define _CRTDBG_MAP_ALLOC
 #include <stdlib.h>
@@ -56,7 +59,7 @@ class Maingame
 
 		//bool initGL();//matrizen initialisieren + farbe
 		void handleKeys(); //Eingabe 
-		void update();//Pro frame update
+		void update(float delta);//Pro frame update
 		void render();//Objecte rendern
 		void close(); //Schliessen von SDL + Resourcen
 		void run();
@@ -75,20 +78,23 @@ class Maingame
 
 		//setters
 
-		float fps;
-		float _time;
-		int __screenW,__oldScreenW;
-		int __screenH,__oldScreenH;
-		float maxFPS;
+		
 private:
 		SDL_Event event;
-		SDL_GLContext glContext;//OpenGL context
-		SDL_Window* _window;
+		Window *window;
 		UIrenderer *ui;
 		GameState gamestate;
 		FpsLimiter fpsLimiter;
 		InputManager input;
 		Scene* scene;
-
+		int __screenW;
+		int __screenH;
+		float fps;
+		float _time;
+		float maxFPS;
+		ConfigFile *cfg;
+		float delta;
+		long int start, end;
+		GLuint counter;
 };
 

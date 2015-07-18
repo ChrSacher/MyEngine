@@ -50,11 +50,24 @@ private:
     static std::map<std::string, TextureAndCount> textureMap;
 };
 
+class NormalCache
+{
+public:
+    static Texture getTexture(std::string texturePath);
+	static void lowerCount(std::string texturePath);
+	static void lowerCount(GLuint textureID);
+	static void deleteCache();
+private:
+    static std::map<std::string, TextureAndCount> normalMap;
+};
 
 class TextureLoader
 {
 	public:
 	static Texture load(std::string filepath);
+	static Texture loadNormal(std::string filepath);
+
+private: static void loadTex();
 };
 
 class CubemapTexture

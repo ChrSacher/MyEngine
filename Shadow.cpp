@@ -20,8 +20,8 @@ ShadowMapFBO::ShadowMapFBO(unsigned int ShadowWidth, unsigned int ShadowHeight,u
 	calculateMatrices();
 	glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0);
 	shader = new Shader();
-		shader->addVertexShader("Shaders/shadowShader.vert");
-		shader->addFragmentShader( "Shaders/shadowShader.frag");
+		shader->addVertexShader("res/Shaders/shadowShader.vert");
+		shader->addFragmentShader( "res/Shaders/shadowShader.frag");
 		shader->linkShaders();
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	return;
@@ -30,6 +30,8 @@ ShadowMapFBO::ShadowMapFBO(unsigned int ShadowWidth, unsigned int ShadowHeight,u
 ShadowMapFBO::~ShadowMapFBO()
 {
 	fbo.release();
+	delete(shader);
+	shader = NULL;
 }
 
 

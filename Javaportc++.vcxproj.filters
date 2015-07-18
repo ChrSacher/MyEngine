@@ -54,9 +54,6 @@
     <ClInclude Include="Lighting.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Text.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="ParticleSystem.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -86,6 +83,15 @@
     </ClInclude>
     <ClInclude Include="Terrain.h">
       <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="config.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Text.h">
+      <Filter>Quelldateien</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -152,48 +158,87 @@
     <ClCompile Include="Terrain.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Text.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Shaders\textureShading.vert">
+    <None Include="res\Scenes\example.sc">
       <Filter>Ressourcendateien</Filter>
     </None>
-    <None Include="Shaders\textureShading.frag">
+    <None Include="res\Shaders\deferredShading.frag">
       <Filter>Ressourcendateien</Filter>
     </None>
-    <None Include="Shaders\particleShader.frag">
+    <None Include="res\Shaders\deferredShading.vert">
       <Filter>Ressourcendateien</Filter>
     </None>
-    <None Include="Shaders\particleShader.vert">
+    <None Include="res\Shaders\FXAAShader.frag">
       <Filter>Ressourcendateien</Filter>
     </None>
-    <None Include="Shaders\2DShader.frag">
+    <None Include="res\Shaders\FXAAShader.vert">
       <Filter>Ressourcendateien</Filter>
     </None>
-    <None Include="Shaders\2DShader.vert">
+    <None Include="res\Shaders\lineShader.frag">
       <Filter>Ressourcendateien</Filter>
     </None>
-    <None Include="Shaders\Skybox.frag">
+    <None Include="res\Shaders\lineShader.vert">
       <Filter>Ressourcendateien</Filter>
     </None>
-    <None Include="Shaders\Skybox.vert">
+    <None Include="res\Shaders\particleShader.frag">
       <Filter>Ressourcendateien</Filter>
     </None>
-    <None Include="Shaders\shadowShader.frag">
+    <None Include="res\Shaders\particleShader.vert">
       <Filter>Ressourcendateien</Filter>
     </None>
-    <None Include="Shaders\shadowShader.vert">
+    <None Include="res\Shaders\shadowShader.frag">
       <Filter>Ressourcendateien</Filter>
     </None>
-    <None Include="Scenes\example.sc">
+    <None Include="res\Shaders\shadowShader.vert">
       <Filter>Ressourcendateien</Filter>
     </None>
-    <None Include="Shaders\BasicShader.frag">
+    <None Include="res\Shaders\Skybox.frag">
       <Filter>Ressourcendateien</Filter>
     </None>
-    <None Include="Shaders\BasicShader.vert">
+    <None Include="res\Shaders\Skybox.vert">
       <Filter>Ressourcendateien</Filter>
     </None>
-    <None Include="Shaders\terrainShading.vert">
+    <None Include="res\Shaders\textureShading.frag">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="res\Shaders\textureShading.vert">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="res\Shaders\2DShader.frag">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="res\Shaders\2DShader.vert">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="res\Shaders\BasicShader.frag">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="res\Shaders\BasicShader.vert">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="res\Shaders\BillboardShader.frag">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="res\Shaders\BillboardShader.vert">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="res\Shaders\deferredRendering.frag">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="res\Shaders\deferredRendering.vert">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="res\Shaders\textShader.frag">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="res\Shaders\textShader.vert">
       <Filter>Ressourcendateien</Filter>
     </None>
   </ItemGroup>

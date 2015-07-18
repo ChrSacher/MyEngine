@@ -6,6 +6,7 @@
 #include <GL/GLu.h>
 #include <vector>
 
+
 class BoundTexture
 {
 public:

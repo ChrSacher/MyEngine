@@ -53,12 +53,14 @@ public:
 	Shader *shader;
 	Camera3d *camera;
 	int lastParticle;
+	std::vector<Particle> ParticleBuffer;
+	int lastActive;
+
 	void init();
 	void update(double deltatime);
 	void addParticle(Vector3 &Pos,Vector3 &Vel,Vector4 &Color);
 	void draw();
-	std::vector<Particle> ParticleBuffer;
-	int lastActive;
+	
 };
 
 

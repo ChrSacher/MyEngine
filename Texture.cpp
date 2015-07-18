@@ -4,7 +4,7 @@
 
 
 std::map<std::string, TextureAndCount> TextureCache::textureMap;
-
+std::map<std::string, TextureAndCount> NormalCache::normalMap;
 
 Texture::Texture(std::string path)
 {
@@ -66,6 +66,27 @@ Texture TextureCache::getTexture(std::string texturePath)
     return mit->second.texture;
 }
 
+Texture NormalCache::getTexture(std::string texturePath) 
+{
+
+    //lookup the texture and see if its in the map
+    auto mit = normalMap.find(texturePath);
+    
+    //check if its not in the map
+    if (mit == normalMap.end()) 
+	{
+        //Load the texture
+		 Texture newTexture = TextureLoader::load(texturePath);
+		 
+        //Insert it into the map
+		normalMap.insert(make_pair(texturePath, TextureAndCount(newTexture,1)));
+
+        return newTexture;
+    }
+	mit->second.count ++;
+    return mit->second.texture;
+}
+
 Texture TextureLoader::load(std::string filepath)
 {
 	Texture texture;
@@ -76,9 +97,9 @@ Texture TextureLoader::load(std::string filepath)
 	if(data ==NULL)
 	{
 		printf("Couldn't load texture %s\nLoading Backup Texture\n",filepath.c_str());
-		data = (char*)stbi_load("texture/white.png",&width,&height,&numComponents,4);
+		data = (char*)stbi_load("res/Texture/white.png",&width,&height,&numComponents,4);
 
-		texture.texturepath="Texture/white.png";
+		texture.texturepath="res/Texture/white.png";
 		if(data == NULL)
 		{
 			printf("Couldn't load backup texture");
@@ -104,6 +125,42 @@ Texture TextureLoader::load(std::string filepath)
 	return texture;
 }
 
+Texture TextureLoader::loadNormal(std::string filepath)
+{
+	Texture texture;
+	int width,height,numComponents;
+	printf("Loading normalMap %s\n",filepath.c_str());
+	char* data = (char*)stbi_load(filepath.c_str(),&width,&height,&numComponents,4);
+	texture.texturepath=filepath.c_str();
+	if(data ==NULL)
+	{
+		printf("Couldn't load normalMap %s\nLoading Backup normalMap\n",filepath.c_str());
+		data = (char*)stbi_load("res/Texture/normal_up.jpg",&width,&height,&numComponents,4);
+
+		texture.texturepath="res/Texture/normal_up.jpg";
+		if(data == NULL)
+		{
+			fatalError("Was not able to load basic normalMap\n");
+		}
+	}
+	glGenTextures(1, &texture.ID);
+	glBindTexture(GL_TEXTURE_2D, texture.ID);
+	
+	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR_MIPMAP_LINEAR);
+	glTexParameterf(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, 16); //anisotropy filtering for better quality but more workload
+	gluBuild2DMipmaps(GL_TEXTURE_2D,GL_RGBA,width,height,GL_RGBA,GL_UNSIGNED_BYTE,data); //mipmapping
+	//glTexImage2D(GL_TEXTURE_2D,0,GL_RGBA,width,height,0,GL_RGBA,GL_UNSIGNED_BYTE,data);
+	
+	glBindTexture(GL_TEXTURE_2D, 0);
+	texture.width=width;
+	texture.height=height;
+	stbi_image_free(data);
+	
+	return texture;
+}
 
 void TextureCache::lowerCount(std::string texturePath)
 {
@@ -142,7 +199,42 @@ void TextureCache::lowerCount(GLuint textureID)
 	std::cout<<"couldn't find ID "<<textureID<<std::endl;
 }
 
+void NormalCache::lowerCount(std::string texturePath)
+{
+	auto mit = normalMap.find(texturePath);
+    
+    //check if its not in the map
+    if (mit == normalMap.end()) 
+	{
+       std::cout << "Cannot lower count on non existing texture path "<< texturePath << std::endl;
+		return;
+    }
+	mit->second.count --;
+	if(mit->second.count < 1) //erase Texture if noone is using it
+	{
+		mit->second.texture.releaseTexture();
+		normalMap.erase(mit);
+	}
+	return;
+}
 
+void NormalCache::lowerCount(GLuint textureID)
+{
+	for (std::map<std::string,TextureAndCount>::iterator mit = normalMap.begin(); mit != normalMap.end(); ++mit)
+	{
+		if(mit->second.texture.ID == textureID)
+		{
+			mit->second.count -- ;
+			if(mit->second.count < 1) //release Texture if it is not used
+			{
+				mit->second.texture.releaseTexture();
+				normalMap.erase(mit);
+			}
+			return;
+		};
+	};
+	std::cout<<"couldn't find ID "<<textureID<<std::endl;
+}
 
 bool CubemapTexture::Load()
 {
@@ -171,7 +263,7 @@ bool CubemapTexture::Load()
         if(data ==NULL)
 		{
 			std::cout << "Couldn't load Cube Texture" <<fileNames[i]<<std::endl;
-			data = (char*)stbi_load("texture/white.png",&width,&height,&numComponents,4);
+			data = (char*)stbi_load("res/texture/white.png",&width,&height,&numComponents,4);
 			if(data == NULL)
 			{
 				fatalError("Was not able to load basic texture\n");
@@ -233,8 +325,17 @@ void TextureCache::deleteCache()
 	{
 		it->second.texture.releaseTexture();
 	}	
+	textureMap.clear();
 }
 
+void NormalCache::deleteCache()
+{
+	for (std::map<std::string,TextureAndCount>::iterator it = normalMap.begin(); it != normalMap.end(); ++it)
+	{
+		it->second.texture.releaseTexture();
+	}	
+	normalMap.clear();
+}
 
 void Texture::releaseTexture()
 {

@@ -1,6 +1,6 @@
 #include "Scene.h"
 #define TERRAINSIZE 6
-#define OBJECTSIZE 16
+#define OBJECTSIZE 17
 #define POINTLIGHTSIZE 12
 
 std::vector<std::string> find_files()
@@ -8,7 +8,7 @@ std::vector<std::string> find_files()
 
   WIN32_FIND_DATA FindFileData;
   std::vector<std::string> temp;
-  HANDLE hFind = FindFirstFile(L"models/*", &FindFileData);
+  HANDLE hFind = FindFirstFile(L"res/models/*", &FindFileData);
   if(hFind == INVALID_HANDLE_VALUE){
     return temp;
   } 
@@ -23,92 +23,140 @@ std::vector<std::string> find_files()
   FindClose(hFind);
   return temp;
 }
+void Scene::parseData(SceneDetails &Data)
+{
+		objects = Data.objects;
+		skybox = Data.skybox;
+		camera = Data.camera;
+		shader = Data.shader;
+		terrain = Data.terrain;
+		lightingCache = Data.lightingCache;
+		pipeline  = Data.pipeline;
+		objectCount = Data.objectCount;
+}
 
 Scene::Scene(int Height,int Width,std::string path)
 {
-	__shader = new Shader();
-	pipeline = new ShaderObjectPipeLine();
-	__shader->addVertexShader("Shaders/textureShading.vert");
-	__shader->addFragmentShader( "Shaders/textureShading.frag");
-	__shader->linkShaders();
-	__lightingCache.addLight(AmbientLight(Vector3(1,1,1)));
-	__lightingCache.addLight(DirectionalLight(BaseLight(Vector3(1,1,1),0.0f),Vector3(1,1,1)));
-	__lightingCache.addFog(Fog(0.05f,Vector4(0.5f,0.5f,0.5f,1.0f),500.0f,1000.0f,false));
-	__camera = new Camera3d(Vector3(0,100,0),90,Width,Height,0.1f,500000.0f);
-	__skybox = new Skybox(*__camera);
-	__skybox->loadSkybox("Texture/Skybox/standard/");
-	__terrain = NULL;
+		parseData(loader.loadScene(Height,Width,path));	
+}
+
+SceneDetails SceneLoader::loadScene(int Height,int Width,std::string path)
+{
+	data.shader = new Shader();
+	data.pipeline = new ShaderObjectPipeLine();
+	data.shader->addVertexShader("res/Shaders/textureShading.vert");
+	data.shader->addFragmentShader( "res/Shaders/textureShading.frag");
+	data.shader->linkShaders();
+	data.lightingCache.addLight(AmbientLight(Vector3(1,1,1)));
+	data.lightingCache.addLight(DirectionalLight(BaseLight(Vector3(1,1,1),0.0f),Vector3(1,1,1)));
+	data.lightingCache.addFog(Fog(0.05f,Vector4(0.5f,0.5f,0.5f,1.0f),500.0f,1000.0f,false));
+	data.camera = new Camera3d(Vector3(0,0,0),70,Width,Height,0.1f,5000.0f);
+	data.skybox = new Skybox(*data.camera);
+	data.skybox->loadSkybox("res/Texture/Skybox/standard/");
+	data.terrain = NULL;
+	data.objectCount = 0;
 	if(path != "none")
 	{
 		readFile(path);
 	}
-	if(__terrain == NULL)
-		__terrain = new Terrain("Texture/firstheightmap.jpg","Texture/Unbenannt.bmp",5.0f,1.0f,true);
+	if(data.terrain == NULL)
+		data.terrain = new Terrain("res/Texture/standardTerrain.png","res/Texture/White.png",5.0f,1.0f,true);
+	return data;
 }
 
 
-
-
-void Scene::update()
+void Scene::update(float delta)
 {
 	static int counter = 0;
 	counter++;
-	int i = 0;
+	
+	lightingCache.getSpotLights()[0].getPointLight().pos = camera->getPos();
+	lightingCache.getSpotLights()[0].setDir(camera->getDir().normalize());
 }
 
 void Scene::renderScene()
 {
-	__skybox->renderSkybox(); //temporär
-	__shader->use();
-	__camera->update(__shader);
-	__lightingCache.getAmbientLight().update(__shader);
-	__lightingCache.getDirectionalLight().update(__shader);
+	skybox->renderSkybox(); //temporär
+	
+	shader->use();
+	camera->update(shader);
+	lightingCache.getAmbientLight().update(shader);
+	lightingCache.getDirectionalLight().update(shader);
 	//__shader->updateFog(&__lightingCache.getFog());
-	PointLight::update(__shader,__lightingCache.getPointLights());
-	SpotLight::update(__shader,__lightingCache.getSpotLights());
-	pipeline->renderBatches(__shader);
-	__terrain->render(__shader);
-	__shader->unuse(); //theoretisch nicht benötigt 
+	PointLight::update(shader,lightingCache.getPointLights());
+	SpotLight::update(shader,lightingCache.getSpotLights());
+	pipeline->renderBatches(shader);
+	terrain->render(shader);
+	shader->unuse(); //theoretisch nicht benötigt 
+	lightingCache.draw(camera);
 };
 
 
 Scene::~Scene(void)
 {
-	for(auto &j = __objects.begin();j != __objects.end();j++)
+	for(auto &j = objects.begin();j != objects.end();j++)
 	{
 		deleteObject(j->first);
-		j = __objects.begin();
+		j = objects.begin();
 	}
-	delete(__camera,__shader,__skybox,__terrain);
+	delete(camera,shader,skybox,terrain);
+	camera =NULL;shader = NULL;skybox =NULL; terrain = NULL;
 }
 
 void Scene::saveFile(std::string name)
+{
+	SceneDetails temp;
+	temp.objects = objects;
+	temp.terrain = terrain;
+	temp.lightingCache = lightingCache;
+	loader.saveFile(name,temp);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void  SceneLoader::saveFile(std::string name,SceneDetails& Data)
 { 
 	std::ofstream myfile;
 	myfile.open (name);
 	myfile << "//File created by Simple Engine for Scenes//\n";
-	myfile << "//Objects "<<__objects.size()<<std::endl;
-	for(auto i = __objects.begin();i != __objects.end();i++)
+	myfile << "//Objects "<<Data.objects.size()<<std::endl;
+	for(auto i = Data.objects.begin();i != Data.objects.end();i++)
 	{
 		myfile <<"o "<<i->second->getName()<< " " << i->second->mesh->getPath() << " "<< i->second->material->texture.texturepath<< " "
-			<< i->second->transform->getPos().x << " "<< i->second->transform->getPos().y << " " << i->second->transform->getPos().z <<" " 		 
-			<< i->second->transform->getRot().x << " "<< i->second->transform->getRot().y << " " << i->second->transform->getRot().z <<" "
-			<< i->second->transform->getScale().x << " "<< i->second->transform->getScale().y << " " << i->second->transform->getScale().z <<" "
-			<< i->second->material->getColor().x << " "<< i->second->material->getColor().y << " " << i->second->material->getColor().z <<" \n" ;
+			<< i->second->transform.getPos().x << " "<< i->second->transform.getPos().y << " " << i->second->transform.getPos().z <<" " 		 
+			<< i->second->transform.getRot().x << " "<< i->second->transform.getRot().y << " " << i->second->transform.getRot().z <<" "
+			<< i->second->transform.getScale().x << " "<< i->second->transform.getScale().y << " " << i->second->transform.getScale().z <<" "
+			<< i->second->material->getColor().x << " "<< i->second->material->getColor().y << " " << i->second->material->getColor().z <<" "
+			<< i->second->material->normalMap.texturepath <<" \n" ;
 	}
-	std::vector<PointLight> temp = __lightingCache.getPointLights();
-	for(unsigned int i = 0 ; i < __lightingCache.getCount(Point);i++)
+	std::vector<PointLight> temp = Data.lightingCache.getPointLights();
+	for(unsigned int i = 0 ; i < Data.lightingCache.getCount(Point);i++)
 	{
 		myfile	<< "l " << temp[i].pos.x<<" "<< temp[i].pos.y<<" " << temp[i].pos.z << " "
 				<< temp[i].base.getColor().x <<" " << temp[i].base.getColor().y<< " "<<temp[i].base.getColor().z << " "<< temp[i].base.getIntensity()<<" " 
 				<< temp[i].attenuation.getConstant() << " " << temp[i].attenuation.getLinear()<< " " <<temp[i]. attenuation.getExponent() << " " 
 				<< temp[i].range<<   " \n";
 	}
-	myfile << "t "<< __terrain->getPath()<< " " <<__terrain->getMaterial()->texture.texturepath<<" "<< __terrain->getPixelSize().x<< " "<< __terrain->getPixelSize().y <<" "<< __terrain->isCentered()<< " \n";
+	myfile << "t "<< Data.terrain->getPath()<< " " <<Data.terrain->getMaterial()->texture.texturepath<<" "<< Data.terrain->getPixelSize().x<< " "<< Data.terrain->getPixelSize().y <<" "<< Data.terrain->isCentered()<< " \n";
 	myfile.close();
 }
 
-bool Scene::readFile(std::string Path)
+bool  SceneLoader::readFile(std::string Path)
 {
 	std::cout << "Loading Scene" << Path<<std::endl;
 	std::ifstream encodefile(Path.c_str());
@@ -194,55 +242,69 @@ bool Scene::readFile(std::string Path)
 	
 };
 
-void Scene::parseObject(std::vector<std::string>& lines)
+
+void  SceneLoader::parseObject(std::vector<std::string>& lines)
 {
 	addObject(lines[0],lines[1],
 						Vector3(atof(lines[3].c_str()),atof(lines[4].c_str()),atof(lines[5].c_str())),
 						Vector3(atof(lines[6].c_str()),atof(lines[7].c_str()),atof(lines[8].c_str())),
 						Vector3(atof(lines[9].c_str()),atof(lines[10].c_str()),atof(lines[11].c_str())),
 						lines[2],
-						Vector3(atof(lines[12].c_str()),atof(lines[13].c_str()),atof(lines[14].c_str())));
+						Vector3(atof(lines[12].c_str()),atof(lines[13].c_str()),atof(lines[14].c_str())),
+						lines[15]);
 }
-void Scene::parsePointLight(std::vector<std::string>& lines)
+void  SceneLoader::parsePointLight(std::vector<std::string>& lines)
 {
-	__lightingCache.addLight(PointLight(
+	data.lightingCache.addLight(PointLight(
 										Vector3(atof(lines[0].c_str()),atof(lines[1].c_str()),atof(lines[2].c_str())),
 										BaseLight(Vector3(atof(lines[3].c_str()),atof(lines[4].c_str()),atof(lines[5].c_str())),atof(lines[6].c_str())),
 										Attenuation(atof(lines[7].c_str()),atof(lines[8].c_str()),atof(lines[9].c_str())),
 										atof(lines[10].c_str())
 										));
 }
-void Scene::parseTerrain(std::vector<std::string>& lines)
+void  SceneLoader::parseTerrain(std::vector<std::string>& lines)
 {
-	if(__terrain)
+	if(data.terrain)
 	{
 		std::cout<<"Terrain allready built. Deleting and Replacing"<<std::endl;
-		delete(__terrain);
+		delete(data.terrain);
+		data.terrain = NULL;
 	}
-	__terrain = new Terrain(lines[0],lines[1],atof(lines[2].c_str()),atof(lines[3].c_str()),(bool)atoi(lines[4].c_str()));
+	data.terrain = new Terrain(lines[0],lines[1],atof(lines[2].c_str()),atof(lines[3].c_str()),(bool)atoi(lines[4].c_str()));
 }
-Object* Scene::addObject(std::string Name,std::string Objectpath,Vector3 pos,Vector3 rot,Vector3 skal,std::string texturepath,Vector3 color,bool autoCenter)
+Object* Scene::addObject(std::string Name,std::string Objectpath,Vector3 pos,Vector3 rot,Vector3 skal,std::string texturepath,Vector3 color,std::string normalMap,bool autoCenter)
 {
-	Object* temp = new Object(Name,Objectpath,pos,rot,skal,texturepath,color);
-	__objects.insert(std::make_pair(temp->getID(),temp)); //store objects in vector
+	Object* temp = new Object(Name,Objectpath,pos,rot,skal,texturepath,color,normalMap);
+	objects.insert(std::make_pair(temp->getID(),temp)); //store objects in vector
 	pipeline->addObject(temp); //render object
+	objectCount++;
+	return temp;
+};
+Object* SceneLoader::addObject(std::string Name,std::string Objectpath,Vector3 pos,Vector3 rot,Vector3 skal,std::string texturepath,Vector3 color,std::string normalMap,bool autoCenter)
+{
+	Object* temp = new Object(Name,Objectpath,pos,rot,skal,texturepath,color,normalMap);
+	data.objects.insert(std::make_pair(temp->getID(),temp)); //store objects in vector
+	data.pipeline->addObject(temp); //render object
+	data.objectCount++;
 	return temp;
 };
 void Scene::addObject(Object* object)
 {
-	__objects.insert(std::make_pair(object->getID(),object)); //store objects in vector
+	objects.insert(std::make_pair(object->getID(),object)); //store objects in vector
 	pipeline->addObject(object); //render object
+	objectCount++;
 }
 void Scene::deleteObject(int ID)
 {
-	auto temp = __objects.find(ID);
-	if(temp != __objects.end())
+	auto temp = objects.find(ID);
+	if(temp != objects.end())
 	{
 		pipeline->deleteObject(temp->second);
 		delete(temp->second);
-		__objects.erase(ID);
+		temp->second = NULL;
+		objects.erase(ID);
 	}
-
+	objectCount--;
 }
 
 void Scene::addPrimitive(Primitives newPrimitive)
@@ -251,20 +313,20 @@ void Scene::addPrimitive(Primitives newPrimitive)
 	{
 		case Box:
 		{
-			addObject("box","Models/Box.obj");
+			addObject("box","res/Models/Box.obj");
 		}break;
 		case Cone:
 		{
-			addObject("Cone","Models/Cone.obj");
+			addObject("Cone","res/Models/Cone.obj");
 
 		}break;
 		case Cylinder:
 		{
-			addObject("Cylinder","Models/Cylinder.obj");
+			addObject("Cylinder","res/Models/Cylinder.obj");
 		}break;
 		case Pyramide:
 		{
-			addObject("Pyramide","Models/Pyramide.obj");
+			addObject("Pyramide","res/Models/Pyramide.obj");
 		}break;
 		default:
 		{
@@ -275,8 +337,8 @@ void Scene::addPrimitive(Primitives newPrimitive)
 
 const Object* Scene::getObject(int ID)
 {
-	auto temp = __objects.find(ID);
-	if(temp != __objects.end())
+	auto temp = objects.find(ID);
+	if(temp != objects.end())
 	{
 		return temp->second;
 	}
@@ -287,7 +349,7 @@ const Object* Scene::getObject(int ID)
 }
 
 
-void Scene::split(const std::string& s, char c, std::vector<std::string>& v)
+void  SceneLoader::split(const std::string& s, char c, std::vector<std::string>& v)
 {
    std::string::size_type i = 0;
    std::string::size_type j = s.find(c);
@@ -302,7 +364,7 @@ void Scene::split(const std::string& s, char c, std::vector<std::string>& v)
    }
 }
 
-bool Scene::validateScene(std::vector<std::string> &temp)
+bool  SceneLoader::validateScene(std::vector<std::string> &temp)
 {
 	int counto = 0;
 	int countl = 0;

@@ -1,13 +1,13 @@
 #include "Object.h"
 
 GLuint Object::__id = 0;
-Object::Object(std::string Name,std::string Objectpath,Vector3 pos,Vector3 rot,Vector3 skal ,std::string texturepath,Vector3 color,bool autoCenter)
+Object::Object(std::string Name,std::string Objectpath,Vector3 pos,Vector3 rot,Vector3 skal ,std::string texturepath,Vector3 color,std::string NormalMap,bool autoCenter)
 {
 
 	__ID = __id;
 	__id++;
-	material = new Material(texturepath,color,2,32);
-	transform =  new Transform(pos,rot,skal);
+	material = new Material(texturepath,NormalMap,color,2,32);
+	transform = Transform(pos,rot,skal);
 	mesh = new Mesh(Objectpath,autoCenter);
 	renderable = true;
 	__objectName = Name;
@@ -16,9 +16,11 @@ Object::Object(std::string Name,std::string Objectpath,Vector3 pos,Vector3 rot,V
 
 Object::~Object(void)
 {
-	if(material || transform || mesh)
+	if(material  || mesh)
 	{
-		delete(material,transform,mesh);
+		delete(material,mesh);
+		material = NULL;
+		mesh = NULL;
 	}
 }
 
@@ -29,7 +31,7 @@ void Object::draw()
 
 Matrix4& Object::getMatrix()
 {
-	return transform->getMatrix();
+	return transform.getMatrix();
 }
 
 Object::Object(const Object& otherobject)
@@ -37,7 +39,7 @@ Object::Object(const Object& otherobject)
 	__ID = __id;
 	__id++;
 	material = new Material(*otherobject.material);
-	transform = new Transform(*otherobject.transform);
+	transform = Transform(otherobject.transform);
 	mesh = new Mesh(*otherobject.mesh);
 	renderable = true;
 }
@@ -80,6 +82,8 @@ ObjectInformation::ObjectInformation()
 	glVertexAttribPointer(1,2,GL_FLOAT,GL_FALSE,sizeof(Vertex),(void*)offsetof(Vertex,uv));
 	glEnableVertexAttribArray(2);
 	glVertexAttribPointer(2,3,GL_FLOAT,GL_FALSE,sizeof(Vertex),(void*)offsetof(Vertex,normal));
+	glEnableVertexAttribArray(3);
+	glVertexAttribPointer(3,3,GL_FLOAT,GL_FALSE,sizeof(Vertex),(void*)offsetof(Vertex,tangent));
 	glBindVertexArray(0);
 	countObjects = 0;
 	lastDeleteObjectIndex = -1;
@@ -127,6 +131,7 @@ ObjectInformation::ObjectInformation()
 	for(unsigned int i = 0; i < countBatches;i++)
 	{
 		delete(batches[i]);
+		batches[i] = NULL;
 	}
 }
 
@@ -221,8 +226,8 @@ void  ObjectBatch::render(Shader *shader)
 	loadBufferIndexToLast();
 	for(auto iter = objects.begin();iter != objects.end();iter++)
 	{
-			iter->second.object->transform->update(shader);
-			shader->setMVP(iter->second.object->transform->getMatrix());
+			iter->second.object->transform.update(shader);
+			shader->setMVP(iter->second.object->transform.getMatrix());
 			iter->second.object->material->update(shader);
 			glDrawArrays(GL_TRIANGLES,iter->second.offset,iter->second.count);
 	}
@@ -235,7 +240,7 @@ void  ObjectBatch::renderShadow(Shader *shader)
 	loadBufferIndexToLast();
 	for(auto iter = objects.begin();iter != objects.end();iter++)
 	{
-			shader->setUniform("modelMatrix[0]",iter->second.object->transform->getMatrix());
+			shader->setUniform("modelMatrix[0]",iter->second.object->transform.getMatrix());
 			glDrawArrays(GL_TRIANGLES,iter->second.offset,iter->second.count);
 	}
 	glBindVertexArray(0);

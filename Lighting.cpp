@@ -27,6 +27,7 @@ void DirectionalLight::update(Shader* shader)
 	shader->setUniform("directionalLight.base.color",base.getColor());
 	shader->setUniform("directionalLight.base.intensity",base.getIntensity());
 }
+	
 void AmbientLight::setAmbient(Vector3 newambient)
 {
 	ambientLight=newambient;
@@ -96,12 +97,7 @@ SpotLight::SpotLight(PointLight point,Vector3 Dir,float Cutoff)
 }
 void SpotLight::update(std::string uniformname,Shader *shader)
 {
-		pointLight.base.update( uniformname + ".pointLight",shader);
-		shader->setUniform(uniformname + ".pointLight.pos",pointLight.pos);
-		shader->setUniform(uniformname + ".pointLight.atten.constant",pointLight.attenuation.getConstant());
-		shader->setUniform(uniformname + ".pointLight.atten.exponent",pointLight.attenuation.getExponent());
-		shader->setUniform(uniformname + ".pointLight.atten.linear",pointLight.attenuation.getLinear());
-		shader->setUniform(uniformname + ".pointLight.range",pointLight.range);
+		pointLight.update(uniformname + ".pointLight",shader);
 		shader->setUniform(uniformname + ".cutoff",cutoff);
 		shader->setUniform(uniformname + ".dir",dir);
 }
@@ -181,10 +177,12 @@ void Fog::update(Shader* shader)
 	void LightingCache::addLight(PointLight light)
 	{
 		_pointLights.push_back(light);
+		loadBuffer();
 	}
 	void LightingCache::addLight(SpotLight light)
 	{
 		_spotLights.push_back(light);
+		loadBuffer();
 	}
 	void LightingCache::addLight(AmbientLight light)
 	{
@@ -278,3 +276,47 @@ void Fog::update(Shader* shader)
 			}
 		}
 	}
+
+void LightingCache::draw(Camera3d *camera)
+{
+	if(!(vertices.size()) > 0) return;
+	shader->use();
+	shader->setMVP(camera->GetViewProjection(),Matrix4());
+	glBindVertexArray(vao);
+	glDrawArrays(GL_TRIANGLES,0,vertices.size());
+	glBindVertexArray(0);
+	shader->unuse();
+}
+
+void LightingCache::loadBuffer()
+{
+	vertices.clear();
+	//generate vertices
+	for(int i = 0; i < _pointLights.size();i++)
+	{
+		std::vector<Vertex> temp = ModelCache::getModel("res/models/box.obj").Vertices;
+		for(int j = 0;j < temp.size();j++)
+		{
+			temp[j].pos += _pointLights[i].pos;
+		}
+		vertices.insert(vertices.end(),temp.begin(),temp.end());
+	}
+	for(int i = 0; i < _spotLights.size();i++)
+	{
+		std::vector<Vertex> temp = ModelCache::getModel("res/models/box.obj").Vertices;
+		for(int j = 0;j < temp.size();j++)
+		{
+			temp[j].pos += _spotLights[i].getPointLight().pos;
+		}
+		vertices.insert(vertices.end(),temp.begin(),temp.end());
+	}
+	if(!(vertices.size() > 0)) return;
+	std::vector<Vector3> positions;
+	for(int i = 0; i < vertices.size();i++)
+	{
+		positions.push_back(vertices[i].pos);
+	}
+	glBindBuffer(GL_ARRAY_BUFFER,vab);
+	glBufferSubData(GL_ARRAY_BUFFER,0,sizeof(Vector3) * positions.size(),&positions[0]);
+	glBindBuffer(GL_ARRAY_BUFFER,0);
+}

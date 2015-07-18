@@ -69,10 +69,16 @@ Vertex::Vertex(float x, float y, float z)
 
 void Mesh::loadOBJ(std::string path,bool autoCenter)
 {
-	model = OBJLoader::loadOBJ(path,autoCenter);
+	model = ModelCache::getModel(path,autoCenter);
 	loadBufferVertex();
 	
 };
+
+void Mesh::loadOBJuncached(std::string path,bool autoCenter)
+{
+	model = OBJLoader::loadOBJ(path,autoCenter);
+	loadBufferVertex();
+}
 
 void Mesh::loadBufferVertex()
 {	
@@ -85,6 +91,8 @@ void Mesh::loadBufferVertex()
 	glVertexAttribPointer(1,2,GL_FLOAT,GL_FALSE,sizeof(Vertex),(void*)offsetof(Vertex,uv));
 	glEnableVertexAttribArray(2);
 	glVertexAttribPointer(2,3,GL_FLOAT,GL_FALSE,sizeof(Vertex),(void*)offsetof(Vertex,normal));
+	glEnableVertexAttribArray(3);
+	glVertexAttribPointer(3,3,GL_FLOAT,GL_FALSE,sizeof(Vertex),(void*)offsetof(Vertex,tangent));
 	glBufferData(GL_ARRAY_BUFFER,sizeof(Vertex) * model.Vertices.size(),&model.Vertices[0],GL_STATIC_DRAW);
 	glBindVertexArray(0);
 }
@@ -219,6 +227,38 @@ Model OBJLoader::loadOBJ(std::string path,bool autoCenter)
 	}
 	model.count = model.Vertices.size();
 	bool valid = true;
+	//calculate tangents
+	for (unsigned int i = 0 ; i < model.Vertices.size() ; i += 3) 
+	{
+		Vertex& v0 = model.Vertices[i];
+		Vertex& v1 = model.Vertices[i+1];
+		Vertex& v2 = model.Vertices[i+2];
+
+		Vector3 Edge1 = v1.pos - v0.pos;
+		Vector3 Edge2 = v2.pos - v0.pos;
+
+		float DeltaU1 = v1.uv.x - v0.uv.x;
+		float DeltaV1 = v1.uv.y - v0.uv.y;
+		float DeltaU2 = v2.uv.x - v0.uv.x;
+		float DeltaV2 = v2.uv.y - v0.uv.y;
+
+		float f = 1.0f / (DeltaU1 * DeltaV2 - DeltaU2 * DeltaV1);
+
+		Vector3 Tangent, Bitangent;
+
+		Tangent.x = f * (DeltaV2 * Edge1.x - DeltaV1 * Edge2.x);
+		Tangent.y = f * (DeltaV2 * Edge1.y - DeltaV1 * Edge2.y);
+		Tangent.z = f * (DeltaV2 * Edge1.z - DeltaV1 * Edge2.z);
+
+		//Bitangent.x = f * (-DeltaU2 * Edge1.x - DeltaU1 * Edge2.x);
+		//Bitangent.y = f * (-DeltaU2 * Edge1.y - DeltaU1 * Edge2.y);
+		//Bitangent.z = f * (-DeltaU2 * Edge1.z - DeltaU1 * Edge2.z);
+
+		v0.tangent = Tangent.normalize();
+		v1.tangent = Tangent.normalize();
+		v2.tangent = Tangent.normalize();
+	}
+
 	return model;
 }
 

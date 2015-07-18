@@ -10,8 +10,8 @@ ParticleSystem::ParticleSystem(void)
 void ParticleSystem::init()
 {
 	shader = new Shader();
-	shader->addVertexShader("Shaders/particleShader.vert");
-	shader->addFragmentShader( "Shaders/particleShader.frag");
+	shader->addVertexShader("res/Shaders/particleShader.vert");
+	shader->addFragmentShader( "res/Shaders/particleShader.frag");
 	shader->addAttribute("position");
 	shader->addAttribute("color");
 	shader->linkShaders();
@@ -41,6 +41,7 @@ ParticleSystem::~ParticleSystem(void)
 	glDeleteBuffers(1,&particles_position_buffer);
 	glDeleteVertexArrays(1,&vao);
 	delete(shader);
+	shader = NULL;
 }
 
 void ParticleSystem::draw()

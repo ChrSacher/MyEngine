@@ -24,14 +24,16 @@ class ShadowMapFBO //funktioniert irgentwie nicht
         void BindForWriting();
         void BindForReading();
 		
-		Matrix4 biasMatrix, depthProjectionMatrix, depthViewMatrix,depthModelMatrix,depthMVP,depthBiasMVP;
-        FBO fbo;
-		bool isEnabled;
+		
 		Vector3 lightDirection;
 		void calculateMatrices();
 		void setLightDirection(Vector3 LightDirection);
 		void addObject(Object *object);
 		void render();
+
+		Matrix4 biasMatrix, depthProjectionMatrix, depthViewMatrix,depthModelMatrix,depthMVP,depthBiasMVP;
+        FBO fbo;
+		bool isEnabled;
 		unsigned int shadowWidth,shadowHeight;
 		unsigned int windowWidth,windowHeight;
 

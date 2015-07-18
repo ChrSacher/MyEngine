@@ -27,11 +27,48 @@ enum Primitives
 	Cone
 };
 
+struct SceneDetails
+{
+	 std::map<int,Object*> objects;
+	 Skybox* skybox;
+	 Camera3d *camera;
+	 Shader* shader;
+	 Terrain *terrain;
+	 LightingCache lightingCache;
+	 ShaderObjectPipeLine *pipeline;
+	 GLuint objectCount;
+	 SceneDetails(){}
+	 void clear()
+	 {
+		 objects.clear();
+		 lightingCache.clear();
+	 }
+};
+
+struct SceneLoader
+{
+	bool readFile(std::string Path);
+	void parseObject(std::vector<std::string>& lines);
+	void parsePointLight(std::vector<std::string>& lines);
+	void parseTerrain(std::vector<std::string>& lines);
+	void split(const std::string& s, char c, std::vector<std::string>& v);
+	bool validateScene(std::vector<std::string> &temp);
+	void saveFile(std::string name,SceneDetails& Data);
+	Object* addObject(std::string Name,std::string Objectpath,Vector3 pos = Vector3(),Vector3 rot = Vector3(),Vector3 skal = Vector3(1.0f,1.0f,1.0f),std::string texturepath = "res/Texture/white.png",Vector3 color = Vector3(1.0f,1.0f,1.0f),std::string normalMap = "res/texture/normal_up.jpg",bool autoCenter = false);
+	SceneDetails loadScene(int Height,int Width,std::string path);
+	SceneDetails data;
+	SceneLoader()
+	{
+
+	}
+};
+
 enum Mode
 {
 	Game,
 	Editing
 };
+
 class Scene
 {
 public:
@@ -40,38 +77,36 @@ public:
 	
 	//Scene updates
 	void renderScene();
-	void update();
+	void update(float delta);
 	//update
 	
 	//funktions for adding and Deleting
-	Object* addObject(std::string Name,std::string Objectpath,Vector3 pos = Vector3(),Vector3 rot = Vector3(),Vector3 skal = Vector3(1.0f,1.0f,1.0f),std::string texturepath = "Texture/white.png",Vector3 color = Vector3(1.0f,1.0f,1.0f),bool autoCenter = false);
+	Object* addObject(std::string Name,std::string Objectpath,Vector3 pos = Vector3(),Vector3 rot = Vector3(),Vector3 skal = Vector3(1.0f,1.0f,1.0f),std::string texturepath = "res/Texture/white.png",Vector3 color = Vector3(1.0f,1.0f,1.0f),std::string normalMap = "res/texture/normal_up.jpg",bool autoCenter = false);
 	void addObject(Object* object);
 	void addPrimitive(Primitives newPrimitive);
 	void deleteObject(int ID);
 	//functions for getting
 	const Object* getObject(int ID);
-	const std::map<int,Object*>& getIDName(){return __objects;}
-	Camera3d* getCamera(){return __camera;}
-	LightingCache* getLightingCache(){return &__lightingCache;}
-
+	const std::map<int,Object*>& getIDName(){return objects;}
+	Camera3d* getCamera(){return camera;}
+	LightingCache* getLightingCache(){return &lightingCache;}
+	GLuint getCount(){return objectCount;}
 	//loading parsing and saving scene
-		void saveFile(std::string name);
+	void parseData(SceneDetails &Data);
+	void saveFile(std::string name);
 private:
-	 std::map<int,Object*> __objects;
-	 Skybox* __skybox;
-	 Camera3d *__camera;
-	 Shader* __shader;
-	 Terrain *__terrain;
-	 LightingCache __lightingCache;
-
-	bool readFile(std::string Path);
-
-	void parseObject(std::vector<std::string>& lines);
-	void parsePointLight(std::vector<std::string>& lines);
-	void parseTerrain(std::vector<std::string>& lines);
-	void split(const std::string& s, char c, std::vector<std::string>& v);
-	bool validateScene(std::vector<std::string> &temp);
+	SceneLoader loader;
+	std::map<int,Object*> objects;
+	Skybox* skybox;
+	Camera3d *camera;
+	Shader* shader;
+	Terrain *terrain;
+	LightingCache lightingCache;
 	ShaderObjectPipeLine *pipeline;
+	GLuint objectCount;
+	
 };
+
+
 
 
