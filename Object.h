@@ -77,7 +77,7 @@ struct ObjectInformation
 		void addObject(Object* newObject);
 		void deleteObject(Object* removeObject);
 		bool checkSize(Object* newObject);
-		void render(Shader *shader);
+		GLuint render(Shader *shader,Camera3d *cam);
 		void renderShadow(Shader *shader);
 		
 		void loadBuffer();
@@ -88,6 +88,7 @@ struct ObjectInformation
 		GLuint maxSize;
 		GLuint countObjects;
 		GLuint lastDeleteObjectIndex;
+		GLuint objectsDrawn;
 		ObjectInformation lastInformation;
 		GLuint vao,vab;
 		std::unordered_map<int,ObjectInformation> objects;
@@ -102,13 +103,14 @@ struct ObjectInformation
 		
 		void addObject(Object* newObject);
 		void deleteObject(Object* removeObject);
-		void renderBatches(Shader* shader);
+		GLuint  renderBatches(Shader* shader,Camera3d *cam = NULL);
 		void renderBatchesInstanced(Shader* shader);
 		void renderShadowBatches(Shader* shader);
 		void emptyBatch();
 
 		std::vector<ObjectBatch*> batches;
 		GLuint countBatches;
+		GLuint objectsDrawn;
 		bool hasChanged;
 		std::map<std::string,std::vector<ObjectInformation*>> instanceMap;
 	};

@@ -91,6 +91,10 @@ public:
 	Camera3d* getCamera(){return camera;}
 	LightingCache* getLightingCache(){return &lightingCache;}
 	GLuint getCount(){return objectCount;}
+	GLuint getObjectDrawCount()
+	{
+		return pipeline->objectsDrawn;
+	}
 	//loading parsing and saving scene
 	void parseData(SceneDetails &Data);
 	void saveFile(std::string name);

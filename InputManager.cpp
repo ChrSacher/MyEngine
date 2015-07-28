@@ -1,15 +1,34 @@
 #include "InputManager.h"
 
-InputManager::InputManager(void)
+void InputHandler::handle(SDL_Event &e)
 {
+		switch(e.type)
+		{
+			case SDL_MOUSEMOTION:
+			{
+				setMouseCoords(e.motion.x,e.motion.y);
+			};
+			case SDL_KEYUP:
+			{
+				releaseKey(e.key.keysym.sym);
+			}break;
+			case SDL_KEYDOWN:
+			{
+				pressKey(e.key.keysym.sym);
+			}break;
+			case SDL_MOUSEBUTTONDOWN:
+			{
+				pressKey(e.button.button);
+			};break;
+			case SDL_MOUSEBUTTONUP:
+			{
+				releaseKey(e.button.button);
+			};break;
+			
+		}
+		isChanged = true;
 }
-
-
-InputManager::~InputManager(void)
-{
-}
-
-void InputManager::update()
+void InputHandler::update()
 {
 	for (auto& it : _keyMap)
 	{
@@ -17,17 +36,17 @@ void InputManager::update()
 	}
 }
 
-void InputManager::pressKey(unsigned int keyID)
+void InputHandler::pressKey(unsigned int keyID)
 {
 	_keyMap[keyID]=true;
 }
 
-void InputManager::releaseKey(unsigned int keyID)
+void InputHandler::releaseKey(unsigned int keyID)
 {
 	_keyMap[keyID]=false;
 }
 
-bool InputManager::isKeyDown(unsigned int keyID)
+bool InputHandler::isKeyDown(unsigned int keyID)
 {
 	auto it=_keyMap.find(keyID);
 	if(it != _keyMap.end())
@@ -40,13 +59,13 @@ bool InputManager::isKeyDown(unsigned int keyID)
 	}
 }
 
-void InputManager::setMouseCoords(float x,float y)
+void InputHandler::setMouseCoords(float x,float y)
 {
 	_mousecoords[0] = x;
 	_mousecoords[1] = y;
 }
 
-bool InputManager::isKeyPressed(unsigned int keyID)
+bool InputHandler::isKeyPressed(unsigned int keyID)
 {
 	if (isKeyDown(keyID) == true && wasKeyDown(keyID) == false)
 	{
@@ -55,7 +74,7 @@ bool InputManager::isKeyPressed(unsigned int keyID)
     return false;
 }
 
-bool InputManager::wasKeyDown(unsigned int keyID) 
+bool InputHandler::wasKeyDown(unsigned int keyID) 
 {
     // We dont want to use the associative array approach here
     // because we don't want to create a key if it doesnt exist.
@@ -71,4 +90,60 @@ bool InputManager::wasKeyDown(unsigned int keyID)
         // Didn't find the key
         return false;
     }
+}
+
+
+void InputHandler::generate_input(std::vector<Command*> &command_queue)
+{
+	for (auto& it : _keyMap)
+	{
+		if(it.second)
+		{
+			auto& r = commands.find(it.first);
+			if(r != commands.end())
+			{
+				switch(r->second->type)
+				{
+					case KEYDOWN:
+					{
+						if(isKeyDown(it.first)) keyListPressed.push_back(it.first);
+
+					}break;
+					case KEYPRESSED:
+					{
+						if(isKeyPressed(it.first)) keyListPressed.push_back(it.first);
+					}break;
+					default:
+					{
+						std::cout<<"Unknown Input Type"<<std::endl;
+					}
+				}
+			}
+		}
+	}
+	static int maxCommandsRemembered = 50;
+	if(keyListPressed.size() == 0) return;
+	if(lastCommands.size() > maxCommandsRemembered)
+	{
+		int toReduce = lastCommands.size() - maxCommandsRemembered;
+		lastCommands.erase(lastCommands.begin(),lastCommands.begin() + toReduce);
+	}
+	for(int i = 0; i < keyListPressed.size();i++)
+	{
+		if(commands[keyListPressed[i]] == NULL) continue;
+		command_queue.push_back(commands[keyListPressed[i]]);
+		lastCommands.push_back(commands[keyListPressed[i]]);
+	}
+	keyListPressed.clear();
+	
+}
+void InputHandler::bind(unsigned int key, Command* command)
+{
+	auto it = commands.find(key);
+	if(it != commands.end())
+	{
+		delete(it->second);//delete if existing
+		commands.erase(key);
+	}
+	commands.insert(std::make_pair(key,command));    // key points to newly assigned command )
 }

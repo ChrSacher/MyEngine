@@ -90,8 +90,14 @@
     <ClInclude Include="config.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="Observer.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Audio.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
     <ClInclude Include="Text.h">
-      <Filter>Quelldateien</Filter>
+      <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +168,12 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="Text.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Observer.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Audio.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

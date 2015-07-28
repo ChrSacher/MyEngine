@@ -25,6 +25,7 @@ void Maingame::init()
 	std::printf("***   OpenGL Version: %s   ***\n", glGetString(GL_VERSION));
 	util.initGraphics();	
 	createObjects();
+	initCommands();
 	fpsLimiter.init(maxFPS); //using frame rater limiter since when do not have time dependent yet
 	return ;
 }
@@ -44,70 +45,44 @@ void Maingame::handleKeys()
 			};break;
 			case SDL_MOUSEMOTION:
 			{
-				input.setMouseCoords(event.motion.x,event.motion.y);
 				scene->getCamera()->OnMouse(event.motion.x,event.motion.y);
 				SDL_WarpMouseInWindow(window->GetSDLWindow(),__screenW /2,__screenH /2);	
+				
 			};break;
-			case SDL_KEYUP:
-			{
-				input.releaseKey(event.key.keysym.sym);
-			}break;
-			case SDL_KEYDOWN:
-			{
-				input.pressKey(event.key.keysym.sym);
-			}break;
 			case SDL_WINDOWEVENT:
 			{
 				switch (event.window.event)
 				{
 					case SDL_WINDOWEVENT_RESIZED:
 					{
+						static int oldH,oldW;
+						oldH = __screenH;
+						oldW = __screenW;
 						SDL_GetWindowSize(window->GetSDLWindow(),&__screenW,&__screenH);
-						std::cout << __screenH << " " << __screenW<<std::endl;
 						glViewport(0, 0, __screenW, __screenH);
 						scene->getCamera()->updatePerspectiveMatrix(scene->getCamera()->getFov(),__screenW,__screenH,scene->getCamera()->getZ().x,scene->getCamera()->getZ().y);
-						SDL_WarpMouseInWindow(window->GetSDLWindow(),__screenW /2,__screenH /2);	
+						scene->getCamera()->OnMouse(__screenW/2,__screenH/2,true);
+						SDL_WarpMouseInWindow(window->GetSDLWindow(),__screenW /2,__screenH /2);
+
 					};break;
 				}
- 
 			};break;
-			case SDL_MOUSEBUTTONDOWN:
+			default:
 			{
-				input.pressKey(event.button.button);
-			};break;
-			case SDL_MOUSEBUTTONUP:
-			{
-				input.releaseKey(event.button.button);
-			};break;
+				input.handle(event);
+			}break;
 		}
 	}
-	if(input.isKeyDown(SDLK_w))
+	
+	input.generate_input(command_queue);
+	while (!command_queue.empty()) 
 	{
-		scene->getCamera()->moveforward();
+        command_queue.back()->execute();
+        command_queue.pop_back();
 	}
 	if(input.isKeyPressed(SDLK_RETURN))
 	{
 		scene->addObject("test","res/models/box.obj",scene->getCamera()->getPos() + Vector3(1.0f,1.0f,1.0f),Vector3(),Vector3(1.0f,1.0f,1.0f),"res/texture/white.png",Vector3(1.0f,1.0f,1.0f),"res/texture/normal_map.jpg");
-	}
-	if(input.isKeyDown(SDLK_s))
-	{
-		scene->getCamera()->movebackward();
-	}
-	if(input.isKeyDown(SDLK_q))
-	{
-		scene->getCamera()->raise();
-	}
-	if(input.isKeyDown(SDLK_e))
-	{
-		scene->getCamera()->sink();
-	}
-	if(input.isKeyDown(SDLK_a))
-	{
-		scene->getCamera()->strafeleft();
-	}
-	if(input.isKeyDown(SDLK_d))
-	{
-		scene->getCamera()->straferight();
 	}
 	if(input.isKeyDown(SDLK_ESCAPE))
 	{
@@ -120,14 +95,6 @@ void Maingame::handleKeys()
 	if(input.isKeyPressed(SDLK_2))
 	{
 		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-	}
-	if(input.isKeyPressed(SDLK_UP))
-	{
-		scene->getCamera()->setFov(scene->getCamera()->getFov() + 1);
-	}
-	if(input.isKeyPressed(SDLK_DOWN))
-	{
-		scene->getCamera()->setFov(scene->getCamera()->getFov() - 1);
 	}
 	if(input.isKeyPressed(SDLK_F9))
 	{
@@ -151,6 +118,12 @@ void Maingame::update(float delta)
 	scene->update(delta);
 }
 
+void Maingame::updateFrame(float delta)
+{
+	text::get().update(delta);
+	audio::get().update(delta,scene->getCamera());
+}
+
 void Maingame::render()
 {
 	//Color buffer leer machen	
@@ -160,15 +133,15 @@ void Maingame::render()
 	if(ui) ui->draw();
 	static std::string fps = "60";
 	if(counter%60 == 0) fps = std::to_string((int)(1000/(start-end + 0.0001)));
-	text::get().update(start-end);
-	text::get().RenderText("FPS " + fps,890,0,100,30,Vector3(1,1,1));
-	text::get().RenderText("Frametime " + std::to_string(start-end) + " ms",890,30,100,30,Vector3(1,1,1));
-	text::get().RenderText("# Objects " + std::to_string(scene->getCount()),890,60,100,30,Vector3(1,1,1));
-	text::get().RenderText("Time " + std::to_string(SDL_GetTicks()/1000),890,90,100,30,Vector3(1,1,1));
-	text::get().RenderText("Dir " + std::to_string(scene->getCamera()->getDir().x) + " "
+	
+	renderText("FPS " + fps,890,0,100,30,Vector3(1,1,1));
+	renderText("Frametime " + std::to_string(start-end) + " ms",890,30,100,30,Vector3(1,1,1));
+	renderText("# Objects " + std::to_string(scene->getObjectDrawCount()),890,60,100,30,Vector3(1,1,1));
+	renderText("Time " + std::to_string(SDL_GetTicks()/1000),890,90,100,30,Vector3(1,1,1));
+	renderText("Dir " + std::to_string(scene->getCamera()->getDir().x) + " "
 								  + std::to_string(scene->getCamera()->getDir().y) + " "  
 								  +	std::to_string(scene->getCamera()->getDir().z ),890,120,100,30,Vector3(1,1,1));
-	text::get().RenderText("Pos " + std::to_string(scene->getCamera()->getPos().x) + " "
+	renderText("Pos " + std::to_string(scene->getCamera()->getPos().x) + " "
 								  + std::to_string(scene->getCamera()->getPos().y) + " "  
 								  +	std::to_string(scene->getCamera()->getPos().z ),890,150,100,30,Vector3(1,1,1));
 	window->SwapBuffers();
@@ -186,7 +159,7 @@ void Maingame::gameloop()
 	{ 
 		start = SDL_GetTicks();
 		
-		
+		updateFrame(start - end);
 		delta+=(float)(start - end);
 		while (delta >= frames) 
 		{
@@ -239,7 +212,19 @@ void Maingame::createObjects()
 	scene->getLightingCache()->addLight(SpotLight(PointLight(Vector3(10,10,10),BaseLight(Vector3(1,1,1),1.f),Attenuation(1,29,64),1000),Vector3(1,1,0),0.1f));
 	scene->getLightingCache()->addLight(SpotLight(PointLight(Vector3(10,100,10),BaseLight(Vector3(1,1,1),1.f),Attenuation(1,29,64),1000),Vector3(1,1,0),0.1f));
 	ui = new UIrenderer();
-	ui->addButton(Vector2(0,0),Vector2(100,100),Vector4(1,0,1,1),true,"","Button");
+	ui->addButton(Vector2(0,0),Vector2(100,100),Vector4(1,0,1,1),true,"","Button","Text",CENTER);
 	
 }
 
+void Maingame::initCommands()
+{
+	input.bind(SDLK_w,new CameraMoveForward(scene->getCamera()));
+	input.bind(SDLK_s,new CameraMoveBackward(scene->getCamera()));
+	input.bind(SDLK_q,new CameraMoveUp(scene->getCamera()));
+	input.bind(SDLK_e,new CameraMoveDown(scene->getCamera()));
+	input.bind(SDLK_a,new CameraMoveLeft(scene->getCamera()));
+	input.bind(SDLK_d,new CameraMoveRight(scene->getCamera()));
+	input.bind(SDLK_F1,new PlayAudio(&scene->getCamera()->trackPos()));
+	input.bind(SDLK_F2,new StopAudio);
+	
+}

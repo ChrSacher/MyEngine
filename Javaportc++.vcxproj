@@ -61,7 +61,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;OpengL32.lib;glu32.lib;freetype26d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;OpengL32.lib;glu32.lib;freetype26d.lib;irrKlang.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <EntryPointSymbol>
       </EntryPointSymbol>
     </Link>
@@ -87,6 +87,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Audio.h" />
     <ClInclude Include="Camera3d.h" />
     <ClInclude Include="config.h" />
     <ClInclude Include="Debugger.h" />
@@ -100,6 +101,7 @@
     <ClInclude Include="Math\3DMath.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="Observer.h" />
     <ClInclude Include="ParticleSystem.h" />
     <ClInclude Include="RenderUtil.h" />
     <ClInclude Include="Scene.h" />
@@ -115,6 +117,7 @@
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Audio.cpp" />
     <ClCompile Include="Camera3d.cpp" />
     <ClCompile Include="Errors.cpp" />
     <ClCompile Include="FBO.cpp" />
@@ -126,6 +129,7 @@
     <ClCompile Include="Math\3DMath.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Object.cpp" />
+    <ClCompile Include="Observer.cpp" />
     <ClCompile Include="ParticleSystem.cpp" />
     <ClCompile Include="RenderUtil.cpp" />
     <ClCompile Include="Scene.cpp" />

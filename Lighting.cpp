@@ -279,7 +279,7 @@ void Fog::update(Shader* shader)
 
 void LightingCache::draw(Camera3d *camera)
 {
-	if(!(vertices.size()) > 0) return;
+	if(!(vertices.size()) > 0 || allowedRender) return;
 	shader->use();
 	shader->setMVP(camera->GetViewProjection(),Matrix4());
 	glBindVertexArray(vao);

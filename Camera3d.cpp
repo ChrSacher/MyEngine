@@ -170,14 +170,13 @@ Vector3 Camera3d::getUp()
 	return up;
 }
 
-void Camera3d::OnMouse(int x, int y)
+void Camera3d::OnMouse(int x, int y,bool ignore)
 {
-    const int DeltaX = x - mousePos.x;
-    const int DeltaY = y - mousePos.y;
+	
 
     mousePos.x = (float)x;
     mousePos.y = (float)y;
-
+	if(ignore) return;
 	
     AngleH -= mouseSpeed  * float(windowWidth/2 - x );
 	if(AngleH > 360) AngleH -= 360;

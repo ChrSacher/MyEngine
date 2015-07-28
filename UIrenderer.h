@@ -8,35 +8,50 @@
 #include "Texture.h"
 #include "Camera3d.h"
 #include "Text.h"
-
-class UIButton
+enum SE_ButtonType
+{
+	UP,
+	LEFT,
+	RIGHT,
+	DOWN,
+	RIGHTUP,
+	LEFTUP,
+	RIGHTDOWN,
+	LEFTDOWN,
+	CENTER
+};//describes the way the button is from 2D Point
+class SE_UIButton
 {
 public:
-	UIButton(Vector2 start,Vector2 size,Vector4 Color,bool Render,std::string texturepath,std::string Name);
+	SE_UIButton(Vector2 start,Vector2 size,Vector4 Color,bool Render,std::string texturepath,std::string Name,std::string text = "",SE_ButtonType type = LEFTDOWN);
 	Vector2 start;
 	Vector2 size;
 	Vector2 rot;
 	Vector4 color;
 	Texture texture;
 	std::string name;
+	std::string text;
+	SE_ButtonType type;
 	int ID;
 	static int IDCounter;
 	bool render;
-	bool operator<(UIButton &other);
-};	
+	bool operator<(SE_UIButton &other);
+};
+
 class UIrenderer
 {
 public:
 	UIrenderer();
 	~UIrenderer();
 	Shader *shader;
-	std::vector<UIButton> buttons;
-	void addButton(UIButton& newbutton);
-	void addButton(Vector2 Start,Vector2 Size,Vector4 Color,bool Render,std::string texturepath,std::string Name);
+	std::vector<SE_UIButton> buttons;
+	void addButton(SE_UIButton& newbutton);
+	void addButton(Vector2 Start,Vector2 Size,Vector4 Color,bool Render,std::string texturepath,std::string Name,std::string text = "",SE_ButtonType type = LEFTDOWN);
 	void draw();
 	Matrix4 ortho;
 	void updateOrtho(float width,float height);
-	GLuint vao;enum
+	GLuint vao;
+	enum
 	{
 		POSITIONVB,
 		TEXTUREVB,
@@ -68,6 +83,8 @@ private:
 	Transform transform;
 	Vector4 color;
 };
+
+
 
 
 

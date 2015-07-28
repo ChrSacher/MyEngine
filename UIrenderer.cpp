@@ -1,6 +1,6 @@
 ﻿#include "UIrenderer.h"
 
-int UIButton::IDCounter = 0;
+int SE_UIButton::IDCounter = 0;
 
 
 UIrenderer::UIrenderer()
@@ -23,16 +23,16 @@ UIrenderer::~UIrenderer()
 	delete(shader);
 }
 
-void UIrenderer::addButton(UIButton& newbutton)
+void UIrenderer::addButton(SE_UIButton& newbutton)
 {
 	buttons.push_back(newbutton);
 	std::sort(buttons.begin(), buttons.end());
 	loadBuffer();
 }
 
-void UIrenderer::addButton(Vector2 Start,Vector2 Size,Vector4 Color,bool Render,std::string texturepath,std::string Name)
+void UIrenderer::addButton(Vector2 Start,Vector2 Size,Vector4 Color,bool Render,std::string texturepath,std::string Name,std::string text,SE_ButtonType type)
 {
-	buttons.push_back(UIButton(Start,Size,Color,Render,texturepath,Name));
+	buttons.push_back(SE_UIButton(Start,Size,Color,Render,texturepath,Name,text,type));
 	std::sort(buttons.begin(), buttons.end());
 	loadBuffer();
 }
@@ -50,7 +50,7 @@ void UIrenderer::draw()
 	{
 		if(buttons[i].render)
 		{
-			UIButton& temp = buttons[i];
+			SE_UIButton& temp = buttons[i];
 			shader->setbaseColor(temp.color);
 			temp.texture.bind();
 			glDrawArrays(GL_TRIANGLES,offset,6);	
@@ -65,7 +65,7 @@ void UIrenderer::draw()
 	glEnable(GL_CULL_FACE);
 }
 
-UIButton::UIButton(Vector2 Start,Vector2 Size,Vector4 Color,bool Render,std::string texturepath,std::string Name)
+SE_UIButton::SE_UIButton(Vector2 Start,Vector2 Size,Vector4 Color,bool Render,std::string texturepath,std::string Name,std::string text,SE_ButtonType type)
 {
 	start=Start;
 	size=Size;
@@ -74,7 +74,9 @@ UIButton::UIButton(Vector2 Start,Vector2 Size,Vector4 Color,bool Render,std::str
 	ID=IDCounter;
 	texture = TextureCache::getTexture(texturepath);
 	name = Name;
-	UIButton::IDCounter++;
+	this->text = text;
+	this->type = type;
+	SE_UIButton::IDCounter++;
 	
 }
 void UIrenderer::loadBuffer()
@@ -85,6 +87,58 @@ void UIrenderer::loadBuffer()
 	uvs.reserve(buttons.size() * 6);
 	for(unsigned int i=0;i< buttons.size();i++)
 	{
+		
+		SE_UIButton &c = buttons[i];
+		switch(buttons[i].type)
+		{
+			case UP:
+			{
+				c.start.x =- (c.size.x/2);
+				
+			}
+			case LEFT:
+			{
+				c.start.x =- (c.size.x);
+				c.start.y =- (c.size.y/2);
+
+			}
+			case RIGHT:
+			{
+				c.start.y =- (c.size.y/2);
+			}
+			case DOWN:
+			{
+				c.start.x =- (c.size.x/2);
+				c.start.y =- (c.size.y);
+			}
+			case LEFTUP:
+			{
+				c.start.x =- (c.size.x);
+			}
+			case RIGHTUP:
+			{
+				//normal behaviour
+			}
+			case LEFTDOWN:
+			{
+				c.start.x =- (c.size.x);
+				c.start.y =- (c.size.y);
+			}
+			case RIGHTDOWN:
+			{
+				c.start.y =- (c.size.y);
+			}
+			case CENTER:
+			{
+				c.start.x =- (c.size.x/2);
+				c.start.y =- (c.size.y/2);
+			}
+			default:
+			{
+				
+			}
+		}
+			
 			positions.push_back(buttons[i].start);
 			positions.push_back(Vector2(buttons[i].start.x + buttons[i].size.x,buttons[i].start.y));
 			positions.push_back(Vector2(buttons[i].start.x + buttons[i].size.x,buttons[i].start.y + buttons[i].size.y));
@@ -244,7 +298,7 @@ void Skybox::renderSkybox()
 
 
 
-bool UIButton::operator<(UIButton &other)
+bool SE_UIButton::operator<(SE_UIButton &other)
 {
 	return texture.ID < other.texture.ID;
 }

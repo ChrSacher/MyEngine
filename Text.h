@@ -1,11 +1,11 @@
-#pragma once
 
+
+#pragma once
 #include <ft2build.h>
 #include "Shader.h"
 #include <map>
 #include <vector>
 #include FT_FREETYPE_H
-
 struct Character 
 {
     GLuint TextureID;   // ID handle of the glyph texture
@@ -60,3 +60,20 @@ struct text
 		return text;
 	}
 };
+
+#ifndef functions
+inline void renderText(std::string text, GLfloat x, GLfloat y,  GLfloat SX, GLfloat SY, Vector3 color)
+{
+	text::get().RenderText(text,x,y,SX,SY,color);
+}
+
+inline void renderText(std::string text, GLfloat x, GLfloat y,  GLfloat scale, Vector3 color)
+{
+	text::get().RenderText(text,x,y,scale,color);
+}
+
+inline void timedText(std::string &text, GLfloat x, GLfloat y,  GLfloat SX, GLfloat SY, Vector3 color,GLfloat time)
+{
+	text::get().addTimedText(text,x,y,SX,SY,color,time);
+}
+#endif

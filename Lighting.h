@@ -199,6 +199,7 @@ public:
 		_pointLights.clear();
 		_spotLights.clear();
 	}
+	void renderLights(bool r) {allowedRender = r;}
 private:
 	std::vector<PointLight> _pointLights;
 	std::vector<SpotLight> _spotLights;
@@ -208,4 +209,5 @@ private:
 	GLuint vao,vab;
 	Shader* shader;
 	std::vector<Vertex> vertices;
+	bool allowedRender;
 };

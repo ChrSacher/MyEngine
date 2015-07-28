@@ -35,6 +35,7 @@
 #include "Window.h"
 #include "config.h"
 #include "Text.h"
+#include "Audio.h"
 //check for memory leaks
 #define _CRTDBG_MAP_ALLOC
 #include <stdlib.h>
@@ -60,6 +61,7 @@ class Maingame
 		//bool initGL();//matrizen initialisieren + farbe
 		void handleKeys(); //Eingabe 
 		void update(float delta);//Pro frame update
+		void updateFrame(float delta);
 		void render();//Objecte rendern
 		void close(); //Schliessen von SDL + Resourcen
 		void run();
@@ -67,8 +69,9 @@ class Maingame
 		void init();
 		void createObjects();
 		void initShaders();
+		void initCommands();
 		//funktionen
-
+		
 
 		//verschiede eingabenhandler für übersichtlichkeit
 		void resizefull();
@@ -85,7 +88,7 @@ private:
 		UIrenderer *ui;
 		GameState gamestate;
 		FpsLimiter fpsLimiter;
-		InputManager input;
+		InputHandler input;
 		Scene* scene;
 		int __screenW;
 		int __screenH;
@@ -96,5 +99,6 @@ private:
 		float delta;
 		long int start, end;
 		GLuint counter;
+		std::vector<Command*> command_queue;
 };
 

@@ -1,6 +1,6 @@
 #pragma once
 #include <map>
-
+#include "stb_image.h"
 
 #include <string>
 #include <glew.h>
@@ -94,4 +94,53 @@ private:
     GLuint ID;
 	
 	
+};
+
+class TextureAtlas
+{
+	GLint max_layers;
+	GLuint ID;
+	GLuint numLayers;
+	TextureAtlas()
+	{
+		glGetIntegerv (GL_MAX_ARRAY_TEXTURE_LAYERS, &max_layers);
+		glGenTextures(1, &ID);
+		glBindTexture(GL_TEXTURE_2D, ID);
+		//glTexImage2D(GL_TEXTURE_2D, 0, GL_ALPHA, w, h, 0, GL_ALPHA, GL_UNSIGNED_BYTE, 0);
+
+		/* We require 1 byte alignment when uploading texture data */
+	
+		/* Clamping to edges is important to prevent artifacts when scaling */
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+
+		/* Linear filtering usually looks best for text */
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	}
+	void addTexture(std::vector<std::string> filepaths)
+	{
+		for(int i = 0; i < filepaths.size();i++)
+		{
+			int width,height,numComponents;
+			printf("Loading texture %s\n",filepaths[i].c_str());
+			char* data = (char*)stbi_load(filepaths[i].c_str(),&width,&height,&numComponents,4);
+			if(data ==NULL)
+			{
+				printf("Couldn't load texture %s\nLoading Backup Texture\n",filepaths[i].c_str());
+				data = (char*)stbi_load("res/Texture/white.png",&width,&height,&numComponents,4);
+				if(data == NULL)
+				{
+					printf("Couldn't load backup texture");
+					fatalError("Was not able to load basic texture");
+				}
+			}
+		}
+		//glTexSubImage2D(GL_TEXTURE_2D, 0, change, change, g->bitmap.width, g->bitmap.rows, GL_ALPHA, GL_UNSIGNED_BYTE, g->bitmap.buffer);
+
+	}
+	~TextureAtlas() 
+	{
+		glDeleteTextures(1, &ID);
+	}
 };

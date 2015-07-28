@@ -204,12 +204,15 @@ void  ObjectBatch::addObject(Object* newObject)
 		}
 }
 
-void  ShaderObjectPipeLine::renderBatches(Shader* shader)
+GLuint   ShaderObjectPipeLine::renderBatches(Shader* shader,Camera3d *cam)
 {
+	int k = 0;
 	for(unsigned int i = 0; i < countBatches; i++)
 	{
-		batches[i]->render(shader);
+		k += batches[i]->render(shader,cam);
 	}
+	objectsDrawn = k;
+	return k;
 }
 
 void  ShaderObjectPipeLine::renderShadowBatches(Shader* shader)
@@ -220,18 +223,28 @@ void  ShaderObjectPipeLine::renderShadowBatches(Shader* shader)
 	}
 }
 
-void  ObjectBatch::render(Shader *shader)
+GLuint  ObjectBatch::render(Shader *shader,Camera3d *cam)
 {
 	glBindVertexArray(vao);
 	loadBufferIndexToLast();
+	int i = 0;
 	for(auto iter = objects.begin();iter != objects.end();iter++)
 	{
+			
+			if(cam != NULL)
+			{
+				if(iter->second.object->transform.getPos().distance(cam->getPos()) > cam->getZ().y) continue; //don't draw when out of range
+				if(cam->isBehind(iter->second.object->transform.getPos())) continue; //don't draw behind camera
+			}
 			iter->second.object->transform.update(shader);
 			shader->setMVP(iter->second.object->transform.getMatrix());
 			iter->second.object->material->update(shader);
 			glDrawArrays(GL_TRIANGLES,iter->second.offset,iter->second.count);
+			i++;
 	}
+	objectsDrawn = i;
 	glBindVertexArray(0);
+	return i;
 }
 
 void  ObjectBatch::renderShadow(Shader *shader)

@@ -50,7 +50,7 @@ SceneDetails SceneLoader::loadScene(int Height,int Width,std::string path)
 	data.lightingCache.addLight(AmbientLight(Vector3(1,1,1)));
 	data.lightingCache.addLight(DirectionalLight(BaseLight(Vector3(1,1,1),0.0f),Vector3(1,1,1)));
 	data.lightingCache.addFog(Fog(0.05f,Vector4(0.5f,0.5f,0.5f,1.0f),500.0f,1000.0f,false));
-	data.camera = new Camera3d(Vector3(0,0,0),70,Width,Height,0.1f,5000.0f);
+	data.camera = new Camera3d(Vector3(0,0,0),70,Width,Height,0.1f,1000.0f);
 	data.skybox = new Skybox(*data.camera);
 	data.skybox->loadSkybox("res/Texture/Skybox/standard/");
 	data.terrain = NULL;
@@ -85,7 +85,7 @@ void Scene::renderScene()
 	//__shader->updateFog(&__lightingCache.getFog());
 	PointLight::update(shader,lightingCache.getPointLights());
 	SpotLight::update(shader,lightingCache.getSpotLights());
-	pipeline->renderBatches(shader);
+	pipeline->renderBatches(shader,camera);
 	terrain->render(shader);
 	shader->unuse(); //theoretisch nicht benötigt 
 	lightingCache.draw(camera);

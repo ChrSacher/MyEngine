@@ -23,7 +23,7 @@ public:
 	Matrix4 viewMatrix;
 	float cameraspeed;
 
-    void OnMouse(int x, int y);
+    void OnMouse(int x, int y,bool ignore = false);
 	void update(Shader *shader);
 	void updatePerspectiveMatrix(float fov,int width,int height,float zNear,float zFar);
 	void init();
@@ -39,6 +39,7 @@ public:
 	void setUp(Vector3 UP){up = UP;}
 	void setFov(float Nfov);
 	
+	const Vector3& trackPos(){return pos;}
 	//movement
 	void moveforward(float distance = 0);
 	void movebackward(float distance = 0);
@@ -48,7 +49,13 @@ public:
 	void turnleft();
 	void strafeleft();
 	void straferight();
+	 
 
+	//checks
+	bool isBehind(Vector3 pos)
+	{
+		return (pos - this->pos).dot(dir) <= 0;
+	}
 private:
 	Vector3 pos;
     Vector3 dir;
