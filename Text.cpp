@@ -106,7 +106,7 @@ void Text::RenderText(std::string text, GLfloat x, GLfloat y, GLfloat SX, GLfloa
 			Character &ch = Characters[*c];
 
 			GLfloat xpos = x + ch.Bearing.x * ssx;
-			GLfloat ypos = y- (ch.Size.y - ch.Bearing.y) * ssy;
+			GLfloat ypos = y - (ch.Size.y - ch.Bearing.y) * ssy;
 
 			GLfloat w = ch.Size.x * ssx;
 			GLfloat h = ch.Size.y * ssy;
@@ -123,7 +123,7 @@ void Text::RenderText(std::string text, GLfloat x, GLfloat y, GLfloat SX, GLfloa
 			
 			
 			// Now advance cursors for next glyph (note that advance is number of 1/64 pixels)
-			x += (ch.Advance >> 6) * ssx; // Bitshift by 6 to get value in pixels (2^6 = 64 (divide amount of 1/64th pixels by 64 to get amount of pixels))
+			x = x + (ch.Advance >> 6) * ssx; // Bitshift by 6 to get value in pixels (2^6 = 64 (divide amount of 1/64th pixels by 64 to get amount of pixels))
 		}
 		glBindBuffer(GL_ARRAY_BUFFER, vbo);
 		glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(Vector4) * vertices.size(), &vertices[0]); // Be sure to use glBufferSubData and not glBufferData
@@ -148,7 +148,7 @@ void Text::RenderText(std::string text, GLfloat x, GLfloat y, GLfloat SX, GLfloa
 	}
 void Text::RenderText(std::vector<TextData> &data)
 {
-	for(int i = 0; i < data.size();i++)
+	for(unsigned int i = 0; i < data.size();i++)
 	{
 		RenderText(data[i].text,data[i].x,data[i].y,data[i].sx,data[i].sy,data[i].color);
 	}
@@ -208,7 +208,7 @@ void Text::RenderText(std::string text, GLfloat x, GLfloat y,  GLfloat scale, Ve
 }
 void Text::update(GLfloat time)
 {
-	for(int i = 0; i < data.size();i++)
+	for(unsigned int i = 0; i < data.size();i++)
 	{
 		if(data[i].timetolive > 0)
 		{

@@ -251,6 +251,7 @@ void  ObjectBatch::renderShadow(Shader *shader)
 {
 	glBindVertexArray(vao);
 	loadBufferIndexToLast();
+	shader->use();
 	for(auto iter = objects.begin();iter != objects.end();iter++)
 	{
 			shader->setUniform("modelMatrix[0]",iter->second.object->transform.getMatrix());

@@ -128,7 +128,7 @@ void InputHandler::generate_input(std::vector<Command*> &command_queue)
 		int toReduce = lastCommands.size() - maxCommandsRemembered;
 		lastCommands.erase(lastCommands.begin(),lastCommands.begin() + toReduce);
 	}
-	for(int i = 0; i < keyListPressed.size();i++)
+	for(unsigned int i = 0; i < keyListPressed.size();i++)
 	{
 		if(commands[keyListPressed[i]] == NULL) continue;
 		command_queue.push_back(commands[keyListPressed[i]]);
@@ -146,4 +146,11 @@ void InputHandler::bind(unsigned int key, Command* command)
 		commands.erase(key);
 	}
 	commands.insert(std::make_pair(key,command));    // key points to newly assigned command )
+}
+
+Command* InputHandler::getCommand(GLuint ID)
+{
+	auto r = commands.find(ID);
+	if(r == commands.end()) return NULL;
+	return r->second;
 }

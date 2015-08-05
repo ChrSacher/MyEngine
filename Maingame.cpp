@@ -21,12 +21,13 @@ void Maingame::init()
 	maxFPS=60;
 	ui = NULL;
 	scene = NULL;
+	line = NULL;
 	window = new Window(__screenW,__screenH,"My Engine");
 	std::printf("***   OpenGL Version: %s   ***\n", glGetString(GL_VERSION));
 	util.initGraphics();	
 	createObjects();
 	initCommands();
-	fpsLimiter.init(maxFPS); //using frame rater limiter since when do not have time dependent yet
+	fpsLimiter.init(maxFPS); 
 	return ;
 }
 
@@ -37,6 +38,7 @@ void Maingame::handleKeys()
 	input.update();
 	while( SDL_PollEvent( &event ) != 0 ) //Eingaben kontrolieren
 	{
+		input.handle(event);
 		switch(event.type)
 		{
 			case SDL_QUIT://Fenster wird geschlossen
@@ -46,9 +48,16 @@ void Maingame::handleKeys()
 			case SDL_MOUSEMOTION:
 			{
 				scene->getCamera()->OnMouse(event.motion.x,event.motion.y);
-				SDL_WarpMouseInWindow(window->GetSDLWindow(),__screenW /2,__screenH /2);	
+				SDL_WarpMouseInWindow(window->GetSDLWindow(),__screenW /2,__screenH /2);
 				
+			
+
 			};break;
+			case SDL_MOUSEBUTTONDOWN:
+			{
+				Ray ray = scene->getCamera()->getDirClick(input.getMouseCoords().x,input.getMouseCoords().y);
+				line->addLine(ray.pos,Vector3(10000,10000,10000));
+			};
 			case SDL_WINDOWEVENT:
 			{
 				switch (event.window.event)
@@ -69,8 +78,9 @@ void Maingame::handleKeys()
 			};break;
 			default:
 			{
-				input.handle(event);
+				
 			}break;
+			
 		}
 	}
 	
@@ -87,14 +97,6 @@ void Maingame::handleKeys()
 	if(input.isKeyDown(SDLK_ESCAPE))
 	{
 		gamestate.playing=false;
-	}
-	if(input.isKeyPressed(SDLK_1))
-	{
-		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-	}
-	if(input.isKeyPressed(SDLK_2))
-	{
-		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	}
 	if(input.isKeyPressed(SDLK_F9))
 	{
@@ -122,13 +124,14 @@ void Maingame::updateFrame(float delta)
 {
 	text::get().update(delta);
 	audio::get().update(delta,scene->getCamera());
+	music->update();
 }
 
 void Maingame::render()
 {
 	//Color buffer leer machen	
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
-		
+	if(line) line->render(scene->getCamera());
 	if(scene) scene->renderScene();
 	if(ui) ui->draw();
 	static std::string fps = "60";
@@ -144,6 +147,7 @@ void Maingame::render()
 	renderText("Pos " + std::to_string(scene->getCamera()->getPos().x) + " "
 								  + std::to_string(scene->getCamera()->getPos().y) + " "  
 								  +	std::to_string(scene->getCamera()->getPos().z ),890,150,100,30,Vector3(1,1,1));
+	renderText(std::to_string(music->getSongNumber()) + " " +  music->getCurrentTitle(),convertSTT(__screenW,__screenW) - 155,convertSTT(__screenW,__screenW) - 30,140,30);
 	window->SwapBuffers();
 
 }
@@ -183,13 +187,13 @@ void Maingame::gameloop()
 void Maingame::close()
 {
 	scene->saveFile("res/Scenes/example.sc");
-	delete(scene,ui,window);
+	delete(scene,ui,window,line);
 	scene = NULL;
 	ui = NULL;
 	window = NULL;
 	TextureCache::deleteCache();
 	ModelCache::deleteCache();
-	
+	util.~RenderUtil();
 	SDL_Quit();
 
 	exit(0);
@@ -212,8 +216,9 @@ void Maingame::createObjects()
 	scene->getLightingCache()->addLight(SpotLight(PointLight(Vector3(10,10,10),BaseLight(Vector3(1,1,1),1.f),Attenuation(1,29,64),1000),Vector3(1,1,0),0.1f));
 	scene->getLightingCache()->addLight(SpotLight(PointLight(Vector3(10,100,10),BaseLight(Vector3(1,1,1),1.f),Attenuation(1,29,64),1000),Vector3(1,1,0),0.1f));
 	ui = new UIrenderer();
+	line = new LineRenderer();
 	ui->addButton(Vector2(0,0),Vector2(100,100),Vector4(1,0,1,1),true,"","Button","Text",CENTER);
-	
+	music = new MusicPlayer("res/Sound/*");
 }
 
 void Maingame::initCommands()
@@ -224,7 +229,9 @@ void Maingame::initCommands()
 	input.bind(SDLK_e,new CameraMoveDown(scene->getCamera()));
 	input.bind(SDLK_a,new CameraMoveLeft(scene->getCamera()));
 	input.bind(SDLK_d,new CameraMoveRight(scene->getCamera()));
-	input.bind(SDLK_F1,new PlayAudio(&scene->getCamera()->trackPos()));
-	input.bind(SDLK_F2,new StopAudio);
+	input.bind(SDLK_F3,new PlayMusic(music));
+	input.bind(SDLK_RIGHT,new NextMusic(music));
+	input.bind(SDLK_LEFT,new PreviousMusic(music));
+	input.bind(SDLK_1,new switchRender);
 	
 }

@@ -134,6 +134,10 @@ void   RenderUtil::bindVertexArray(GLuint ID)
 
 }
 
+void RenderUtil::bindBuffer(GLenum e,GLuint ID)
+{
+	glBindBuffer(e,ID);
+}
 void   RenderUtil::useProgram(GLuint ID)
 { 
 	if(CurrentProgram != ID)
@@ -252,4 +256,13 @@ void BoundTexture::bind(GLuint ID,GLuint unit,GLenum TextureType)
 			_units[unit] = ID;
 		}
 
+}
+
+void RenderUtil::renderInWireframe()
+{
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+}
+void RenderUtil::renderInPolygone()
+{
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 }

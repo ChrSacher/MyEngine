@@ -7,6 +7,20 @@ const float mouseSpeed = 0.2f;
 const static float EDGE_STEP = 0.5f;
 const static int MARGIN = 50;
 
+Ray Camera3d::getDirClick(int x,int y)
+{
+	  float x2 = (2.0f * x) / windowWidth - 1.0f;
+	  float y2 = 1.0f - (2.0f * y) / windowHeight;
+	  Vector3 ray_nds = Vector3 (x2, y2, 1.0f);
+	  Vector4 ray_clip = Vector4 (ray_nds.x, ray_nds.y,-1.0, 1.0);
+	  Vector4 ray_eye = perspectiveMatrix.invert() * ray_clip;
+	  Vector4 temp = ((Matrix4().identity().lookAt(pos,pos - dir,up)).invert() * ray_eye);
+	  Vector3 ray_wor = Vector3(temp.x,temp.y,temp.z);
+	 // ray_wor.conjugate();
+	  ray_wor.normalize();
+	  perspectiveMatrix.invert();
+	  return Ray(pos,ray_wor);
+}
 Camera3d::Camera3d(Vector3 Pos,float fov,int width,int height,float zNear,float zFar)
 {
 	perspectiveMatrix=Matrix4().perspective(fov,width/height,zNear,zFar);

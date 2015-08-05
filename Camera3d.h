@@ -13,6 +13,12 @@
 #include "Shader.h"
 #define PI 3.14159265358979323846f
  
+struct Ray
+{
+	Vector3 pos;
+	Vector3 dir;
+	Ray(Vector3 x = Vector3(),Vector3 y = Vector3()){ pos = x; dir = y;}
+};
 class Camera3d
 {
 public:
@@ -27,7 +33,7 @@ public:
 	void update(Shader *shader);
 	void updatePerspectiveMatrix(float fov,int width,int height,float zNear,float zFar);
 	void init();
-
+	Ray getDirClick(int x,int y);
 	Matrix4& GetViewProjection();
 	Vector3 getDir();
 	Vector3 getPos();

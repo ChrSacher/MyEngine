@@ -46,6 +46,7 @@ public:
 	void   activeTexture(GLuint Unit);
 	void   bindVertexArray(GLuint ID);
 	void   useProgram(GLuint ID);
+	void  bindBuffer(GLenum e,GLuint ID);
 	//Delete Operations
 	void deleteVertexArrays(GLuint Num,GLuint &Buffer);
 	void deleteBuffers(GLuint Num,GLuint &Buffer);
@@ -60,3 +61,4 @@ private:
 };
 
 static RenderUtil util;
+

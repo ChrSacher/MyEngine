@@ -81,7 +81,7 @@ struct Vector3
     float       dot(const Vector3& vec) const;          // dot product
     Vector3     cross(const Vector3& vec) const;        // cross product
     bool        equal(const Vector3& vec, float e) const; // compare with epsilon
-	void	conjugate(){x = -x; y = -y;z=-z;}
+	void		conjugate(){x = -x; y = -y;z=-z;}
 	Vector3     rotate(float angle,Vector3 axis);
     // operators
     Vector3     operator-() const;                      // unary operator (negate)

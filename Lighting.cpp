@@ -292,7 +292,7 @@ void LightingCache::loadBuffer()
 {
 	vertices.clear();
 	//generate vertices
-	for(int i = 0; i < _pointLights.size();i++)
+	for(unsigned int i = 0; i < _pointLights.size();i++)
 	{
 		std::vector<Vertex> temp = ModelCache::getModel("res/models/box.obj").Vertices;
 		for(int j = 0;j < temp.size();j++)
@@ -301,7 +301,7 @@ void LightingCache::loadBuffer()
 		}
 		vertices.insert(vertices.end(),temp.begin(),temp.end());
 	}
-	for(int i = 0; i < _spotLights.size();i++)
+	for(unsigned int i = 0; i < _spotLights.size();i++)
 	{
 		std::vector<Vertex> temp = ModelCache::getModel("res/models/box.obj").Vertices;
 		for(int j = 0;j < temp.size();j++)
@@ -312,7 +312,7 @@ void LightingCache::loadBuffer()
 	}
 	if(!(vertices.size() > 0)) return;
 	std::vector<Vector3> positions;
-	for(int i = 0; i < vertices.size();i++)
+	for(unsigned int i = 0; i < vertices.size();i++)
 	{
 		positions.push_back(vertices[i].pos);
 	}

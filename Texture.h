@@ -120,7 +120,7 @@ class TextureAtlas
 	}
 	void addTexture(std::vector<std::string> filepaths)
 	{
-		for(int i = 0; i < filepaths.size();i++)
+		for(unsigned int i = 0; i < filepaths.size();i++)
 		{
 			int width,height,numComponents;
 			printf("Loading texture %s\n",filepaths[i].c_str());

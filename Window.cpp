@@ -83,7 +83,6 @@ Window::~Window()
 {
 	SDL_GL_DeleteContext( glContext);
 	SDL_DestroyWindow( window);
-	SDL_Quit();
 }
 
 void Window::SwapBuffers()

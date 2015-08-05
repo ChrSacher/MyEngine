@@ -89,6 +89,7 @@
   <ItemGroup>
     <ClInclude Include="Audio.h" />
     <ClInclude Include="Camera3d.h" />
+    <ClInclude Include="Commands.h" />
     <ClInclude Include="config.h" />
     <ClInclude Include="Debugger.h" />
     <ClInclude Include="Errors.h" />

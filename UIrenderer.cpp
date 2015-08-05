@@ -303,3 +303,110 @@ bool SE_UIButton::operator<(SE_UIButton &other)
 	return texture.ID < other.texture.ID;
 }
 
+
+
+LineRenderer::LineRenderer()
+{
+	shader = new Shader();
+	shader->addVertexShader("res/Shaders/LineShader.vert");
+	shader->addFragmentShader( "res/Shaders/LineShader.frag");
+	shader->linkShaders();
+	glGenVertexArrays(2,vao);
+	glGenBuffers(2,vab);
+	glBindVertexArray(vao[1]);
+	glBindBuffer(GL_ARRAY_BUFFER,vab[1]);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,sizeof(Vector3),0);
+	glBufferData(GL_ARRAY_BUFFER,200000,NULL,GL_DYNAMIC_DRAW);
+	glBindVertexArray(0);
+	glBindVertexArray(vao[0]);
+	glBindBuffer(GL_ARRAY_BUFFER,vab[0]);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,sizeof(Vector3),0);
+	glBufferData(GL_ARRAY_BUFFER,200000,NULL,GL_DYNAMIC_DRAW);
+	glBindVertexArray(0);
+	lineCount = 0;
+}
+LineRenderer::~LineRenderer()
+{
+	delete(shader);
+	glDeleteVertexArrays(2,vao);
+	glDeleteBuffers(2,vab);
+}
+GLuint LineRenderer::addLine(Vector3 pos,Vector3 pos2)
+{
+	static int ID = 0;
+	lines.insert(std::make_pair(ID++,Ray(pos,pos2)));
+	glBindVertexArray(vao[0]);
+	glBindBuffer(GL_ARRAY_BUFFER,vab[1]);
+	std::vector<Vector3> r;
+	r.push_back(pos);
+	r.push_back(pos2);
+	glBufferSubData(GL_ARRAY_BUFFER,lines.size() * 2 * sizeof(Vector3),sizeof(Vector3) * 2,&r[0]);
+	glBindVertexArray(0);
+	lineCount++;
+	return ID - 1;
+}
+
+void LineRenderer::render(Camera3d* camera)
+{
+	if(lines.size() == 0) return;
+	shader->use();
+	shader->setUniform("MVP",camera->GetViewProjection());
+	glBindVertexArray(vao[0]);
+	glDrawArrays(GL_LINES,0,lineCount * 3);
+	glBindVertexArray(vao[1]);
+	glDrawArrays(GL_LINES,0,timedLineCount * 3);
+	glBindVertexArray(0);
+}
+
+GLuint LineRenderer::addTimedLine(Vector3 pos,Vector3 pos2,float time)
+{
+	static int ID = 0;
+	glBindVertexArray(vao[1]);
+	glBindBuffer(GL_ARRAY_BUFFER,vab[1]);
+	std::vector<Vector3> r;
+	r.push_back(pos);
+	r.push_back(pos2);
+	glBufferSubData(GL_ARRAY_BUFFER,lines.size() * 2 * sizeof(Vector3),sizeof(Vector3) * 2,&r[0]);
+	glBindVertexArray(0);
+	timedLines.insert(std::make_pair(ID++,TimeRay(Ray(pos,pos2),time,lines.size() * 2)));
+	timedLineCount++;
+	return ID - 1;
+	
+}
+
+void LineRenderer::update(float timeinms)
+{
+	int first = -1;
+	int i = 0;
+	std::vector<GLuint> toErase;
+	for(auto it = timedLines.begin();it != timedLines.end();it++)
+	{
+		it->second.TTL =- timeinms/1000;
+		if(it->second.TTL < 0)
+		{
+			toErase.push_back(it->first);
+			if(first < 0) first = i;
+		}
+		i++;
+	}
+	for(unsigned int k = 0;k < toErase.size();k++)
+	{
+		timedLines.erase(toErase[k]);
+	}
+	if(first < 0) return;
+	glBindVertexArray(vao[1]);
+	glBindBuffer(GL_ARRAY_BUFFER,vab[1]);
+	i = 0;
+	for(auto it = timedLines.find(toErase[0]);it != timedLines.end();it++)
+	{
+		
+		std::vector<Vector3> r;
+		r.push_back(it->second.ray.pos);
+		r.push_back(it->second.ray.dir);
+		glBufferSubData(GL_ARRAY_BUFFER,(first + i ) * 2 * sizeof(Vector3),sizeof(Vector3) * 2,&r[0]);
+		i++;
+	}
+	glBindVertexArray(0);
+}

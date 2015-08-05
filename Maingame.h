@@ -90,6 +90,8 @@ private:
 		FpsLimiter fpsLimiter;
 		InputHandler input;
 		Scene* scene;
+		MusicPlayer* music;
+		LineRenderer* line;
 		int __screenW;
 		int __screenH;
 		float fps;

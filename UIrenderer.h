@@ -85,6 +85,33 @@ private:
 };
 
 
+struct TimeRay
+{
+
+	TimeRay(Ray r = Ray(Vector3(),Vector3()),float ttl = 0,GLuint off = 0){ray = r; TTL = ttl;offset = off;}
+	Ray ray;
+	float TTL;
+	GLuint offset;
+};
+class LineRenderer
+{
+public:
+	LineRenderer();
+	~LineRenderer();
+	GLuint addLine(Vector3 pos,Vector3 pos2);
+	GLuint addTimedLine(Vector3 pos,Vector3 pos2,float time);
+	void render(Camera3d* camera);
+	void update(float timeinms);
+private:
+
+	GLuint vab[2],vao[2];
+	GLuint last;
+	Shader* shader;
+	std::map<GLuint, Ray> lines;
+	std::map<GLuint,TimeRay> timedLines;
+	GLuint lineCount;
+	GLuint timedLineCount;
+};
 
 
 

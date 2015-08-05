@@ -62,18 +62,22 @@ struct text
 };
 
 #ifndef functions
-inline void renderText(std::string text, GLfloat x, GLfloat y,  GLfloat SX, GLfloat SY, Vector3 color)
+inline void renderText(std::string text, GLfloat x, GLfloat y,  GLfloat SX, GLfloat SY, Vector3 color = Vector3(1,1,1))
 {
 	text::get().RenderText(text,x,y,SX,SY,color);
 }
 
-inline void renderText(std::string text, GLfloat x, GLfloat y,  GLfloat scale, Vector3 color)
+inline void renderText(std::string text, GLfloat x, GLfloat y,  GLfloat scale = 1, Vector3 color = Vector3(1,1,1))
 {
 	text::get().RenderText(text,x,y,scale,color);
 }
 
-inline void timedText(std::string &text, GLfloat x, GLfloat y,  GLfloat SX, GLfloat SY, Vector3 color,GLfloat time)
+inline void timedText(std::string &text, GLfloat x, GLfloat y,  GLfloat SX, GLfloat SY, Vector3 color = Vector3(1,1,1) ,GLfloat time = 10)
 {
 	text::get().addTimedText(text,x,y,SX,SY,color,time);
+}
+inline GLuint convertSTT(GLuint wanted,GLuint maxSize)
+{
+	return wanted/maxSize * 1000;
 }
 #endif
