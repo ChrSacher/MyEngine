@@ -25,13 +25,14 @@ public:
     Camera3d(Vector3 Pos,float fov ,int width,int height,float zNear = 0.1f,float zFar = 1000.0f);
 	~Camera3d(void);
 	Camera3d(){}
-	Matrix4 perspectiveMatrix;
+	Matrix4 projectionMatrix;
 	Matrix4 viewMatrix;
+	Matrix4 viewProjection;
 	float cameraspeed;
 
     void OnMouse(int x, int y,bool ignore = false);
 	void update(Shader *shader);
-	void updatePerspectiveMatrix(float fov,int width,int height,float zNear,float zFar);
+	void updateProjectionMatrix(float fov,int width,int height,float zNear,float zFar);
 	void init();
 	Ray getDirClick(int x,int y);
 	Matrix4& GetViewProjection();

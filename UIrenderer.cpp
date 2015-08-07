@@ -326,6 +326,7 @@ LineRenderer::LineRenderer()
 	glBufferData(GL_ARRAY_BUFFER,200000,NULL,GL_DYNAMIC_DRAW);
 	glBindVertexArray(0);
 	lineCount = 0;
+	timedLineCount = 0;
 }
 LineRenderer::~LineRenderer()
 {
@@ -338,11 +339,11 @@ GLuint LineRenderer::addLine(Vector3 pos,Vector3 pos2)
 	static int ID = 0;
 	lines.insert(std::make_pair(ID++,Ray(pos,pos2)));
 	glBindVertexArray(vao[0]);
-	glBindBuffer(GL_ARRAY_BUFFER,vab[1]);
+	glBindBuffer(GL_ARRAY_BUFFER,vab[0]);
 	std::vector<Vector3> r;
 	r.push_back(pos);
 	r.push_back(pos2);
-	glBufferSubData(GL_ARRAY_BUFFER,lines.size() * 2 * sizeof(Vector3),sizeof(Vector3) * 2,&r[0]);
+	glBufferSubData(GL_ARRAY_BUFFER,lineCount * 2 * sizeof(Vector3),sizeof(Vector3) * 2,&r[0]);
 	glBindVertexArray(0);
 	lineCount++;
 	return ID - 1;
@@ -350,14 +351,22 @@ GLuint LineRenderer::addLine(Vector3 pos,Vector3 pos2)
 
 void LineRenderer::render(Camera3d* camera)
 {
-	if(lines.size() == 0) return;
+	if(lines.size() < 1 && timedLineCount < 1) return;
 	shader->use();
 	shader->setUniform("MVP",camera->GetViewProjection());
-	glBindVertexArray(vao[0]);
-	glDrawArrays(GL_LINES,0,lineCount * 3);
-	glBindVertexArray(vao[1]);
-	glDrawArrays(GL_LINES,0,timedLineCount * 3);
-	glBindVertexArray(0);
+	if(!lineCount < 1)
+	{
+		glBindVertexArray(vao[0]);
+		glDrawArrays(GL_LINES,0,lineCount * 2);
+		glBindVertexArray(0);
+	}
+	if(!timedLineCount < 1)
+	{
+		glBindVertexArray(vao[1]);
+		glDrawArrays(GL_LINES,0,timedLineCount * 2);
+		glBindVertexArray(0);
+	}
+
 }
 
 GLuint LineRenderer::addTimedLine(Vector3 pos,Vector3 pos2,float time)
@@ -368,7 +377,7 @@ GLuint LineRenderer::addTimedLine(Vector3 pos,Vector3 pos2,float time)
 	std::vector<Vector3> r;
 	r.push_back(pos);
 	r.push_back(pos2);
-	glBufferSubData(GL_ARRAY_BUFFER,lines.size() * 2 * sizeof(Vector3),sizeof(Vector3) * 2,&r[0]);
+	glBufferSubData(GL_ARRAY_BUFFER,timedLineCount * 2 * sizeof(Vector3),sizeof(Vector3) * 2,&r[0]);
 	glBindVertexArray(0);
 	timedLines.insert(std::make_pair(ID++,TimeRay(Ray(pos,pos2),time,lines.size() * 2)));
 	timedLineCount++;

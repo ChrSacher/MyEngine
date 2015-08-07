@@ -18,6 +18,8 @@ void Maingame::init()
 	__screenW = cfg->getValueOfKey<float>("width",640);
 	gamestate.playing=true;
 	gamestate.paused=false;
+	gamestate.cameramove = true;
+	gamestate.ray = false;
 	maxFPS=60;
 	ui = NULL;
 	scene = NULL;
@@ -47,16 +49,20 @@ void Maingame::handleKeys()
 			};break;
 			case SDL_MOUSEMOTION:
 			{
-				scene->getCamera()->OnMouse(event.motion.x,event.motion.y);
-				SDL_WarpMouseInWindow(window->GetSDLWindow(),__screenW /2,__screenH /2);
-				
-			
-
+				if(gamestate.cameramove)
+				{
+					scene->getCamera()->OnMouse(event.motion.x,event.motion.y);
+					SDL_WarpMouseInWindow(window->GetSDLWindow(),__screenW /2,__screenH /2);
+				}
+				 
 			};break;
 			case SDL_MOUSEBUTTONDOWN:
 			{
-				Ray ray = scene->getCamera()->getDirClick(input.getMouseCoords().x,input.getMouseCoords().y);
-				line->addLine(ray.pos,Vector3(10000,10000,10000));
+				if(gamestate.ray && input.isKeyPressed(1))
+				{
+					Ray ray = scene->getCamera()->getDirClick(input.getMouseCoords().x,input.getMouseCoords().y);
+					line->addLine(ray.pos,ray.pos+ ray.dir * 20);
+				}
 			};
 			case SDL_WINDOWEVENT:
 			{
@@ -69,9 +75,10 @@ void Maingame::handleKeys()
 						oldW = __screenW;
 						SDL_GetWindowSize(window->GetSDLWindow(),&__screenW,&__screenH);
 						glViewport(0, 0, __screenW, __screenH);
-						scene->getCamera()->updatePerspectiveMatrix(scene->getCamera()->getFov(),__screenW,__screenH,scene->getCamera()->getZ().x,scene->getCamera()->getZ().y);
-						scene->getCamera()->OnMouse(__screenW/2,__screenH/2,true);
+						scene->getCamera()->updateProjectionMatrix(scene->getCamera()->getFov(),__screenW,__screenH,scene->getCamera()->getZ().x,scene->getCamera()->getZ().y);
 						SDL_WarpMouseInWindow(window->GetSDLWindow(),__screenW /2,__screenH /2);
+						scene->getCamera()->OnMouse(__screenW/2,__screenH/2,true);
+						
 
 					};break;
 				}
@@ -110,6 +117,25 @@ void Maingame::handleKeys()
 		{
 			window->SetFullScreen(false);
 			windowed = true;
+		}
+	}
+	if(input.isKeyPressed(SDLK_SPACE))
+	{
+		static bool windowed = true;
+		if(windowed)
+		{
+			windowed = false;
+			gamestate.cameramove = false;
+			gamestate.ray = true;
+			 SDL_ShowCursor(SDL_TRUE);
+		}
+		else
+		{
+			windowed = true;
+			gamestate.cameramove = true;
+			SDL_ShowCursor(SDL_FALSE);
+			gamestate.ray = false;
+			SDL_WarpMouseInWindow(window->GetSDLWindow(),__screenW /2,__screenH /2);
 		}
 	}
 	return;
