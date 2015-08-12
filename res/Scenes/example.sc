@@ -1,10 +1,10 @@
 //File created by Simple Engine for Scenes//
-//Objects 69
+//Objects 70
 o test res/models/axis.obj res/texture/axis.png 0 0 0 0 0 0 1 1 1 1 1 1 res/texture/normal_up.jpg 
 o test res/models/box.obj res/texture/white.png 10.4783 32.8019 -56.5556 0 0 0 1 1 1 1 1 1 res/texture/normal_map.jpg 
 o test res/models/box.obj res/texture/white.png -6.36342 31.084 -43.2362 0 0 0 1 1 1 1 1 1 res/texture/normal_map.jpg 
-o test res/models/box.obj res/texture/white.png -2.65126 28.2925 -31.0942 0 0 0 1 1 1 1 1 1 res/texture/normal_map.jpg 
-o test res/models/box.obj res/texture/white.png 1.0609 25.5009 -18.9522 0 0 0 1 1 1 1 1 1 res/texture/normal_map.jpg 
+o test res/models/box.obj res/texture/white.png -2.65126 28.2925 -31.0942 0 0 0 1 1 1 1 0 0 res/texture/normal_map.jpg 
+o test res/models/box.obj res/texture/white.png 1.0609 25.5009 -18.9522 0 0 0 1 1 1 1 0 0 res/texture/normal_map.jpg 
 o test res/models/box.obj res/texture/white.png 4.20197 23.1388 -8.67829 0 0 0 1 1 1 1 1 1 res/texture/normal_map.jpg 
 o test res/models/box.obj res/texture/white.png 7.05748 20.9915 0.661674 0 0 0 1 1 1 1 1 1 res/texture/normal_map.jpg 
 o test res/models/box.obj res/texture/white.png 17.8647 54.404 42.2117 0 0 0 1 1 1 1 1 1 res/texture/normal_map.jpg 
@@ -57,7 +57,7 @@ o test res/models/box.obj res/texture/white.png -20.9923 87.7097 -35.9368 0 0 0 
 o test res/models/box.obj res/texture/white.png -11.4386 80.4545 -35.6365 0 0 0 1 1 1 1 1 1 res/texture/normal_map.jpg 
 o test res/models/box.obj res/texture/white.png 7.16606 65.9441 -19.0439 0 0 0 1 1 1 1 1 1 res/texture/normal_map.jpg 
 o test res/models/box.obj res/texture/white.png 26.2841 50.8292 6.56929 0 0 0 1 1 1 1 1 1 res/texture/normal_map.jpg 
-o test res/models/box.obj res/texture/white.png 34.6961 44.1786 17.8391 0 0 0 1 1 1 1 1 1 res/texture/normal_map.jpg 
+o test res/models/box.obj res/texture/white.png 34.6961 44.1786 17.8391 0 0 0 1 1 1 1 0 0 res/texture/normal_map.jpg 
 o test res/models/box.obj res/texture/white.png 37.6608 41.7602 24.9357 0 0 0 1 1 1 1 1 1 res/texture/normal_map.jpg 
 o test res/models/box.obj res/texture/white.png 37.2838 41.7602 36.9298 0 0 0 1 1 1 1 1 1 res/texture/normal_map.jpg 
 o test res/models/box.obj res/texture/white.png 37.0639 41.7602 43.9264 0 0 0 1 1 1 1 1 1 res/texture/normal_map.jpg 
@@ -68,5 +68,6 @@ o test res/models/box.obj res/texture/white.png 44.0514 35.7142 75.1613 0 0 0 1 
 o test res/models/box.obj res/texture/white.png 47.8751 32.6912 80.284 0 0 0 1 1 1 1 1 1 res/texture/normal_map.jpg 
 o test res/models/box.obj res/texture/white.png 50.3577 30.8774 77.3605 0 0 0 1 1 1 1 1 1 res/texture/normal_map.jpg 
 o test res/models/box.obj res/texture/white.png 43.7893 36.3188 58.1447 0 0 0 1 1 1 1 1 1 res/texture/normal_map.jpg 
-o test res/models/box.obj res/texture/white.png 25.7187 50.8292 24.5605 0 0 0 1 1 1 1 1 1 res/texture/normal_map.jpg 
+o test res/models/box.obj res/texture/white.png 25.7187 50.8292 24.5605 0 0 0 1 1 1 1 0 0 res/texture/normal_map.jpg 
+o test res/models/box.obj res/texture/white.png -52.7206 16.1978 -11.6458 0 0 0 1 1 1 1 1 1 res/texture/normal_map.jpg 
 t res/Texture/standardTerrain.png res/Texture/White.png 10 1 1 

@@ -1,52 +1,76 @@
 #include "Object.h"
 
-GLuint Object::__id = 0;
+GLuint Object::id = 0;
 Object::Object(std::string Name,std::string Objectpath,Vector3 pos,Vector3 rot,Vector3 skal ,std::string texturepath,Vector3 color,std::string NormalMap,bool autoCenter)
 {
 
-	__ID = __id;
-	__id++;
+	ID = id;
+	id++;
 	material = new Material(texturepath,NormalMap,color,2,32);
-	transform = Transform(pos,rot,skal);
+	transform = new Transform(pos,rot,skal);
 	mesh = new Mesh(Objectpath,autoCenter);
 	renderable = true;
-	__objectName = Name;
+	objectName = Name;
 }
 
 
 Object::~Object(void)
 {
-	if(material  || mesh)
-	{
-		delete(material,mesh);
-		material = NULL;
-		mesh = NULL;
-	}
+	if(material )delete(material);
+	if(mesh) delete(mesh);
+	if(transform) delete(transform);
+	transform = NULL;
+	material = NULL;
+	mesh = NULL;
 }
 
-void Object::draw()
+void Object::drawMesh()
 {
 	mesh->draw();
 };
 
 Matrix4& Object::getMatrix()
 {
-	return transform.getMatrix();
+	return transform->getMatrix();
 }
 
 Object::Object(const Object& otherobject)
 {
-	__ID = __id;
-	__id++;
+	ID = id;
+	id++;
 	material = new Material(*otherobject.material);
-	transform = Transform(otherobject.transform);
+	transform = new Transform(*otherobject.transform);
 	mesh = new Mesh(*otherobject.mesh);
 	renderable = true;
 }
 
 bool Object::operator==(const Object& other)
 {
-	return (__ID && other.__ID);
+	return (ID == other.ID);
+}
+
+std::string Object::toString()
+{
+	std::string returnS;
+	returnS += objectName + " " + mesh->getPath() + " " + material->texture.texturepath +" ";
+	returnS += std::to_string(transform->getPos().x) + " " +  std::to_string(transform->getPos().y) + " " +  std::to_string(transform->getPos().z) + " ";
+	returnS += std::to_string(transform->getRot().x) + " " +  std::to_string(transform->getRot().y) + " " +  std::to_string(transform->getRot().z) + " ";
+	returnS += std::to_string(transform->getPos().x) + " " +  std::to_string(transform->getPos().y) + " " +  std::to_string(transform->getPos().z) + " ";
+	returnS += std::to_string(material->getColor().x) + " " +  std::to_string(material->getColor().y) + " " +  std::to_string(material->getColor().z) + " ";
+	returnS += material->normalMap.texturepath;
+	return returnS;
+}
+
+std::string Object::toStringNames()
+{
+	std::string returnS;
+	returnS += objectName + " " + mesh->getPath() + " " + material->texture.texturepath +"\n";
+	returnS += "Position" + std::to_string(transform->getPos().x) + " " +  std::to_string(transform->getPos().y) + " " +  std::to_string(transform->getPos().z) +"\n";
+	returnS += "Rotation" + std::to_string(transform->getRot().x) + " " +  std::to_string(transform->getRot().y) + " " +  std::to_string(transform->getRot().z)+"\n";
+	returnS += "Scale" + std::to_string(transform->getScale().x) + " " +  std::to_string(transform->getScale().y) + " " +  std::to_string(transform->getScale().z)+"\n";
+	returnS += "Color" + std::to_string(material->getColor().x) + " " +  std::to_string(material->getColor().y) + " " +  std::to_string(material->getColor().z)+"\n";
+	returnS += material->normalMap.texturepath +"\n";
+	return returnS;
 }
 
  ObjectInformation::ObjectInformation(Object* newObject, GLuint Offset = 0,GLuint Count =  0)
@@ -233,11 +257,11 @@ GLuint  ObjectBatch::render(Shader *shader,Camera3d *cam)
 			
 			if(cam != NULL)
 			{
-				if(iter->second.object->transform.getPos().distance(cam->getPos()) > cam->getZ().y) continue; //don't draw when out of range
-				if(cam->isBehind(iter->second.object->transform.getPos())) continue; //don't draw behind camera
+				if(iter->second.object->transform->getPos().distance(cam->getPos()) > cam->getZ().y) continue; //don't draw when out of range
+				if(cam->isBehind(iter->second.object->transform->getPos())) continue; //don't draw behind camera
 			}
-			iter->second.object->transform.update(shader);
-			shader->setMVP(iter->second.object->transform.getMatrix());
+			iter->second.object->transform->update(shader);
+			shader->setMVP(iter->second.object->transform->getMatrix());
 			iter->second.object->material->update(shader);
 			glDrawArrays(GL_TRIANGLES,iter->second.offset,iter->second.count);
 			i++;
@@ -254,7 +278,7 @@ void  ObjectBatch::renderShadow(Shader *shader)
 	shader->use();
 	for(auto iter = objects.begin();iter != objects.end();iter++)
 	{
-			shader->setUniform("modelMatrix[0]",iter->second.object->transform.getMatrix());
+			iter->second.object->transform->update(shader);
 			glDrawArrays(GL_TRIANGLES,iter->second.offset,iter->second.count);
 	}
 	glBindVertexArray(0);
@@ -278,3 +302,37 @@ void ShaderObjectPipeLine::emptyBatch()
 		remainingSize = maxSize;
 		countObjects = 0;
  }
+
+GLuint ObjectBatch::renderColor(Shader *shader,Camera3d* cam, Vector3 color)
+ {
+	glBindVertexArray(vao);
+	loadBufferIndexToLast();
+	int i = 0;
+	for(auto iter = objects.begin();iter != objects.end();iter++)
+	{
+			
+			if(cam != NULL)
+			{
+				if(iter->second.object->transform->getPos().distance(cam->getPos()) > cam->getZ().y) continue; //don't draw when out of range
+				if(cam->isBehind(iter->second.object->transform->getPos())) continue; //don't draw behind camera
+			}
+			shader->setMVP(cam->GetViewProjection(),iter->second.object->transform->getMatrix());
+			shader->setUniform("color",color);
+			glDrawArrays(GL_TRIANGLES,iter->second.offset,iter->second.count);
+			i++;
+	}
+	objectsDrawn = i;
+	glBindVertexArray(0);
+	return i;
+ }
+
+GLuint ShaderObjectPipeLine::renderColor(Shader *shader,Camera3d* cam, Vector3 color)
+ {
+	int k = 0;
+	for (unsigned int i = 0; i< countBatches; i++)
+    {  
+       k =+ batches[i]->renderColor(shader,cam,color);
+    }
+	return k;
+ }
+

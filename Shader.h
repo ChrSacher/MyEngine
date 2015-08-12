@@ -14,7 +14,34 @@
 #include "Math/3DMath.h"
 
 
+enum UniformType
+{
+	UTBOOL,
+	UTFLOAT,
+	UTINT,
+	UTVECTOR2,
+	UTVECTOR3,
+	UTVECTOR4,
+	UTMATRIX
 
+};
+struct UniformPosition
+{
+	UniformPosition(GLint Pos,Vector4 Value)
+	{
+		position = Pos;
+		value = Value;
+	}
+	void get(bool &boolReturn);
+	void get(float &returnFloat);
+	void get(int &returnInt);
+	void get(Vector2 &returnV2);
+	void get(Vector3 &returnV3);
+	void get(Vector4 &returnV4);
+	GLint position;
+	Vector4 value;
+	UniformType type;
+};
 
 class Shader
 {
@@ -41,7 +68,6 @@ public:
 	void use();
 	void unuse();
     void addAttribute(const std::string& attributeName);
-	std::unordered_map<std::string,GLint> uniforms;
 	GLint getUniformLocation(const std::string& uniformName);
 	//setters
 	void setmodelMatrices(std::vector<Matrix4*> &modelMatrices) ;
@@ -56,15 +82,17 @@ public:
 	void setMVP(Matrix4 &view,Matrix4 &model);
 	void setMVP(Matrix4 &model);
 	//
-    int _numAttributes;
+  
+
+	Matrices matrices;
+	//classes are only known to shader
+private:
+	std::unordered_map<std::string,UniformPosition> uniforms;
 	std::vector<GLuint> attachedShaders;
 	GLuint _programID;
 	static GLuint currentActiveShader;
 	static GLuint lastActiveShader;
-	Matrices matrices;
-	//classes are only known to shader
-private:
-	
+	 int _numAttributes;
 };
 
 class BasicShader:public Shader

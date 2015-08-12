@@ -38,7 +38,28 @@ void Scene::parseData(SceneDetails &Data)
 Scene::Scene(int Height,int Width,std::string path)
 {
 		parseData(loader.loadScene(Height,Width,path));	
+		fbo = new FBO();
+		fbo->init(Vector2(camera->getSize().x,camera->getSize().y));
 }
+
+Ray Scene::getClick(int x,int y)
+{
+	int i = 0;
+	fbo->activate();
+	i += pipeline->renderColor(shader,camera,Vector3(0.2,0.2,0.2));
+	glFinish();
+	//now read the stuff under pixel
+	//glReadPixels(x,y,camera->getSize().x,camera->getSize().y,GL_RGB,GL_FLOAT,NULL);
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    glViewport(0, 0, camera->getSize().x, camera->getSize().y);
+	return Ray();
+}
+
+
+
+
+
+
 
 SceneDetails SceneLoader::loadScene(int Height,int Width,std::string path)
 {
@@ -47,11 +68,12 @@ SceneDetails SceneLoader::loadScene(int Height,int Width,std::string path)
 	data.shader->addVertexShader("res/Shaders/textureShading.vert");
 	data.shader->addFragmentShader( "res/Shaders/textureShading.frag");
 	data.shader->linkShaders();
+	data.lightingCache.init();
 	data.lightingCache.addLight(AmbientLight(Vector3(1,1,1)));
 	data.lightingCache.addLight(DirectionalLight(BaseLight(Vector3(1,1,1),0.0f),Vector3(1,1,1)));
 	data.lightingCache.addFog(Fog(0.05f,Vector4(0.5f,0.5f,0.5f,1.0f),500.0f,1000.0f,false));
 	data.camera = new Camera3d(Vector3(0,0,0),70,Width,Height,0.1f,1000.0f);
-	data.skybox = new Skybox(*data.camera);
+	data.skybox = new Skybox(data.camera);
 	data.skybox->loadSkybox("res/Texture/Skybox/standard/");
 	data.terrain = NULL;
 	data.objectCount = 0;
@@ -113,9 +135,29 @@ void Scene::saveFile(std::string name)
 }
 
 
+std::vector<Object*> Scene::getObjectVector()
+{
+	std::vector<Object*> returnV;
+	for(auto &j = objects.begin();j != objects.end();j++)
+	{
+		returnV.push_back(j->second);
+	}
+	return returnV;
+}
 
+std::vector<Object*> Scene::getObjectsOnRay(Ray ray)
+{
+	return RayTracer::getObjectsOnRay(getObjectVector(),camera,ray);
+}
+Object* Scene::getFirstObjectOnRay(Ray ray)
+{
+	return RayTracer::getFirstObjectOnRay(getObjectVector(),camera,ray);
+}
 
-
+void Scene::pick(int x,int y )
+{
+	picker.pick(x,y,getObjectVector(),camera);
+}
 
 
 
@@ -138,9 +180,9 @@ void  SceneLoader::saveFile(std::string name,SceneDetails& Data)
 	for(auto i = Data.objects.begin();i != Data.objects.end();i++)
 	{
 		myfile <<"o "<<i->second->getName()<< " " << i->second->mesh->getPath() << " "<< i->second->material->texture.texturepath<< " "
-			<< i->second->transform.getPos().x << " "<< i->second->transform.getPos().y << " " << i->second->transform.getPos().z <<" " 		 
-			<< i->second->transform.getRot().x << " "<< i->second->transform.getRot().y << " " << i->second->transform.getRot().z <<" "
-			<< i->second->transform.getScale().x << " "<< i->second->transform.getScale().y << " " << i->second->transform.getScale().z <<" "
+			<< i->second->transform->getPos().x << " "<< i->second->transform->getPos().y << " " << i->second->transform->getPos().z <<" " 		 
+			<< i->second->transform->getRot().x << " "<< i->second->transform->getRot().y << " " << i->second->transform->getRot().z <<" "
+			<< i->second->transform->getScale().x << " "<< i->second->transform->getScale().y << " " << i->second->transform->getScale().z <<" "
 			<< i->second->material->getColor().x << " "<< i->second->material->getColor().y << " " << i->second->material->getColor().z <<" "
 			<< i->second->material->normalMap.texturepath <<" \n" ;
 	}
@@ -381,5 +423,7 @@ bool  SceneLoader::validateScene(std::vector<std::string> &temp)
 	}
 	return false;
 }
+
+
 
 

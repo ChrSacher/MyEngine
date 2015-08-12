@@ -28,25 +28,26 @@ public:
 	Object(const Object& otherobject);
 	~Object(void);
 
-	void draw();
+	void drawMesh();
 
 	Matrix4& getMatrix();
-	GLuint getID(){return __ID;};
-	std::string getName(){return __objectName;};
-	std::string getPath(){return __filePath;};
+	GLuint getID(){return ID;};
+	std::string getName(){return objectName;};
+	std::string getPath(){return filePath;};
 	bool operator==(const Object& other);
 	Object& operator=(const Object& other);
-
+	std::string toStringNames();
+	std::string toString();
 	bool renderable; //render or don't render 
 	Material *material; //texture + lighting variables
 	Mesh *mesh; //vertices
-	Transform transform;//position, rotation, scaling in 3d space
+	Transform *transform;//position, rotation, scaling in 3d space
 
 private:
-	static GLuint __id;
-	GLuint __ID;
-	std::string __objectName;
-	std::string __filePath;
+	static GLuint id;
+	GLuint ID;
+	std::string objectName;
+	std::string filePath;
 	
 	
 };
@@ -79,12 +80,13 @@ struct ObjectInformation
 		bool checkSize(Object* newObject);
 		GLuint render(Shader *shader,Camera3d *cam);
 		void renderShadow(Shader *shader);
-		
+		GLuint renderColor(Shader *shader,Camera3d* cam, Vector3 color);
+
 		void loadBuffer();
 		void loadBufferLast();
 		void loadBufferIndexToLast();
 		void emptyBuffer();
-
+	private:
 		GLuint maxSize;
 		GLuint countObjects;
 		GLuint lastDeleteObjectIndex;
@@ -106,6 +108,7 @@ struct ObjectInformation
 		GLuint  renderBatches(Shader* shader,Camera3d *cam = NULL);
 		void renderBatchesInstanced(Shader* shader);
 		void renderShadowBatches(Shader* shader);
+		GLuint renderColor(Shader *shader,Camera3d* cam, Vector3 color);
 		void emptyBatch();
 
 		std::vector<ObjectBatch*> batches;

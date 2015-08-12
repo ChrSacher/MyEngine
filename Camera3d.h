@@ -40,6 +40,7 @@ public:
 	Vector3 getPos();
 	Vector3 getUp();
 	Vector2 getZ(){return Vector2(zNear,zFar);}
+	Vector2 getSize(){return Vector2(windowWidth,windowHeight);}
 	float getFov(){return fov;}
 	void setDir(Vector3 Dir){dir = Dir;}
 	void setPos(Vector3 Pos){pos = Pos;}

@@ -33,6 +33,54 @@ struct TextData
 };
 struct Text
 {
+	
+	~Text();
+	Text();
+	std::vector<TextData> data;
+	/* update timed text*/
+	void update(GLfloat time);
+	/*
+		param /text/ text that will be displaced
+		param /x/ x pos on screen
+		param /y/ y pos on screen
+		param /SX/ size in x dir
+		param /SY/ size in y dir
+		param /time/ time in seconds for time to display
+		Will render text on screen text will be filling the entire box
+	*/
+	void addTimedText(std::string text, GLfloat x, GLfloat y,  GLfloat SX, GLfloat SY, Vector3 color,GLfloat time);
+	/*
+		param /text/ text that will be displaced
+		param /x/ x pos on screen
+		param /y/ y pos on screen
+		param /SX/ size in x dir
+		param /SY/ size in y dir
+		Will render text on screen text will be filling the entire box
+	*/
+	void RenderText(std::string text, GLfloat x, GLfloat y,  GLfloat SX, GLfloat SY, Vector3 color);
+	/*
+		param /text/ text that will be displaced
+		param /x/ x pos on screen
+		param /y/ y pos on screen
+		param /SX/ size in x dir
+		param /SY/ size in y dir
+		Will render text on screen text will be scaled down to good x-y
+	*/
+	void RenderText(std::string text, GLfloat x, GLfloat y,  GLfloat scale, Vector3 color);
+
+	void RenderText(std::vector<TextData> &data);
+	/*
+		param /text/ text that will be displaced
+		param Vector4(x,y,SX,SY)
+		param /x/ x pos on screen
+		param /y/ y pos on screen
+		param /SX/ size in x dir
+		param /SY/ size in y dir
+		Will render text on screen text will be filling the entire box
+	*/
+	void RenderText(std::string text,std::vector<Vector4> &vertices);
+	void setProjection(float width,float height){projection = Matrix4().InitOrthographic(0,width,0,height,-1,1);};
+private:
 	std::map<GLchar, Character> Characters;
 	GLuint vao,vbo;
 	FT_Library library;
@@ -40,16 +88,6 @@ struct Text
 	Shader* shader;
 	bool valid;
 	Matrix4 projection;
-	~Text();
-	Text();
-	std::vector<TextData> data;
-	void update(GLfloat time);
-	void addTimedText(std::string text, GLfloat x, GLfloat y,  GLfloat SX, GLfloat SY, Vector3 color,GLfloat time);
-	void RenderText(std::string text, GLfloat x, GLfloat y,  GLfloat SX, GLfloat SY, Vector3 color);
-	void RenderText(std::string text, GLfloat x, GLfloat y,  GLfloat scale, Vector3 color);
-	void RenderText(std::vector<TextData> &data);
-	void draw(std::vector<Vector4> &vertices,std::string text);
-	void setProjection(float width,float height){projection = Matrix4().InitOrthographic(0,width,0,height,-1,1);};
 };
 
 struct text

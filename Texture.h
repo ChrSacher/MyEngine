@@ -17,16 +17,23 @@
 class Texture
 {
 public:
-	Texture(){ID = 0;}
+	/*
+		param path path to picture
+		Will load the texture from path
+	*/
+	Texture(){ID = -1;}
 	Texture(std::string path);
-	
 	virtual ~Texture(void);
+	/*
+		param unit int between 0 and 27
+		Will bind the texture on the graphicscard in unit slot
+	*/
 	void bind(int unit = 0) const;
 	GLuint ID;
 	int width,height;
 	std::string texturepath;
 	void drawTexture(bool check) const; //disables or enables Textures in the engine
-	void addTexture(std::string path); //replaces current Texture with path
+	void addTexture(std::string path = "res/texture/white.png"); //replaces current Texture with path
 	void releaseTexture(); //clears memory in opengl
 };
 

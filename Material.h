@@ -10,7 +10,7 @@
 class Material
 {
 public:
-	Material(std::string path = "res/Texture/white.png" ,std::string normalPath = "res/texture/normal_up.jpg", Vector3 Color = Vector3(1,1,1),float intensity = 2,float exponent = 32);
+	Material(std::string path = "res/Texture/white.png" ,std::string normalPath = "res/texture/normal_up.jpg", Vector3 Color = Vector3(1,1,1),float intensity = 2,float exponent = 32,bool fromCache = true);
 	~Material(void);
 
 	Texture texture;

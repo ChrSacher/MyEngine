@@ -9,6 +9,6 @@ void main()
 {
 	gl_Position = ortho * vec4(position,0.0f,1.0f);
 	gl_Position.z = 0.0f;
-	//gl_Position.w = 1.0f;
+	gl_Position.w = 1.0f;
 	uv0=uv;
 }

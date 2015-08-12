@@ -7,9 +7,10 @@
 
 int main( int argc, char* args[] )
 {
-	Maingame mygame;
+	Maingame *mygame = new Maingame();
 	//Starten
-	mygame.run();
+	mygame->run();
+	delete(mygame);
 	return 0;
 }
 

@@ -9,31 +9,22 @@ const static int MARGIN = 50;
 
 Ray Camera3d::getDirClick(int x,int y)
 {     
+		float x2 = (2.0f *x) / windowWidth - 1.0f;
+		float y2 = 1.0f - (2.0f * y) / windowHeight;
+		x2 = -x2; //for whatever reason/ it works
+		y2 = -y2;
+		Vector4 ray_clip = Vector4 (x2,y2, -1.0, 1.0);
+		Matrix4 temp1 = projectionMatrix;
+		Vector4 ray_eye = temp1.invertGeneral() * ray_clip;
+		ray_eye.z =  -1.0;
+		ray_eye.w = 0.0;
+		Vector4 ray_wor = ((Matrix4().identity().lookAt(pos,pos - dir,up)).invert() * ray_eye);
+		Vector3 returnV = Vector3(ray_wor.x,ray_wor.y,ray_wor.z);
+		// don't forget to normalise the vector at some point
+		returnV = returnV.normalize();
+		returnV.conjugate(); // invert
+		return Ray(pos,returnV);
 
-        Matrix4 matProjection = Matrix4().lookAt(pos,pos - dir,up) * projectionMatrix ;
-
-        Matrix4 matInverse =  matProjection.invert();
-
-
-        float in[4];
-        float winZ = 1.0;
-
-
-        in[0]=(2.0f*((float)(mousePos.x-0)/(windowWidth-0)))-1.0f,
-        in[1]=1.0f-(2.0f*((float)(mousePos.y-0)/(windowHeight-0)));
-        in[2]=2.0* winZ -1.0;
-        in[3]=1.0;          
-
-		Vector4 vIn = Vector4(in[0],in[1],in[2],in[3]);
-        Vector4 pos2 = vIn * matInverse;
-
-        pos2.w = 1.0 / pos2.w;
-
-        pos2.x *= pos2.w;
-        pos2.y *= pos2.w;
-        pos2.z *= pos2.w;
-
-		return Ray(pos,Vector3(pos2.x,pos2.y,pos2.z).normalize());
 }
 Camera3d::Camera3d(Vector3 Pos,float fov,int width,int height,float zNear,float zFar)
 {

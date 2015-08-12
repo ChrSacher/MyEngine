@@ -125,7 +125,7 @@ struct FBO
  
     void activate() 
 	{
-        assert(fbo);
+        //assert(fbo);
         glBindFramebuffer(GL_FRAMEBUFFER, fbo);
         glViewport(0, 0, (int)size.x, (int)size.y);
     }

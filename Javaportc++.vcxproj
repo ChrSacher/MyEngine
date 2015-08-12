@@ -104,6 +104,7 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="ParticleSystem.h" />
+    <ClInclude Include="Picker.h" />
     <ClInclude Include="RenderUtil.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Shader.h" />
@@ -132,6 +133,7 @@
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Observer.cpp" />
     <ClCompile Include="ParticleSystem.cpp" />
+    <ClCompile Include="Picker.cpp" />
     <ClCompile Include="RenderUtil.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Shader.cpp" />

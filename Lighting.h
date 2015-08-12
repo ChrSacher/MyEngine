@@ -162,6 +162,10 @@ struct LightingCache
 public:
 	LightingCache()
 	{
+		
+	};
+	void init()
+	{
 		glGenVertexArrays(1,&vao);
 		glGenBuffers(1,&vab);
 		glBindVertexArray(vao);
@@ -174,7 +178,7 @@ public:
 		shader->addVertexShader("res/Shaders/lineShader.vert");
 		shader->addFragmentShader( "res/Shaders/lineShader.frag");
 		shader->linkShaders();
-	};
+	}
 	~LightingCache(){};
 	void addLight(PointLight light);
 	void addLight(SpotLight light);

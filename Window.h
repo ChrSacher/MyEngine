@@ -11,7 +11,7 @@ class Window
 {
 public:
 	Window(int width, int height, const std::string& title);
-	virtual ~Window();
+	~Window();
 	
 	void Update();
 	void SwapBuffers();

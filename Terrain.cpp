@@ -36,7 +36,7 @@ Terrain::Terrain(std::string Path,std::string Texture,float PW , float PH,bool C
 
 Terrain::~Terrain(void)
 {
-	delete(material,transform,Index,shader);
+	delete(material,transform,Index);
 	material = NULL;
 	transform = NULL;
 	Index = NULL;

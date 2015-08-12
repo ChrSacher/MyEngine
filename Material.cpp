@@ -1,11 +1,18 @@
 #include "Material.h"
 
 
-Material::Material(std::string path,std::string normalPath,Vector3 Color,float intensity ,float power)
+Material::Material(std::string path,std::string normalPath,Vector3 Color,float intensity ,float power,bool fromCache)
 {
-	
-	texture = TextureCache::getTexture(path);
-	normalMap = NormalCache::getTexture(normalPath);
+	if(fromCache)
+	{
+		texture = TextureCache::getTexture(path);
+		normalMap = NormalCache::getTexture(normalPath);
+	}
+	else
+	{
+		texture = TextureLoader::load(path);
+		texture = TextureLoader::loadNormal(normalPath);
+	}
 	color=Color;
 	specularIntensity=intensity;
 	specularPower= power;

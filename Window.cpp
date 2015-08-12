@@ -76,7 +76,7 @@ Window::Window(int width, int height, const std::string& title) :
 	{
 		fprintf(stderr, "Error: '%s'\n", glewGetErrorString(res));
 	}
-	SwapBuffers();
+	SDL_GL_SwapWindow( window);
 }
 
 Window::~Window()
@@ -101,10 +101,13 @@ void Window::SetFullScreen(bool value)
 	int mode = 0;
 	if(value)
 	{
-		mode = SDL_WINDOW_FULLSCREEN_DESKTOP ;
+		mode = SDL_WINDOW_FULLSCREEN_DESKTOP;
+		SDL_MaximizeWindow(window);
+
 	}
 	else
 	{
+		SDL_RestoreWindow(window);
 		mode = 0;
 	}
 	SDL_SetWindowFullscreen( window, mode);

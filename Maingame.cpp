@@ -9,7 +9,19 @@ Maingame::Maingame(void)
 
 Maingame::~Maingame(void)
 {
-
+	if(scene) scene->saveFile("res/Scenes/example.sc");
+	if(scene)delete(scene);
+	if(ui) delete(ui);
+	if(window) delete(window);
+	if(line) delete(line);
+	scene = NULL;
+	ui = NULL;
+	window = NULL;
+	line = NULL;
+	TextureCache::deleteCache();
+	ModelCache::deleteCache();
+	util.~RenderUtil();
+	SDL_Quit();
 }
 
 void Maingame::init()
@@ -60,8 +72,8 @@ void Maingame::handleKeys()
 			{
 				if(gamestate.ray && input.isKeyPressed(1))
 				{
-					Ray ray = scene->getCamera()->getDirClick(input.getMouseCoords().x,input.getMouseCoords().y);
-					line->addLine(ray.pos,ray.pos+ ray.dir * 20);
+					scene->pick(input.getMouseCoords().x,input.getMouseCoords().y);
+
 				}
 			};
 			case SDL_WINDOWEVENT:
@@ -212,17 +224,7 @@ void Maingame::gameloop()
 
 void Maingame::close()
 {
-	scene->saveFile("res/Scenes/example.sc");
-	delete(scene,ui,window,line);
-	scene = NULL;
-	ui = NULL;
-	window = NULL;
-	TextureCache::deleteCache();
-	ModelCache::deleteCache();
-	util.~RenderUtil();
-	SDL_Quit();
-
-	exit(0);
+	gamestate.playing = false;
 }
 
 void Maingame::run()
@@ -243,7 +245,7 @@ void Maingame::createObjects()
 	scene->getLightingCache()->addLight(SpotLight(PointLight(Vector3(10,100,10),BaseLight(Vector3(1,1,1),1.f),Attenuation(1,29,64),1000),Vector3(1,1,0),0.1f));
 	ui = new UIrenderer();
 	line = new LineRenderer();
-	ui->addButton(Vector2(0,0),Vector2(100,100),Vector4(1,0,1,1),true,"","Button","Text",CENTER);
+	ui->addButton(Vector2(0,0),Vector2(100,100),Vector4(1,0,1,1),true,"","Button","Text",RIGHTUP);
 	music = new MusicPlayer("res/Sound/*");
 }
 

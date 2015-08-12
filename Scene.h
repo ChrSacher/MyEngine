@@ -18,6 +18,8 @@
 #include "Shader.h"
 #include "Terrain.h"
 #include <Windows.h>
+#include "FBO.h"
+#include "Picker.h"
 
 enum Primitives
 {
@@ -91,10 +93,12 @@ public:
 	Camera3d* getCamera(){return camera;}
 	LightingCache* getLightingCache(){return &lightingCache;}
 	GLuint getCount(){return objectCount;}
-	GLuint getObjectDrawCount()
-	{
-		return pipeline->objectsDrawn;
-	}
+	GLuint getObjectDrawCount(){return pipeline->objectsDrawn;}
+	Ray getClick(int x,int y); //TODO
+	std::vector<Object*> getObjectVector();
+	std::vector<Object*> getObjectsOnRay(Ray ray);
+	Object* getFirstObjectOnRay(Ray ray);
+	void pick(int x,int y );
 	//loading parsing and saving scene
 	void parseData(SceneDetails &Data);
 	void saveFile(std::string name);
@@ -108,7 +112,8 @@ private:
 	LightingCache lightingCache;
 	ShaderObjectPipeLine *pipeline;
 	GLuint objectCount;
-	
+	FBO *fbo;
+	Picker picker;
 };
 
 

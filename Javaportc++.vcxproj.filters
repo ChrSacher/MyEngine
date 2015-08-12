@@ -102,6 +102,9 @@
     <ClInclude Include="Commands.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="Picker.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Errors.cpp">
@@ -177,6 +180,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="Audio.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Picker.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

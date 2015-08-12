@@ -199,40 +199,58 @@ GLint Shader::getUniformLocation(const std::string& uniformName)
 			location = -1;
 		}	 
         //Insert it into the map
-		uniforms.insert(make_pair(uniformName, location));
+		uniforms.insert(make_pair(uniformName, UniformPosition(location,Vector4())));
 
         return location; 
     }
-   return mit->second;
+   return mit->second.position;
 }
 
 	void Shader::setUniform(std::string uniformName, int value)
 	{
 		glUniform1i(getUniformLocation(uniformName), value);
+		auto &r = uniforms.find(uniformName);
+		r->second.value.x = value;
+		r->second.type = UTINT;
+	
 	}
 
 	void Shader::setUniform(std::string uniformName, bool value)
 	{
 		glUniform1i(getUniformLocation(uniformName), value);
+		auto &r = uniforms.find(uniformName);
+		r->second.value.x = value;
+		r->second.type = UTBOOL;
 	}
 
 	void Shader::setUniform(std::string uniformName, float value)
 	{
 		glUniform1f(getUniformLocation(uniformName), value);
+		auto &r = uniforms.find(uniformName);
+		r->second.value.x = value;
+		r->second.type = UTFLOAT;
 	}
 	
 	void Shader::setUniform(std::string uniformName, Vector3 value)
 	{
 		glUniform3f(getUniformLocation(uniformName), value[0],value[1],value[2]);
+		auto &r = uniforms.find(uniformName);
+		r->second.value = Vector4(value.x,value.y,value.z,0);
+		r->second.type = UTVECTOR3;
 	}
 	void Shader::setUniform(std::string uniformName, Vector4 value)
 	{
 		glUniform4f(getUniformLocation(uniformName), value[0],value[1],value[2],value[3]);
+		auto &r = uniforms.find(uniformName);
+		r->second.value = value;
+		r->second.type = UTVECTOR4;
 	}
 	
 	void Shader::setUniform(std::string uniformName, Matrix4 value)
 	{
 		glUniformMatrix4fv(getUniformLocation(uniformName),1,GL_FALSE,&value[0]);
+		auto &r = uniforms.find(uniformName);
+		r->second.type = UTMATRIX;
 	}
 	//standard shader specific settings
 
@@ -386,5 +404,36 @@ void BasicShader::unuse()
 
 
 
-
+void UniformPosition::get(bool &boolReturn)
+{
+	boolReturn = value.x > 0.5;
+}
+void UniformPosition::get(float &returnFloat)
+{
+	returnFloat = value.x;
+}
+void UniformPosition::get(int &returnInt)
+{
+	returnInt = (int) value.x;
+}
+void UniformPosition::get(Vector2 &returnV2)
+{
+	returnV2.x = value.x;
+	returnV2.y = value.y;
+}
+void UniformPosition::get(Vector3 &returnV3)
+{
+	returnV3.x = value.x;
+	returnV3.y = value.y;
+	returnV3.z = value.z;
+	
+}
+void UniformPosition::get(Vector4 &returnV4)
+{
+	returnV4.x = value.x;
+	returnV4.y = value.y;
+	returnV4.z = value.z;
+	returnV4.w = value.w;
+	
+}
 

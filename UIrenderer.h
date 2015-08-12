@@ -64,11 +64,23 @@ public:
 
 class Skybox 
 { 
-public: 
+public:
+	/*
+		param Directory there place where the files are stored Example: res/texture/skybox/standard/
+		param Rest invidual names
+		Will load the skybox with Vetices Texture and Shader
+	*/
    void loadSkybox(std::string Directory, std::string posx = "posx.png", std::string negx = "negx.png", std::string posy = "posy.png", std::string negy = "negy.png", std::string posz = "posz.png", std::string negz= "negz.png"); 
+  /*
+		param Directory there place where the files are stored Example: res/texture/skybox/standard/
+		param Rest invidual names
+		Will set the cube Texture
+	*/
    void setSkyboxTexture(std::string Directory, std::string posx = "posx.png", std::string negx = "negx.png", std::string posy = "posy.png", std::string negy = "negy.png", std::string posz = "posz.png", std::string negz= "negz.png"); 
+   /* Render The Skybox with its own Shader and matrices and textures*/
    void renderSkybox(); 
-   Skybox(Camera3d &Camera = Camera3d(),Vector4 Color = Vector4(1,1,1,1));
+   /*Make Skybox and attach Camera to it and give it a color(use other than white for different shaded sky)*/
+   Skybox(Camera3d *Camera =  new Camera3d(),Vector4 Color = Vector4(1,1,1,1));
    ~Skybox();
    void setCamera(Camera3d* Camera);
    void setColor(Vector4 Color);
@@ -98,9 +110,28 @@ class LineRenderer
 public:
 	LineRenderer();
 	~LineRenderer();
+	/* 
+	param pos start of Ray
+	param pos2 end of Ray
+	Will load Line into Buffer and render it on next render call
+	*/
 	GLuint addLine(Vector3 pos,Vector3 pos2);
+	/* 
+		param pos start of Ray
+		param pos2 end of Ray
+		param time time in second
+		Will load Line into Buffer and render it on next render call after time in seconds have passed the line will be removed from the buffer
+	*/
 	GLuint addTimedLine(Vector3 pos,Vector3 pos2,float time);
+	/*
+		param camera Camera3d to render with
+		Render lines in 3d with Camera viewProjection
+	*/
 	void render(Camera3d* camera);
+	/*
+		param timeinms time in ms which have passed
+		Will update the timed line Buffer
+	*/
 	void update(float timeinms);
 private:
 

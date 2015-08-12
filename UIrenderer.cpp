@@ -8,10 +8,8 @@ UIrenderer::UIrenderer()
 	shader = new Shader();
 	shader->addVertexShader("res/Shaders/2DShader.vert");
 	shader->addFragmentShader( "res/Shaders/2DShader.frag");
-	shader->addAttribute("position");
-	shader->addAttribute("uv");
 	shader->linkShaders();
-	ortho= Matrix4().identity().InitOrthographic(0,1000,0,1000,-1,1);
+	ortho = Matrix4().identity().InitOrthographic(0.0f, 1000.0f, 0.0f, 1000.0f,-1.0f,1.0f);
 	glGenVertexArrays(1,&vao);
 	glBindVertexArray(vao);
 	glGenBuffers(NUMBUFFERS,vab);
@@ -43,6 +41,7 @@ void UIrenderer::draw()
 	glDisable(GL_CULL_FACE);
 	shader->use();
 	shader->setUniform("ortho",ortho);
+	shader->setUniform("diffuse",0);
 	glBindVertexArray(vao);
 	int offset = 0;
 	std::vector<TextData> data;
@@ -60,9 +59,10 @@ void UIrenderer::draw()
 			offset += 6;
 	}
 	glBindVertexArray(0);	
+	glEnable(GL_CULL_FACE);
 	glClear(GL_DEPTH_BUFFER_BIT);
 	text.RenderText(data);
-	glEnable(GL_CULL_FACE);
+	
 }
 
 SE_UIButton::SE_UIButton(Vector2 Start,Vector2 Size,Vector4 Color,bool Render,std::string texturepath,std::string Name,std::string text,SE_ButtonType type)
@@ -82,9 +82,7 @@ SE_UIButton::SE_UIButton(Vector2 Start,Vector2 Size,Vector4 Color,bool Render,st
 void UIrenderer::loadBuffer()
 {
 	std::vector<Vector2> positions;
-	std::vector<Vector2> uvs;
-	positions.reserve(buttons.size() * 6);
-	uvs.reserve(buttons.size() * 6);
+	positions.reserve(buttons.size() * 12);
 	for(unsigned int i=0;i< buttons.size();i++)
 	{
 		
@@ -95,44 +93,44 @@ void UIrenderer::loadBuffer()
 			{
 				c.start.x =- (c.size.x/2);
 				
-			}
+			}break;
 			case LEFT:
 			{
 				c.start.x =- (c.size.x);
 				c.start.y =- (c.size.y/2);
 
-			}
+			}break;
 			case RIGHT:
 			{
 				c.start.y =- (c.size.y/2);
-			}
+			}break;
 			case DOWN:
 			{
 				c.start.x =- (c.size.x/2);
 				c.start.y =- (c.size.y);
-			}
+			}break;
 			case LEFTUP:
 			{
 				c.start.x =- (c.size.x);
-			}
+			}break;
 			case RIGHTUP:
 			{
 				//normal behaviour
-			}
+			}break;
 			case LEFTDOWN:
 			{
 				c.start.x =- (c.size.x);
 				c.start.y =- (c.size.y);
-			}
+			}break;
 			case RIGHTDOWN:
 			{
 				c.start.y =- (c.size.y);
-			}
+			}break;
 			case CENTER:
 			{
 				c.start.x =- (c.size.x/2);
 				c.start.y =- (c.size.y/2);
-			}
+			}break;
 			default:
 			{
 				
@@ -140,33 +138,28 @@ void UIrenderer::loadBuffer()
 		}
 			
 			positions.push_back(buttons[i].start);
+			positions.push_back(Vector2(0,0));
 			positions.push_back(Vector2(buttons[i].start.x + buttons[i].size.x,buttons[i].start.y));
+			positions.push_back(Vector2(1,0));
 			positions.push_back(Vector2(buttons[i].start.x + buttons[i].size.x,buttons[i].start.y + buttons[i].size.y));
+			positions.push_back(Vector2(1,1));
 			positions.push_back(Vector2(buttons[i].start.x + buttons[i].size.x,buttons[i].start.y + buttons[i].size.y));
+			positions.push_back(Vector2(1,1));
 			positions.push_back(Vector2(buttons[i].start.x ,buttons[i].start.y + buttons[i].size.y));
+			positions.push_back(Vector2(0,1));
 			positions.push_back(buttons[i].start);
-
-			uvs.push_back(Vector2(0,0));
-			uvs.push_back(Vector2(1,0));
-			uvs.push_back(Vector2(1,1));
-			uvs.push_back(Vector2(1,1));
-			uvs.push_back(Vector2(0,1));
-			uvs.push_back(Vector2(0,0));
+			positions.push_back(Vector2(0,0));
 	}
 	
-
-	glBindBuffer(GL_ARRAY_BUFFER,vab[POSITIONVB]);
-	glBufferData(GL_ARRAY_BUFFER,buttons.size() * 6 * sizeof(positions[0]),0,GL_STATIC_DRAW);
-	glBufferSubData(GL_ARRAY_BUFFER,0,buttons.size() * 6  * sizeof(positions[0]),&positions[0]);
+	glBindVertexArray(vao);
+	glBindBuffer(GL_ARRAY_BUFFER,vab[0]);
 	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0,2,GL_FLOAT,GL_FALSE,0,0);
-
-	
-	glBindBuffer(GL_ARRAY_BUFFER,vab[TEXTUREVB]);
-	glBufferData(GL_ARRAY_BUFFER,buttons.size() * 6 * sizeof(uvs[0]),0,GL_STATIC_DRAW);
-	glBufferSubData(GL_ARRAY_BUFFER,0,buttons.size() * 6  * sizeof(uvs[0]),&uvs[0]);
+	glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,sizeof(Vector2) * 2,0);
 	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(1,2,GL_FLOAT,GL_FALSE,0,0);
+	glVertexAttribPointer(1,2,GL_FLOAT,GL_FALSE,sizeof(Vector2) * 2 ,(void*)sizeof(Vector2));
+	glBufferData(GL_ARRAY_BUFFER,sizeof(Vector2) * 6 * 2 * buttons.size(),&positions[0],GL_STATIC_DRAW);
+	glBindVertexArray(0);
+	
 
 	glBindVertexArray(0);
 }
@@ -238,7 +231,7 @@ void Skybox::setSkyboxTexture(std::string Directory, std::string posx, std::stri
 	cube.Load();
 }
 
-Skybox::Skybox(Camera3d &Camera,Vector4 Color)
+Skybox::Skybox(Camera3d *Camera,Vector4 Color)
 {
 	shader = new Shader();
 	shader->addVertexShader("res/Shaders/Skybox.vert");
@@ -246,7 +239,7 @@ Skybox::Skybox(Camera3d &Camera,Vector4 Color)
 	shader->addAttribute("position");
 	shader->linkShaders();
 	color = Color;
-	camera = &Camera;
+	camera = Camera;
 }
 
 void Skybox::renderSkybox()
@@ -330,7 +323,7 @@ LineRenderer::LineRenderer()
 }
 LineRenderer::~LineRenderer()
 {
-	delete(shader);
+	if(shader) delete(shader);
 	glDeleteVertexArrays(2,vao);
 	glDeleteBuffers(2,vab);
 }
