@@ -19,14 +19,17 @@ MusicPlayer::~MusicPlayer()
 }
 void MusicPlayer::pause()
 {
-	currentSong->sound->setIsPaused(true);
-	paused = true;
-}
-void MusicPlayer::unpause()
-{
-	currentSong->sound->setIsPaused(false);
-	paused = false;
-	timer = SDL_GetTicks();
+	if(!paused)
+	{
+		currentSong->sound->setIsPaused(true);
+		paused = true;
+	}
+	else
+	{
+		currentSong->sound->setIsPaused(false);
+		paused = false;
+	}
+
 }
 void MusicPlayer::play(std::string path)
 {

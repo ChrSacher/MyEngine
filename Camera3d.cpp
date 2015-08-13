@@ -95,8 +95,8 @@ void Camera3d::init()
     }
     
     AngleV = -(asin(dir.y) * RAD2DEG);
-	mousePos.x  = (float)windowWidth / 2;
-    mousePos.y  = (float)windowHeight / 2;
+	mousePos.x  = 500;
+    mousePos.y  = 500;
 }
 void Camera3d::updateProjectionMatrix(float fov,int width,int height,float zNear,float zFar)
 {
@@ -193,16 +193,18 @@ Vector3 Camera3d::getUp()
 void Camera3d::OnMouse(int x, int y,bool ignore)
 {
 	
+	mousePos.x = x;
+	mousePos.y = y;
+	x = (float)x /windowWidth * 1000;
+    y = (float)y /windowHeight * 1000;
 
-    mousePos.x = (float)x;
-    mousePos.y = (float)y;
 	if(ignore) return;
 	
-    AngleH -= mouseSpeed  * float(windowWidth/2 - x );
+    AngleH -= mouseSpeed  * float(500 - x );
 	if(AngleH > 360) AngleH -= 360;
 	if(AngleH < 0) AngleH += 360;
 
-	AngleV   -= mouseSpeed * float( windowHeight/2 - y );
+	AngleV   -= mouseSpeed * float( 500 -  y );
 	if(AngleV > 360) AngleV -= 360;
 	if(AngleV < 0) AngleV += 360;
 

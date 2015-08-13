@@ -6,7 +6,7 @@ o test res/models/box.obj res/texture/white.png -6.36342 31.084 -43.2362 0 0 0 1
 o test res/models/box.obj res/texture/white.png -2.65126 28.2925 -31.0942 0 0 0 1 1 1 1 0 0 res/texture/normal_map.jpg 
 o test res/models/box.obj res/texture/white.png 1.0609 25.5009 -18.9522 0 0 0 1 1 1 1 0 0 res/texture/normal_map.jpg 
 o test res/models/box.obj res/texture/white.png 4.20197 23.1388 -8.67829 0 0 0 1 1 1 1 1 1 res/texture/normal_map.jpg 
-o test res/models/box.obj res/texture/white.png 7.05748 20.9915 0.661674 0 0 0 1 1 1 1 1 1 res/texture/normal_map.jpg 
+o test res/models/box.obj res/texture/white.png 7.05748 20.9915 0.661674 0 0 0 1 1 1 1 0 0 res/texture/normal_map.jpg 
 o test res/models/box.obj res/texture/white.png 17.8647 54.404 42.2117 0 0 0 1 1 1 1 1 1 res/texture/normal_map.jpg 
 o test res/models/box.obj res/texture/white.png 6.89716 54.404 43.0556 0 0 0 1 1 1 1 1 1 res/texture/normal_map.jpg 
 o test res/models/box.obj res/texture/white.png -4.07041 54.404 43.8995 0 0 0 1 1 1 1 1 1 res/texture/normal_map.jpg 

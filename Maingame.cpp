@@ -102,13 +102,25 @@ void Maingame::handleKeys()
 			
 		}
 	}
-	
 	input.generate_input(command_queue);
 	while (!command_queue.empty()) 
 	{
         command_queue.back()->execute();
         command_queue.pop_back();
 	}
+
+	if(input.isKeyDown(SDLK_w)) scene->getCamera()->moveforward();
+	if(input.isKeyDown(SDLK_s)) scene->getCamera()->movebackward();
+	if(input.isKeyDown(SDLK_a)) scene->getCamera()->strafeleft();
+	if(input.isKeyDown(SDLK_d)) scene->getCamera()->straferight();
+	if(input.isKeyDown(SDLK_q)) scene->getCamera()->raise();
+	if(input.isKeyDown(SDLK_e)) scene->getCamera()->sink();
+	if(input.isKeyDown(SDLK_F3)) music->pause();
+
+	if(input.isKeyDown(SDLK_RIGHT)) music->nextSong();
+	if(input.isKeyDown(SDLK_LEFT)) music->previousSong();
+	if(input.isKeyDown(SDLK_1)) util.switchRender();
+
 	if(input.isKeyPressed(SDLK_RETURN))
 	{
 		scene->addObject("test","res/models/box.obj",scene->getCamera()->getPos() + Vector3(1.0f,1.0f,1.0f),Vector3(),Vector3(1.0f,1.0f,1.0f),"res/texture/white.png",Vector3(1.0f,1.0f,1.0f),"res/texture/normal_map.jpg");
@@ -251,15 +263,6 @@ void Maingame::createObjects()
 
 void Maingame::initCommands()
 {
-	input.bind(SDLK_w,new CameraMoveForward(scene->getCamera()));
-	input.bind(SDLK_s,new CameraMoveBackward(scene->getCamera()));
-	input.bind(SDLK_q,new CameraMoveUp(scene->getCamera()));
-	input.bind(SDLK_e,new CameraMoveDown(scene->getCamera()));
-	input.bind(SDLK_a,new CameraMoveLeft(scene->getCamera()));
-	input.bind(SDLK_d,new CameraMoveRight(scene->getCamera()));
-	input.bind(SDLK_F3,new PlayMusic(music));
-	input.bind(SDLK_RIGHT,new NextMusic(music));
-	input.bind(SDLK_LEFT,new PreviousMusic(music));
-	input.bind(SDLK_1,new switchRender);
+	
 	
 }

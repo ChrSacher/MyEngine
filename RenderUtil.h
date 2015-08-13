@@ -32,6 +32,7 @@ public:
 	void initGraphics();
 	void renderInWireframe();
 	void renderInPolygone();
+	void switchRender();
 	std::string getOpenGLVersion();
 
 	//Generate Operations
@@ -58,6 +59,7 @@ private:
 	std::vector<GLuint> _VertexArrays,_Buffers,_Programs,_Textures;
 	BoundTexture _BT;
 	GLuint CurrentActiveTexture,CurrentProgram,CurrentVertexArray;
+	GLenum renderMode;
 };
 
 static RenderUtil util;

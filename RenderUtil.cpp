@@ -261,8 +261,16 @@ void BoundTexture::bind(GLuint ID,GLuint unit,GLenum TextureType)
 void RenderUtil::renderInWireframe()
 {
 	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	renderMode = GL_LINE;
 }
 void RenderUtil::renderInPolygone()
 {
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+	renderMode = GL_FILL;
+}
+
+void RenderUtil::switchRender()
+{
+	if(renderMode != GL_LINE){ renderInWireframe();}
+	else renderInPolygone();
 }

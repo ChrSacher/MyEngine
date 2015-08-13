@@ -1,19 +1,14 @@
-﻿Der Buildvorgang wurde am 11.08.2015 15:42:22 gestartet.
+﻿Der Buildvorgang wurde am 13.08.2015 19:36:24 gestartet.
      1>Projekt "C:\Users\Christian\Documents\GitHub\MyEngine\Javaportc++.vcxproj" auf Knoten "2", Build Ziel(e).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Picker.cpp
-         Picker.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Maingame.cpp
+         Maingame.cpp
      1>c:\users\christian\documents\github\myengine\camera3d.h(43): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\picker.cpp(20): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
-     1>c:\users\christian\documents\github\myengine\picker.cpp(30): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
-     1>c:\users\christian\documents\github\myengine\picker.cpp(37): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
-     1>c:\users\christian\documents\github\myengine\picker.cpp(39): warning C4244: 'Argument': Konvertierung von 'int' in 'const float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\picker.cpp(57): warning C4244: '+=': Konvertierung von 'float' in 'int', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\picker.cpp(67): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
-     1>c:\users\christian\documents\github\myengine\picker.cpp(77): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
-     1>c:\users\christian\documents\github\myengine\picker.cpp(84): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
-     1>c:\users\christian\documents\github\myengine\picker.cpp(86): warning C4244: 'Argument': Konvertierung von 'int' in 'const float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\picker.cpp(107): warning C4244: '+=': Konvertierung von 'float' in 'int', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\maingame.cpp(29): warning C4244: '=': Konvertierung von 'float' in 'int', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\maingame.cpp(30): warning C4244: '=': Konvertierung von 'float' in 'int', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\maingame.cpp(75): warning C4244: 'Argument': Konvertierung von 'float' in 'int', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\maingame.cpp(200): warning C4244: 'Argument': Konvertierung von 'GLuint' in 'GLfloat', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\maingame.cpp(216): warning C4244: 'Argument': Konvertierung von 'long' in 'float', möglicher Datenverlust
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Christian\Documents\GitHub\MyEngine\Debug\ProperEngine.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib glew32.lib OpengL32.lib glu32.lib freetype26d.lib irrKlang.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Christian\Documents\GitHub\MyEngine\Debug\ProperEngine.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Christian\Documents\GitHub\MyEngine\Debug\ProperEngine.lib" /MACHINE:X86 Debug\Audio.obj
          Debug\Camera3d.obj
@@ -46,4 +41,4 @@
 
 Build erfolgreich.
 
-Verstrichene Zeit 00:00:02.12
+Verstrichene Zeit 00:00:07.97
