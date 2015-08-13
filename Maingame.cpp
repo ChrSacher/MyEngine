@@ -115,11 +115,11 @@ void Maingame::handleKeys()
 	if(input.isKeyDown(SDLK_d)) scene->getCamera()->straferight();
 	if(input.isKeyDown(SDLK_q)) scene->getCamera()->raise();
 	if(input.isKeyDown(SDLK_e)) scene->getCamera()->sink();
-	if(input.isKeyDown(SDLK_F3)) music->pause();
 
-	if(input.isKeyDown(SDLK_RIGHT)) music->nextSong();
-	if(input.isKeyDown(SDLK_LEFT)) music->previousSong();
-	if(input.isKeyDown(SDLK_1)) util.switchRender();
+	if(input.isKeyPressed(SDLK_F3)) music->pause();
+	if(input.isKeyPressed(SDLK_RIGHT)) music->nextSong();
+	if(input.isKeyPressed(SDLK_LEFT)) music->previousSong();
+	if(input.isKeyPressed(SDLK_1)) util.switchRender();
 
 	if(input.isKeyPressed(SDLK_RETURN))
 	{
