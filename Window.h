@@ -7,6 +7,7 @@
 #include <GL/glew.h>
 #include "Debugger.h"
 #include "Errors.h"
+#include "Camera3d.h"
 class Window
 {
 public:
@@ -16,7 +17,7 @@ public:
 	void Update();
 	void SwapBuffers();
 	void BindAsRenderTarget() const;
-
+	bool handle(SDL_Event& evnt);
 	inline bool IsCloseRequested()          const { return isCloseRequested; }
 	inline int GetWidth()                   const { return width; }
 	inline int GetHeight()                  const { return height; }

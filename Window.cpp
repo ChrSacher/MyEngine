@@ -78,7 +78,24 @@ Window::Window(int width, int height, const std::string& title) :
 	}
 	SDL_GL_SwapWindow( window);
 }
+bool Window::handle(SDL_Event& evnt)
+{
+	if(evnt.type == SDL_WINDOWEVENT)
+	{
+		switch (evnt.window.event)
+		{
+			case SDL_WINDOWEVENT_RESIZED:
+			{
+				SDL_GetWindowSize(window,&width,&height);
+				glViewport(0, 0, width, height);
+				SDL_WarpMouseInWindow(window,width /2,height /2);
+				return true;
 
+			};break;
+		}
+	}
+	return false;
+}
 Window::~Window()
 {
 	SDL_GL_DeleteContext( glContext);

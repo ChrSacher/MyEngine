@@ -74,9 +74,9 @@ enum Mode
 class Scene
 {
 public:
-	Scene(int Height,int Width,std::string path = "none"); 
+	Scene(){}; 
 	~Scene(void);
-	
+	static Scene* createScene(int Height,int Width,std::string path = "none");
 	//Scene updates
 	void renderScene();
 	void update(float delta);
@@ -90,10 +90,10 @@ public:
 	//functions for getting
 	const Object* getObject(int ID);
 	const std::map<int,Object*>& getIDName(){return objects;}
-	Camera3d* getCamera(){return camera;}
 	LightingCache* getLightingCache(){return &lightingCache;}
 	GLuint getCount(){return objectCount;}
 	GLuint getObjectDrawCount(){return pipeline->objectsDrawn;}
+	Camera3d* getCamera(){return camera;}
 	Ray getClick(int x,int y); //TODO
 	std::vector<Object*> getObjectVector();
 	std::vector<Object*> getObjectsOnRay(Ray ray);
@@ -106,8 +106,8 @@ private:
 	SceneLoader loader;
 	std::map<int,Object*> objects;
 	Skybox* skybox;
-	Camera3d *camera;
 	Shader* shader;
+	Camera3d* camera;
 	Terrain *terrain;
 	LightingCache lightingCache;
 	ShaderObjectPipeLine *pipeline;

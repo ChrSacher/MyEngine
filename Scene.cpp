@@ -35,11 +35,13 @@ void Scene::parseData(SceneDetails &Data)
 		objectCount = Data.objectCount;
 }
 
-Scene::Scene(int Height,int Width,std::string path)
+Scene* Scene::createScene(int Height,int Width,std::string path)
 {
-		parseData(loader.loadScene(Height,Width,path));	
-		fbo = new FBO();
-		fbo->init(Vector2(camera->getSize().x,camera->getSize().y));
+		Scene* scene = new Scene();
+		scene->parseData(scene->loader.loadScene(Height,Width,path));	
+		scene->fbo = new FBO();
+		scene->fbo->init(Vector2(scene->camera->getSize().x,scene->camera->getSize().y));
+		return scene;
 }
 
 Ray Scene::getClick(int x,int y)
@@ -121,7 +123,7 @@ Scene::~Scene(void)
 		deleteObject(j->first);
 		j = objects.begin();
 	}
-	delete(camera,shader,skybox,terrain);
+	delete(camera,shader,skybox,terrain,pipeline);
 	camera =NULL;shader = NULL;skybox =NULL; terrain = NULL;
 }
 

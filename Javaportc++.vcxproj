@@ -43,12 +43,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>C:\Users\Christian\Documents\GitHub\MyEngine\dep\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Christian\Documents\GitHub\MyEngine\dep\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Users\Christian\Documents\GitHub\MyEngine\dep\lib\debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>C:\Users\Christian\Desktop\ProperEngine\dep\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Christian\Desktop\ProperEngine\dep\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Users\Christian\Desktop\ProperEngine\dep\lib\debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -61,7 +61,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;OpengL32.lib;glu32.lib;freetype26d.lib;irrKlang.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;OpengL32.lib;glu32.lib;freetype26d.lib;irrKlang.lib;CEGUIOpenGLRenderer-0_d.lib;CEGUIBase-0_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <EntryPointSymbol>
       </EntryPointSymbol>
     </Link>

@@ -86,6 +86,7 @@ class Maingame
 private:
 		SDL_Event event;
 		Window *window;
+		GUI gui;
 		UIrenderer *ui;
 		GameState gamestate;
 		FpsLimiter fpsLimiter;

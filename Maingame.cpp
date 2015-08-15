@@ -12,15 +12,17 @@ Maingame::~Maingame(void)
 	if(scene) scene->saveFile("res/Scenes/example.sc");
 	if(scene)delete(scene);
 	if(ui) delete(ui);
-	if(window) delete(window);
+	
 	if(line) delete(line);
+	gui.destroy();
 	scene = NULL;
 	ui = NULL;
-	window = NULL;
 	line = NULL;
 	TextureCache::deleteCache();
 	ModelCache::deleteCache();
 	util.~RenderUtil();
+	if(window) delete(window);
+	window = NULL;
 	SDL_Quit();
 }
 
@@ -53,6 +55,13 @@ void Maingame::handleKeys()
 	while( SDL_PollEvent( &event ) != 0 ) //Eingaben kontrolieren
 	{
 		input.handle(event);
+		if(window->handle(event)) 
+		{
+			scene->getCamera()->updateProjectionMatrix(scene->getCamera()->getFov(),window->GetWidth(),window->GetHeight(),scene->getCamera()->getZ().x,scene->getCamera()->getZ().y);
+			__screenW = window->GetWidth();
+			__screenH = window->GetHeight();
+		}
+		gui.onSDLEvent(event);
 		switch(event.type)
 		{
 			case SDL_QUIT://Fenster wird geschlossen
@@ -65,6 +74,7 @@ void Maingame::handleKeys()
 				{
 					scene->getCamera()->OnMouse(event.motion.x,event.motion.y);
 					SDL_WarpMouseInWindow(window->GetSDLWindow(),__screenW /2,__screenH /2);
+					
 				}
 				 
 			};break;
@@ -76,29 +86,6 @@ void Maingame::handleKeys()
 
 				}
 			};
-			case SDL_WINDOWEVENT:
-			{
-				switch (event.window.event)
-				{
-					case SDL_WINDOWEVENT_RESIZED:
-					{
-						static int oldH,oldW;
-						oldH = __screenH;
-						oldW = __screenW;
-						SDL_GetWindowSize(window->GetSDLWindow(),&__screenW,&__screenH);
-						glViewport(0, 0, __screenW, __screenH);
-						scene->getCamera()->updateProjectionMatrix(scene->getCamera()->getFov(),__screenW,__screenH,scene->getCamera()->getZ().x,scene->getCamera()->getZ().y);
-						SDL_WarpMouseInWindow(window->GetSDLWindow(),__screenW /2,__screenH /2);
-						scene->getCamera()->OnMouse(__screenW/2,__screenH/2,true);
-						
-
-					};break;
-				}
-			};break;
-			default:
-			{
-				
-			}break;
 			
 		}
 	}
@@ -151,15 +138,17 @@ void Maingame::handleKeys()
 			windowed = false;
 			gamestate.cameramove = false;
 			gamestate.ray = true;
-			 SDL_ShowCursor(SDL_TRUE);
+			gui.showMouseCursor();
+			SDL_ShowCursor(1);
 		}
 		else
 		{
 			windowed = true;
 			gamestate.cameramove = true;
-			SDL_ShowCursor(SDL_FALSE);
+			gui.hideMouseCursor();
 			gamestate.ray = false;
 			SDL_WarpMouseInWindow(window->GetSDLWindow(),__screenW /2,__screenH /2);
+			SDL_ShowCursor(0);
 		}
 	}
 	return;
@@ -174,6 +163,7 @@ void Maingame::updateFrame(float delta)
 {
 	text::get().update(delta);
 	audio::get().update(delta,scene->getCamera());
+	gui.update(delta);
 	music->update();
 }
 
@@ -184,6 +174,7 @@ void Maingame::render()
 	if(line) line->render(scene->getCamera());
 	if(scene) scene->renderScene();
 	if(ui) ui->draw();
+	
 	static std::string fps = "60";
 	if(counter%60 == 0) fps = std::to_string((int)(1000/(start-end + 0.0001)));
 	
@@ -191,13 +182,8 @@ void Maingame::render()
 	renderText("Frametime " + std::to_string(start-end) + " ms",890,30,100,30,Vector3(1,1,1));
 	renderText("# Objects " + std::to_string(scene->getObjectDrawCount()),890,60,100,30,Vector3(1,1,1));
 	renderText("Time " + std::to_string(SDL_GetTicks()/1000),890,90,100,30,Vector3(1,1,1));
-	renderText("Dir " + std::to_string(scene->getCamera()->getDir().x) + " "
-								  + std::to_string(scene->getCamera()->getDir().y) + " "  
-								  +	std::to_string(scene->getCamera()->getDir().z ),890,120,100,30,Vector3(1,1,1));
-	renderText("Pos " + std::to_string(scene->getCamera()->getPos().x) + " "
-								  + std::to_string(scene->getCamera()->getPos().y) + " "  
-								  +	std::to_string(scene->getCamera()->getPos().z ),890,150,100,30,Vector3(1,1,1));
 	renderText(std::to_string(music->getSongNumber()) + " " +  music->getCurrentTitle(),convertSTT(__screenW,__screenW) - 155,convertSTT(__screenW,__screenW) - 30,140,30);
+	gui.draw();
 	window->SwapBuffers();
 
 }
@@ -250,7 +236,7 @@ void Maingame::run()
 void Maingame::createObjects()
 {
 	
-	scene = new Scene(__screenH,__screenW,"res/Scenes/example.sc");
+	scene = Scene::createScene(__screenH,__screenW,"res/Scenes/example.sc");
 	scene->getLightingCache()->addLight(AmbientLight(Vector3(0.2f,0.2f,0.2f)));
 	scene->getLightingCache()->addLight( DirectionalLight(BaseLight(Vector3(1,0.9f,0.8f),0.8f),Vector3(1.0f,1.0f,0.2f)));
 	scene->getLightingCache()->addLight(SpotLight(PointLight(Vector3(10,10,10),BaseLight(Vector3(1,1,1),1.f),Attenuation(1,29,64),1000),Vector3(1,1,0),0.1f));
@@ -259,6 +245,16 @@ void Maingame::createObjects()
 	line = new LineRenderer();
 	ui->addButton(Vector2(0,0),Vector2(100,100),Vector4(1,0,1,1),true,"","Button","Text",RIGHTUP);
 	music = new MusicPlayer("res/Sound/*");
+	gui.init("res/GUI");
+	gui.loadScheme("TaharezLook.scheme");
+    gui.setFont("Jura-13");
+    CEGUI::PushButton* testButton = static_cast<CEGUI::PushButton*>(gui.createWidget("TaharezLook/Button", Vector4(0.5f, 0.5f, 0.1f, 0.05f), Vector4(), "TestButton"));
+    testButton->setText("Hello World!");
+
+    CEGUI::Combobox* TestCombobox = static_cast<CEGUI::Combobox*>(gui.createWidget("TaharezLook/Combobox", Vector4(0.2f, 0.2f, 0.1f, 0.05f), Vector4(), "TestCombobox"));
+
+    gui.setMouseCursor("TaharezLook/MouseArrow");
+
 }
 
 void Maingame::initCommands()

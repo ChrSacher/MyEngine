@@ -8,6 +8,10 @@
 #include "Texture.h"
 #include "Camera3d.h"
 #include "Text.h"
+#include <CEGUI/CEGUI.h>
+#include <CEGUI/RendererModules/OpenGL/GL3Renderer.h>
+#include <SDL/SDL_events.h>
+
 enum SE_ButtonType
 {
 	UP,
@@ -148,3 +152,36 @@ private:
 
 
 
+#pragma once
+
+
+
+    class GUI
+	{
+    public:
+        void init(const std::string& resourceDirectory);
+        void destroy();
+		GUI(){context = nullptr;root = nullptr; lastTime= 0;}
+        void draw();
+        void update(float delta);
+
+        void setMouseCursor(const std::string& imageFile);
+        void showMouseCursor();
+        void hideMouseCursor();
+
+        void onSDLEvent(SDL_Event& evnt);
+
+        void loadScheme(const std::string& schemeFile);
+        void setFont(const std::string& fontFile);
+        CEGUI::Window* createWidget(const std::string& type, const Vector4& destRectPerc, const Vector4& destRectPix, const std::string& name = "");
+        static void setWidgetDestRect(CEGUI::Window* widget, const Vector4& destRectPerc, const Vector4& destRectPix);
+
+        // Getters
+        static CEGUI::OpenGL3Renderer* getRenderer() { return renderer; }
+        const CEGUI::GUIContext* getContext() { return context; }
+    private:
+        static CEGUI::OpenGL3Renderer* renderer;
+        CEGUI::GUIContext* context ;
+        CEGUI::Window* root ;
+        unsigned int lastTime ;
+    };

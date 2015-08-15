@@ -339,6 +339,7 @@ void NormalCache::deleteCache()
 
 void Texture::releaseTexture()
 {
+	util.unbindTexture(ID);
 	glDeleteTextures(1,&ID);
 }
 
