@@ -12,17 +12,17 @@ Maingame::~Maingame(void)
 	if(scene) scene->saveFile("res/Scenes/example.sc");
 	if(scene)delete(scene);
 	if(ui) delete(ui);
-	
 	if(line) delete(line);
+	text->destroy();
+	audio->destroy();
+	delete(audio);
+	delete(text);
 	gui.destroy();
-	scene = NULL;
-	ui = NULL;
-	line = NULL;
 	TextureCache::deleteCache();
 	ModelCache::deleteCache();
 	util.~RenderUtil();
+	
 	if(window) delete(window);
-	window = NULL;
 	SDL_Quit();
 }
 
@@ -96,7 +96,8 @@ void Maingame::handleKeys()
         command_queue.pop_back();
 	}
 
-	if(input.isKeyDown(SDLK_w)) scene->getCamera()->moveforward();
+	
+	/*	if(input.isKeyDown(SDLK_w)) scene->getCamera()->moveforward();
 	if(input.isKeyDown(SDLK_s)) scene->getCamera()->movebackward();
 	if(input.isKeyDown(SDLK_a)) scene->getCamera()->strafeleft();
 	if(input.isKeyDown(SDLK_d)) scene->getCamera()->straferight();
@@ -112,10 +113,7 @@ void Maingame::handleKeys()
 	{
 		scene->addObject("test","res/models/box.obj",scene->getCamera()->getPos() + Vector3(1.0f,1.0f,1.0f),Vector3(),Vector3(1.0f,1.0f,1.0f),"res/texture/white.png",Vector3(1.0f,1.0f,1.0f),"res/texture/normal_map.jpg");
 	}
-	if(input.isKeyDown(SDLK_ESCAPE))
-	{
-		gamestate.playing=false;
-	}
+	
 	if(input.isKeyPressed(SDLK_F9))
 	{
 		static bool windowed = true;
@@ -129,6 +127,10 @@ void Maingame::handleKeys()
 			window->SetFullScreen(false);
 			windowed = true;
 		}
+	}*/
+	if(input.isKeyDown(SDLK_ESCAPE))
+	{
+		gamestate.playing=false;
 	}
 	if(input.isKeyPressed(SDLK_SPACE))
 	{
@@ -139,7 +141,6 @@ void Maingame::handleKeys()
 			gamestate.cameramove = false;
 			gamestate.ray = true;
 			gui.showMouseCursor();
-			SDL_ShowCursor(1);
 		}
 		else
 		{
@@ -148,7 +149,6 @@ void Maingame::handleKeys()
 			gui.hideMouseCursor();
 			gamestate.ray = false;
 			SDL_WarpMouseInWindow(window->GetSDLWindow(),__screenW /2,__screenH /2);
-			SDL_ShowCursor(0);
 		}
 	}
 	return;
@@ -161,8 +161,8 @@ void Maingame::update(float delta)
 
 void Maingame::updateFrame(float delta)
 {
-	text::get().update(delta);
-	audio::get().update(delta,scene->getCamera());
+	ServiceLocator::getText().update(delta);
+	ServiceLocator::getAudio().update(delta,scene->getCamera());
 	gui.update(delta);
 	music->update();
 }
@@ -171,6 +171,7 @@ void Maingame::render()
 {
 	//Color buffer leer machen	
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
+	gui.draw();
 	if(line) line->render(scene->getCamera());
 	if(scene) scene->renderScene();
 	if(ui) ui->draw();
@@ -178,12 +179,13 @@ void Maingame::render()
 	static std::string fps = "60";
 	if(counter%60 == 0) fps = std::to_string((int)(1000/(start-end + 0.0001)));
 	
-	renderText("FPS " + fps,890,0,100,30,Vector3(1,1,1));
-	renderText("Frametime " + std::to_string(start-end) + " ms",890,30,100,30,Vector3(1,1,1));
-	renderText("# Objects " + std::to_string(scene->getObjectDrawCount()),890,60,100,30,Vector3(1,1,1));
-	renderText("Time " + std::to_string(SDL_GetTicks()/1000),890,90,100,30,Vector3(1,1,1));
-	renderText(std::to_string(music->getSongNumber()) + " " +  music->getCurrentTitle(),convertSTT(__screenW,__screenW) - 155,convertSTT(__screenW,__screenW) - 30,140,30);
-	gui.draw();
+	ServiceLocator::getText().renderText("FPS " + fps,890,0,100,30,Vector3(1,1,1));
+	ServiceLocator::getText().renderText("Frametime " + std::to_string(start-end) + " ms",890,30,100,30,Vector3(1,1,1));
+	ServiceLocator::getText().renderText("# Objects " + std::to_string(scene->getObjectDrawCount()),890,60,100,30,Vector3(1,1,1));
+	ServiceLocator::getText().renderText("Time " + std::to_string(SDL_GetTicks()/1000),890,90,100,30,Vector3(1,1,1));
+	std::string temp = std::to_string(music->getSongNumber()) + " " +  music->getCurrentTitle();
+	ServiceLocator::getText().renderText(temp,convertSTT(__screenW,__screenW) - 155.0f,convertSTT(__screenW,__screenW) - 30.0f,140.0f,30.0f,Vector3(1,1,1));
+	if(gamestate.ray) gui.draw();
 	window->SwapBuffers();
 
 }
@@ -197,14 +199,13 @@ void Maingame::gameloop()
 	float frames = 1 / maxFPS * 1000;
 	while( gamestate.playing )//Solange es nicht beended ist
 	{ 
-		start = SDL_GetTicks();
-		
-		updateFrame(start - end);
+		start = SDL_GetTicks();	
+		if(!gamestate.paused) updateFrame(start - end);
 		delta+=(float)(start - end);
 		while (delta >= frames) 
 		{
 			handleKeys();
-			update(delta);
+			if(!gamestate.paused) update(frames);
 			delta -= frames;
 		}
 		
@@ -235,7 +236,13 @@ void Maingame::run()
 
 void Maingame::createObjects()
 {
-	
+	audio = new LoggedAudio();
+	audio->initialize();
+	text =  new Text();
+	text->initialize();
+	ServiceLocator::initialize();
+	ServiceLocator::provide(audio);
+	ServiceLocator::provide(text);
 	scene = Scene::createScene(__screenH,__screenW,"res/Scenes/example.sc");
 	scene->getLightingCache()->addLight(AmbientLight(Vector3(0.2f,0.2f,0.2f)));
 	scene->getLightingCache()->addLight( DirectionalLight(BaseLight(Vector3(1,0.9f,0.8f),0.8f),Vector3(1.0f,1.0f,0.2f)));
@@ -243,22 +250,35 @@ void Maingame::createObjects()
 	scene->getLightingCache()->addLight(SpotLight(PointLight(Vector3(10,100,10),BaseLight(Vector3(1,1,1),1.f),Attenuation(1,29,64),1000),Vector3(1,1,0),0.1f));
 	ui = new UIrenderer();
 	line = new LineRenderer();
-	ui->addButton(Vector2(0,0),Vector2(100,100),Vector4(1,0,1,1),true,"","Button","Text",RIGHTUP);
+	//ui->addButton(Vector2(0,0),Vector2(100,100),Vector4(1,0,1,1),true,"","Button","Text",RIGHTUP);
 	music = new MusicPlayer("res/Sound/*");
 	gui.init("res/GUI");
 	gui.loadScheme("TaharezLook.scheme");
     gui.setFont("Jura-13");
     CEGUI::PushButton* testButton = static_cast<CEGUI::PushButton*>(gui.createWidget("TaharezLook/Button", Vector4(0.5f, 0.5f, 0.1f, 0.05f), Vector4(), "TestButton"));
     testButton->setText("Hello World!");
-
     CEGUI::Combobox* TestCombobox = static_cast<CEGUI::Combobox*>(gui.createWidget("TaharezLook/Combobox", Vector4(0.2f, 0.2f, 0.1f, 0.05f), Vector4(), "TestCombobox"));
-
     gui.setMouseCursor("TaharezLook/MouseArrow");
 
+	
 }
 
 void Maingame::initCommands()
 {
-	
-	
+	//should be read from File
+	input.bind(SDLK_w,new CameraMoveForward(scene->getCamera()));
+	input.bind(SDLK_s,new CameraMoveBackward(scene->getCamera()));
+	input.bind(SDLK_a,new CameraMoveLeft(scene->getCamera()));
+	input.bind(SDLK_d,new CameraMoveRight(scene->getCamera()));
+	input.bind(SDLK_q,new CameraMoveUp(scene->getCamera()));
+	input.bind(SDLK_e,new CameraMoveDown(scene->getCamera()));
+	input.bind(SDLK_F3,new PlayMusic(music));
+	input.bind(SDLK_RIGHT,new NextMusic(music));
+	input.bind(SDLK_LEFT,new PreviousMusic(music));
+	input.bind(SDLK_1,new switchRender());
+	input.bind(SDLK_RETURN,new SceneAddObject(scene));
+	input.bind(SDLK_F11,new WindowFullScreen(window));
+
+
+
 }

@@ -73,7 +73,14 @@ bool InputHandler::isKeyPressed(unsigned int keyID)
     }
     return false;
 }
-
+bool InputHandler::isKeyReleased(unsigned int keyID)
+{
+	if (isKeyDown(keyID) != true && wasKeyDown(keyID) != false)
+	{
+        return true;
+    }
+    return false;
+}
 bool InputHandler::wasKeyDown(unsigned int keyID) 
 {
     // We dont want to use the associative array approach here
@@ -113,6 +120,10 @@ void InputHandler::generate_input(std::vector<Command*> &command_queue)
 					{
 						if(isKeyPressed(it.first)) keyListPressed.push_back(it.first);
 					}break;
+					case KEYRELEASED:
+					{
+						if(isKeyReleased(it.first)) keyListPressed.push_back(it.first);
+					};break;
 					default:
 					{
 						std::cout<<"Unknown Input Type"<<std::endl;

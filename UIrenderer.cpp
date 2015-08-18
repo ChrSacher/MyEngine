@@ -61,7 +61,7 @@ void UIrenderer::draw()
 	glBindVertexArray(0);	
 	glEnable(GL_CULL_FACE);
 	glClear(GL_DEPTH_BUFFER_BIT);
-	text.RenderText(data);
+	ServiceLocator::getText().renderText(data);
 	
 }
 
@@ -422,7 +422,9 @@ void GUI::init(const std::string& resourceDirectory)
     // Check if the renderer and system were not already initialized
     if (renderer == nullptr) {
         renderer = &CEGUI::OpenGL3Renderer::bootstrapSystem();
-
+		//renderer->enableExtraStateSettings(GL_DEPTH_TEST);
+		renderer->enableExtraStateSettings(true);
+		// create CEGUI system object
         CEGUI::DefaultResourceProvider* rp = static_cast<CEGUI::DefaultResourceProvider*>(CEGUI::System::getSingleton().getResourceProvider());
         rp->setResourceGroupDirectory("imagesets", resourceDirectory + "/imagesets/");
         rp->setResourceGroupDirectory("schemes", resourceDirectory + "/schemes/");
@@ -431,16 +433,19 @@ void GUI::init(const std::string& resourceDirectory)
         rp->setResourceGroupDirectory("looknfeels", resourceDirectory + "/looknfeel/");
         rp->setResourceGroupDirectory("lua_scripts", resourceDirectory + "/lua_scripts/");
 
+
         CEGUI::ImageManager::setImagesetDefaultResourceGroup("imagesets");
         CEGUI::Scheme::setDefaultResourceGroup("schemes");
         CEGUI::Font::setDefaultResourceGroup("fonts");
         CEGUI::WidgetLookManager::setDefaultResourceGroup("looknfeels");
         CEGUI::WindowManager::setDefaultResourceGroup("layouts");
         CEGUI::ScriptModule::setDefaultResourceGroup("lua_scripts");
+		renderer->grabTextures();
+		renderer->restoreTextures();
     }
-
+	static int i = 0;
     context = &CEGUI::System::getSingleton().createGUIContext(renderer->getDefaultRenderTarget());
-    root = CEGUI::WindowManager::getSingleton().createWindow("DefaultWindow", "root");
+    root = CEGUI::WindowManager::getSingleton().createWindow("DefaultWindow", "root" + std::to_string(i++));
     context->setRootWindow(root);
 }
 
@@ -450,13 +455,11 @@ void GUI::destroy() {
 
 void GUI::draw() 
 {
-	glDisable(GL_DEPTH_TEST);
-		glDisable(GL_CULL_FACE);
     renderer->beginRendering();
+
     context->draw();
     renderer->endRendering();
-	glDisable(GL_SCISSOR_TEST);
-		glEnable(GL_CULL_FACE);
+	//glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
 }
 
@@ -604,7 +607,9 @@ void GUI::onSDLEvent(SDL_Event& evnt)
 			{
 				case SDL_WINDOWEVENT_RESIZED:
 				{
-				 renderer->setDisplaySize(CEGUI::Sizef(evnt.window.data1, evnt.window.data2));
+					renderer->setDisplaySize(CEGUI::Sizef(evnt.window.data1, evnt.window.data2));
+					renderer->grabTextures();
+					renderer->restoreTextures();
 				}
 			}
 		}break;

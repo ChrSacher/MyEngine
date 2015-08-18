@@ -105,6 +105,12 @@
     <ClInclude Include="Picker.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="ServiceLocator.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicPlayer.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Errors.cpp">
@@ -185,6 +191,12 @@
     <ClCompile Include="Picker.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="ServiceLocator.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicPlayer.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\Scenes\example.sc">
@@ -260,6 +272,9 @@
       <Filter>Ressourcendateien</Filter>
     </None>
     <None Include="res\Shaders\textShader.vert">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="res\Shaders\textureInstancedShading.vert.vert">
       <Filter>Ressourcendateien</Filter>
     </None>
   </ItemGroup>

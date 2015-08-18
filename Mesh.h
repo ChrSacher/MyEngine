@@ -67,13 +67,14 @@ public:
 	Mesh(std::string path,bool autoCenter = false);
 	void init();
 	void draw();
+	void drawInstanced(int count);
 	void loadOBJ(std::string path,bool autoCenter = false);
 	void loadOBJuncached(std::string path,bool autoCenter);
 	void loadBufferVertex();
 	void clearData();
 	std::string getPath(){return filePath;}
 	Model model;
-
+	GLuint getVao(){return vao;}
 private:
 	bool indiced;
 	GLuint vao ,vab;

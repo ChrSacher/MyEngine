@@ -196,7 +196,7 @@ void TextureCache::lowerCount(GLuint textureID)
 			return;
 		};
 	};
-	std::cout<<"couldn't find ID "<<textureID<<std::endl;
+	std::cout<<"couldn't find Texture ID "<<textureID<<std::endl;
 }
 
 void NormalCache::lowerCount(std::string texturePath)
@@ -233,7 +233,7 @@ void NormalCache::lowerCount(GLuint textureID)
 			return;
 		};
 	};
-	std::cout<<"couldn't find ID "<<textureID<<std::endl;
+	std::cout<<"couldn't find Texture ID "<<textureID<<std::endl;
 }
 
 bool CubemapTexture::Load()

@@ -36,10 +36,7 @@
 #include "config.h"
 #include "Text.h"
 #include "Audio.h"
-//check for memory leaks
-#define _CRTDBG_MAP_ALLOC
-#include <stdlib.h>
-#include <crtdbg.h>
+#include "MusicPlayer.h"
 
 
 struct GameState
@@ -104,5 +101,7 @@ private:
 		long int start, end;
 		GLuint counter;
 		std::vector<Command*> command_queue;
+		Audio* audio;
+		Text* text;
 };
 

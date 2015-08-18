@@ -118,8 +118,9 @@ void Scene::renderScene()
 
 Scene::~Scene(void)
 {
-	for(auto &j = objects.begin();j != objects.end();j++)
-	{
+	for(auto &j = objects.begin();j != objects.end();)
+	{	
+		
 		deleteObject(j->first);
 		j = objects.begin();
 	}

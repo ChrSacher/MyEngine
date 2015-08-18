@@ -20,7 +20,6 @@
 
 
 
-
 class Object
 {
 public:
@@ -29,7 +28,7 @@ public:
 	~Object(void);
 
 	void drawMesh();
-
+	void draw(Shader* shader = NULL);
 	Matrix4& getMatrix();
 	GLuint getID(){return ID;};
 	std::string getName(){return objectName;};
@@ -51,6 +50,39 @@ private:
 	
 	
 };
+
+class InstancedObject //TODO Actually finish this class, add remove Transform
+{
+public:
+	InstancedObject(std::string Name,std::string Objectpath,std::vector<Vector3> pos,std::vector<Vector3> rot,std::vector<Vector3> skal,std::string texturepath = "res/texture/white.png",Vector3 color = Vector3(1.0f,1.0f,1.0f),std::string NormalMap = "res/texture/normal_up.jpg",bool autoCenter = false);
+	InstancedObject(InstancedObject& otherobject);
+	~InstancedObject(void);
+
+	void drawMesh();
+	void draw(Shader* shader = NULL);
+	Matrix4& getMatrix();
+	GLuint getID(){return ID;};
+	std::string getName(){return objectName;};
+	std::string getPath(){return filePath;};
+	std::string toStringNames();
+	std::string toString();
+	InstancedObject& operator=(const InstancedObject& other);
+
+
+	bool renderable; //render or don't render 
+	Material *material; //texture + lighting variables
+	Mesh *mesh; //vertices
+	std::vector<Transform*> transforms;//position, rotation, scaling in 3d space
+	std::vector<Matrix4> modelMatrices;//stores the matrices from transform for OpenGl access
+
+private:
+	static GLuint id;
+	GLuint buffer;//Buffer for instanced Rendering matrix storing
+	GLuint ID;
+	std::string objectName;
+	std::string filePath;
+};
+
 struct ObjectInformation
 	{
 	public:

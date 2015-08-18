@@ -1,48 +1,70 @@
-﻿Der Buildvorgang wurde am 29.06.2015 17:27:27 gestartet.
+﻿Der Buildvorgang wurde am 15.08.2015 21:23:03 gestartet.
      1>Projekt "C:\Users\Christian\Documents\GitHub\MyEngine\Javaportc++.vcxproj" auf Knoten "2", Build Ziel(e).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Camera3d.cpp Errors.cpp FBO.cpp InputManager.cpp Lighting.cpp main.cpp Maingame.cpp Material.cpp Math\3DMath.cpp Mesh.cpp Object.cpp ParticleSystem.cpp RenderUtil.cpp Scene.cpp Shader.cpp Shadow.cpp Terrain.cpp Texture.cpp timing.cpp Transform.cpp UIrenderer.cpp
-         Camera3d.cpp
-     1>c:\users\christian\documents\github\myengine\Camera3d.h(7): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "GL\glew.h": No such file or directory
-         Errors.cpp
-         FBO.cpp
-     1>c:\users\christian\documents\github\myengine\FBO.h(3): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
-         InputManager.cpp
-         Lighting.cpp
-     1>c:\users\christian\documents\github\myengine\Lighting.h(3): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
-         main.cpp
-     1>c:\users\christian\documents\github\myengine\Maingame.h(4): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Maingame.cpp
          Maingame.cpp
-     1>c:\users\christian\documents\github\myengine\Maingame.h(4): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
-         Material.cpp
-     1>c:\users\christian\documents\github\myengine\Texture.h(6): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
-         3DMath.cpp
-         Mesh.cpp
-     1>c:\users\christian\documents\github\myengine\Mesh.h(3): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
-         Object.cpp
-     1>c:\users\christian\documents\github\myengine\Object.h(2): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
-         ParticleSystem.cpp
-     1>c:\users\christian\documents\github\myengine\ParticleSystem.h(3): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
-         RenderUtil.cpp
-     1>c:\users\christian\documents\github\myengine\RenderUtil.h(3): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
-         Scene.cpp
-     1>c:\users\christian\documents\github\myengine\Scene.h(2): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
-         Shader.cpp
-     1>c:\users\christian\documents\github\myengine\Shader.h(5): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
-         Shadow.cpp
-     1>c:\users\christian\documents\github\myengine\Shadow.h(3): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
-         Terrain.cpp
-     1>c:\users\christian\documents\github\myengine\Terrain.h(3): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
-         Texture.cpp
-     1>c:\users\christian\documents\github\myengine\Texture.h(6): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
-         timing.cpp
-     1>timing.cpp(3): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "SDL.h": No such file or directory
-         Transform.cpp
-         Kompilieren...
-         UIrenderer.cpp
-     1>c:\users\christian\documents\github\myengine\UIrenderer.h(3): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "glew.h": No such file or directory
-     1>Die Erstellung des Projekts "C:\Users\Christian\Documents\GitHub\MyEngine\Javaportc++.vcxproj" ist abgeschlossen, Build Ziel(e) -- FEHLER.
+     1>c:\users\christian\documents\github\myengine\Camera3d.h(43): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>Maingame.cpp(27): warning C4244: '=': Konvertierung von 'float' in 'int', möglicher Datenverlust
+     1>Maingame.cpp(28): warning C4244: '=': Konvertierung von 'float' in 'int', möglicher Datenverlust
+     1>Maingame.cpp(81): warning C4244: 'Argument': Konvertierung von 'float' in 'int', möglicher Datenverlust
+     1>Maingame.cpp(181): warning C4244: 'Argument': Konvertierung von 'GLuint' in 'GLfloat', möglicher Datenverlust
+     1>Maingame.cpp(198): warning C4244: 'Argument': Konvertierung von 'long' in 'float', möglicher Datenverlust
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Christian\Documents\GitHub\MyEngine\Release\ProperEngine.exe" /INCREMENTAL:NO /NOLOGO SDL2.lib SDL2main.lib glew32.lib OpengL32.lib glu32.lib freetype26d.lib irrKlang.lib "CEGUIOpenGLRenderer-0.lib" "CEGUIBase-0.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Christian\Documents\GitHub\MyEngine\Release\ProperEngine.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Christian\Documents\GitHub\MyEngine\Release\ProperEngine.lib" /MACHINE:X86 /SAFESEH Release\Audio.obj
+         Release\Camera3d.obj
+         Release\Errors.obj
+         Release\FBO.obj
+         Release\InputManager.obj
+         Release\Lighting.obj
+         Release\main.obj
+         Release\Maingame.obj
+         Release\Material.obj
+         Release\3DMath.obj
+         Release\Mesh.obj
+         Release\Object.obj
+         Release\Observer.obj
+         Release\ParticleSystem.obj
+         Release\Picker.obj
+         Release\RenderUtil.obj
+         Release\Scene.obj
+         Release\Shader.obj
+         Release\Shadow.obj
+         Release\Terrain.obj
+         Release\Text.obj
+         Release\Texture.obj
+         Release\timing.obj
+         Release\Transform.obj
+         Release\UIrenderer.obj
+         Release\Window.obj
+     1>LINK : warning LNK4098: Standardbibliothek "MSVCRTD" steht in Konflikt mit anderen Bibliotheken; /NODEFAULTLIB:Bibliothek verwenden.
+         Code wird generiert.
+         Codegenerierung ist abgeschlossen.
+     1>freetype26d.lib(autofit.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(autofit.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
+     1>freetype26d.lib(bdf.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(bdf.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
+     1>freetype26d.lib(cff.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(cff.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
+     1>freetype26d.lib(ftbase.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(ftbase.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
+     1>freetype26d.lib(ftbitmap.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(ftbitmap.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
+     1>freetype26d.lib(ftdebug.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(ftdebug.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
+     1>freetype26d.lib(ftgzip.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(ftgzip.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
+     1>freetype26d.lib(ftinit.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(ftinit.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
+     1>freetype26d.lib(ftlzw.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(ftlzw.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
+     1>freetype26d.lib(ftsystem.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(ftsystem.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
+     1>freetype26d.lib(smooth.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(smooth.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
+     1>freetype26d.lib(pcf.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(pcf.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
+     1>freetype26d.lib(pfr.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(pfr.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
+     1>freetype26d.lib(psaux.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(psaux.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
+     1>freetype26d.lib(pshinter.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(pshinter.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
+     1>freetype26d.lib(psmodule.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(psmodule.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
+     1>freetype26d.lib(raster.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(raster.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
+     1>freetype26d.lib(sfnt.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(sfnt.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
+     1>freetype26d.lib(truetype.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(truetype.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
+     1>freetype26d.lib(type1.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(type1.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
+     1>freetype26d.lib(type1cid.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(type1cid.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
+     1>freetype26d.lib(type42.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(type42.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
+     1>freetype26d.lib(winfnt.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(winfnt.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
+         Javaportc++.vcxproj -> C:\Users\Christian\Documents\GitHub\MyEngine\Release\ProperEngine.exe
+     1>Die Erstellung des Projekts "C:\Users\Christian\Documents\GitHub\MyEngine\Javaportc++.vcxproj" ist abgeschlossen, Build Ziel(e).
 
-Fehler beim Buildvorgang.
+Build erfolgreich.
 
-Verstrichene Zeit 00:00:03.65
+Verstrichene Zeit 00:00:06.44

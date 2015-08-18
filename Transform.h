@@ -12,6 +12,8 @@ public:
 	Vector3 getPos(){return pos;};
 	Vector3 getRot(){return rot;};
 	Vector3 getScale(){return sca;};
+	//check if the transform has changed
+	//will be turned to false once getMatrix() is called
 	bool hasUpdate;
 	void setPos(Vector3& Pos);
 	void setRot(Vector3& Rot);
@@ -26,6 +28,7 @@ public:
 	*/
 	void update(Shader* shader){shader->setUniform("modelMatrix",getMatrix());};
 	void calculateMatrix();
+	bool needsUpdate(){return hasUpdate;}
 private:
 	Vector3 pos;
 	Vector3 rot;

@@ -22,7 +22,10 @@ void Mesh::draw()
 	}
 	glBindVertexArray(0);
 }
-
+void Mesh::drawInstanced(int count)
+{
+	glDrawArraysInstanced(GL_TRIANGLES,0,model.Vertices.size(),count);
+}
 void Mesh::init()
 {
 	glGenVertexArrays(1,&vao);

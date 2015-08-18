@@ -1,6 +1,6 @@
 #include "Object.h"
 
-GLuint Object::id = 0;
+GLuint Object::id = 1;
 Object::Object(std::string Name,std::string Objectpath,Vector3 pos,Vector3 rot,Vector3 skal ,std::string texturepath,Vector3 color,std::string NormalMap,bool autoCenter)
 {
 
@@ -16,6 +16,7 @@ Object::Object(std::string Name,std::string Objectpath,Vector3 pos,Vector3 rot,V
 
 Object::~Object(void)
 {
+
 	if(material )delete(material);
 	if(mesh) delete(mesh);
 	if(transform) delete(transform);
@@ -28,7 +29,17 @@ void Object::drawMesh()
 {
 	mesh->draw();
 };
-
+void Object::draw(Shader* shader)
+{
+	
+	if(shader != NULL)
+	{
+		transform->update(shader);
+		shader->setMVP(transform->getMatrix());
+		material->update(shader);
+	}
+	mesh->draw();
+}
 Matrix4& Object::getMatrix()
 {
 	return transform->getMatrix();
@@ -336,3 +347,67 @@ GLuint ShaderObjectPipeLine::renderColor(Shader *shader,Camera3d* cam, Vector3 c
 	return k;
  }
 
+
+InstancedObject::InstancedObject(std::string Name,std::string Objectpath,std::vector<Vector3> pos,std::vector<Vector3> rot,std::vector<Vector3> skal,std::string texturepath = "res/texture/white.png",Vector3 color = Vector3(1.0f,1.0f,1.0f),std::string NormalMap = "res/texture/normal_up.jpg",bool autoCenter = false)
+{
+	ID = id;
+	id++;
+	material = new Material(texturepath,NormalMap,color,2,32);
+	for(int i = 0; i < pos.size();i++)
+	{
+		transforms.push_back(new Transform(pos[i],rot[i],skal[i]));
+	}
+	
+	mesh = new Mesh(Objectpath,autoCenter);
+	renderable = true;
+	objectName = Name;
+
+	GLuint VAO = mesh->getVao();
+	glBindVertexArray(VAO);
+	glGenBuffers(1, &buffer);
+	glBindBuffer(GL_ARRAY_BUFFER, buffer);
+	
+	// Vertex Attributes
+	glEnableVertexAttribArray(4); 
+	glVertexAttribPointer(4, 16, GL_FLOAT, GL_FALSE,sizeof(Matrix4), (GLvoid*)0);
+	glVertexAttribDivisor(4, 1);
+	glBindVertexArray(0);
+	
+}
+void InstancedObject::drawMesh()
+{
+	if(transforms.size() == 0) return;
+
+	for(GLuint i = 0; i < transforms.size(); i++)
+	{
+		if(transforms[i]->needsUpdate()) modelMatrices[i] = transforms[i]->getMatrix();
+	};
+	
+	glBufferData(GL_ARRAY_BUFFER, modelMatrices.size() * sizeof(Matrix4), &modelMatrices[0], GL_STATIC_DRAW);
+	mesh->drawInstanced(modelMatrices.size());
+};
+
+void InstancedObject::draw(Shader* shader)
+{
+	if(shader != NULL)
+	{
+		material->update(shader);
+		
+	}
+	drawMesh();
+}
+
+InstancedObject::~InstancedObject(void)
+{
+
+	if(material )delete(material);
+	if(mesh) delete(mesh);
+	for(int i = 0; i < transforms.size();i++)
+	{
+		if(transforms[i]) delete(transforms[i]);
+	}
+	transforms.clear();
+	glDeleteBuffers(1,&buffer);
+	material = NULL;
+	mesh = NULL;
+}

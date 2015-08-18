@@ -2,6 +2,10 @@
 
 Text::~Text()
 {
+	
+}
+void Text::destroy()
+{
 	delete(shader);
 	for(auto i = Characters.begin(); i != Characters.end();i++)
 	{
@@ -9,8 +13,9 @@ Text::~Text()
 	}
 }
 
-Text::Text()
-	{
+Text::Text(){}
+void Text::initialize()
+{
 		shader = new Shader();
 		shader->addVertexShader("res/Shaders/textShader.vert");
 		shader->addFragmentShader( "res/Shaders/textShader.frag");
@@ -85,9 +90,9 @@ Text::Text()
 
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
 	glBindTexture(GL_TEXTURE_2D, 0);
-	}
+}
 
-void Text::RenderText(std::string text, GLfloat x, GLfloat y, GLfloat SX, GLfloat SY, Vector3 color)
+void Text::renderText(std::string text, GLfloat x, GLfloat y, GLfloat SX, GLfloat SY, Vector3 color)
 	{
 		// Activate corresponding render state	
 		shader->use();
@@ -146,15 +151,15 @@ void Text::RenderText(std::string text, GLfloat x, GLfloat y, GLfloat SX, GLfloa
 		glBindTexture(GL_TEXTURE_2D, 0);
 		glEnable(GL_CULL_FACE);
 	}
-void Text::RenderText(std::vector<TextData> &data)
+void Text::renderText(std::vector<TextData> &data)
 {
 	for(unsigned int i = 0; i < data.size();i++)
 	{
-		RenderText(data[i].text,data[i].x,data[i].y,data[i].sx,data[i].sy,data[i].color);
+		renderText(data[i].text,data[i].x,data[i].y,data[i].sx,data[i].sy,data[i].color);
 	}
 }
 
-void Text::RenderText(std::string text, GLfloat x, GLfloat y,  GLfloat scale, Vector3 color)
+void Text::renderText(std::string text, GLfloat x, GLfloat y,  GLfloat scale, Vector3 color)
 {
 	// Activate corresponding render state	
     shader->use();
@@ -212,7 +217,7 @@ void Text::update(GLfloat time)
 	{
 		if(data[i].timetolive > 0)
 		{
-			RenderText(data[i].text,data[i].x,data[i].y,data[i].sx,data[i].sy,data[i].color);
+			renderText(data[i].text,data[i].x,data[i].y,data[i].sx,data[i].sy,data[i].color);
 			data[i].timetolive -= time/1000;
 		}
 		else

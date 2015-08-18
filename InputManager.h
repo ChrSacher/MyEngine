@@ -32,6 +32,7 @@ public:
 	void releaseKey(unsigned int keyID);
 	bool isKeyDown(unsigned int keyID);
 	bool isKeyPressed(unsigned int keyID);
+	bool isKeyReleased(unsigned int keyID);
 	bool wasKeyDown(unsigned int keyID) ;
 	void setMouseCoords(float x,float y);
 	void handle(SDL_Event &e);

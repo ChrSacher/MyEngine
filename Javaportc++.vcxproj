@@ -15,6 +15,7 @@
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Javaportc</RootNamespace>
     <ProjectName>ProperEngine</ProjectName>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -47,8 +48,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Users\Christian\Desktop\ProperEngine\dep\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Christian\Desktop\ProperEngine\dep\lib\debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Christian\Documents\GitHub\MyEngine\dep\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Christian\Documents\GitHub\MyEngine\dep\lib\release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -77,11 +78,11 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;Opengl32.lib;Glu32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;OpengL32.lib;glu32.lib;freetype26d.lib;irrKlang.lib;CEGUIOpenGLRenderer-0.lib;CEGUIBase-0.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <EntryPointSymbol>
       </EntryPointSymbol>
     </Link>
@@ -101,12 +102,14 @@
     <ClInclude Include="Material.h" />
     <ClInclude Include="Math\3DMath.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="MusicPlayer.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="ParticleSystem.h" />
     <ClInclude Include="Picker.h" />
     <ClInclude Include="RenderUtil.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="ServiceLocator.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Shadow.h" />
     <ClInclude Include="stb_image.h" />
@@ -130,12 +133,14 @@
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="Math\3DMath.cpp" />
     <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="MusicPlayer.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Observer.cpp" />
     <ClCompile Include="ParticleSystem.cpp" />
     <ClCompile Include="Picker.cpp" />
     <ClCompile Include="RenderUtil.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="ServiceLocator.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Shadow.cpp" />
     <ClCompile Include="Terrain.cpp" />
@@ -170,6 +175,7 @@
     <None Include="res\Shaders\Skybox.vert" />
     <None Include="res\Shaders\textShader.frag" />
     <None Include="res\Shaders\textShader.vert" />
+    <None Include="res\Shaders\textureInstancedShading.vert.vert" />
     <None Include="res\Shaders\textureShading.frag" />
     <None Include="res\Shaders\textureShading.vert" />
   </ItemGroup>

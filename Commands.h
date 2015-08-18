@@ -1,8 +1,13 @@
 #pragma once
 #include "Math/3DMath.h"
 #include "Camera3d.h"
-#include "Audio.h"
 #include "RenderUtil.h"
+#include "Scene.h"
+#include "Window.h"
+#include "MusicPlayer.h"
+class Window;
+class Scene;
+
 enum InputType
 {
     ACTION,
@@ -20,7 +25,7 @@ enum InputAcces
 {
 	KEYDOWN,
 	KEYPRESSED,
-	RELEASED // no use yet
+	KEYRELEASED // no use yet
 };
 
 struct Command
@@ -41,6 +46,26 @@ struct CameraCommand : public Command
 	Camera3d *cam;
 };
 
+struct SceneCommand : public Command
+{
+	void setScene(Scene* Scene)
+	{
+		scene = Scene;
+	}
+	Scene* scene;
+};
+
+
+struct WindowCommand : public Command
+{
+	void setWindow(Window* Window)
+	{
+		window = Window;
+	}
+	Window* window;
+};
+
+
 struct MusicPlayerCommand : public Command
 {
 	void setCamera(MusicPlayer *music)
@@ -48,6 +73,43 @@ struct MusicPlayerCommand : public Command
 		player = music;
 	}
 	MusicPlayer *player;
+};
+
+
+struct SceneAddObject :public SceneCommand
+{
+	SceneAddObject(Scene* Scene)
+	{
+		scene = Scene;
+		type = KEYPRESSED;
+	}
+	virtual void execute()
+	{
+		scene->addObject("test","res/models/box.obj",scene->getCamera()->getPos() + Vector3(1.0f,1.0f,1.0f),Vector3(),Vector3(1.0f,1.0f,1.0f),"res/texture/white.png",Vector3(1.0f,1.0f,1.0f),"res/texture/normal_map.jpg");
+	}
+};
+
+struct WindowFullScreen : public WindowCommand
+{
+	WindowFullScreen(Window* Window)
+	{
+		window = Window;
+		type = KEYPRESSED;
+	}
+	virtual void execute()
+	{
+		static bool windowed = true;
+		if(windowed)
+		{
+			window->SetFullScreen(true);
+			windowed = false;
+		}
+		else
+		{
+			window->SetFullScreen(false);
+			windowed = true;
+		}
+	}
 };
 
 struct CameraMoveUp : public CameraCommand
@@ -159,14 +221,7 @@ struct PlayMusic: public MusicPlayerCommand
 	}
 	virtual void execute()
 	{
-		if(!player->isPaused())
-		{
-			player->pause();
-		}
-		else
-		{
-			player->unpause();
-		}
+		player->pause();
 	
 	}
 
