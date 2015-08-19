@@ -1,7 +1,5 @@
 #include "Mesh.h"
 
-Model loadOBJ(std::string path);
-std::map<std::string, Model> ModelCache::_modelMap;
 
 Mesh::~Mesh(void)
 {
@@ -41,11 +39,10 @@ Mesh::Mesh(std::vector<Vertex> vertices)
 	}
 	loadBufferVertex();
 }
-Mesh::Mesh(std::string path,bool autoCenter)
+Mesh::Mesh(std::string path,bool autoCenter) : model(path)
 {
 	
 	init();
-	model = ModelCache::getModel(path,autoCenter);
 	filePath = path;
 	loadBufferVertex();
 }
@@ -57,31 +54,19 @@ Mesh::Mesh()
 
 Vertex::Vertex()
 {
-	pos=Vector3(0,0,0);
 }
-Vertex::Vertex(const Vector3& position,const Vector2& tcoord,const Vector3 &tnormal)
+Vertex::Vertex(const Vector3& position,const Vector2& tcoord,const Vector3 &tnormal,const Vector3& ttangent)
 {
 	pos=position;
 	uv=tcoord;
 	normal = tnormal;
+	tangent = ttangent;
 }
 Vertex::Vertex(float x, float y, float z)
 {
 	pos=Vector3(x,y,z);
 }
 
-void Mesh::loadOBJ(std::string path,bool autoCenter)
-{
-	model = ModelCache::getModel(path,autoCenter);
-	loadBufferVertex();
-	
-};
-
-void Mesh::loadOBJuncached(std::string path,bool autoCenter)
-{
-	model = OBJLoader::loadOBJ(path,autoCenter);
-	loadBufferVertex();
-}
 
 void Mesh::loadBufferVertex()
 {	
@@ -106,201 +91,62 @@ void Mesh::clearData()
 	loadBufferVertex();
 }
 
-Model OBJLoader::loadOBJ(std::string path,bool autoCenter)
+Model::Model()
 {
-	std::cout << "Loading OBJ" << path<<std::endl;
-
-	std::vector<Vector3> temp_vertices; 
-	std::vector<Vector2> temp_uvs;
-	std::vector<Vector3> temp_normals;
-	std::vector<GLuint> vertexIndices,uvIndices,normalIndices;
-	
-
-	FILE * file = fopen(path.c_str(), "r");
-	if( file == NULL )
-	{
-		std::cout << "Impossible to open OBJ" << path<<std::endl;
-		Model model;
-		model.Vertices.push_back(Vertex(1,1,0));
-		model.Vertices.push_back(Vertex(0,1,1));
-		model.Vertices.push_back(Vertex(1,0,1));
-		model.Vertices.push_back(Vertex(1,1,0));
-		model.Vertices.push_back(Vertex(1,0,1));
-		model.Vertices.push_back(Vertex(0,1,1));
-		bool valid = false;
-		return model;
-	}
-
-	while( 1 )
-	{
-
-		char lineHeader[128];
-		// read the first word of the line
-		int res = fscanf(file, "%s", lineHeader);
-		if (res == EOF)
-			break; // EOF = End Of File. Quit the loop.
-
-		// else : parse lineHeader
-		
-		if ( strcmp( lineHeader, "v" ) == 0 )
-		{
-			Vector3 vertex;
-			fscanf(file, "%f %f %f\n", &vertex.x, &vertex.y, &vertex.z );
-			temp_vertices.push_back(vertex);
-		}
-		else if ( strcmp( lineHeader, "vt" ) == 0 )
-		{
-			Vector2 uv;
-			fscanf(file, "%f %f\n", &uv.x, &uv.y );
-			uv.y = -uv.y; // Invert V coordinate since we will only use DDS texture, which are inverted. Remove if you want to use TGA or BMP loaders.
-			temp_uvs.push_back(uv);
-		}
-		else if ( strcmp( lineHeader, "vn" ) == 0 )
-		{
-			Vector3 normal;
-			fscanf(file, "%f %f %f\n", &normal.x, &normal.y, &normal.z );
-			temp_normals.push_back(normal);
-		}
-		else if ( strcmp( lineHeader, "f" ) == 0 )
-		{
-			std::string vertex1, vertex2, vertex3;
-			GLuint vertexIndex[3], uvIndex[3], normalIndex[3];
-			int matches = fscanf(file, "%d/%d/%d %d/%d/%d %d/%d/%d\n", &vertexIndex[0], &uvIndex[0], &normalIndex[0], &vertexIndex[1], &uvIndex[1], &normalIndex[1], &vertexIndex[2], &uvIndex[2], &normalIndex[2] );
-			if (matches != 9)
-			{
-				std::cout << "File " << path << " cannot be read"<<std::endl;
-				return Model();
-			}
-			vertexIndices.push_back(vertexIndex[0]);
-			vertexIndices.push_back(vertexIndex[1]);
-			vertexIndices.push_back(vertexIndex[2]);
-			uvIndices    .push_back(uvIndex[0]);
-			uvIndices    .push_back(uvIndex[1] );
-			uvIndices    .push_back(uvIndex[2]);
-			normalIndices.push_back(normalIndex[0]);
-			normalIndices.push_back(normalIndex[1]);
-			normalIndices.push_back(normalIndex[2]);
-		}else
-		{
-			// Probably a comment, eat up the rest of the line
-			char stupidBuffer[1000];
-			fgets(stupidBuffer, 1000, file);
-		}
-
-	}
-	Model model;
-	for(unsigned int i=0;i<temp_vertices.size();i++)
-	{
-		model.positions.push_back(temp_vertices[i]);
-	}
-	if(autoCenter)
-	{
-		model.center();
-	}
-	for(unsigned int i=0;i<temp_uvs.size();i++)
-	{
-		model.uvs.push_back(temp_uvs[i]);
-	}
-	for(unsigned int i=0;i<temp_normals.size();i++)
-	{
-		model.normals.push_back(temp_normals[i]);
-	}
-	for(unsigned int i = 0;i<vertexIndices.size();i++)
-	{
-		model.Indices.push_back(vertexIndices[i] - 1);
-	}
-	for(unsigned int i = 0;i<uvIndices.size();i++)
-	{
-		model.Indices.push_back(uvIndices[i] - 1);
-	}
-	for(unsigned int i = 0;i<normalIndices.size();i++)
-	{
-		model.Indices.push_back(normalIndices[i] - 1);
-	}
-	model.index.vertexIndex=vertexIndices.size();
-	model.index.uvIndex=uvIndices.size();
-	model.index.normalIndex=vertexIndices.size();
-
-	for( unsigned int i=0; i<model.index.vertexIndex; i++ )
-	{
-		Vector3 vertex = model.positions[ vertexIndices[i] - 1 ];
-		Vector2 uv = temp_uvs[ uvIndices[i] - 1 ];
-		Vector3 normal = temp_normals[ normalIndices[i] - 1 ];
-		model.Vertices.push_back(Vertex(vertex,uv,normal));
-	}
-	model.count = model.Vertices.size();
-	bool valid = true;
-	//calculate tangents
-	for (unsigned int i = 0 ; i < model.Vertices.size() ; i += 3) 
-	{
-		Vertex& v0 = model.Vertices[i];
-		Vertex& v1 = model.Vertices[i+1];
-		Vertex& v2 = model.Vertices[i+2];
-
-		Vector3 Edge1 = v1.pos - v0.pos;
-		Vector3 Edge2 = v2.pos - v0.pos;
-
-		float DeltaU1 = v1.uv.x - v0.uv.x;
-		float DeltaV1 = v1.uv.y - v0.uv.y;
-		float DeltaU2 = v2.uv.x - v0.uv.x;
-		float DeltaV2 = v2.uv.y - v0.uv.y;
-
-		float f = 1.0f / (DeltaU1 * DeltaV2 - DeltaU2 * DeltaV1);
-
-		Vector3 Tangent, Bitangent;
-
-		Tangent.x = f * (DeltaV2 * Edge1.x - DeltaV1 * Edge2.x);
-		Tangent.y = f * (DeltaV2 * Edge1.y - DeltaV1 * Edge2.y);
-		Tangent.z = f * (DeltaV2 * Edge1.z - DeltaV1 * Edge2.z);
-
-		//Bitangent.x = f * (-DeltaU2 * Edge1.x - DeltaU1 * Edge2.x);
-		//Bitangent.y = f * (-DeltaU2 * Edge1.y - DeltaU1 * Edge2.y);
-		//Bitangent.z = f * (-DeltaU2 * Edge1.z - DeltaU1 * Edge2.z);
-
-		v0.tangent = Tangent.normalize();
-		v1.tangent = Tangent.normalize();
-		v2.tangent = Tangent.normalize();
-	}
-
-	return model;
+	Vertices.push_back(Vertex());
+	  Vertices.push_back(Vertex());
+	  Vertices.push_back(Vertex());
+	  Indices.push_back(0);
+	  Indices.push_back(0);
+	Indices.push_back(0);
+	valid = false;
 }
-
-Model ModelCache::getModel(std::string modelPath,bool autoCenter) 
+Model::Model(std::string &path)
 {
+	Assimp::Importer importer; 
+    const aiScene* scene = importer.ReadFile( path,   
+      aiProcess_Triangulate				| 
+	  aiProcess_CalcTangentSpace		|
+      aiProcess_JoinIdenticalVertices	| 
+      aiProcess_SortByPType); 
 
-    //lookup the texture and see if its in the map
-    auto mit = _modelMap.find(modelPath);
-    
-    //check if its not in the map
-   if (mit == _modelMap.end()) 
-	{
-        //Load the texture
-		 Model newModel = OBJLoader::loadOBJ(modelPath,autoCenter);
-		 
-        //Insert it into the map
-		_modelMap.insert(make_pair(modelPath, newModel));
+   if(!scene) 
+   { 
+	  fatalError("Failed to load Mesh from "+ path);
+	  Vertices.push_back(Vertex());
+	  Vertices.push_back(Vertex());
+	  Vertices.push_back(Vertex());
+	  Indices.push_back(0);
+	  Indices.push_back(0);
+	  Indices.push_back(0);
+	  valid = false;
+   } 
+   for(int i = 0; i < scene->mNumMeshes;i++)
+   {
+		const aiMesh* mesh = scene->mMeshes[i];
+		for(int j = 0;j < mesh->mNumVertices;j++)
+		{
+			const aiVector3D* pos = &(mesh->mVertices[i]);
+			const aiVector3D* normal = &(mesh->mNormals[i]);
+			aiVector3D* texCoord;
+			aiVector3D* tangent = &(mesh->mTangents[i]);
+			if(mesh->HasTextureCoords(0)) const aiVector3D* pTexCoord =  &(mesh->mTextureCoords[0][i]);
 
-        return newModel;
-    }
-   return mit->second;
-}
+			Vertex v(Vector3(pos->x, pos->y, pos->z),
+					Vector2(texCoord->x, texCoord->y),
+					Vector3(normal->x, normal->y, normal->z),Vector3(tangent->x,tangent->y,tangent->z));
 
+			Vertices.push_back(v);
 
-void ModelCache::deleteCache()
-{
-	_modelMap.clear();
-}
-
-void Model::center()
-{
-	Vector3 center = Vector3(0,0,0);
-	for(unsigned int i = 0;i < positions.size();i++)
-	{
-		center += positions[i];
-	}
-	center /= positions.size();
-	for(unsigned int i = 0;i < positions.size();i++)
-	{
-		positions[i] -= center;
-	}
+		}
+		for (unsigned int i = 0 ; i < mesh->mNumFaces ; i++) 
+		{
+			const aiFace& Face = mesh->mFaces[i];
+			assert(Face.mNumIndices == 3);
+			Indices.push_back(Face.mIndices[0]);
+			Indices.push_back(Face.mIndices[1]);
+			Indices.push_back(Face.mIndices[2]);
+		}
+   }
+   
 }

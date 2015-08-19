@@ -19,7 +19,6 @@ Maingame::~Maingame(void)
 	delete(text);
 	gui.destroy();
 	TextureCache::deleteCache();
-	ModelCache::deleteCache();
 	util.~RenderUtil();
 	
 	if(window) delete(window);

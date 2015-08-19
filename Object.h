@@ -23,6 +23,7 @@
 class Object
 {
 public:
+	friend class InstancedObject;
 	Object(std::string Name,std::string Objectpath,Vector3 pos = Vector3(0.0f,0.0f,0.0f),Vector3 rot = Vector3(0.0f,0.0f,0.0f),Vector3 skal = Vector3(1.0f,1.0f,1.0f),std::string texturepath = "res/texture/white.png",Vector3 color = Vector3(1.0f,1.0f,1.0f),std::string NormalMap = "res/texture/normal_up.jpg",bool autoCenter = false);
 	Object(const Object& otherobject);
 	~Object(void);
@@ -54,6 +55,7 @@ private:
 class InstancedObject //TODO Actually finish this class, add remove Transform
 {
 public:
+	friend class Object;
 	InstancedObject(std::string Name,std::string Objectpath,std::vector<Vector3> pos,std::vector<Vector3> rot,std::vector<Vector3> skal,std::string texturepath = "res/texture/white.png",Vector3 color = Vector3(1.0f,1.0f,1.0f),std::string NormalMap = "res/texture/normal_up.jpg",bool autoCenter = false);
 	InstancedObject(InstancedObject& otherobject);
 	~InstancedObject(void);

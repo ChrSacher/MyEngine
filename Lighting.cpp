@@ -292,31 +292,45 @@ void LightingCache::loadBuffer()
 {
 	vertices.clear();
 	//generate vertices
-	for(unsigned int i = 0; i < _pointLights.size();i++)
-	{
-		std::vector<Vertex> temp = ModelCache::getModel("res/models/box.obj").Vertices;
-		for(int j = 0;j < temp.size();j++)
-		{
-			temp[j].pos += _pointLights[i].pos;
-		}
-		vertices.insert(vertices.end(),temp.begin(),temp.end());
-	}
-	for(unsigned int i = 0; i < _spotLights.size();i++)
-	{
-		std::vector<Vertex> temp = ModelCache::getModel("res/models/box.obj").Vertices;
-		for(int j = 0;j < temp.size();j++)
-		{
-			temp[j].pos += _spotLights[i].getPointLight().pos;
-		}
-		vertices.insert(vertices.end(),temp.begin(),temp.end());
-	}
-	if(!(vertices.size() > 0)) return;
-	std::vector<Vector3> positions;
-	for(unsigned int i = 0; i < vertices.size();i++)
-	{
-		positions.push_back(vertices[i].pos);
-	}
+	GLfloat positions[] = {
+    -1.0f,-1.0f,-1.0f,
+    -1.0f,-1.0f, 1.0f,
+    -1.0f, 1.0f, 1.0f,
+    1.0f, 1.0f,-1.0f,
+    -1.0f,-1.0f,-1.0f,
+    -1.0f, 1.0f,-1.0f, 
+    1.0f,-1.0f, 1.0f,
+    -1.0f,-1.0f,-1.0f,
+    1.0f,-1.0f,-1.0f,
+    1.0f, 1.0f,-1.0f,
+    1.0f,-1.0f,-1.0f,
+    -1.0f,-1.0f,-1.0f,
+    -1.0f,-1.0f,-1.0f,
+    -1.0f, 1.0f, 1.0f,
+    -1.0f, 1.0f,-1.0f,
+    1.0f,-1.0f, 1.0f,
+    -1.0f,-1.0f, 1.0f,
+    -1.0f,-1.0f,-1.0f,
+    -1.0f, 1.0f, 1.0f,
+    -1.0f,-1.0f, 1.0f,
+    1.0f,-1.0f, 1.0f,
+    1.0f, 1.0f, 1.0f,
+    1.0f,-1.0f,-1.0f,
+    1.0f, 1.0f,-1.0f,
+    1.0f,-1.0f,-1.0f,
+    1.0f, 1.0f, 1.0f,
+    1.0f,-1.0f, 1.0f,
+    1.0f, 1.0f, 1.0f,
+    1.0f, 1.0f,-1.0f,
+    -1.0f, 1.0f,-1.0f,
+    1.0f, 1.0f, 1.0f,
+    -1.0f, 1.0f,-1.0f,
+    -1.0f, 1.0f, 1.0f,
+    1.0f, 1.0f, 1.0f,
+    -1.0f, 1.0f, 1.0f,
+    1.0f,-1.0f, 1.0f};
+	
 	glBindBuffer(GL_ARRAY_BUFFER,vab);
-	glBufferSubData(GL_ARRAY_BUFFER,0,sizeof(Vector3) * positions.size(),&positions[0]);
+	glBufferSubData(GL_ARRAY_BUFFER,0,sizeof(float) * 36,&positions[0]);
 	glBindBuffer(GL_ARRAY_BUFFER,0);
 }

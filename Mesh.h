@@ -7,23 +7,17 @@
 #include <vector>
 #include <map>
 #include <string>
- 
+#include "Errors.h"
+#include <assimp/Importer.hpp>      // C++ importer interface
+#include <assimp/scene.h>           // Output data structure
+#include <assimp/postprocess.h>     // Post processing fla
 
-
-struct OBJIndex
-{
-    unsigned int vertexIndex;
-    unsigned int uvIndex;
-    unsigned int normalIndex;
-    
-    bool operator<(const OBJIndex& r) const { return vertexIndex < r.vertexIndex; }
-};
 
 struct Vertex
 {
 public:
 	Vertex();
-	Vertex(const Vector3& position,const Vector2& tcoord,const Vector3 &tnormal);
+	Vertex(const Vector3& position,const Vector2& tcoord,const Vector3 &tnormal,const Vector3& ttangent);
 	Vertex(float x,float y,float z);
 	Vector3& getPos(){return pos;};
 	Vector2& getUV(){return uv;};
@@ -37,25 +31,14 @@ public:
 
 struct Model
 {
-	std::vector<Vector3> positions;
-	std::vector<Vector3> normals;
-	std::vector<Vector2> uvs;
+	Model(std::string &path);
+	Model();
 	std::vector<GLuint> Indices;
 	std::vector<Vertex> Vertices;
 	GLuint count;
-	OBJIndex index;
 	bool valid;
 	void center();
 };
-
-class OBJLoader
-{
-public:
-
-	static Model loadOBJ(std::string path,bool autoCenter = false);
-};
-
-
 
 
 class Mesh
@@ -82,16 +65,5 @@ private:
 	
 };
 
-
-class ModelCache
-{
-public:
-
-    static Model getModel(std::string modelPath,bool autoCenter = false);
-	static void deleteCache();
-
-private:
-    static std::map<std::string, Model> _modelMap;
-};
 
 

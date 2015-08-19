@@ -348,10 +348,10 @@ GLuint ShaderObjectPipeLine::renderColor(Shader *shader,Camera3d* cam, Vector3 c
  }
 
 
-InstancedObject::InstancedObject(std::string Name,std::string Objectpath,std::vector<Vector3> pos,std::vector<Vector3> rot,std::vector<Vector3> skal,std::string texturepath = "res/texture/white.png",Vector3 color = Vector3(1.0f,1.0f,1.0f),std::string NormalMap = "res/texture/normal_up.jpg",bool autoCenter = false)
+InstancedObject::InstancedObject(std::string Name,std::string Objectpath,std::vector<Vector3> pos,std::vector<Vector3> rot,std::vector<Vector3> skal,std::string texturepath,Vector3 color ,std::string NormalMap,bool autoCenter)
 {
-	ID = id;
-	id++;
+	ID = Object::id;
+	Object::id++;
 	material = new Material(texturepath,NormalMap,color,2,32);
 	for(int i = 0; i < pos.size();i++)
 	{
@@ -368,9 +368,9 @@ InstancedObject::InstancedObject(std::string Name,std::string Objectpath,std::ve
 	glBindBuffer(GL_ARRAY_BUFFER, buffer);
 	
 	// Vertex Attributes
-	glEnableVertexAttribArray(4); 
-	glVertexAttribPointer(4, 16, GL_FLOAT, GL_FALSE,sizeof(Matrix4), (GLvoid*)0);
-	glVertexAttribDivisor(4, 1);
+	glEnableVertexAttribArray(5); //5 because 0 vertices 1 uv 2 normal 3 tangen 4 indices
+	glVertexAttribPointer(5, 16, GL_FLOAT, GL_FALSE,sizeof(Matrix4), (GLvoid*)0);
+	glVertexAttribDivisor(5, 1);
 	glBindVertexArray(0);
 	
 }
