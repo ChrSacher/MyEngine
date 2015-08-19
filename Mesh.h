@@ -33,9 +33,9 @@ struct Model
 {
 	Model(std::string &path);
 	Model();
-	std::vector<GLuint> Indices;
+	std::vector<GLushort> Indices;
 	std::vector<Vertex> Vertices;
-	GLuint count;
+	GLuint countVertices,countIndices;
 	bool valid;
 	void center();
 };
@@ -44,7 +44,6 @@ struct Model
 class Mesh
 {
 public:
-	Mesh(void);
 	virtual ~Mesh(void);
 	Mesh(std::vector<Vertex> vertices);
 	Mesh(std::string path,bool autoCenter = false);
@@ -60,7 +59,7 @@ public:
 	GLuint getVao(){return vao;}
 private:
 	bool indiced;
-	GLuint vao ,vab;
+	GLuint vao ,vab[2];
 	std::string filePath;
 	
 };

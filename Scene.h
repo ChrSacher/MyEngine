@@ -37,7 +37,6 @@ struct SceneDetails
 	 Shader* shader;
 	 Terrain *terrain;
 	 LightingCache lightingCache;
-	 ShaderObjectPipeLine *pipeline;
 	 GLuint objectCount;
 	 SceneDetails(){}
 	 void clear()
@@ -92,7 +91,7 @@ public:
 	const std::map<int,Object*>& getIDName(){return objects;}
 	LightingCache* getLightingCache(){return &lightingCache;}
 	GLuint getCount(){return objectCount;}
-	GLuint getObjectDrawCount(){return pipeline->objectsDrawn;}
+	GLuint getObjectDrawCount(){return drawnObjects;}
 	Camera3d* getCamera(){return camera;}
 	Ray getClick(int x,int y); //TODO
 	std::vector<Object*> getObjectVector();
@@ -110,10 +109,10 @@ private:
 	Camera3d* camera;
 	Terrain *terrain;
 	LightingCache lightingCache;
-	ShaderObjectPipeLine *pipeline;
 	GLuint objectCount;
 	FBO *fbo;
 	Picker picker;
+	GLuint drawnObjects;
 };
 
 

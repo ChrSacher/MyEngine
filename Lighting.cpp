@@ -279,7 +279,8 @@ void Fog::update(Shader* shader)
 
 void LightingCache::draw(Camera3d *camera)
 {
-	if(!(vertices.size()) > 0 || allowedRender) return;
+	allowedRender = true;
+	if(!allowedRender) return;
 	shader->use();
 	shader->setMVP(camera->GetViewProjection(),Matrix4());
 	glBindVertexArray(vao);
@@ -331,6 +332,6 @@ void LightingCache::loadBuffer()
     1.0f,-1.0f, 1.0f};
 	
 	glBindBuffer(GL_ARRAY_BUFFER,vab);
-	glBufferSubData(GL_ARRAY_BUFFER,0,sizeof(float) * 36,&positions[0]);
+	glBufferSubData(GL_ARRAY_BUFFER,0,sizeof(float) * 108,&positions[0]);
 	glBindBuffer(GL_ARRAY_BUFFER,0);
 }

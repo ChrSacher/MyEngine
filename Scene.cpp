@@ -31,7 +31,6 @@ void Scene::parseData(SceneDetails &Data)
 		shader = Data.shader;
 		terrain = Data.terrain;
 		lightingCache = Data.lightingCache;
-		pipeline  = Data.pipeline;
 		objectCount = Data.objectCount;
 }
 
@@ -48,7 +47,7 @@ Ray Scene::getClick(int x,int y)
 {
 	int i = 0;
 	fbo->activate();
-	i += pipeline->renderColor(shader,camera,Vector3(0.2,0.2,0.2));
+	//i += pipeline->renderColor(shader,camera,Vector3(0.2,0.2,0.2));//render objects in color
 	glFinish();
 	//now read the stuff under pixel
 	//glReadPixels(x,y,camera->getSize().x,camera->getSize().y,GL_RGB,GL_FLOAT,NULL);
@@ -66,7 +65,6 @@ Ray Scene::getClick(int x,int y)
 SceneDetails SceneLoader::loadScene(int Height,int Width,std::string path)
 {
 	data.shader = new Shader();
-	data.pipeline = new ShaderObjectPipeLine();
 	data.shader->addVertexShader("res/Shaders/textureShading.vert");
 	data.shader->addFragmentShader( "res/Shaders/textureShading.frag");
 	data.shader->linkShaders();
@@ -100,8 +98,8 @@ void Scene::update(float delta)
 
 void Scene::renderScene()
 {
+	drawnObjects = 0;
 	skybox->renderSkybox(); //temporär
-	
 	shader->use();
 	camera->update(shader);
 	lightingCache.getAmbientLight().update(shader);
@@ -109,7 +107,11 @@ void Scene::renderScene()
 	//__shader->updateFog(&__lightingCache.getFog());
 	PointLight::update(shader,lightingCache.getPointLights());
 	SpotLight::update(shader,lightingCache.getSpotLights());
-	pipeline->renderBatches(shader,camera);
+	for(auto &it = objects.begin(); it != objects.end(); it++)
+	{
+		if(it->second->draw(shader,camera)) drawnObjects++;
+		
+	}
 	terrain->render(shader);
 	shader->unuse(); //theoretisch nicht benötigt 
 	lightingCache.draw(camera);
@@ -124,7 +126,7 @@ Scene::~Scene(void)
 		deleteObject(j->first);
 		j = objects.begin();
 	}
-	delete(camera,shader,skybox,terrain,pipeline);
+	delete(camera,shader,skybox,terrain);
 	camera =NULL;shader = NULL;skybox =NULL; terrain = NULL;
 }
 
@@ -321,7 +323,6 @@ Object* Scene::addObject(std::string Name,std::string Objectpath,Vector3 pos,Vec
 {
 	Object* temp = new Object(Name,Objectpath,pos,rot,skal,texturepath,color,normalMap);
 	objects.insert(std::make_pair(temp->getID(),temp)); //store objects in vector
-	pipeline->addObject(temp); //render object
 	objectCount++;
 	return temp;
 };
@@ -329,14 +330,12 @@ Object* SceneLoader::addObject(std::string Name,std::string Objectpath,Vector3 p
 {
 	Object* temp = new Object(Name,Objectpath,pos,rot,skal,texturepath,color,normalMap);
 	data.objects.insert(std::make_pair(temp->getID(),temp)); //store objects in vector
-	data.pipeline->addObject(temp); //render object
 	data.objectCount++;
 	return temp;
 };
 void Scene::addObject(Object* object)
 {
-	objects.insert(std::make_pair(object->getID(),object)); //store objects in vector
-	pipeline->addObject(object); //render object
+	objects.insert(std::make_pair(object->getID(),object)); //store objects in vecto
 	objectCount++;
 }
 void Scene::deleteObject(int ID)
@@ -344,7 +343,6 @@ void Scene::deleteObject(int ID)
 	auto temp = objects.find(ID);
 	if(temp != objects.end())
 	{
-		pipeline->deleteObject(temp->second);
 		delete(temp->second);
 		temp->second = NULL;
 		objects.erase(ID);
