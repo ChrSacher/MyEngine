@@ -19,7 +19,7 @@ public:
 	void setRot(Vector3& Rot);
 	void setScale(Vector3& Scale);
 	/*
-		returns modelMatrix
+		returns modelMatrix and sets needsupdate to false
 	*/
 	Matrix4 getMatrix();
 	/*

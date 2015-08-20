@@ -13,10 +13,14 @@ class Window
 public:
 	Window(int width, int height, const std::string& title);
 	~Window();
-	
+	//not implemented
 	void Update();
+	//swaps Buffers
 	void SwapBuffers();
+	//bind this Window and render in it
 	void BindAsRenderTarget() const;
+	/*will handle window events
+	  will return true if stuff has changed*/
 	bool handle(SDL_Event& evnt);
 	inline bool IsCloseRequested()          const { return isCloseRequested; }
 	inline int GetWidth()                   const { return width; }
@@ -34,7 +38,7 @@ private:
 	SDL_Window*   window;
 	SDL_GLContext glContext;
 	bool          isCloseRequested;
-	
+	//disable copying because its breaks alot of shit
 	void operator=(const Window& other) {}
 };
 

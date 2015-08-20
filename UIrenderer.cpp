@@ -1,6 +1,6 @@
 ﻿#include "UIrenderer.h"
 
-int SE_UIButton::IDCounter = 0;
+int OverlayField::IDCounter = 0;
 
 
 UIrenderer::UIrenderer()
@@ -21,16 +21,16 @@ UIrenderer::~UIrenderer()
 	delete(shader);
 }
 
-void UIrenderer::addButton(SE_UIButton& newbutton)
+void UIrenderer::addOverlay(OverlayField& newbutton)
 {
 	buttons.push_back(newbutton);
 	std::sort(buttons.begin(), buttons.end());
 	loadBuffer();
 }
 
-void UIrenderer::addButton(Vector2 Start,Vector2 Size,Vector4 Color,bool Render,std::string texturepath,std::string Name,std::string text,SE_ButtonType type)
+void UIrenderer::addOverlay(Vector2 Start,Vector2 Size,Vector4 Color,bool Render,std::string texturepath,std::string Name,std::string text,SE_ButtonType type)
 {
-	buttons.push_back(SE_UIButton(Start,Size,Color,Render,texturepath,Name,text,type));
+	buttons.push_back(OverlayField(Start,Size,Color,Render,texturepath,Name,text,type));
 	std::sort(buttons.begin(), buttons.end());
 	loadBuffer();
 }
@@ -49,7 +49,7 @@ void UIrenderer::draw()
 	{
 		if(buttons[i].render)
 		{
-			SE_UIButton& temp = buttons[i];
+			OverlayField& temp = buttons[i];
 			shader->setbaseColor(temp.color);
 			temp.texture.bind();
 			glDrawArrays(GL_TRIANGLES,offset,6);	
@@ -65,7 +65,7 @@ void UIrenderer::draw()
 	
 }
 
-SE_UIButton::SE_UIButton(Vector2 Start,Vector2 Size,Vector4 Color,bool Render,std::string texturepath,std::string Name,std::string text,SE_ButtonType type)
+OverlayField::OverlayField(Vector2 Start,Vector2 Size,Vector4 Color,bool Render,std::string texturepath,std::string Name,std::string text,SE_ButtonType type)
 {
 	start=Start;
 	size=Size;
@@ -76,7 +76,7 @@ SE_UIButton::SE_UIButton(Vector2 Start,Vector2 Size,Vector4 Color,bool Render,st
 	name = Name;
 	this->text = text;
 	this->type = type;
-	SE_UIButton::IDCounter++;
+	OverlayField::IDCounter++;
 	
 }
 void UIrenderer::loadBuffer()
@@ -86,7 +86,7 @@ void UIrenderer::loadBuffer()
 	for(unsigned int i=0;i< buttons.size();i++)
 	{
 		
-		SE_UIButton &c = buttons[i];
+		OverlayField &c = buttons[i];
 		switch(buttons[i].type)
 		{
 			case UP:
@@ -291,7 +291,7 @@ void Skybox::renderSkybox()
 
 
 
-bool SE_UIButton::operator<(SE_UIButton &other)
+bool OverlayField::operator<(OverlayField &other)
 {
 	return texture.ID < other.texture.ID;
 }
@@ -422,8 +422,6 @@ void GUI::init(const std::string& resourceDirectory)
     // Check if the renderer and system were not already initialized
     if (renderer == nullptr) {
         renderer = &CEGUI::OpenGL3Renderer::bootstrapSystem();
-		//renderer->enableExtraStateSettings(GL_DEPTH_TEST);
-		renderer->enableExtraStateSettings(true);
 		// create CEGUI system object
         CEGUI::DefaultResourceProvider* rp = static_cast<CEGUI::DefaultResourceProvider*>(CEGUI::System::getSingleton().getResourceProvider());
         rp->setResourceGroupDirectory("imagesets", resourceDirectory + "/imagesets/");
@@ -455,11 +453,15 @@ void GUI::destroy() {
 
 void GUI::draw() 
 {
+	renderer->enableExtraStateSettings(true);
     renderer->beginRendering();
-
+	
     context->draw();
+	
     renderer->endRendering();
-	//glEnable(GL_CULL_FACE);
+	glDisable(GL_SCISSOR_TEST);
+	renderer->enableExtraStateSettings(false);
+	glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
 }
 

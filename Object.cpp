@@ -1,6 +1,12 @@
 #include "Object.h"
 
 GLuint Object::id = 1;
+
+ Object* Object::createObject(std::string Name,std::string Objectpath,Vector3 pos,Vector3 rot,Vector3 skal,std::string texturepath,Vector3 color,std::string NormalMap,bool autoCenter)
+ {
+	 Object* object = new Object(Name,Objectpath,pos,rot,skal,texturepath,color,NormalMap,autoCenter);
+	 return object;
+ }
 Object::Object(std::string Name,std::string Objectpath,Vector3 pos,Vector3 rot,Vector3 skal ,std::string texturepath,Vector3 color,std::string NormalMap,bool autoCenter)
 {
 

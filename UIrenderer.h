@@ -24,10 +24,12 @@ enum SE_ButtonType
 	LEFTDOWN,
 	CENTER
 };//describes the way the button is from 2D Point
-class SE_UIButton
+
+//Basic Overlay able to display a Rectangle Texture and text
+class OverlayField
 {
 public:
-	SE_UIButton(Vector2 start,Vector2 size,Vector4 Color,bool Render,std::string texturepath,std::string Name,std::string text = "",SE_ButtonType type = LEFTDOWN);
+	OverlayField(Vector2 start,Vector2 size,Vector4 Color,bool Render,std::string texturepath,std::string Name,std::string text = "",SE_ButtonType type = LEFTDOWN);
 	Vector2 start;
 	Vector2 size;
 	Vector2 rot;
@@ -39,7 +41,7 @@ public:
 	int ID;
 	static int IDCounter;
 	bool render;
-	bool operator<(SE_UIButton &other);
+	bool operator<(OverlayField &other);
 };
 
 class UIrenderer
@@ -48,11 +50,12 @@ public:
 	UIrenderer();
 	~UIrenderer();
 	Shader *shader;
-	std::vector<SE_UIButton> buttons;
-	void addButton(SE_UIButton& newbutton);
-	void addButton(Vector2 Start,Vector2 Size,Vector4 Color,bool Render,std::string texturepath,std::string Name,std::string text = "",SE_ButtonType type = LEFTDOWN);
+	std::vector<OverlayField> buttons;
+	void addOverlay(OverlayField& newbutton);
+	void addOverlay(Vector2 Start,Vector2 Size,Vector4 Color,bool Render,std::string texturepath,std::string Name,std::string text = "",SE_ButtonType type = LEFTDOWN);
 	void draw();
 	Matrix4 ortho;
+	//updates the ortho matrix with width,height shouldn't be used carelessly
 	void updateOrtho(float width,float height);
 	GLuint vao;
 	enum
@@ -173,12 +176,21 @@ private:
 
         void loadScheme(const std::string& schemeFile);
         void setFont(const std::string& fontFile);
+		/*
+		Loads a widget into the gui
+	
+		#param 	type is a in scheme defined file
+		#destRec is Vector4(xstart,ystart,xsize,ysize) between 0 and 1
+		#desRectPix is offset Vector4(same as above) in Pixels
+		#name is name for the button inside cegui use different for everything
+		*/
         CEGUI::Window* createWidget(const std::string& type, const Vector4& destRectPerc, const Vector4& destRectPix, const std::string& name = "");
         static void setWidgetDestRect(CEGUI::Window* widget, const Vector4& destRectPerc, const Vector4& destRectPix);
 
         // Getters
         static CEGUI::OpenGL3Renderer* getRenderer() { return renderer; }
         const CEGUI::GUIContext* getContext() { return context; }
+		static void deleteRenderer(){CEGUI::OpenGL3Renderer::destroy(*renderer);}
     private:
         static CEGUI::OpenGL3Renderer* renderer;
         CEGUI::GUIContext* context ;

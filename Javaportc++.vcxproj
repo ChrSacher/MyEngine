@@ -175,7 +175,7 @@
     <None Include="res\Shaders\Skybox.vert" />
     <None Include="res\Shaders\textShader.frag" />
     <None Include="res\Shaders\textShader.vert" />
-    <None Include="res\Shaders\textureInstancedShading.vert.vert" />
+    <None Include="res\Shaders\textureInstancedShading.vert" />
     <None Include="res\Shaders\textureShading.frag" />
     <None Include="res\Shaders\textureShading.vert" />
   </ItemGroup>

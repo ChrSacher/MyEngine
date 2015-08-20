@@ -28,7 +28,6 @@ void Scene::parseData(SceneDetails &Data)
 		objects = Data.objects;
 		skybox = Data.skybox;
 		camera = Data.camera;
-		shader = Data.shader;
 		terrain = Data.terrain;
 		lightingCache = Data.lightingCache;
 		objectCount = Data.objectCount;
@@ -37,6 +36,14 @@ void Scene::parseData(SceneDetails &Data)
 Scene* Scene::createScene(int Height,int Width,std::string path)
 {
 		Scene* scene = new Scene();
+		scene->shader = new Shader();
+		scene->shader->addVertexShader("res/Shaders/textureShading.vert");
+		scene->shader->addFragmentShader( "res/Shaders/textureShading.frag");
+		scene->shader->linkShaders();
+		scene->instancedShader = new Shader();
+		scene->instancedShader->addVertexShader("res/Shaders/textureInstancedShading.vert");
+		scene->instancedShader->addFragmentShader( "res/Shaders/textureShading.frag");
+		scene->instancedShader->linkShaders();
 		scene->parseData(scene->loader.loadScene(Height,Width,path));	
 		scene->fbo = new FBO();
 		scene->fbo->init(Vector2(scene->camera->getSize().x,scene->camera->getSize().y));
@@ -64,10 +71,7 @@ Ray Scene::getClick(int x,int y)
 
 SceneDetails SceneLoader::loadScene(int Height,int Width,std::string path)
 {
-	data.shader = new Shader();
-	data.shader->addVertexShader("res/Shaders/textureShading.vert");
-	data.shader->addFragmentShader( "res/Shaders/textureShading.frag");
-	data.shader->linkShaders();
+	
 	data.lightingCache.init();
 	data.lightingCache.addLight(AmbientLight(Vector3(1,1,1)));
 	data.lightingCache.addLight(DirectionalLight(BaseLight(Vector3(1,1,1),0.0f),Vector3(1,1,1)));
@@ -321,14 +325,14 @@ void  SceneLoader::parseTerrain(std::vector<std::string>& lines)
 }
 Object* Scene::addObject(std::string Name,std::string Objectpath,Vector3 pos,Vector3 rot,Vector3 skal,std::string texturepath,Vector3 color,std::string normalMap,bool autoCenter)
 {
-	Object* temp = new Object(Name,Objectpath,pos,rot,skal,texturepath,color,normalMap);
+	Object* temp = Object::createObject(Name,Objectpath,pos,rot,skal,texturepath,color,normalMap);
 	objects.insert(std::make_pair(temp->getID(),temp)); //store objects in vector
 	objectCount++;
 	return temp;
 };
 Object* SceneLoader::addObject(std::string Name,std::string Objectpath,Vector3 pos,Vector3 rot,Vector3 skal,std::string texturepath,Vector3 color,std::string normalMap,bool autoCenter)
 {
-	Object* temp = new Object(Name,Objectpath,pos,rot,skal,texturepath,color,normalMap);
+	Object* temp = Object::createObject(Name,Objectpath,pos,rot,skal,texturepath,color,normalMap);
 	data.objects.insert(std::make_pair(temp->getID(),temp)); //store objects in vector
 	data.objectCount++;
 	return temp;

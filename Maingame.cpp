@@ -1,9 +1,8 @@
 ﻿
 #include "Maingame.h"
 
-Maingame::Maingame(void)
+Maingame::Maingame(void):cfg(std::string("res/config.cfg"))
 {
-	cfg = new ConfigFile("res/config.cfg");
 }
 
 
@@ -19,16 +18,16 @@ Maingame::~Maingame(void)
 	delete(text);
 	gui.destroy();
 	TextureCache::deleteCache();
+	GUI::deleteRenderer();
 	util.~RenderUtil();
-	
 	if(window) delete(window);
 	SDL_Quit();
 }
 
 void Maingame::init()
 {
-	__screenH = cfg->getValueOfKey<float>("height",480);
-	__screenW = cfg->getValueOfKey<float>("width",640);
+	__screenH = cfg.getValueOfKey<float>("height",480);
+	__screenW = cfg.getValueOfKey<float>("width",640);
 	gamestate.playing=true;
 	gamestate.paused=false;
 	gamestate.cameramove = true;
@@ -247,9 +246,10 @@ void Maingame::createObjects()
 	scene->getLightingCache()->addLight( DirectionalLight(BaseLight(Vector3(1,0.9f,0.8f),0.8f),Vector3(1.0f,1.0f,0.2f)));
 	scene->getLightingCache()->addLight(SpotLight(PointLight(Vector3(10,10,10),BaseLight(Vector3(1,1,1),1.f),Attenuation(1,29,64),1000),Vector3(1,1,0),0.1f));
 	scene->getLightingCache()->addLight(SpotLight(PointLight(Vector3(10,100,10),BaseLight(Vector3(1,1,1),1.f),Attenuation(1,29,64),1000),Vector3(1,1,0),0.1f));
+	scene->getLightingCache()->addFog(Fog(0.5,Vector4(0.5f,0.5f,0.5f,0.5f),100,200,true));
 	ui = new UIrenderer();
 	line = new LineRenderer();
-	//ui->addButton(Vector2(0,0),Vector2(100,100),Vector4(1,0,1,1),true,"","Button","Text",RIGHTUP);
+	//ui->addOverlay(Vector2(0,0),Vector2(100,100),Vector4(1,0,1,1),true,"","Button","Text",RIGHTUP);
 	music = new MusicPlayer("res/Sound/*");
 	gui.init("res/GUI");
 	gui.loadScheme("TaharezLook.scheme");

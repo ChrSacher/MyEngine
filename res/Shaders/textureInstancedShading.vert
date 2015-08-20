@@ -11,7 +11,6 @@ out vec3 normal0;
 out vec3 tangent0;
 out vec4 worldPos0;
 
-uniform mat4 modelMatrix;
 uniform mat4 viewProjection;
 
 void main()

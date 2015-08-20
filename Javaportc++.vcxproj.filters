@@ -274,7 +274,7 @@
     <None Include="res\Shaders\textShader.vert">
       <Filter>Ressourcendateien</Filter>
     </None>
-    <None Include="res\Shaders\textureInstancedShading.vert.vert">
+    <None Include="res\Shaders\textureInstancedShading.vert">
       <Filter>Ressourcendateien</Filter>
     </None>
   </ItemGroup>

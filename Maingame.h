@@ -96,7 +96,7 @@ private:
 		float fps;
 		float _time;
 		float maxFPS;
-		ConfigFile *cfg;
+		ConfigFile cfg;
 		float delta;
 		long int start, end;
 		GLuint counter;

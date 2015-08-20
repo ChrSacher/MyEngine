@@ -34,7 +34,6 @@ struct SceneDetails
 	 std::map<int,Object*> objects;
 	 Skybox* skybox;
 	 Camera3d *camera;
-	 Shader* shader;
 	 Terrain *terrain;
 	 LightingCache lightingCache;
 	 GLuint objectCount;
@@ -106,6 +105,7 @@ private:
 	std::map<int,Object*> objects;
 	Skybox* skybox;
 	Shader* shader;
+	Shader* instancedShader;
 	Camera3d* camera;
 	Terrain *terrain;
 	LightingCache lightingCache;
