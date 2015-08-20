@@ -188,12 +188,12 @@ void  SceneLoader::saveFile(std::string name,SceneDetails& Data)
 	myfile << "//Objects "<<Data.objects.size()<<std::endl;
 	for(auto i = Data.objects.begin();i != Data.objects.end();i++)
 	{
-		myfile <<"o "<<i->second->getName()<< " " << i->second->mesh->getPath() << " "<< i->second->material->texture.texturepath<< " "
-			<< i->second->transform->getPos().x << " "<< i->second->transform->getPos().y << " " << i->second->transform->getPos().z <<" " 		 
-			<< i->second->transform->getRot().x << " "<< i->second->transform->getRot().y << " " << i->second->transform->getRot().z <<" "
-			<< i->second->transform->getScale().x << " "<< i->second->transform->getScale().y << " " << i->second->transform->getScale().z <<" "
-			<< i->second->material->getColor().x << " "<< i->second->material->getColor().y << " " << i->second->material->getColor().z <<" "
-			<< i->second->material->normalMap.texturepath <<" \n" ;
+		myfile <<"o "<<i->second->getName()<< " " << i->second->mesh.getPath() << " "<< i->second->material.texture.texturepath<< " "
+			<< i->second->transform.getPos().x << " "<< i->second->transform.getPos().y << " " << i->second->transform.getPos().z <<" " 		 
+			<< i->second->transform.getRot().x << " "<< i->second->transform.getRot().y << " " << i->second->transform.getRot().z <<" "
+			<< i->second->transform.getScale().x << " "<< i->second->transform.getScale().y << " " << i->second->transform.getScale().z <<" "
+			<< i->second->material.getColor().x << " "<< i->second->material.getColor().y << " " << i->second->material.getColor().z <<" "
+			<< i->second->material.normalMap.texturepath <<" \n" ;
 	}
 	std::vector<PointLight> temp = Data.lightingCache.getPointLights();
 	for(unsigned int i = 0 ; i < Data.lightingCache.getCount(Point);i++)

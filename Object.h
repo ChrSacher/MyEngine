@@ -38,9 +38,9 @@ public:
 	std::string toStringNames();
 	std::string toString();
 	bool renderable; //render or don't render 
-	Material *material; //texture + lighting variables
-	Mesh *mesh; //vertices
-	Transform *transform;//position, rotation, scaling in 3d space
+	Material material; //texture + lighting variables
+	Mesh mesh; //vertices
+	Transform transform;//position, rotation, scaling in 3d space
 
 private:
 	Object(std::string Name,std::string Objectpath,Vector3 pos = Vector3(0.0f,0.0f,0.0f),Vector3 rot = Vector3(0.0f,0.0f,0.0f),Vector3 skal = Vector3(1.0f,1.0f,1.0f),std::string texturepath = "res/texture/white.png",Vector3 color = Vector3(1.0f,1.0f,1.0f),std::string NormalMap = "res/texture/normal_up.jpg",bool autoCenter = false);
@@ -73,9 +73,9 @@ public:
 
 
 	bool renderable; //render or don't render 
-	Material *material; //texture + lighting variables
-	Mesh *mesh; //vertices
-	std::vector<Transform*> transforms;//position, rotation, scaling in 3d space
+	Material material; //texture + lighting variables
+	Mesh mesh; //vertices
+	std::vector<Transform> transforms;//position, rotation, scaling in 3d space
 	std::vector<Matrix4> modelMatrices;//stores the matrices from transform for OpenGl access
 
 private:

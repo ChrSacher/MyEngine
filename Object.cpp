@@ -7,14 +7,12 @@ GLuint Object::id = 1;
 	 Object* object = new Object(Name,Objectpath,pos,rot,skal,texturepath,color,NormalMap,autoCenter);
 	 return object;
  }
-Object::Object(std::string Name,std::string Objectpath,Vector3 pos,Vector3 rot,Vector3 skal ,std::string texturepath,Vector3 color,std::string NormalMap,bool autoCenter)
+Object::Object(std::string Name,std::string Objectpath,Vector3 pos,Vector3 rot,Vector3 skal ,std::string texturepath,Vector3 color,std::string NormalMap,bool autoCenter):
+	material(texturepath,NormalMap,color,2,32),transform(pos,rot,skal),mesh(Objectpath,autoCenter)
 {
 
 	ID = id;
 	id++;
-	material = new Material(texturepath,NormalMap,color,2,32);
-	transform = new Transform(pos,rot,skal);
-	mesh = new Mesh(Objectpath,autoCenter);
 	renderable = true;
 	objectName = Name;
 	filePath = Objectpath;
@@ -24,50 +22,42 @@ Object::Object(std::string Name,std::string Objectpath,Vector3 pos,Vector3 rot,V
 Object::~Object(void)
 {
 
-	if(material )delete(material);
-	if(mesh) delete(mesh);
-	if(transform) delete(transform);
-	transform = NULL;
-	material = NULL;
-	mesh = NULL;
 }
 
 void Object::drawMesh()
 {
-	mesh->draw();
+	mesh.draw();
 };
 bool Object::draw(Shader* shader,Camera3d* cam)
 {
 	shader->use();
 	if(shader != NULL)
 	{
-		transform->update(shader);
-		if(cam != NULL){shader->setMVP(transform->getMatrix());}
-		else{shader->setMVP(cam->GetViewProjection(),transform->getMatrix());}
-		material->update(shader);
+		transform.update(shader);
+		if(cam != NULL){shader->setMVP(transform.getMatrix());}
+		else{shader->setMVP(cam->GetViewProjection(),transform.getMatrix());}
+		material.update(shader);
 	}
 	bool render = true;
 	if(cam != NULL)
 	{
-		if(transform->getPos().distance(cam->getPos()) > cam->getZ().y) render = false; //don't draw when out of range
-		if(cam->isBehind(transform->getPos()))  render = false; //don't draw behind camera
+		if(transform.getPos().distance(cam->getPos()) > cam->getZ().y) render = false; //don't draw when out of range
+		if(cam->isBehind(transform.getPos()))  render = false; //don't draw behind camera
 		if(!renderable)  render = false;
 	}
-	if(render) {mesh->draw();return true;}
+	if(render) {mesh.draw();return true;}
 	return false;
 }
 Matrix4& Object::getMatrix()
 {
-	return transform->getMatrix();
+	return transform.getMatrix();
 }
 
-Object::Object(const Object& otherobject)
+Object::Object(const Object& otherobject):
+	material(otherobject.material),transform(otherobject.transform),mesh(otherobject.mesh)
 {
 	ID = id;
 	id++;
-	material = new Material(*otherobject.material);
-	transform = new Transform(*otherobject.transform);
-	mesh = new Mesh(*otherobject.mesh);
 	renderable = true;
 }
 
@@ -79,24 +69,24 @@ bool Object::operator==(const Object& other)
 std::string Object::toString()
 {
 	std::string returnS;
-	returnS += objectName + " " + mesh->getPath() + " " + material->texture.texturepath +" ";
-	returnS += std::to_string(transform->getPos().x) + " " +  std::to_string(transform->getPos().y) + " " +  std::to_string(transform->getPos().z) + " ";
-	returnS += std::to_string(transform->getRot().x) + " " +  std::to_string(transform->getRot().y) + " " +  std::to_string(transform->getRot().z) + " ";
-	returnS += std::to_string(transform->getPos().x) + " " +  std::to_string(transform->getPos().y) + " " +  std::to_string(transform->getPos().z) + " ";
-	returnS += std::to_string(material->getColor().x) + " " +  std::to_string(material->getColor().y) + " " +  std::to_string(material->getColor().z) + " ";
-	returnS += material->normalMap.texturepath;
+	returnS += objectName + " " + mesh.getPath() + " " + material.texture.texturepath +" ";
+	returnS += std::to_string(transform.getPos().x) + " " +  std::to_string(transform.getPos().y) + " " +  std::to_string(transform.getPos().z) + " ";
+	returnS += std::to_string(transform.getRot().x) + " " +  std::to_string(transform.getRot().y) + " " +  std::to_string(transform.getRot().z) + " ";
+	returnS += std::to_string(transform.getPos().x) + " " +  std::to_string(transform.getPos().y) + " " +  std::to_string(transform.getPos().z) + " ";
+	returnS += std::to_string(material.getColor().x) + " " +  std::to_string(material.getColor().y) + " " +  std::to_string(material.getColor().z) + " ";
+	returnS += material.normalMap.texturepath;
 	return returnS;
 }
 
 std::string Object::toStringNames()
 {
 	std::string returnS;
-	returnS += objectName + " " + mesh->getPath() + " " + material->texture.texturepath +"\n";
-	returnS += "Position" + std::to_string(transform->getPos().x) + " " +  std::to_string(transform->getPos().y) + " " +  std::to_string(transform->getPos().z) +"\n";
-	returnS += "Rotation" + std::to_string(transform->getRot().x) + " " +  std::to_string(transform->getRot().y) + " " +  std::to_string(transform->getRot().z)+"\n";
-	returnS += "Scale" + std::to_string(transform->getScale().x) + " " +  std::to_string(transform->getScale().y) + " " +  std::to_string(transform->getScale().z)+"\n";
-	returnS += "Color" + std::to_string(material->getColor().x) + " " +  std::to_string(material->getColor().y) + " " +  std::to_string(material->getColor().z)+"\n";
-	returnS += material->normalMap.texturepath +"\n";
+	returnS += objectName + " " + mesh.getPath() + " " + material.texture.texturepath +"\n";
+	returnS += "Position" + std::to_string(transform.getPos().x) + " " +  std::to_string(transform.getPos().y) + " " +  std::to_string(transform.getPos().z) +"\n";
+	returnS += "Rotation" + std::to_string(transform.getRot().x) + " " +  std::to_string(transform.getRot().y) + " " +  std::to_string(transform.getRot().z)+"\n";
+	returnS += "Scale" + std::to_string(transform.getScale().x) + " " +  std::to_string(transform.getScale().y) + " " +  std::to_string(transform.getScale().z)+"\n";
+	returnS += "Color" + std::to_string(material.getColor().x) + " " +  std::to_string(material.getColor().y) + " " +  std::to_string(material.getColor().z)+"\n";
+	returnS += material.normalMap.texturepath +"\n";
 	return returnS;
 }
 
@@ -106,21 +96,19 @@ std::string Object::toStringNames()
 
 
 
-InstancedObject::InstancedObject(std::string Name,std::string Objectpath,std::vector<Vector3> pos,std::vector<Vector3> rot,std::vector<Vector3> skal,std::string texturepath,Vector3 color ,std::string NormalMap,bool autoCenter)
+InstancedObject::InstancedObject(std::string Name,std::string Objectpath,std::vector<Vector3> pos,std::vector<Vector3> rot,std::vector<Vector3> skal,std::string texturepath,Vector3 color ,std::string NormalMap,bool autoCenter):
+	material(texturepath,NormalMap,color,2,32),mesh(Objectpath,autoCenter)
 {
 	ID = Object::id;
 	Object::id++;
-	material = new Material(texturepath,NormalMap,color,2,32);
 	for(int i = 0; i < pos.size();i++)
 	{
-		transforms.push_back(new Transform(pos[i],rot[i],skal[i]));
+		transforms.push_back(Transform(pos[i],rot[i],skal[i]));
 	}
-	
-	mesh = new Mesh(Objectpath,autoCenter);
 	renderable = true;
 	objectName = Name;
 
-	GLuint VAO = mesh->getVao();
+	GLuint VAO = mesh.getVao();
 	glBindVertexArray(VAO);
 	glGenBuffers(1, &buffer);
 	glBindBuffer(GL_ARRAY_BUFFER, buffer);
@@ -138,18 +126,18 @@ void InstancedObject::drawMesh()
 
 	for(GLuint i = 0; i < transforms.size(); i++)
 	{
-		if(transforms[i]->needsUpdate()) modelMatrices[i] = transforms[i]->getMatrix();
+		if(transforms[i].needsUpdate()) modelMatrices[i] = transforms[i].getMatrix();
 	};
 	
 	glBufferData(GL_ARRAY_BUFFER, modelMatrices.size() * sizeof(Matrix4), &modelMatrices[0], GL_STATIC_DRAW);
-	mesh->drawInstanced(modelMatrices.size());
+	mesh.drawInstanced(modelMatrices.size());
 };
 
 void InstancedObject::draw(Shader* shader)
 {
 	if(shader != NULL)
 	{
-		material->update(shader);
+		material.update(shader);
 		
 	}
 	drawMesh();
@@ -158,14 +146,7 @@ void InstancedObject::draw(Shader* shader)
 InstancedObject::~InstancedObject(void)
 {
 
-	if(material )delete(material);
-	if(mesh) delete(mesh);
-	for(int i = 0; i < transforms.size();i++)
-	{
-		if(transforms[i]) delete(transforms[i]);
-	}
 	transforms.clear();
+	modelMatrices.clear();
 	glDeleteBuffers(1,&buffer);
-	material = NULL;
-	mesh = NULL;
 }

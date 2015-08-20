@@ -16,10 +16,14 @@ Object* RayTracer::getFirstObjectOnRay(std::vector<Object*> objs,Camera3d* cam,R
 {
 	
 	Vector3 currentPos;
+	if(ray.dir.x < 0.001 && ray.dir.y < 0.001 && ray.dir.z < 0.001 )
+	{
+			std::cout<< "Ray.dir is empty in getFirstObjectOnRay Function"<<std::endl;
+	}
 	 //remove stuff behind camera
 	for(int i = 0; i < objs.size();i++)
 	{
-		if(cam->isBehind(objs[i]->transform->getPos()))
+		if(cam->isBehind(objs[i]->transform.getPos()))
 		{
 			objs.erase(objs.begin() + i );
 			i--;
@@ -36,7 +40,7 @@ Object* RayTracer::getFirstObjectOnRay(std::vector<Object*> objs,Camera3d* cam,R
 		float shortestDis = 10000;
 		for(int i = 0; i < objs.size();i++)
 		{
-			float distance = objs[i]->transform->getPos().distance(ray.pos + ray.dir * j );
+			float distance = objs[i]->transform.getPos().distance(ray.pos + ray.dir * j );
 			if(distance < dis[i])
 			{
 				dis[i] = distance;
@@ -66,7 +70,7 @@ std::vector<Object*> RayTracer::getObjectsOnRay(std::vector<Object*> objs,Camera
 	 //remove stuff behind camera
 	for(int i = 0; i < objs.size();i++)
 	{
-		if(cam->isBehind(objs[i]->transform->getPos()))
+		if(cam->isBehind(objs[i]->transform.getPos()))
 		{
 			objs.erase(objs.begin() + i );
 			i--;
@@ -83,7 +87,7 @@ std::vector<Object*> RayTracer::getObjectsOnRay(std::vector<Object*> objs,Camera
 		float shortestDis = 10000;
 		for(int i = 0; i < objs.size();i++)
 		{
-			float distance = objs[i]->transform->getPos().distance(ray.pos + ray.dir * j );
+			float distance = objs[i]->transform.getPos().distance(ray.pos + ray.dir * j );
 			if(distance < dis[i])
 			{
 				dis[i] = distance;
@@ -117,18 +121,18 @@ void Picker::pick(std::vector<Object*> objs,Ray ray,Camera3d* cam)
 
 	if(lastObject == NULL && currentObject != NULL)
 	{
-		lastColor = currentObject->material->getColor();
-		currentObject->material->setColor(Vector3(1,0,0));
+		lastColor = currentObject->material.getColor();
+		currentObject->material.setColor(Vector3(1,0,0));
 	}
 	if( lastObject != NULL && currentObject == NULL)
 	{
-		lastObject->material->setColor(lastColor);
+		lastObject->material.setColor(lastColor);
 	}
 	if(lastObject != NULL && currentObject  != NULL)
 	{
-		lastObject->material->setColor(lastColor);
-		lastColor = currentObject->material->getColor();
-		currentObject->material->setColor(Vector3(1,0,0));
+		lastObject->material.setColor(lastColor);
+		lastColor = currentObject->material.getColor();
+		currentObject->material.setColor(Vector3(1,0,0));
 	}
 }
 
