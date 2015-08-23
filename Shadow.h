@@ -11,9 +11,8 @@
 #include <unordered_map>
 #include "Math/3DMath.h"
 #include "Shader.h"
-#include "Object.h"
 #include "FBO.h"
-
+#include "RenderUtil.h"
 class ShadowMapFBO //funktioniert irgentwie nicht 
 {
     public:
@@ -28,7 +27,6 @@ class ShadowMapFBO //funktioniert irgentwie nicht
 		Vector3 lightDirection;
 		void calculateMatrices();
 		void setLightDirection(Vector3 LightDirection);
-		void addObject(Object *object);
 		void render();
 
 		Matrix4 biasMatrix, depthProjectionMatrix, depthViewMatrix,depthModelMatrix,depthMVP,depthBiasMVP;

@@ -35,7 +35,7 @@ struct Model
 	Model();
 	std::vector<GLushort> Indices;
 	std::vector<Vertex> Vertices;
-	GLuint countVertices,countIndices;
+	GLuint countVertices,countIndices,highestIndice;
 	bool valid;
 	void center();
 };

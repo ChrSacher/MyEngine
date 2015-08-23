@@ -89,10 +89,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Audio.h" />
+    <ClInclude Include="AudioListener.h" />
     <ClInclude Include="Camera3d.h" />
     <ClInclude Include="Commands.h" />
+    <ClInclude Include="Component.h" />
     <ClInclude Include="config.h" />
     <ClInclude Include="Debugger.h" />
+    <ClInclude Include="Engine.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="Errors.h" />
     <ClInclude Include="FBO.h" />
     <ClInclude Include="glTexture.h" />
@@ -103,7 +107,6 @@
     <ClInclude Include="Math\3DMath.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="MusicPlayer.h" />
-    <ClInclude Include="Object.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="ParticleSystem.h" />
     <ClInclude Include="Picker.h" />
@@ -123,7 +126,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Audio.cpp" />
+    <ClCompile Include="AudioListener.cpp" />
     <ClCompile Include="Camera3d.cpp" />
+    <ClCompile Include="Component.cpp" />
+    <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Errors.cpp" />
     <ClCompile Include="FBO.cpp" />
     <ClCompile Include="InputManager.cpp" />
@@ -134,7 +141,6 @@
     <ClCompile Include="Math\3DMath.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="MusicPlayer.cpp" />
-    <ClCompile Include="Object.cpp" />
     <ClCompile Include="Observer.cpp" />
     <ClCompile Include="ParticleSystem.cpp" />
     <ClCompile Include="Picker.cpp" />

@@ -11,22 +11,22 @@ MusicPlayer::MusicPlayer(std::string path)
 }
 void MusicPlayer::update()
 {
-	if(currentSong->sound->isFinished()) nextSong();
+	if(ServiceLocator::getAudio().getSound(currentSong)->isFinished()) nextSong();
 }
 MusicPlayer::~MusicPlayer()
 {
-	currentSong->stop();
+	ServiceLocator::getAudio().getSound(currentSong)->stop();
 }
 void MusicPlayer::pause()
 {
 	if(!paused)
 	{
-		currentSong->sound->setIsPaused(true);
+		ServiceLocator::getAudio().getSound(currentSong)->setIsPaused(true);
 		paused = true;
 	}
 	else
 	{
-		currentSong->sound->setIsPaused(false);
+		ServiceLocator::getAudio().getSound(currentSong)->setIsPaused(false);
 		paused = false;
 	}
 
@@ -47,14 +47,14 @@ void MusicPlayer::play(std::string path)
 void MusicPlayer::nextSong()
 {
 	currentID++;
-	currentSong->stop();
+	ServiceLocator::getAudio().getSound(currentSong)->stop();
 	if(currentID >= songList.size()) currentID = 0;
 	play(songList[currentID].path);
 }
 void MusicPlayer::previousSong()
 {
 	
-	currentSong->stop();
+	ServiceLocator::getAudio().getSound(currentSong)->stop();
 	if(timer + 5 > SDL_GetTicks())
 	{
 		ServiceLocator::getAudio().play2D(songList[currentID].path);

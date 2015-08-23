@@ -1,5 +1,5 @@
 #include "3DMath.h"
-
+const float episolon = 0.0001;
 const float DEG2RAD = 3.141593f / 180;
 // fast math routines from Doom3 SDK
 float invSqrt(float x)
@@ -1617,20 +1617,22 @@ Matrix4& Matrix4::operator*=(const Matrix4& rhs)
 
 bool Matrix4::operator==(const Matrix4& n) const
 {
-    return (m[0] == n[0])  && (m[1] == n[1])  && (m[2] == n[2])  && (m[3] == n[3])  &&
-           (m[4] == n[4])  && (m[5] == n[5])  && (m[6] == n[6])  && (m[7] == n[7])  &&
-           (m[8] == n[8])  && (m[9] == n[9])  && (m[10]== n[10]) && (m[11]== n[11]) &&
-           (m[12]== n[12]) && (m[13]== n[13]) && (m[14]== n[14]) && (m[15]== n[15]);
+   for(int i = 0; i < 16;i++)
+	{
+		if(m[i] > (n[i] + episolon )|| m[i] < (n[i] - episolon)) return false;
+	}
+	return true;
 }
 
 
 
 bool Matrix4::operator!=(const Matrix4& n) const
 {
-    return (m[0] != n[0])  || (m[1] != n[1])  || (m[2] != n[2])  || (m[3] != n[3])  ||
-           (m[4] != n[4])  || (m[5] != n[5])  || (m[6] != n[6])  || (m[7] != n[7])  ||
-           (m[8] != n[8])  || (m[9] != n[9])  || (m[10]!= n[10]) || (m[11]!= n[11]) ||
-           (m[12]!= n[12]) || (m[13]!= n[13]) || (m[14]!= n[14]) || (m[15]!= n[15]);
+	for(int i = 0; i < 16;i++)
+	{
+		if(m[i] > (n[i] + episolon )|| m[i] < (n[i] - episolon)) return true;
+	}
+	return false;
 }
 
 

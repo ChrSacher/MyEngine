@@ -22,9 +22,35 @@ struct Ray
 class Camera3d
 {
 public:
+	class Listener
+    {
+    public:
+
+        virtual ~Listener() { }
+
+        /**
+         * Handles when an camera settings change.
+         *
+         * @param camera The camera that was changed.
+         */
+        virtual void cameraChanged(Camera3d* camera) = 0;
+    };
+	void cameraChanged();
+	/**
+    * Adds a camera listener.
+    *
+    * @param listener The listener to add.
+    */
+    void addListener(Camera3d::Listener* listener);
+
+    /**
+     * Removes a camera listener.
+     *
+     * @param listener The listener to remove.
+     */
+    void removeListener(Camera3d::Listener* listener);
     Camera3d(Vector3 Pos,float fov ,int width,int height,float zNear = 0.1f,float zFar = 1000.0f);
 	~Camera3d(void);
-	Camera3d(){}
 	Matrix4 projectionMatrix;
 	Matrix4 viewMatrix;
 	Matrix4 viewProjection;
@@ -78,5 +104,5 @@ private:
 	float zNear,zFar;
     float AngleH;
     float AngleV;
-
+	std::list<Camera3d::Listener*>* _listeners;
 };

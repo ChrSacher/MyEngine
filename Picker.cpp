@@ -12,7 +12,7 @@ Picker::~Picker(void)
 {
 }
 
-Object* RayTracer::getFirstObjectOnRay(std::vector<Object*> objs,Camera3d* cam,Ray ray)
+Entity* RayTracer::getFirstEntityOnRay(std::vector<Entity*> objs,Camera3d* cam,Ray ray)
 {
 	
 	Vector3 currentPos;
@@ -21,9 +21,9 @@ Object* RayTracer::getFirstObjectOnRay(std::vector<Object*> objs,Camera3d* cam,R
 			std::cout<< "Ray.dir is empty in getFirstObjectOnRay Function"<<std::endl;
 	}
 	 //remove stuff behind camera
-	for(int i = 0; i < objs.size();i++)
+	for(unsigned int i = 0; i < objs.size();i++)
 	{
-		if(cam->isBehind(objs[i]->transform.getPos()))
+		if(cam->isBehind(objs[i]->getTransform()->getPos()))
 		{
 			objs.erase(objs.begin() + i );
 			i--;
@@ -31,16 +31,16 @@ Object* RayTracer::getFirstObjectOnRay(std::vector<Object*> objs,Camera3d* cam,R
 	}
 	if(objs.size() == 0) return NULL;
 	std::vector<float> dis;
-	for(int i = 0; i < objs.size();i++)
+	for(unsigned int i = 0; i < objs.size();i++)
 	{
 		dis.push_back(10000);
 	}
-	for(int j = 0; j < 2000; j++)
+	for(unsigned int j = 0; j < 2000; j++)
 	{
 		float shortestDis = 10000;
-		for(int i = 0; i < objs.size();i++)
+		for(unsigned int i = 0; i < objs.size();i++)
 		{
-			float distance = objs[i]->transform.getPos().distance(ray.pos + ray.dir * j );
+			float distance = objs[i]->getTransform()->getPos().distance(ray.pos + ray.dir * j );
 			if(distance < dis[i])
 			{
 				dis[i] = distance;
@@ -62,15 +62,15 @@ Object* RayTracer::getFirstObjectOnRay(std::vector<Object*> objs,Camera3d* cam,R
 	};
 	return NULL;
 }
-std::vector<Object*> RayTracer::getObjectsOnRay(std::vector<Object*> objs,Camera3d* cam,Ray ray)
+std::vector<Entity*> RayTracer::getEntitiesOnRay(std::vector<Entity*> objs,Camera3d* cam,Ray ray)
 {
-	std::vector<Object*> returnObj;
+	std::vector<Entity*> returnObj;
 	
 	Vector3 currentPos;
 	 //remove stuff behind camera
-	for(int i = 0; i < objs.size();i++)
+	for(unsigned int i = 0; i < objs.size();i++)
 	{
-		if(cam->isBehind(objs[i]->transform.getPos()))
+		if(cam->isBehind(objs[i]->getTransform()->getPos()))
 		{
 			objs.erase(objs.begin() + i );
 			i--;
@@ -78,16 +78,16 @@ std::vector<Object*> RayTracer::getObjectsOnRay(std::vector<Object*> objs,Camera
 	}
 	if(objs.size() == 0) return returnObj;
 	std::vector<float> dis;
-	for(int i = 0; i < objs.size();i++)
+	for(unsigned int i = 0; i < objs.size();i++)
 	{
 		dis.push_back(10000);
 	}
-	for(int j = 0; j < 2000; j++)
+	for(unsigned int j = 0; j < 2000; j++)
 	{
 		float shortestDis = 10000;
-		for(int i = 0; i < objs.size();i++)
+		for(unsigned int i = 0; i < objs.size();i++)
 		{
-			float distance = objs[i]->transform.getPos().distance(ray.pos + ray.dir * j );
+			float distance = objs[i]->getTransform()->getPos().distance(ray.pos + ray.dir * j );
 			if(distance < dis[i])
 			{
 				dis[i] = distance;
@@ -113,11 +113,11 @@ std::vector<Object*> RayTracer::getObjectsOnRay(std::vector<Object*> objs,Camera
 	return returnObj;
 }
 
-void Picker::pick(std::vector<Object*> objs,Ray ray,Camera3d* cam)
+void Picker::pick(std::vector<Entity*> objs,Ray ray,Camera3d* cam)
 {
 	lastObject = currentObject;
-	currentObject = RayTracer::getFirstObjectOnRay(objs,cam,ray);
-	if(lastObject == NULL && currentObject == NULL) return;
+	currentObject = RayTracer::getFirstEntityOnRay(objs,cam,ray);
+	/*if(lastObject == NULL && currentObject == NULL) return;
 
 	if(lastObject == NULL && currentObject != NULL)
 	{
@@ -133,10 +133,10 @@ void Picker::pick(std::vector<Object*> objs,Ray ray,Camera3d* cam)
 		lastObject->material.setColor(lastColor);
 		lastColor = currentObject->material.getColor();
 		currentObject->material.setColor(Vector3(1,0,0));
-	}
+	}*/
 }
 
-void Picker::pick(int x, int y , std::vector<Object*> objs,Camera3d* cam)
+void Picker::pick(int x, int y , std::vector<Entity*> objs,Camera3d* cam)
 {
 	Ray ray = cam->getDirClick(x,y);
 	pick(objs,ray,cam);

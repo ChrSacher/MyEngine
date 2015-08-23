@@ -52,7 +52,7 @@ void Terrain::render(Shader* Nshader)
 		material->texture.bind(20);
 		Nshader->setUniform("Texture",20);
 		transform->update(Nshader);
-		Nshader->setMVP(transform->getMatrix());
+		Nshader->setMVP(*transform->getMatrix());
 		glBindVertexArray(Index->vao);
 		glDrawArrays(GL_TRIANGLE_STRIP,0,Index->count);
 		glBindVertexArray(0);

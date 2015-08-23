@@ -21,12 +21,12 @@ public:
 	/*
 		returns modelMatrix and sets needsupdate to false
 	*/
-	Matrix4 getMatrix();
+	Matrix4* getMatrix();
 	/*
 		param shader the shader which is used for rendering
 		Will update the modelMatrix in the shader
 	*/
-	void update(Shader* shader){shader->setUniform("modelMatrix",getMatrix());};
+	void update(Shader* shader){shader->setUniform("modelMatrix",*getMatrix());};
 	void calculateMatrix();
 	bool needsUpdate(){return hasUpdate;}
 private:

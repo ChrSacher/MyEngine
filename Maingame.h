@@ -26,7 +26,6 @@
 #include <math.h>
 #include "Material.h"
 #include "Lighting.h"
-#include "Object.h"
 #include "ParticleSystem.h"
 #include "UIrenderer.h"
 #include "Shadow.h"
@@ -37,8 +36,9 @@
 #include "Text.h"
 #include "Audio.h"
 #include "MusicPlayer.h"
-
-
+#include "AudioListener.h"
+#include "Engine.h"
+#include "Component.h"
 struct GameState
 {
 	bool playing;
@@ -67,7 +67,8 @@ class Maingame
 		void init();
 		void createObjects();
 		void initShaders();
-		void initCommands();
+		void generateCommand(Command* command);
+		void executeCommands();
 		//funktionen
 		
 
@@ -101,7 +102,8 @@ private:
 		long int start, end;
 		GLuint counter;
 		std::vector<Command*> command_queue;
-		Audio* audio;
-		Text* text;
+		std::vector<Command*> executedCommands;
+		Engine engine;
+		std::vector<Entity*> entities;
 };
 

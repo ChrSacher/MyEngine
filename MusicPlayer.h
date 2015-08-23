@@ -22,7 +22,7 @@ public:
 	
 private:
 	std::vector<SongInformation> songList;
-	SoundComponent* currentSong;
+	GLuint currentSong;
 	int currentID;
 	unsigned int timer;
 	bool paused;

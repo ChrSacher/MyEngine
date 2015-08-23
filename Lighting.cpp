@@ -177,12 +177,10 @@ void Fog::update(Shader* shader)
 	void LightingCache::addLight(PointLight light)
 	{
 		_pointLights.push_back(light);
-		loadBuffer();
 	}
 	void LightingCache::addLight(SpotLight light)
 	{
 		_spotLights.push_back(light);
-		loadBuffer();
 	}
 	void LightingCache::addLight(AmbientLight light)
 	{
@@ -276,62 +274,3 @@ void Fog::update(Shader* shader)
 			}
 		}
 	}
-
-void LightingCache::draw(Camera3d *camera)
-{
-	allowedRender = true;
-	if(!allowedRender) return;
-	shader->use();
-	shader->setMVP(camera->GetViewProjection(),Matrix4());
-	glBindVertexArray(vao);
-	glDrawArrays(GL_TRIANGLES,0,vertices.size());
-	glBindVertexArray(0);
-	shader->unuse();
-}
-
-void LightingCache::loadBuffer()
-{
-	vertices.clear();
-	//generate vertices
-	GLfloat positions[] = {
-    -1.0f,-1.0f,-1.0f,
-    -1.0f,-1.0f, 1.0f,
-    -1.0f, 1.0f, 1.0f,
-    1.0f, 1.0f,-1.0f,
-    -1.0f,-1.0f,-1.0f,
-    -1.0f, 1.0f,-1.0f, 
-    1.0f,-1.0f, 1.0f,
-    -1.0f,-1.0f,-1.0f,
-    1.0f,-1.0f,-1.0f,
-    1.0f, 1.0f,-1.0f,
-    1.0f,-1.0f,-1.0f,
-    -1.0f,-1.0f,-1.0f,
-    -1.0f,-1.0f,-1.0f,
-    -1.0f, 1.0f, 1.0f,
-    -1.0f, 1.0f,-1.0f,
-    1.0f,-1.0f, 1.0f,
-    -1.0f,-1.0f, 1.0f,
-    -1.0f,-1.0f,-1.0f,
-    -1.0f, 1.0f, 1.0f,
-    -1.0f,-1.0f, 1.0f,
-    1.0f,-1.0f, 1.0f,
-    1.0f, 1.0f, 1.0f,
-    1.0f,-1.0f,-1.0f,
-    1.0f, 1.0f,-1.0f,
-    1.0f,-1.0f,-1.0f,
-    1.0f, 1.0f, 1.0f,
-    1.0f,-1.0f, 1.0f,
-    1.0f, 1.0f, 1.0f,
-    1.0f, 1.0f,-1.0f,
-    -1.0f, 1.0f,-1.0f,
-    1.0f, 1.0f, 1.0f,
-    -1.0f, 1.0f,-1.0f,
-    -1.0f, 1.0f, 1.0f,
-    1.0f, 1.0f, 1.0f,
-    -1.0f, 1.0f, 1.0f,
-    1.0f,-1.0f, 1.0f};
-	
-	glBindBuffer(GL_ARRAY_BUFFER,vab);
-	glBufferSubData(GL_ARRAY_BUFFER,0,sizeof(float) * 108,&positions[0]);
-	glBindBuffer(GL_ARRAY_BUFFER,0);
-}

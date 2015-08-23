@@ -48,9 +48,10 @@ in vec4 worldPos0;
 
 uniform sampler2D Texture;
 uniform sampler2D normalMap;
-uniform vec3 baseColor;
+
 uniform vec3 ambientLight;
 uniform DirectionalLight directionalLight;
+uniform vec3 baseColor;
 uniform float specularIntensity;
 uniform float specularPower;
 uniform vec3 eyePos;

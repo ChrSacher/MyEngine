@@ -249,8 +249,8 @@ void Skybox::renderSkybox()
 	glCullFace(GL_FRONT); //box vertices are from outside but you are looking from the inside
 	glBindVertexArray(vao);
 	shader->use();
-	transform.setPos(camera->getPos());
-	shader->setUniform("MVP", camera->GetViewProjection() * transform.getMatrix() );
+	if(camera) transform.setPos(camera->getPos());
+	shader->setUniform("MVP", camera->GetViewProjection() * *transform.getMatrix());
 	shader->setbaseColor(color);
 	cube.bind();
 	glDrawArrays(GL_TRIANGLES, 0, 36);

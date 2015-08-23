@@ -10,19 +10,18 @@
 #include <fstream>
 #include "Math/3DMath.h"
 #include "Errors.h"
-#include "Object.h"
 #include "RenderUtil.h"
 #include <ostream>
 #include "Shader.h"
 #include <Windows.h>
 #include "FBO.h"
-
-
+#include "Component.h"
+#include "Camera3d.h"
 struct RayTracer
 {
 
-	static Object* getFirstObjectOnRay(std::vector<Object*> objs,Camera3d* cam,Ray ray);
-	static std::vector<Object*> getObjectsOnRay(std::vector<Object*> objs,Camera3d* cam,Ray ray);
+	static Entity* getFirstEntityOnRay(std::vector<Entity*> objs,Camera3d* cam,Ray ray);
+	static std::vector<Entity*> getEntitiesOnRay(std::vector<Entity*> objs,Camera3d* cam,Ray ray);
 };
 
 class Picker
@@ -31,12 +30,12 @@ public:
 	Picker(void);
 	~Picker(void);
 	
-	void pick(std::vector<Object*> objs,Ray ray,Camera3d* cam);
-	void pick(int x, int y , std::vector<Object*> objs,Camera3d* cam);
-	Object* getPick(){return currentObject;};
+	void pick(std::vector<Entity*> objs,Ray ray,Camera3d* cam);
+	void pick(int x, int y , std::vector<Entity*> objs,Camera3d* cam);
+	Entity* getPick(){return currentObject;};
 private:
 	Vector3 lastColor;
-	Object* currentObject;
-	Object* lastObject;
+	Entity* currentObject;
+	Entity* lastObject;
 };
 

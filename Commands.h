@@ -85,7 +85,9 @@ struct SceneAddObject :public SceneCommand
 	}
 	virtual void execute()
 	{
-		scene->addObject("test","res/models/box.obj",scene->getCamera()->getPos() + Vector3(1.0f,1.0f,1.0f),Vector3(),Vector3(1.0f,1.0f,1.0f),"res/texture/white.png",Vector3(1.0f,1.0f,1.0f),"res/texture/normal_map.jpg");
+		Entity* newEntity = Entity::create(scene->getCamera()->getPos());
+		newEntity->addComponent(GraphicsComponent::create("","res/texture/normal_map.jpg","res/models/box.obj"));
+		scene->addEntity(newEntity);
 	}
 };
 

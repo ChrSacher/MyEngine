@@ -8,20 +8,25 @@ Maingame::Maingame(void):cfg(std::string("res/config.cfg"))
 
 Maingame::~Maingame(void)
 {
-	if(scene) scene->saveFile("res/Scenes/example.sc");
-	if(scene)delete(scene);
+	scene->saveFile("res/Scenes/test.scene");
+	Scene::deleteScene(scene);
+	for(unsigned int i = 0;i < entities.size();i++)
+	{
+		delete(entities[i]);
+	}
 	if(ui) delete(ui);
 	if(line) delete(line);
-	text->destroy();
-	audio->destroy();
-	delete(audio);
-	delete(text);
 	gui.destroy();
 	TextureCache::deleteCache();
 	GUI::deleteRenderer();
 	util.~RenderUtil();
 	if(window) delete(window);
 	SDL_Quit();
+	for(unsigned int i = 0;i < executedCommands.size();i++)
+	{
+		delete(executedCommands[i]);
+	}
+	engine.shutDown();
 }
 
 void Maingame::init()
@@ -40,7 +45,6 @@ void Maingame::init()
 	std::printf("***   OpenGL Version: %s   ***\n", glGetString(GL_VERSION));
 	util.initGraphics();	
 	createObjects();
-	initCommands();
 	fpsLimiter.init(maxFPS); 
 	return ;
 }
@@ -88,44 +92,31 @@ void Maingame::handleKeys()
 		}
 	}
 	input.generate_input(command_queue);
-	while (!command_queue.empty()) 
-	{
-        command_queue.back()->execute();
-        command_queue.pop_back();
-	}
+	
 
 	
-	/*	if(input.isKeyDown(SDLK_w)) scene->getCamera()->moveforward();
-	if(input.isKeyDown(SDLK_s)) scene->getCamera()->movebackward();
-	if(input.isKeyDown(SDLK_a)) scene->getCamera()->strafeleft();
-	if(input.isKeyDown(SDLK_d)) scene->getCamera()->straferight();
-	if(input.isKeyDown(SDLK_q)) scene->getCamera()->raise();
-	if(input.isKeyDown(SDLK_e)) scene->getCamera()->sink();
+	if(input.isKeyDown(SDLK_w)) generateCommand(new CameraMoveForward(scene->getCamera()));
+	if(input.isKeyDown(SDLK_s)) generateCommand(new CameraMoveBackward(scene->getCamera()));
+	if(input.isKeyDown(SDLK_a)) generateCommand(new CameraMoveLeft(scene->getCamera()));
+	if(input.isKeyDown(SDLK_d)) generateCommand(new CameraMoveRight(scene->getCamera()));
+	if(input.isKeyDown(SDLK_q)) generateCommand(new CameraMoveUp(scene->getCamera()));
+	if(input.isKeyDown(SDLK_e)) generateCommand(new CameraMoveDown(scene->getCamera()));
 
-	if(input.isKeyPressed(SDLK_F3)) music->pause();
-	if(input.isKeyPressed(SDLK_RIGHT)) music->nextSong();
-	if(input.isKeyPressed(SDLK_LEFT)) music->previousSong();
-	if(input.isKeyPressed(SDLK_1)) util.switchRender();
+	if(input.isKeyPressed(SDLK_F3)) generateCommand(new PlayMusic(music));
+	if(input.isKeyPressed(SDLK_RIGHT)) generateCommand(new NextMusic(music));
+	if(input.isKeyPressed(SDLK_LEFT)) generateCommand(new PreviousMusic(music));
+	if(input.isKeyPressed(SDLK_1)) generateCommand(new switchRender());
 
 	if(input.isKeyPressed(SDLK_RETURN))
 	{
-		scene->addObject("test","res/models/box.obj",scene->getCamera()->getPos() + Vector3(1.0f,1.0f,1.0f),Vector3(),Vector3(1.0f,1.0f,1.0f),"res/texture/white.png",Vector3(1.0f,1.0f,1.0f),"res/texture/normal_map.jpg");
+		generateCommand(new SceneAddObject(scene));
+		
 	}
 	
 	if(input.isKeyPressed(SDLK_F9))
 	{
-		static bool windowed = true;
-		if(windowed)
-		{
-			window->SetFullScreen(true);
-			windowed = false;
-		}
-		else
-		{
-			window->SetFullScreen(false);
-			windowed = true;
-		}
-	}*/
+			generateCommand(new WindowFullScreen(window));
+	}
 	if(input.isKeyDown(SDLK_ESCAPE))
 	{
 		gamestate.playing=false;
@@ -149,6 +140,7 @@ void Maingame::handleKeys()
 			SDL_WarpMouseInWindow(window->GetSDLWindow(),__screenW /2,__screenH /2);
 		}
 	}
+	executeCommands();
 	return;
 }
 
@@ -160,7 +152,6 @@ void Maingame::update(float delta)
 void Maingame::updateFrame(float delta)
 {
 	ServiceLocator::getText().update(delta);
-	ServiceLocator::getAudio().update(delta,scene->getCamera());
 	gui.update(delta);
 	music->update();
 }
@@ -179,7 +170,7 @@ void Maingame::render()
 	
 	ServiceLocator::getText().renderText("FPS " + fps,890,0,100,30,Vector3(1,1,1));
 	ServiceLocator::getText().renderText("Frametime " + std::to_string(start-end) + " ms",890,30,100,30,Vector3(1,1,1));
-	ServiceLocator::getText().renderText("# Objects " + std::to_string(scene->getObjectDrawCount()),890,60,100,30,Vector3(1,1,1));
+	ServiceLocator::getText().renderText("# Objects " + std::to_string(scene->getEntityDrawCount()),890,60,100,30,Vector3(1,1,1));
 	ServiceLocator::getText().renderText("Time " + std::to_string(SDL_GetTicks()/1000),890,90,100,30,Vector3(1,1,1));
 	std::string temp = std::to_string(music->getSongNumber()) + " " +  music->getCurrentTitle();
 	ServiceLocator::getText().renderText(temp,convertSTT(__screenW,__screenW) - 155.0f,convertSTT(__screenW,__screenW) - 30.0f,140.0f,30.0f,Vector3(1,1,1));
@@ -234,14 +225,11 @@ void Maingame::run()
 
 void Maingame::createObjects()
 {
-	audio = new LoggedAudio();
-	audio->initialize();
-	text =  new Text();
-	text->initialize();
-	ServiceLocator::initialize();
-	ServiceLocator::provide(audio);
-	ServiceLocator::provide(text);
+	engine.startUp();
 	scene = Scene::createScene(__screenH,__screenW,"res/Scenes/example.sc");
+	AudioListener::getInstance()->setCamera(scene->getCamera());
+	auto it  = scene->getEntityVector();
+	entities.insert(entities.begin(),it.begin(),it.end());
 	scene->getLightingCache()->addLight(AmbientLight(Vector3(0.2f,0.2f,0.2f)));
 	scene->getLightingCache()->addLight( DirectionalLight(BaseLight(Vector3(1,0.9f,0.8f),0.8f),Vector3(1.0f,1.0f,0.2f)));
 	scene->getLightingCache()->addLight(SpotLight(PointLight(Vector3(10,10,10),BaseLight(Vector3(1,1,1),1.f),Attenuation(1,29,64),1000),Vector3(1,1,0),0.1f));
@@ -262,22 +250,18 @@ void Maingame::createObjects()
 	
 }
 
-void Maingame::initCommands()
+void Maingame::generateCommand(Command* command)
 {
+	command_queue.push_back(command);
 	//should be read from File
-	input.bind(SDLK_w,new CameraMoveForward(scene->getCamera()));
-	input.bind(SDLK_s,new CameraMoveBackward(scene->getCamera()));
-	input.bind(SDLK_a,new CameraMoveLeft(scene->getCamera()));
-	input.bind(SDLK_d,new CameraMoveRight(scene->getCamera()));
-	input.bind(SDLK_q,new CameraMoveUp(scene->getCamera()));
-	input.bind(SDLK_e,new CameraMoveDown(scene->getCamera()));
-	input.bind(SDLK_F3,new PlayMusic(music));
-	input.bind(SDLK_RIGHT,new NextMusic(music));
-	input.bind(SDLK_LEFT,new PreviousMusic(music));
-	input.bind(SDLK_1,new switchRender());
-	input.bind(SDLK_RETURN,new SceneAddObject(scene));
-	input.bind(SDLK_F11,new WindowFullScreen(window));
-
-
-
+}
+void Maingame::executeCommands()
+{
+	while (!command_queue.empty()) 
+	{
+        command_queue.back()->execute();
+		executedCommands.push_back(command_queue.back());
+		if(executedCommands.size() > 50) executedCommands.erase(executedCommands.begin());
+        command_queue.pop_back();
+	}
 }

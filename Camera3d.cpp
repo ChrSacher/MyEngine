@@ -26,7 +26,7 @@ Ray Camera3d::getDirClick(int x,int y)
 		return Ray(pos,returnV);
 
 }
-Camera3d::Camera3d(Vector3 Pos,float fov,int width,int height,float zNear,float zFar)
+Camera3d::Camera3d(Vector3 Pos,float fov,int width,int height,float zNear,float zFar):_listeners(NULL)
 {
 	projectionMatrix=Matrix4().perspective(fov,width/height,zNear,zFar);
 	pos = Pos;
@@ -50,14 +50,23 @@ void Camera3d::setFov(float Nfov)
 }
 void Camera3d::update(Shader *shader)
 {
+	
+	
 	shader->matrices.view = GetViewProjection();
 	//shader->setUniform("viewMatrix",shader->matrices.view);
 	shader->setUniform("eyePos",pos);
+	
 }
 Matrix4& Camera3d::GetViewProjection() 
 {
+	static Matrix4 oldView;
 	viewMatrix = (Matrix4().identity().lookAt(pos,pos - dir,up));
 	viewProjection = projectionMatrix * viewMatrix;
+	if(viewProjection != oldView)
+	{
+		cameraChanged();
+	};
+	oldView = viewProjection;
 	return viewProjection;
 }
 
@@ -232,4 +241,38 @@ void Camera3d::Update()
 
     up = dir.cross(Haxis);
     up.normalize();
+}
+void Camera3d::cameraChanged()
+{
+		if (_listeners == NULL)
+			return;
+
+		for (std::list<Camera3d::Listener*>::iterator itr = _listeners->begin(); itr != _listeners->end(); ++itr)
+		{
+			Camera3d::Listener* listener = (*itr);
+			listener->cameraChanged(this);
+		}
+}
+
+void Camera3d::addListener(Camera3d::Listener* listener)
+{
+	if (_listeners == NULL)
+		_listeners = new std::list<Camera3d::Listener*>();
+	if(listener) _listeners->push_back(listener);
+}
+
+void Camera3d::removeListener(Camera3d::Listener* listener)
+{
+
+    if (_listeners)
+    {
+        for (std::list<Camera3d::Listener*>::iterator itr = _listeners->begin(); itr != _listeners->end(); ++itr)
+        {
+            if ((*itr) == listener)
+            {
+                _listeners->erase(itr);
+                break;
+            }
+        }
+    }
 }

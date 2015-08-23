@@ -16,7 +16,6 @@
 #include "Transform.h"
 #include "RenderUtil.h"
 #include "Shader.h"
-#include "Object.h"
 
 struct BasicTechniques
 {
@@ -98,7 +97,6 @@ struct PointLight:public BasicTechniques
 public:
 	PointLight(Vector3 Pos = Vector3(0,0,0),BaseLight Base = BaseLight(),Attenuation Atten = Attenuation(),float Range = 0);
 	Vector3 pos;
-	Object *object;
 	float range;
 	BaseLight base;
 	Attenuation attenuation;
@@ -164,21 +162,6 @@ public:
 	{
 		
 	};
-	void init()
-	{
-		glGenVertexArrays(1,&vao);
-		glGenBuffers(1,&vab);
-		glBindVertexArray(vao);
-		glBindBuffer(GL_ARRAY_BUFFER,vab);
-		glBufferData(GL_ARRAY_BUFFER,2000000,NULL,GL_STATIC_DRAW);
-		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,sizeof(Vector3),0);
-		glBindVertexArray(0);
-		shader = new Shader();
-		shader->addVertexShader("res/Shaders/lineShader.vert");
-		shader->addFragmentShader( "res/Shaders/lineShader.frag");
-		shader->linkShaders();
-	}
 	~LightingCache(){};
 	void addLight(PointLight light);
 	void addLight(SpotLight light);
@@ -196,8 +179,6 @@ public:
 	 Fog getFog(){return _fog;};
 	unsigned int getCount(Lights counter);
 	void forceDelete();
-	void draw(Camera3d *camera);
-	void loadBuffer();
 	void clear()
 	{ 
 		_pointLights.clear();
@@ -210,8 +191,6 @@ private:
 	AmbientLight _ambientLight;
 	DirectionalLight _directionalLight;
 	Fog _fog;
-	GLuint vao,vab;
-	Shader* shader;
 	std::vector<Vertex> vertices;
 	bool allowedRender;
 };

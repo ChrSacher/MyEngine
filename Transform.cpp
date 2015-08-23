@@ -17,14 +17,14 @@ Transform::~Transform(void)
 
 
 
-Matrix4 Transform::getMatrix() 
+Matrix4* Transform::getMatrix() 
 {
 	if( hasUpdate)
 	{
 		calculateMatrix();
 		hasUpdate=false;
 	}
-	return modelMatrix;
+	return &modelMatrix;
 };
 
 void Transform::calculateMatrix()

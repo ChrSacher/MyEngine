@@ -87,7 +87,7 @@ public:
    /* Render The Skybox with its own Shader and matrices and textures*/
    void renderSkybox(); 
    /*Make Skybox and attach Camera to it and give it a color(use other than white for different shaded sky)*/
-   Skybox(Camera3d *Camera =  new Camera3d(),Vector4 Color = Vector4(1,1,1,1));
+   Skybox(Camera3d *Camera =  NULL,Vector4 Color = Vector4(1,1,1,1));
    ~Skybox();
    void setCamera(Camera3d* Camera);
    void setColor(Vector4 Color);

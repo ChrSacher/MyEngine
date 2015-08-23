@@ -156,6 +156,7 @@ Model::Model(std::string &path)
 			Vertices.push_back(v);
 
 		}
+		GLuint temp = 0;
 		for (unsigned int i = 0 ; i < mesh->mNumFaces ; i++) 
 		{
 			const aiFace& Face = mesh->mFaces[i];
@@ -166,6 +167,7 @@ Model::Model(std::string &path)
 				Indices.push_back(Face.mIndices[2]);
 			}
 		}
+		highestIndice =
 		countIndices += mesh->mNumFaces;
 		countVertices += mesh->mNumVertices;
    }
