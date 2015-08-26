@@ -103,7 +103,6 @@ private:
 		GLuint counter;
 		std::vector<Command*> command_queue;
 		std::vector<Command*> executedCommands;
-		Engine engine;
 		std::vector<Entity*> entities;
 };
 

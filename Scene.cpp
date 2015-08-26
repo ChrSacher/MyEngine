@@ -23,6 +23,13 @@ std::vector<std::string> find_files()
   FindClose(hFind);
   return temp;
 }
+
+bool STB(std::string temp)
+{
+	std::transform(temp.begin(), temp.end(), temp.begin(), toupper);
+	if(temp.find("T") != temp.npos || temp.find("R") != temp.npos || temp.find("U") != temp.npos) return true;
+	return false;
+}
 Vector3 stV(std::string s1,std::string s2,std::string s3)
 {
 	return Vector3(atof(s1.c_str()),atof(s2.c_str()),atof(s3.c_str()));
@@ -55,21 +62,20 @@ Scene* Scene::createScene(int Height,int Width,std::string path)
 		scene->instancedShader->addVertexShader("res/Shaders/textureInstancedShading.vert");
 		scene->instancedShader->addFragmentShader( "res/Shaders/textureShading.frag");
 		scene->instancedShader->linkShaders();
-		
-		scene->lightingCache.addLight(AmbientLight(Vector3(1,1,1)));
-		scene->lightingCache.addLight(DirectionalLight(BaseLight(Vector3(1,1,1),0.0f),Vector3(1,1,1)));
-		scene->lightingCache.addFog(Fog(0.05f,Vector4(0.5f,0.5f,0.5f,1.0f),500.0f,1000.0f,false));
 		scene->camera = new Camera3d(Vector3(0,0,0),70,Width,Height,0.1f,1000.0f);
 		scene->skybox = new Skybox(scene->camera);
 		scene->skybox->loadSkybox("res/Texture/Skybox/standard/");
-		scene->terrain = NULL;
 		scene->entityCount = 0;
 		if(path != "none")
 		{
 			scene->loadScene(path);
 		}
-	if(scene->terrain == NULL)
-		scene->terrain = new Terrain("res/Texture/standardTerrain.png","res/Texture/White.png",5.0f,1.0f,true);
+		else
+		{
+			Entity* terrainEntity = Entity::create("Terrain");
+			terrainEntity->addComponent(&ComponentManager::get().createTerrain("res/Texture/standardTerrain.png","res/Texture/White.png",Vector3(1,1,1),true));
+			scene->addEntity(terrainEntity);
+		}
 	return scene;
 
 
@@ -86,20 +92,20 @@ void Scene::deleteScene(Scene* deleteScene)
 		deleteScene->deleteEntity(j->first);
 		j = deleteScene->entities.begin();
 	}
-	delete(deleteScene->camera,deleteScene->shader,deleteScene->skybox,deleteScene->terrain);
-	deleteScene->camera =NULL;deleteScene->shader = NULL;deleteScene->skybox =NULL;deleteScene-> terrain = NULL;
+	delete(deleteScene->camera,deleteScene->shader,deleteScene->skybox);
+	deleteScene->camera =NULL;deleteScene->shader = NULL;deleteScene->skybox =NULL;
 	delete(deleteScene);
 }
 Ray Scene::getClick(int x,int y)
 {
-	int i = 0;
+	/*int i = 0;
 	fbo->activate();
 	//i += pipeline->renderColor(shader,camera,Vector3(0.2,0.2,0.2));//render objects in color
 	glFinish();
 	//now read the stuff under pixel
 	//glReadPixels(x,y,camera->getSize().x,camera->getSize().y,GL_RGB,GL_FLOAT,NULL);
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
-    glViewport(0, 0, camera->getSize().x, camera->getSize().y);
+    glViewport(0, 0, camera->getSize().x, camera->getSize().y);*/
 	return Ray();
 }
 
@@ -107,12 +113,7 @@ void Scene::update(float delta)
 {
 	static int counter = 0;
 	counter++;
-	for(auto &it = entities.begin(); it != entities.end(); it++)
-	{
-		it->second->update(delta);
-	}
-	lightingCache.getSpotLights()[0].getPointLight().pos = camera->getPos();
-	lightingCache.getSpotLights()[0].setDir(camera->getDir().normalize());
+	ComponentManager::get().update(delta);
 }
 
 void Scene::renderScene()
@@ -121,24 +122,14 @@ void Scene::renderScene()
 	skybox->renderSkybox(); //temporär
 	shader->use();
 	camera->update(shader);
-	lightingCache.getAmbientLight().update(shader);
-	lightingCache.getDirectionalLight().update(shader);
-	//__shader->updateFog(&__lightingCache.getFog());
-	PointLight::update(shader,lightingCache.getPointLights());
-	SpotLight::update(shader,lightingCache.getSpotLights());
-	for(auto &it = entities.begin(); it != entities.end(); it++)
-	{
-		it->second->render(shader,camera);
-	}
-	terrain->render(shader);
-	shader->unuse(); //theoretisch nicht benötigt 
+	ComponentManager::get().render(shader,camera);
 	glFinish();
-};
+}; 
 
 void Scene::saveFile(std::string name)
 {
 	std::ofstream myFile;
-	myFile.open ("res/Scenes/example.scene");
+	myFile.open (name);
 	for(auto &it = entities.begin(); it != entities.end(); it++)
 	{
 		myFile << it->second->saveScene();
@@ -229,6 +220,9 @@ bool Scene::loadScene(std::string Path)
 	type.insert(std::make_pair("G",GRAPHICS));
 	type.insert(std::make_pair("P",PHYSICS));
 	type.insert(std::make_pair("C",COLLISIONS));
+	type.insert(std::make_pair("A",AMBIENT));
+	type.insert(std::make_pair("D",DIRECTIONAL));
+	type.insert(std::make_pair("T",TERRAIN));
     if(!encodefile)
     {
         std::cout<<Path<< " could not be read"<<std::endl;
@@ -238,48 +232,88 @@ bool Scene::loadScene(std::string Path)
 	Entity* currentEntity = NULL;
     while(std::getline(encodefile, line))
     {
-			auto pos = line.rfind("//");
-			if (pos != std::string::npos)
-			{
-				line.erase(pos);
-			}
-			std::vector<std::string> lines;
-			split(line,' ',lines);
+		auto pos = line.rfind("//");
+		if (pos != std::string::npos)
+		{
+			line.erase(pos);
+		}
+		std::vector<std::string> lines;
+		split(line,' ',lines);
 			ComponentType temp = NUMCOMPONENT;
-			auto it = type.find(lines[0]);
-			if(it != type.end()) temp = it->second; 
-			switch(temp)
+			if(lines.size() == 0) continue;
+		auto it = type.find(lines[0]);
+		if(it != type.end()) temp = it->second; 
+		switch(temp)
+		{
+			case ENTITY:
 			{
-				case ENTITY:
+				if(lines.size() == 11)
 				{
-					if(lines.size() == 10)
+					if(currentEntity  != NULL) addEntity(currentEntity);
+					currentEntity = Entity::create(	lines[1],
+													stV(lines[2],lines[3],lines[4]),
+													stV(lines[5],lines[6],lines[7]),
+													stV(lines[8],lines[9],lines[10]));
+					std::cout<<"Loading Entity"<<std::endl;
+				}
+				else std::cout<<"Broken Scene Line"<<std::endl;
+				
+			}break;
+			case GRAPHICS:
+			{
+				if(currentEntity != NULL)
+				{
+					if(lines.size() == 7)
 					{
-						currentEntity = Entity::create(	stV(lines[1],lines[2],lines[3]),
-														stV(lines[4],lines[5],lines[6]),
-														stV(lines[7],lines[8],lines[9]));
+						currentEntity->addComponent(&ComponentManager::get().createGraphics(lines[1],lines[2],lines[3],stV(lines[4],lines[5],lines[6])));
+						std::cout<<"Loading Graphic"<<std::endl;
 					}
 					else std::cout<<"Broken Scene Line"<<std::endl;
-					
-				}break;
-				case GRAPHICS:
+				}
+			}break;
+			case PHYSICS:
+			{
+			}break;
+			case TERRAIN:
+			{
+				if(currentEntity != NULL)
 				{
+					if(lines.size() == 7)
+					{
+						currentEntity->addComponent(&ComponentManager::get().createTerrain(lines[1],lines[2],stV(lines[3],lines[4],lines[5]),STB(lines[6])));
+						std::cout<<"Loading Terrain"<<std::endl;
+					}
+					else std::cout<<"Broken Scene Line"<<std::endl;
+				}
+			}break;
+			case AMBIENT:
+			{
+					if(lines.size() == 4)
+					{
+						currentEntity->addComponent(&ComponentManager::get().createAmbient(stV(lines[1],lines[2],lines[3])));
+						std::cout<<"Loading Ambient"<<std::endl;
+					}
+					else std::cout<<"Broken Scene Line"<<std::endl;
+			};break;
+			case COLLISIONS:
+			{
 
-				}break;
-				case PHYSICS:
-				{
+			}break;
+			case DIRECTIONAL:
+			{
+					if(lines.size() == 8)
+					{
+						currentEntity->addComponent(&ComponentManager::get().createDirectional(stV(lines[1],lines[2],lines[3]),atof(lines[4].c_str()),stV(lines[5],lines[6],lines[7])));
+						std::cout<<"Loading Directional"<<std::endl;
+					}
+					else std::cout<<"Broken Scene Line"<<std::endl;
+			};break;
+			default:
+			{
 
-				}break;
-				case COLLISIONS:
-				{
-
-				}break;
-				default:
-				{
-
-				}break;
-			}
+			}break;
 		}
-    }
+	}
 	return true;
 };
 

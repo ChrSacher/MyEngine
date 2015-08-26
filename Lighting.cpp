@@ -104,7 +104,7 @@ void SpotLight::update(std::string uniformname,Shader *shader)
 void SpotLight::update(Shader* shader,std::vector<SpotLight> lights)
 {
 
-	if(lights.size() > MAXSPOTLIGHTS)
+		if(lights.size() > MAXSPOTLIGHTS)
 		{
 			fatalError("Too many SpotLights passed in\n");
 			return;

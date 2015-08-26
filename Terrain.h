@@ -26,26 +26,12 @@
 struct TerrainIndex
 	{
 		GLuint vao,vab,count;
-		std::vector<Vertex> vertices;
-		TerrainIndex(std::vector<Vertex> &Vertices)
+
+		TerrainIndex(std::vector<Vertex> &vertices)
 		{
 			glGenVertexArrays(1,&vao);
 			glGenBuffers(1,&vab);
-			count = Vertices.size();
-			vertices = Vertices;
-			loadBuffer();
-		}
-		void resize(float widthChange,float heightChange)
-		{
-			for(unsigned int i = 0;i < vertices.size();i++)
-			{
-				Vertex &temp = vertices[i];
-				temp.pos=Vector3(temp.pos.x * widthChange,temp.pos.y * heightChange,temp.pos.z * widthChange);
-			}
-			loadBuffer();
-		}
-		void loadBuffer()
-		{		
+			count = vertices.size();
 			glBindVertexArray(vao);
 			glBindBuffer(GL_ARRAY_BUFFER,vab);
 			glEnableVertexAttribArray(0);
@@ -66,26 +52,30 @@ struct TerrainIndex
 class Terrain
 {
 public:
-	Terrain(std::string Path,std::string Texture,float PW = 2.0f, float PH = 0.5f,bool Center = false);
+	Terrain(std::string Path,std::string Texture,Vector3 Scale,bool Center = false);
 	~Terrain(void);
 	void render(Shader *shader = NULL);
 	
-	Material* getMaterial() {return material;}
-	Transform* getTransform(){return transform;};
+	Material* getMaterial() {return &material;}
+	Transform* getTransform(){return &transform;};
 	void loadTerrain();
 	void calculateNormalMap();
 	void calculateHeightMap(std::string Path);
 	std::string& getPath(){return path;}
-	Vector2 getPixelSize(){return Vector2(pixelWidth,pixelHeight);}
 	float getHeight(float X,float Z);
-	void resizeTerrain(float pixelW,float pixelH);
+	void resizeTerrain(Vector3 Scale);
 	bool isCentered(){return centered;}
+	void setTransform(Transform* Transform){transform = *Transform;};
+
+
+
+	///////////////////////////////////////////////////////////
+	//TODO IMPORTANT REPLACE PIXELWIDTH,PIXELHEIGHT WITH TRANSFORM SCALE
 private: 
 	int width,height,numComponents,count;
-	float pixelWidth,pixelHeight;
 	TerrainIndex* Index;
-	Material *material;
-	Transform *transform;
+	Material material;
+	Transform transform;
 	Shader *shader;
 	std::string path;
 	bool success;

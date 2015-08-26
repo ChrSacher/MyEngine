@@ -2,7 +2,7 @@
 #include "ServiceLocator.h"
 #include "Component.h"
 #include <vector>
-const float MAXCOMPONENTS = 200;
+#include "Component.h"
 class Engine
 {
 public:
@@ -14,6 +14,7 @@ public:
 		audio->initialize();
 		text =  new Text();
 		text->initialize();
+		ComponentManager::get().startup();
 		ServiceLocator::initialize();
 		ServiceLocator::provide(audio);
 		ServiceLocator::provide(text);
@@ -29,6 +30,7 @@ public:
 
 		text->destroy();
 		audio->destroy();
+		ComponentManager::get().shutdown();
 		delete(audio);
 		delete(text);
 

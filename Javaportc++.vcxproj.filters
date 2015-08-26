@@ -217,9 +217,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\Scenes\example.sc">
-      <Filter>Ressourcendateien</Filter>
-    </None>
     <None Include="res\Shaders\deferredShading.frag">
       <Filter>Ressourcendateien</Filter>
     </None>
@@ -293,6 +290,9 @@
       <Filter>Ressourcendateien</Filter>
     </None>
     <None Include="res\Shaders\textureInstancedShading.vert">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="res\Scenes\test.sc">
       <Filter>Ressourcendateien</Filter>
     </None>
   </ItemGroup>

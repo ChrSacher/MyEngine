@@ -1,4 +1,4 @@
-﻿
+
 #include "Maingame.h"
 
 Maingame::Maingame(void):cfg(std::string("res/config.cfg"))
@@ -8,7 +8,7 @@ Maingame::Maingame(void):cfg(std::string("res/config.cfg"))
 
 Maingame::~Maingame(void)
 {
-	scene->saveFile("res/Scenes/test.scene");
+	scene->saveFile("res/Scenes/test.sc");
 	Scene::deleteScene(scene);
 	for(unsigned int i = 0;i < entities.size();i++)
 	{
@@ -20,13 +20,15 @@ Maingame::~Maingame(void)
 	TextureCache::deleteCache();
 	GUI::deleteRenderer();
 	util.~RenderUtil();
+	Engine::shutDown();
 	if(window) delete(window);
 	SDL_Quit();
 	for(unsigned int i = 0;i < executedCommands.size();i++)
 	{
 		delete(executedCommands[i]);
 	}
-	engine.shutDown();
+	
+
 }
 
 void Maingame::init()
@@ -225,16 +227,11 @@ void Maingame::run()
 
 void Maingame::createObjects()
 {
-	engine.startUp();
-	scene = Scene::createScene(__screenH,__screenW,"res/Scenes/example.sc");
+	Engine::startUp();
+	scene = Scene::createScene(__screenH,__screenW,"res/Scenes/test.sc");
 	AudioListener::getInstance()->setCamera(scene->getCamera());
 	auto it  = scene->getEntityVector();
 	entities.insert(entities.begin(),it.begin(),it.end());
-	scene->getLightingCache()->addLight(AmbientLight(Vector3(0.2f,0.2f,0.2f)));
-	scene->getLightingCache()->addLight( DirectionalLight(BaseLight(Vector3(1,0.9f,0.8f),0.8f),Vector3(1.0f,1.0f,0.2f)));
-	scene->getLightingCache()->addLight(SpotLight(PointLight(Vector3(10,10,10),BaseLight(Vector3(1,1,1),1.f),Attenuation(1,29,64),1000),Vector3(1,1,0),0.1f));
-	scene->getLightingCache()->addLight(SpotLight(PointLight(Vector3(10,100,10),BaseLight(Vector3(1,1,1),1.f),Attenuation(1,29,64),1000),Vector3(1,1,0),0.1f));
-	scene->getLightingCache()->addFog(Fog(0.5,Vector4(0.5f,0.5f,0.5f,0.5f),100,200,true));
 	ui = new UIrenderer();
 	line = new LineRenderer();
 	//ui->addOverlay(Vector2(0,0),Vector2(100,100),Vector4(1,0,1,1),true,"","Button","Text",RIGHTUP);

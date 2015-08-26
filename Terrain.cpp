@@ -14,15 +14,12 @@ Vector3 calcNormal( const Vector3 &p1, const Vector3 &p2, const Vector3 &p3 )
     return surfaceNormal;
 }
 
-Terrain::Terrain(std::string Path,std::string Texture,float PW , float PH,bool Center )
+Terrain::Terrain(std::string Path,std::string Texture,Vector3 Scale,bool Center ) : material(Texture,"res/Texture/normal_up.jpg",Vector3(1,1,1),0,32) 
 {
 	printf("Loading terrain %s\n",Path.c_str());
 	path = Path;
 	centered = Center;
-	material = new Material(Texture,"res/Texture/normal_up.jpg",Vector3(1,1,1),0,32);
-	transform = new Transform();
-	pixelWidth = PW;
-	pixelHeight = PH;
+	transform.setScale(Scale);
 	calculateHeightMap(Path);
 	if(heightMap.size() > 1)
 	{
@@ -36,11 +33,9 @@ Terrain::Terrain(std::string Path,std::string Texture,float PW , float PH,bool C
 
 Terrain::~Terrain(void)
 {
-	delete(material,transform,Index);
-	material = NULL;
-	transform = NULL;
+	delete(Index);
 	Index = NULL;
-	shader = NULL;
+	shader = NULL;//have no use yet
 }
 
 void Terrain::render(Shader* Nshader)
@@ -48,11 +43,11 @@ void Terrain::render(Shader* Nshader)
 	if(heightMap.size() > 1)
 	{
 		Nshader->use();
-		material->update(Nshader);
-		material->texture.bind(20);
+		material.update(Nshader);
+		material.texture.bind(20);
 		Nshader->setUniform("Texture",20);
-		transform->update(Nshader);
-		Nshader->setMVP(*transform->getMatrix());
+		transform.update(Nshader);
+		Nshader->setMVP(*transform.getMatrix());
 		glBindVertexArray(Index->vao);
 		glDrawArrays(GL_TRIANGLE_STRIP,0,Index->count);
 		glBindVertexArray(0);
@@ -70,13 +65,11 @@ void Terrain::loadTerrain()
 	int sizeV = sizeof(Vertex);
 	//make terrain with width going
 	//add lowe height boundary
-	transform->setScale(Vector3(pixelWidth,pixelHeight,pixelWidth));
 	if(centered)
 	{
-		transform->setPos(Vector3(-width * pixelWidth / 2,0,-height * pixelWidth / 2));	
+		transform.setPos(Vector3(-width / 2,0,-height/ 2));	
 	}
-	extension = pixelWidth * 20;
-	for(int i = 0; i < height - 1;i++)
+	for(int i = 0; i < height - 2;i++)
 	{
 		for(int j = 0; j < width ;j++)
 		{
@@ -111,8 +104,8 @@ void Terrain::loadTerrain()
 
 float Terrain::getHeight(float X,float Z)
 {
-	X = (X - transform->getPos().x) / pixelWidth ;
-	Z = (Z - transform->getPos().z )/ pixelWidth ;
+	X = (X - transform.getPos().x) / transform.getScale().x;
+	Z = (Z - transform.getPos().z ) / transform.getScale().z;
 	int minX = (int)floor(Z);
 	int maxX = (int)ceil(Z);
 	int minY = (int)floor(X);
@@ -125,7 +118,7 @@ float Terrain::getHeight(float X,float Z)
 		height2 = heightMap[minX][maxY] * (1 - (X - minY)) + heightMap[minX][maxY] * (X - minY);
 		height3 = heightMap[minX][maxY] * (1 - (Z - minX)) + heightMap[maxX][maxY] * (Z - minX);
 		height4 = heightMap[maxX][maxY] * (1 - (X - minY)) + heightMap[maxX][maxY] * (X - minY);
-		return ((height1+height2+height3+height4)/4+ 20) * pixelHeight ;
+		return ((height1+height2+height3+height4)/4+ 1) * transform.getScale().y ;
 	}
 	else
 	{
@@ -197,7 +190,7 @@ void Terrain::calculateHeightMap(std::string Path)
 		for(int j = 0;j < width * 4;j += 4)
 		{
 
-			temp.push_back(((data[offset + j]) +(data[offset + j + 1]) + (data[offset + j + 2] )) / 3 * pixelHeight);
+			temp.push_back(((data[offset + j]) +(data[offset + j + 1]) + (data[offset + j + 2] )) / 3);
 			if(temp[j/4] < lowest)
 			lowest = temp[j/4];
 		}
@@ -223,19 +216,7 @@ void Terrain::calculateHeightMap(std::string Path)
 	}
 }
 
-void Terrain::resizeTerrain(float pixelW,float pixelH)
+void Terrain::resizeTerrain(Vector3 Scale)
 {
-	pixelW /= pixelWidth;
-	pixelH /= pixelHeight;
-	Index->resize(pixelW,pixelH);
-	pixelWidth = pixelW;
-	pixelHeight = pixelH;
-	for(int i = 0; i < height ;i++)
-	{
-		for(int j = 0;j < width;j ++)
-		{
-
-			heightMap[i][j] *= pixelH;
-		}	
-	}
+	transform.setScale(Scale);
 }

@@ -63,7 +63,6 @@ public:
 	//functions for getting
 	const Entity* getEntity(int ID);
 	const std::map<int,Entity*>& getIDNameMap(){return entities;}
-	LightingCache* getLightingCache(){return &lightingCache;}
 	GLuint getCount(){return entityCount;}
 	GLuint getEntityDrawCount(){return drawnEntities;}
 	Camera3d* getCamera(){return camera;}
@@ -79,16 +78,14 @@ private:
 	Scene(){}; 
 	~Scene(void);
 	std::map<int,Entity*> entities;
-	Skybox* skybox;
+	Skybox* skybox; //TODO MAKE THIS A COMPONENT
 	Shader* shader;//0 is normal shader
 	GBuffer *deferedShader;
 	Shader* instancedShader;
-	Camera3d* camera;
-	Terrain *terrain;
-	LightingCache lightingCache;
+	Camera3d* camera;//TODO MAKE THIS A COMPONENT
 	GLuint entityCount;
 	FBO *fbo;
-	Picker picker;
+	Picker picker;//TODO MAKE THIS A COMPONENT
 	GLuint drawnEntities;
 };
 
