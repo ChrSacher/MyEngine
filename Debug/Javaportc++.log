@@ -1,87 +1,9 @@
-﻿Der Buildvorgang wurde am 26.08.2015 16:13:01 gestartet.
+﻿Der Buildvorgang wurde am 26.08.2015 16:26:34 gestartet.
      1>Projekt "C:\Users\Christian\Documents\GitHub\MyEngine\Javaportc++.vcxproj" auf Knoten "2", Build Ziel(e).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Component.cpp Engine.cpp Entity.cpp InputManager.cpp Lighting.cpp Maingame.cpp Picker.cpp Scene.cpp Shadow.cpp main.cpp
-         Scene.cpp
-     1>c:\users\christian\documents\github\myengine\camera3d.h(69): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\text.h(145): warning C4244: 'return': Konvertierung von 'GLuint' in 'float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\scene.cpp(35): warning C4244: 'Argument': Konvertierung von 'double' in 'float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\scene.cpp(306): warning C4244: 'Argument': Konvertierung von 'double' in 'float', möglicher Datenverlust
-         Maingame.cpp
-     1>c:\users\christian\documents\github\myengine\camera3d.h(69): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\text.h(145): warning C4244: 'return': Konvertierung von 'GLuint' in 'float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\maingame.cpp(36): warning C4244: '=': Konvertierung von 'float' in 'int', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\maingame.cpp(37): warning C4244: '=': Konvertierung von 'float' in 'int', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\maingame.cpp(89): warning C4244: 'Argument': Konvertierung von 'float' in 'int', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\maingame.cpp(194): warning C4244: 'Argument': Konvertierung von 'long' in 'float', möglicher Datenverlust
-         Code wird generiert...
-         Kompilieren...
-         main.cpp
-     1>c:\users\christian\documents\github\myengine\camera3d.h(69): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\text.h(145): warning C4244: 'return': Konvertierung von 'GLuint' in 'float', möglicher Datenverlust
-         Picker.cpp
-     1>c:\users\christian\documents\github\myengine\camera3d.h(69): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\text.h(145): warning C4244: 'return': Konvertierung von 'GLuint' in 'float', möglicher Datenverlust
-         Macro definition of max detected - undefining
-         Macro definition of min detected - undefining
-     1>c:\users\christian\documents\github\myengine\picker.cpp(43): warning C4244: 'Argument': Konvertierung von 'unsigned int' in 'const float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\picker.cpp(61): warning C4244: '+=': Konvertierung von 'float' in 'unsigned int', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\picker.cpp(90): warning C4244: 'Argument': Konvertierung von 'unsigned int' in 'const float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\picker.cpp(111): warning C4244: '+=': Konvertierung von 'float' in 'unsigned int', möglicher Datenverlust
-         Lighting.cpp
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(177): error C2653: 'LightingCache': Keine Klasse oder Namespace
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(179): error C2065: '_pointLights': nichtdeklarierter Bezeichner
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(179): error C2228: Links von ".push_back" muss sich eine Klasse/Struktur/Union befinden.
-                 Typ ist ''unknown-type''
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(181): error C2653: 'LightingCache': Keine Klasse oder Namespace
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(183): error C2065: '_spotLights': nichtdeklarierter Bezeichner
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(183): error C2228: Links von ".push_back" muss sich eine Klasse/Struktur/Union befinden.
-                 Typ ist ''unknown-type''
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(185): error C2653: 'LightingCache': Keine Klasse oder Namespace
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(187): error C2065: '_ambientLight': nichtdeklarierter Bezeichner
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(189): error C2653: 'LightingCache': Keine Klasse oder Namespace
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(191): error C2065: '_directionalLight': nichtdeklarierter Bezeichner
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(193): error C2653: 'LightingCache': Keine Klasse oder Namespace
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(195): error C2065: '_fog': nichtdeklarierter Bezeichner
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(198): error C2653: 'LightingCache': Keine Klasse oder Namespace
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(200): error C2065: '_pointLights': nichtdeklarierter Bezeichner
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(200): error C2228: Links von ".size" muss sich eine Klasse/Struktur/Union befinden.
-                 Typ ist ''unknown-type''
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(202): error C2065: '_pointLights': nichtdeklarierter Bezeichner
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(202): error C2228: Links von ".getIdentifier" muss sich eine Klasse/Struktur/Union befinden.
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(204): error C2065: '_pointLights': nichtdeklarierter Bezeichner
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(208): error C2065: '_pointLights': nichtdeklarierter Bezeichner
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(210): error C2653: 'LightingCache': Keine Klasse oder Namespace
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(212): error C2065: '_pointLights': nichtdeklarierter Bezeichner
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(212): error C2228: Links von ".size" muss sich eine Klasse/Struktur/Union befinden.
-                 Typ ist ''unknown-type''
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(214): error C2065: '_pointLights': nichtdeklarierter Bezeichner
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(214): error C2228: Links von ".getID" muss sich eine Klasse/Struktur/Union befinden.
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(216): error C2065: '_pointLights': nichtdeklarierter Bezeichner
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(220): error C2065: '_pointLights': nichtdeklarierter Bezeichner
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(222): error C2653: 'LightingCache': Keine Klasse oder Namespace
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(224): error C2065: '_spotLights': nichtdeklarierter Bezeichner
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(224): error C2228: Links von ".size" muss sich eine Klasse/Struktur/Union befinden.
-                 Typ ist ''unknown-type''
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(226): error C2065: '_spotLights': nichtdeklarierter Bezeichner
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(226): error C2228: Links von ".getIdentifier" muss sich eine Klasse/Struktur/Union befinden.
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(228): error C2065: '_spotLights': nichtdeklarierter Bezeichner
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(232): error C2065: '_spotLights': nichtdeklarierter Bezeichner
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(234): error C2653: 'LightingCache': Keine Klasse oder Namespace
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(236): error C2065: '_spotLights': nichtdeklarierter Bezeichner
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(236): error C2228: Links von ".size" muss sich eine Klasse/Struktur/Union befinden.
-                 Typ ist ''unknown-type''
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(238): error C2065: '_spotLights': nichtdeklarierter Bezeichner
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(238): error C2228: Links von ".getID" muss sich eine Klasse/Struktur/Union befinden.
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(240): error C2065: '_spotLights': nichtdeklarierter Bezeichner
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(244): error C2065: '_spotLights': nichtdeklarierter Bezeichner
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(247): error C2653: 'LightingCache': Keine Klasse oder Namespace
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(253): error C2065: '_pointLights': nichtdeklarierter Bezeichner
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(253): error C2228: Links von ".size" muss sich eine Klasse/Struktur/Union befinden.
-                 Typ ist ''unknown-type''
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(261): error C2065: '_spotLights': nichtdeklarierter Bezeichner
-     1>c:\users\christian\documents\github\myengine\lighting.cpp(261): error C2228: Links von ".size" muss sich eine Klasse/Struktur/Union befinden.
-                 Typ ist ''unknown-type''
-         InputManager.cpp
-     1>c:\users\christian\documents\github\myengine\camera3d.h(69): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\text.h(145): warning C4244: 'return': Konvertierung von 'GLuint' in 'float', möglicher Datenverlust
+     1>Link:
+         Javaportc++.vcxproj -> C:\Users\Christian\Documents\GitHub\MyEngine\Debug\ProperEngine.exe
+     1>Die Erstellung des Projekts "C:\Users\Christian\Documents\GitHub\MyEngine\Javaportc++.vcxproj" ist abgeschlossen, Build Ziel(e).
+
+Build erfolgreich.
+
+Verstrichene Zeit 00:00:00.05

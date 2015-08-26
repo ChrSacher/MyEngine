@@ -70,7 +70,7 @@ protected:
 class AmbientLightComponent :public Component
 {
 public:
-	AmbientLightComponent(Vector3 ambient = Vector3(0.5f,0.5f,0.5f)){type = AMBIENT;};
+	AmbientLightComponent(Vector3 Ambient = Vector3(0.5f,0.5f,0.5f)):ambient(Ambient){type = AMBIENT;};
 	~AmbientLightComponent(void){};
 	AmbientLight ambient;
 	void render(Shader* shader,Camera3d* camera);

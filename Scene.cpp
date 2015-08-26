@@ -314,6 +314,8 @@ bool Scene::loadScene(std::string Path)
 			}break;
 		}
 	}
+	if(currentEntity != NULL)
+		addEntity(currentEntity);
 	return true;
 };
 
