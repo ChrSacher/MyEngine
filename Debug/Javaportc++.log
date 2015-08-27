@@ -1,9 +1,136 @@
-﻿Der Buildvorgang wurde am 26.08.2015 16:26:34 gestartet.
+﻿Der Buildvorgang wurde am 27.08.2015 00:02:59 gestartet.
      1>Projekt "C:\Users\Christian\Documents\GitHub\MyEngine\Javaportc++.vcxproj" auf Knoten "2", Build Ziel(e).
-     1>Link:
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Component.cpp Engine.cpp Entity.cpp InputManager.cpp Lighting.cpp Maingame.cpp Mesh.cpp Picker.cpp Scene.cpp Shadow.cpp Terrain.cpp main.cpp
+         Scene.cpp
+     1>c:\users\christian\documents\github\myengine\camera3d.h(69): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\text.h(145): warning C4244: 'return': Konvertierung von 'GLuint' in 'float', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\scene.cpp(35): warning C4244: 'Argument': Konvertierung von 'double' in 'float', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\scene.cpp(312): warning C4244: 'Argument': Konvertierung von 'double' in 'float', möglicher Datenverlust
+         Mesh.cpp
+     1>c:\users\christian\documents\github\myengine\mesh.cpp(139): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\christian\documents\github\myengine\mesh.cpp(142): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\christian\documents\github\myengine\mesh.cpp(190): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+         Code wird generiert...
+         Kompilieren...
+         main.cpp
+     1>c:\users\christian\documents\github\myengine\camera3d.h(69): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\text.h(145): warning C4244: 'return': Konvertierung von 'GLuint' in 'float', möglicher Datenverlust
+         Terrain.cpp
+     1>c:\users\christian\documents\github\myengine\camera3d.h(69): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\terrain.cpp(70): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\terrain.cpp(77): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\terrain.cpp(81): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\terrain.cpp(91): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\terrain.cpp(95): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\terrain.cpp(117): warning C4244: '=': Konvertierung von 'float' in 'int', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\terrain.cpp(118): warning C4244: '=': Konvertierung von 'float' in 'int', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\terrain.cpp(119): warning C4244: '=': Konvertierung von 'float' in 'int', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\terrain.cpp(120): warning C4244: '=': Konvertierung von 'float' in 'int', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\terrain.cpp(152): warning C4244: '=': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\terrain.cpp(153): warning C4244: '=': Konvertierung von 'int' in 'float', möglicher Datenverlust
+         Picker.cpp
+     1>c:\users\christian\documents\github\myengine\camera3d.h(69): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\text.h(145): warning C4244: 'return': Konvertierung von 'GLuint' in 'float', möglicher Datenverlust
+         Macro definition of max detected - undefining
+         Macro definition of min detected - undefining
+     1>c:\users\christian\documents\github\myengine\picker.cpp(43): warning C4244: 'Argument': Konvertierung von 'unsigned int' in 'const float', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\picker.cpp(61): warning C4244: '+=': Konvertierung von 'float' in 'unsigned int', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\picker.cpp(90): warning C4244: 'Argument': Konvertierung von 'unsigned int' in 'const float', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\picker.cpp(111): warning C4244: '+=': Konvertierung von 'float' in 'unsigned int', möglicher Datenverlust
+         Maingame.cpp
+     1>c:\users\christian\documents\github\myengine\camera3d.h(69): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\text.h(145): warning C4244: 'return': Konvertierung von 'GLuint' in 'float', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\maingame.cpp(36): warning C4244: '=': Konvertierung von 'float' in 'int', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\maingame.cpp(37): warning C4244: '=': Konvertierung von 'float' in 'int', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\maingame.cpp(89): warning C4244: 'Argument': Konvertierung von 'float' in 'int', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\maingame.cpp(194): warning C4244: 'Argument': Konvertierung von 'long' in 'float', möglicher Datenverlust
+         Lighting.cpp
+         InputManager.cpp
+     1>c:\users\christian\documents\github\myengine\camera3d.h(69): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\text.h(145): warning C4244: 'return': Konvertierung von 'GLuint' in 'float', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\inputmanager.cpp(9): warning C4244: 'Argument': Konvertierung von 'Sint32' in 'float', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\inputmanager.cpp(137): warning C4018: '>': Konflikt zwischen 'signed' und 'unsigned'
+         Entity.cpp
+     1>c:\users\christian\documents\github\myengine\camera3d.h(69): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\text.h(145): warning C4244: 'return': Konvertierung von 'GLuint' in 'float', möglicher Datenverlust
+         Macro definition of max detected - undefining
+         Macro definition of min detected - undefining
+     1>c:\users\christian\documents\github\myengine\entity.cpp(25): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\christian\documents\github\myengine\entity.cpp(36): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\christian\documents\github\myengine\entity.cpp(44): warning C4018: '<=': Konflikt zwischen 'signed' und 'unsigned'
+         Engine.cpp
+     1>c:\users\christian\documents\github\myengine\camera3d.h(69): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\text.h(145): warning C4244: 'return': Konvertierung von 'GLuint' in 'float', möglicher Datenverlust
+         Macro definition of max detected - undefining
+         Macro definition of min detected - undefining
+         Component.cpp
+     1>c:\users\christian\documents\github\myengine\camera3d.h(69): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\text.h(145): warning C4244: 'return': Konvertierung von 'GLuint' in 'float', möglicher Datenverlust
+         Macro definition of max detected - undefining
+         Macro definition of min detected - undefining
+     1>c:\users\christian\documents\github\myengine\component.cpp(113): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\christian\documents\github\myengine\component.cpp(117): warning C4244: 'Argument': Konvertierung von 'unsigned int' in 'const float', möglicher Datenverlust
+     1>c:\users\christian\documents\github\myengine\component.cpp(168): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\christian\documents\github\myengine\component.cpp(169): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\christian\documents\github\myengine\component.cpp(170): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\christian\documents\github\myengine\component.cpp(171): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\christian\documents\github\myengine\component.cpp(172): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\christian\documents\github\myengine\component.cpp(173): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\christian\documents\github\myengine\component.cpp(178): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\christian\documents\github\myengine\component.cpp(179): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\christian\documents\github\myengine\component.cpp(180): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\christian\documents\github\myengine\component.cpp(181): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\christian\documents\github\myengine\component.cpp(182): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\christian\documents\github\myengine\component.cpp(189): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\christian\documents\github\myengine\component.cpp(202): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\christian\documents\github\myengine\component.cpp(211): warning C4018: '<=': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\christian\documents\github\myengine\component.cpp(213): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\christian\documents\github\myengine\component.cpp(226): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\christian\documents\github\myengine\component.cpp(235): warning C4018: '<=': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\christian\documents\github\myengine\component.cpp(237): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\christian\documents\github\myengine\component.cpp(250): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\christian\documents\github\myengine\component.cpp(259): warning C4018: '<=': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\christian\documents\github\myengine\component.cpp(261): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>c:\users\christian\documents\github\myengine\component.cpp(274): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+         Code wird generiert...
+         Überspringen... (keine relevanten Änderungen gefunden)
+         Shadow.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Christian\Documents\GitHub\MyEngine\Debug\ProperEngine.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib glew32.lib OpengL32.lib glu32.lib freetype26d.lib irrKlang.lib "CEGUIOpenGLRenderer-0_d.lib" "CEGUIBase-0_d.lib" assimp.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Christian\Documents\GitHub\MyEngine\Debug\ProperEngine.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Christian\Documents\GitHub\MyEngine\Debug\ProperEngine.lib" /MACHINE:X86 Debug\Audio.obj
+         Debug\AudioListener.obj
+         Debug\Camera3d.obj
+         Debug\Component.obj
+         Debug\Engine.obj
+         Debug\Errors.obj
+         Debug\FBO.obj
+         Debug\InputManager.obj
+         Debug\Lighting.obj
+         Debug\main.obj
+         Debug\Maingame.obj
+         Debug\Material.obj
+         Debug\3DMath.obj
+         Debug\Mesh.obj
+         Debug\MusicPlayer.obj
+         Debug\Observer.obj
+         Debug\ParticleSystem.obj
+         Debug\Picker.obj
+         Debug\Entity.obj
+         Debug\RenderUtil.obj
+         Debug\Scene.obj
+         Debug\ServiceLocator.obj
+         Debug\Shader.obj
+         Debug\Shadow.obj
+         Debug\Terrain.obj
+         Debug\Text.obj
+         Debug\Texture.obj
+         Debug\timing.obj
+         Debug\Transform.obj
+         Debug\UIrenderer.obj
+         Debug\Window.obj
          Javaportc++.vcxproj -> C:\Users\Christian\Documents\GitHub\MyEngine\Debug\ProperEngine.exe
      1>Die Erstellung des Projekts "C:\Users\Christian\Documents\GitHub\MyEngine\Javaportc++.vcxproj" ist abgeschlossen, Build Ziel(e).
 
 Build erfolgreich.
 
-Verstrichene Zeit 00:00:00.05
+Verstrichene Zeit 00:00:32.56

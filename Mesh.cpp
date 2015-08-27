@@ -12,12 +12,12 @@ void Mesh::draw()
 	glBindVertexArray(vao);
 	if(!indiced)
 	{
-		glDrawArrays(GL_TRIANGLES,0,model.Vertices.size());		
+		glDrawArrays(GL_TRIANGLES,0,model.countVertices);		
 	}
 	else
 	{	
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,vab[1]);
-		glDrawElements(GL_TRIANGLES,model.Indices.size(),GL_UNSIGNED_SHORT,0);
+		glDrawElements(GL_TRIANGLES,model.countIndices,GL_UNSIGNED_SHORT,0);
 	}
 	glBindVertexArray(0);
 }
@@ -27,7 +27,7 @@ void Mesh::drawInstanced(int count)
 	if(indiced)
 	{
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,vab[1]);
-		glDrawElementsInstanced(GL_TRIANGLES,model.Vertices.size(),GL_UNSIGNED_SHORT,0,count);
+		glDrawElementsInstanced(GL_TRIANGLES,model.countVertices,GL_UNSIGNED_SHORT,0,count);
 	}
 	else
 	{
@@ -114,6 +114,8 @@ Model::Model()
 }
 Model::Model(std::string &path)
 {
+			countIndices = 0;
+		countVertices = 0;
 	Assimp::Importer importer; 
     const aiScene* scene = importer.ReadFile( path,   
       aiProcess_Triangulate				| 
@@ -132,22 +134,40 @@ Model::Model(std::string &path)
 	  Indices.push_back(0);
 	  valid = false;
    } 
+   int r = 0;
+   int offset = 0;
    for(int i = 0; i < scene->mNumMeshes;i++)
    {
 		const aiMesh* mesh = scene->mMeshes[i];
 		for(int j = 0;j < mesh->mNumVertices;j++)
 		{
 			const aiVector3D pos = (mesh->mVertices[j]);
-			const aiVector3D normal = (mesh->mNormals[j]);
+			aiVector3D normal;
+			if(mesh->HasNormals())
+			{
+				normal = (mesh->mNormals[j]);
+			}
+			else
+			{
+				normal = aiVector3D(1,1,1);
+			}
 			aiVector3D texCoord;
-			aiVector3D tangent = (mesh->mTangents[j]);
+			aiVector3D tangent;
+			if(mesh->HasTangentsAndBitangents())
+			{
+				tangent = (mesh->mTangents[j]);
+			}
+			else
+			{
+				tangent = aiVector3D(0,1,0);
+			}
 			if(mesh->HasTextureCoords(0))
 			{
 				texCoord =  (mesh->mTextureCoords[0][j]);
 			}
 			else 
 			{
-				texCoord = (mesh->mVertices[j]);
+				texCoord = aiVector3D(0,0,0);
 			}
 			Vertex v(Vector3(pos.x, pos.y, pos.z),
 					Vector2(texCoord.x, texCoord.y),
@@ -157,18 +177,23 @@ Model::Model(std::string &path)
 
 		}
 		GLuint temp = 0;
+		
 		for (unsigned int i = 0 ; i < mesh->mNumFaces ; i++) 
 		{
 			const aiFace& Face = mesh->mFaces[i];
+			
+			
 			if(Face.mNumIndices >= 3)
 			{
-				Indices.push_back(Face.mIndices[0]);
-				Indices.push_back(Face.mIndices[1]);
-				Indices.push_back(Face.mIndices[2]);
+				for(int c = 0; c < 3;c++)
+				{
+					if(r < Face.mIndices[c]) r = Face.mIndices[c] + 1;
+					Indices.push_back(offset + Face.mIndices[c]);
+				}
 			}
 		}
-		highestIndice =
-		countIndices += mesh->mNumFaces;
+		offset = r;
+		countIndices += mesh->mNumFaces * 3;
 		countVertices += mesh->mNumVertices;
    }
   

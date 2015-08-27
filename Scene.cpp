@@ -122,6 +122,12 @@ void Scene::renderScene()
 	skybox->renderSkybox(); //temporär
 	shader->use();
 	camera->update(shader);
+	if(picker.getPick() != NULL)
+	{
+		util.renderInWireframe();
+		picker.getPick()->render(shader,camera);
+		util.renderInPolygone();
+	}
 	ComponentManager::get().render(shader,camera);
 	glFinish();
 }; 

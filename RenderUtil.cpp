@@ -35,7 +35,7 @@ void RenderUtil::initGraphics()
 	glClearDepth(1.0f);
 	glPointSize(5);
 	glEnable( GL_POINT_SPRITE ); // GL_POINT_SPRITE_ARB if you're
-    glLineWidth(3);                     // using the functionality as an extension
+    glLineWidth(12);                     // using the functionality as an extension
     glEnable( GL_POINT_SMOOTH );
 	
     //Set the background color to blue

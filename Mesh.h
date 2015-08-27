@@ -12,7 +12,6 @@
 #include <assimp/scene.h>           // Output data structure
 #include <assimp/postprocess.h>     // Post processing fla
 
-
 struct Vertex
 {
 public:
