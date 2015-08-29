@@ -12,6 +12,7 @@ class CollisionComponent;
 class CollisionWorld;
 enum ComponentType;
 class ComponentManager;
+
 class Entity
 {
 public:
@@ -21,6 +22,8 @@ public:
 	Entity* addComponent(Component* component);
 	Entity* removeComponent(Component* component);
 	bool updateComponentPointer(int Position,Component* component); //returns false if failure
+	void notify(int eventType,Component* sender ,Entity* entityInteractedWith = NULL); //this can be enchanched with Commands
+	void receive(int eventType,Component* sender,Entity* entityInteractedWith = NULL);
 	~Entity();
 	void render(Shader* shader = NULL,Camera3d* camera = NULL);
 	void update(float delta);

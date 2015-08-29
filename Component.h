@@ -31,6 +31,7 @@ enum ComponentType
 	TERRAIN,
 	AMBIENT,
 	DIRECTIONAL,
+	SKYBOX,
 	NUMCOMPONENT
 };
 
@@ -54,6 +55,8 @@ public:
 	inline Transform* GetTransform();
 	inline const Transform& GetTransform() const;
 	
+	void notify(int eventType,Entity* entityInteractedWith = NULL);
+	void receive(int eventType,Component* sender,Entity* entityInteractedWith = NULL);
 	void SetParent(Entity* Parent,int Position);
 	void updatePointer();
 	void setPosition(int Position){position = Position;};
@@ -66,6 +69,15 @@ protected:
 	ComponentType type;
 };
 
+class SkyBoxComponent : public Component
+{
+public:
+	SkyBoxComponent(Vector3 color ,std::vector<std::string> paths);
+	~SkyBoxComponent();
+	Skybox skyBox;
+	void render(Shader* shader,Camera3d* camera);
+	std::string sceneSave();
+};
 
 class AmbientLightComponent :public Component
 {
@@ -188,7 +200,8 @@ public:
 	void deleteAmbient(Component * ambient);
 	DirectionalLightComponent& createDirectional(Vector3 Color = Vector3(1.0f,1.0f,1.0f),float Intensity = 0.2f,Vector3 Dir = Vector3(1.0f,1.0f,1.0f));
 	void deleteDirectional(Component * directional);
-
+	SkyBoxComponent& createSkyBox(Vector3 color,std::string Directory, std::string posx, std::string negx, std::string posy, std::string negy, std::string posz, std::string negz);
+	void deleteSkyBox(Component* sky);
 private:
 	std::vector<GraphicsComponent> graphics;
 	std::vector<PhysicsComponent> physics;
@@ -196,6 +209,7 @@ private:
 	std::vector<TerrainComponent> terrains;
 	std::vector<AmbientLightComponent> ambients;
 	std::vector<DirectionalLightComponent> directionals;
+	std::vector<SkyBoxComponent> skies;
 	ComponentManager()
 	{
 	}

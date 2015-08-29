@@ -19,10 +19,49 @@
 		parent = Parent;
 		position = Position;
 	}
+	void Component::notify(int eventType,Entity* entityInteractedWith)
+	{
+		parent->receive(eventType,this,entityInteractedWith);
+	};
+	void Component::receive(int eventType,Component* sender,Entity* entityInteractedWith)
+	{
+	};
 	void Component::updatePointer()
 	{
 		parent->updateComponentPointer(position,this);
 	}
+
+	SkyBoxComponent::SkyBoxComponent(Vector3 color,std::vector<std::string> paths)
+	{
+		skyBox.loadSkybox(paths[0],paths[1],paths[2],paths[3],paths[4],paths[5],paths[6]);
+		skyBox.setColor(color);
+		type = SKYBOX;
+	}
+	SkyBoxComponent::~SkyBoxComponent()
+	{
+	}
+	void SkyBoxComponent::render(Shader* shader,Camera3d* camera)
+	{
+		skyBox.renderSkybox(camera);
+	}
+	std::string SkyBoxComponent::sceneSave()
+	{
+		auto r = skyBox.getDirAndFile();
+		return "S " + std::to_string(skyBox.getColor().x) + " " +std::to_string(skyBox.getColor().y )+ " " + std::to_string(skyBox.getColor().z) +" " + r[0] +" " +r[1] + " "+ r[2]+" "+ r[3]+" "+ r[4]+" " +r[5]+" " + r[6] +"\n" ;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
 	GraphicsComponent::~GraphicsComponent() 
 	{
 
@@ -175,6 +214,7 @@
 	void ComponentManager::render(Shader* shader,Camera3d* camera)
 	{
 		AmbientLightComponent::setColor(ambients,shader);
+		for(int i = 0;i < skies.size();i++) skies[i].render(shader,camera);
 		for(int i = 0;i < directionals.size();i++) directionals[i].render(shader,camera);
 		for(int i = 0;i < graphics.size();i++) graphics[i].render(shader,camera);
 		for(int i = 0;i < physics.size();i++) physics[i].render(shader,camera);
@@ -272,6 +312,39 @@
 				 directionals.erase( directionals.begin() + i);
 				i--;
 				for(int j = i;j <  directionals.size();j++)  directionals[i].updatePointer();
+				return;
+			}
+		}
+	}
+	SkyBoxComponent&  ComponentManager::createSkyBox(Vector3 color,std::string Directory, std::string posx, std::string negx, std::string posy, std::string negy, std::string posz, std::string negz)
+	{
+		static int size = skies.capacity(); //update if getting bigger
+		std::vector<std::string> paths;
+		paths.push_back(Directory);
+		paths.push_back(posx);
+		paths.push_back(negx);
+		paths.push_back(posy);
+		paths.push_back(negy);
+		paths.push_back(posz);
+		paths.push_back(negz);
+		skies.emplace_back(color,paths);//emplace back only accepts certtain number of variables for whatever reason
+		if(size <=  skies.size())
+		{
+			for(int i = 0;i <  skies.size() - 1;i++)  skies[i].updatePointer(); //size - 1 because the last one doesn't have a parent yet and also it is automatically updated witht he returnS
+			size =  skies.capacity();
+		}
+		return skies.back();
+
+	}
+	void  ComponentManager::deleteSkyBox(Component* sky)
+	{
+		for(unsigned int i = 0; i < skies.size();i++)
+		{
+			if(sky->getID() ==  skies[i].getID())
+			{
+				skies.erase( skies.begin() + i);
+				i--;
+				for(int j = i;j <  skies.size();j++)  skies[i].updatePointer();
 				return;
 			}
 		}

@@ -242,6 +242,11 @@ void Maingame::createObjects()
     CEGUI::PushButton* testButton = static_cast<CEGUI::PushButton*>(gui.createWidget("TaharezLook/Button", Vector4(0.5f, 0.5f, 0.1f, 0.05f), Vector4(), "TestButton"));
     testButton->setText("Hello World!");
     CEGUI::Combobox* TestCombobox = static_cast<CEGUI::Combobox*>(gui.createWidget("TaharezLook/Combobox", Vector4(0.2f, 0.2f, 0.1f, 0.05f), Vector4(), "TestCombobox"));
+	CEGUI::Listbox* listbox = static_cast<CEGUI::Listbox*>(gui.createWidget("TaharezLook/Listbox",Vector4(0.0f,0.7f,0.3f,0.3f),Vector4(),"test"));
+	CEGUI::ListboxItem* listboxi = new CEGUI::ListboxTextItem("text",0);
+	listboxi->setSelectionColours(CEGUI::ColourRect(CEGUI::Colour(1.0f,0.5f,0.5f,1.0f)));
+	listbox->addItem(listboxi);
+	listbox->addItem(new CEGUI::ListboxTextItem("text22",1));
     gui.setMouseCursor("TaharezLook/MouseArrow");
 
 	

@@ -63,8 +63,6 @@ Scene* Scene::createScene(int Height,int Width,std::string path)
 		scene->instancedShader->addFragmentShader( "res/Shaders/textureShading.frag");
 		scene->instancedShader->linkShaders();
 		scene->camera = new Camera3d(Vector3(0,0,0),70,Width,Height,0.1f,1000.0f);
-		scene->skybox = new Skybox(scene->camera);
-		scene->skybox->loadSkybox("res/Texture/Skybox/standard/");
 		scene->entityCount = 0;
 		if(path != "none")
 		{
@@ -92,8 +90,8 @@ void Scene::deleteScene(Scene* deleteScene)
 		deleteScene->deleteEntity(j->first);
 		j = deleteScene->entities.begin();
 	}
-	delete(deleteScene->camera,deleteScene->shader,deleteScene->skybox);
-	deleteScene->camera =NULL;deleteScene->shader = NULL;deleteScene->skybox =NULL;
+	delete(deleteScene->camera,deleteScene->shader);
+	deleteScene->camera =NULL;deleteScene->shader = NULL;
 	delete(deleteScene);
 }
 Ray Scene::getClick(int x,int y)
@@ -119,7 +117,6 @@ void Scene::update(float delta)
 void Scene::renderScene()
 {
 	drawnEntities = 0;
-	skybox->renderSkybox(); //temporär
 	shader->use();
 	camera->update(shader);
 	if(picker.getPick() != NULL)
@@ -229,6 +226,7 @@ bool Scene::loadScene(std::string Path)
 	type.insert(std::make_pair("A",AMBIENT));
 	type.insert(std::make_pair("D",DIRECTIONAL));
 	type.insert(std::make_pair("T",TERRAIN));
+	type.insert(std::make_pair("S",SKYBOX));
     if(!encodefile)
     {
         std::cout<<Path<< " could not be read"<<std::endl;
@@ -313,6 +311,15 @@ bool Scene::loadScene(std::string Path)
 						std::cout<<"Loading Directional"<<std::endl;
 					}
 					else std::cout<<"Broken Scene Line"<<std::endl;
+			};break;
+			case SKYBOX:
+			{
+				if(lines.size() == 11)
+				{
+					currentEntity->addComponent(&ComponentManager::get().createSkyBox(stV(lines[1],lines[2],lines[3]),lines[4],lines[5],lines[6],lines[7],lines[8],lines[9],lines[10]));
+					std::cout<<"Loading Skybox"<<std::endl;
+				}
+				else std::cout<<"Broken Scene Line"<<std::endl;
 			};break;
 			default:
 			{

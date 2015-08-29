@@ -78,7 +78,6 @@ private:
 	Scene(){}; 
 	~Scene(void);
 	std::map<int,Entity*> entities;
-	Skybox* skybox; //TODO MAKE THIS A COMPONENT
 	Shader* shader;//0 is normal shader
 	GBuffer *deferedShader;
 	Shader* instancedShader;

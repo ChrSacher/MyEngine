@@ -174,9 +174,16 @@ void Skybox::loadSkybox(std::string Directory, std::string posx, std::string neg
 { 
 	cube.addFiles(Directory,  posx, negx,  posy,  negy, posz, negz);
 	cube.Load();
+	color = Vector3(1,1,1);
    glGenVertexArrays(1, &vao); 
    glBindVertexArray(vao); 
-		
+		Dir = Directory;
+	fileNames[0] = posx;
+	fileNames[1] = negx;
+	fileNames[2] = posy;
+	fileNames[3] = negy;
+	fileNames[4] = posz;
+	fileNames[5] = negz;
 	GLfloat positions[] = {
     -1.0f,-1.0f,-1.0f,
     -1.0f,-1.0f, 1.0f,
@@ -228,10 +235,17 @@ void Skybox::loadSkybox(std::string Directory, std::string posx, std::string neg
 void Skybox::setSkyboxTexture(std::string Directory, std::string posx, std::string negx, std::string posy, std::string negy, std::string posz, std::string negz) 
 { 
 	cube.addFiles(Directory,  posx, negx,  posy,  negy, posz, negz);
+	Dir = Directory;
+	fileNames[0] = posx;
+	fileNames[1] = negx;
+	fileNames[2] = posy;
+	fileNames[3] = negy;
+	fileNames[4] = posz;
+	fileNames[5] = negz;
 	cube.Load();
 }
 
-Skybox::Skybox(Camera3d *Camera,Vector4 Color)
+Skybox::Skybox(Vector3 Color)
 {
 	shader = new Shader();
 	shader->addVertexShader("res/Shaders/Skybox.vert");
@@ -239,10 +253,9 @@ Skybox::Skybox(Camera3d *Camera,Vector4 Color)
 	shader->addAttribute("position");
 	shader->linkShaders();
 	color = Color;
-	camera = Camera;
 }
 
-void Skybox::renderSkybox()
+void Skybox::renderSkybox(Camera3d* camera)
 {
 	glDepthMask(0);
 	
@@ -250,7 +263,7 @@ void Skybox::renderSkybox()
 	glBindVertexArray(vao);
 	shader->use();
 	if(camera) transform.setPos(camera->getPos());
-	shader->setUniform("MVP", camera->GetViewProjection() * *transform.getMatrix());
+	shader->setMVP(camera->GetViewProjection(),*transform.getMatrix());
 	shader->setbaseColor(color);
 	cube.bind();
 	glDrawArrays(GL_TRIANGLES, 0, 36);
@@ -268,11 +281,7 @@ void Skybox::renderSkybox()
 	shader = NULL;
  }
 
-   void  Skybox::setCamera(Camera3d* Camera)
-   {
-	   camera=Camera;
-   };
-   void  Skybox::setColor(Vector4 Color)
+   void  Skybox::setColor(Vector3 Color)
    {
 	   color=Color;
    }
@@ -288,7 +297,18 @@ void Skybox::renderSkybox()
    {
 	   transform.setPos(Scale);
    }
-
+  std::vector<std::string>  Skybox::getDirAndFile()
+{
+	std::vector<std::string> names;
+	names.push_back(Dir);
+	names.push_back(fileNames[0]);
+	names.push_back(fileNames[1]);
+	names.push_back(fileNames[2]);
+	names.push_back(fileNames[3]);
+	names.push_back(fileNames[4]);
+	names.push_back(fileNames[5]);
+	return names;
+}
 
 
 bool OverlayField::operator<(OverlayField &other)

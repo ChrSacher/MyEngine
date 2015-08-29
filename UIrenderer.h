@@ -85,22 +85,24 @@ public:
 	*/
    void setSkyboxTexture(std::string Directory, std::string posx = "posx.png", std::string negx = "negx.png", std::string posy = "posy.png", std::string negy = "negy.png", std::string posz = "posz.png", std::string negz= "negz.png"); 
    /* Render The Skybox with its own Shader and matrices and textures*/
-   void renderSkybox(); 
+   void renderSkybox(Camera3d* camera); 
    /*Make Skybox and attach Camera to it and give it a color(use other than white for different shaded sky)*/
-   Skybox(Camera3d *Camera =  NULL,Vector4 Color = Vector4(1,1,1,1));
+   Skybox(Vector3 Color = Vector3(1,1,1));
    ~Skybox();
-   void setCamera(Camera3d* Camera);
-   void setColor(Vector4 Color);
+   void setColor(Vector3 Color);
+   Vector3 getColor(){return color;}
    void setPos(Vector3 Pos);
    void setRot(Vector3 Rot);
    void setScale(Vector3 Scale);
+   std::vector<std::string> getDirAndFile();
 private: 
 	Shader* shader;
-	Camera3d *camera;
 	GLuint vao,vbo;
 	CubemapTexture cube;
 	Transform transform;
-	Vector4 color;
+	Vector3 color;
+	std::string Dir;
+	std::string fileNames[6];
 };
 
 

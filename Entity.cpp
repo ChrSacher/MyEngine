@@ -39,9 +39,24 @@ Entity* Entity::removeComponent(Component* component)
 	}
 	return this;
 }
+
+	void Entity::notify(int eventType,Component* sender ,Entity* entityInteractedWith) //this can be enchanched with Commands
+	{
+		for(int i = 0;i < components.size();i++)
+		{
+			if(components[i] != sender)
+			components[i]->receive(eventType,sender,entityInteractedWith);
+		}
+	}
+	void Entity::receive(int eventType,Component* sender,Entity* entityInteractedWith)
+	{
+		//do stuff if necessary
+		notify(eventType,sender,entityInteractedWith);
+	}
+
 bool Entity::updateComponentPointer(int Position,Component* component)
 {
-	if(components.size() <= Position ) return false;
+	if(components.size() <= Position ||Position < 0 ) return false;
 	components[Position] = component;
 	return true;
 }
