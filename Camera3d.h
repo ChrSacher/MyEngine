@@ -11,6 +11,7 @@
 #include "Transform.h"
 #include <math.h>
 #include "Shader.h"
+#include "LuaEngine.h"
 #define PI 3.14159265358979323846f
  
 struct Ray
@@ -98,7 +99,7 @@ private:
 	float fov;
 	void Update();
 	bool updateneeded;
-
+	LuaScript *cameraScript;
     int windowWidth;
     int windowHeight;
 	float zNear,zFar;

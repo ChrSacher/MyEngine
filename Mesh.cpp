@@ -142,32 +142,20 @@ Model::Model(std::string &path)
 		for(int j = 0;j < mesh->mNumVertices;j++)
 		{
 			const aiVector3D pos = (mesh->mVertices[j]);
-			aiVector3D normal;
-			if(mesh->HasNormals())
+			aiVector3D normal = normal = aiVector3D(1,1,1);
+			aiVector3D texCoord= aiVector3D(0,0,0);
+			aiVector3D tangent = aiVector3D(0,1,0);
+				if(mesh->HasNormals())
 			{
 				normal = (mesh->mNormals[j]);
 			}
-			else
-			{
-				normal = aiVector3D(1,1,1);
-			}
-			aiVector3D texCoord;
-			aiVector3D tangent;
 			if(mesh->HasTangentsAndBitangents())
 			{
 				tangent = (mesh->mTangents[j]);
 			}
-			else
-			{
-				tangent = aiVector3D(0,1,0);
-			}
 			if(mesh->HasTextureCoords(0))
 			{
 				texCoord =  (mesh->mTextureCoords[0][j]);
-			}
-			else 
-			{
-				texCoord = aiVector3D(0,0,0);
 			}
 			Vertex v(Vector3(pos.x, pos.y, pos.z),
 					Vector2(texCoord.x, texCoord.y),

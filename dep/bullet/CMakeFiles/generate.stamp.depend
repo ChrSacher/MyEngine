@@ -1,0 +1,26 @@
+# CMake generation dependency list for this directory.
+C:/Users/Christian/Desktop/bullet3-master/CMakeLists.txt
+C:/Users/Christian/Documents/GitHub/MyEngine/dep/bullet/CMakeFiles/3.3.1/CMakeSystem.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.3/Modules/CMakeSystemSpecificInitialize.cmake
+C:/Users/Christian/Documents/GitHub/MyEngine/dep/bullet/CMakeFiles/3.3.1/CMakeCCompiler.cmake
+C:/Users/Christian/Documents/GitHub/MyEngine/dep/bullet/CMakeFiles/3.3.1/CMakeCXXCompiler.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.3/Modules/CMakeSystemSpecificInformation.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.3/Modules/CMakeGenericSystem.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.3/Modules/Platform/Windows.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.3/Modules/Platform/WindowsPaths.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.3/Modules/CMakeCInformation.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.3/Modules/Platform/Windows-MSVC-C.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.3/Modules/Platform/Windows-MSVC.cmake
+C:/Users/Christian/Documents/GitHub/MyEngine/dep/bullet/CMakeFiles/3.3.1/CMakeRCCompiler.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.3/Modules/CMakeRCInformation.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.3/Modules/CMakeCommonLanguageInclude.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.3/Modules/CMakeCXXInformation.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.3/Modules/Compiler/MSVC-CXX.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.3/Modules/Platform/Windows-MSVC-CXX.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.3/Modules/Platform/Windows-MSVC.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.3/Modules/CMakeCommonLanguageInclude.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.3/Modules/FindOpenGL.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.3/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.3/Modules/FindPackageMessage.cmake
+C:/Program Files (x86)/CMake/share/cmake-3.3/Modules/CMakeParseArguments.cmake
+C:/Users/Christian/Desktop/bullet3-master/BulletConfig.cmake.in

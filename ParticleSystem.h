@@ -57,7 +57,7 @@ public:
 	int lastActive;
 
 	void init();
-	void update(double deltatime);
+	void update(float deltatime);
 	void addParticle(Vector3 &Pos,Vector3 &Vel,Vector4 &Color);
 	void draw();
 	

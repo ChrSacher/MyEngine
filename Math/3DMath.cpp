@@ -1,6 +1,7 @@
 #include "3DMath.h"
 const float episolon = 0.0001;
 const float DEG2RAD = 3.141593f / 180;
+const float PI = 3.131593f;
 // fast math routines from Doom3 SDK
 float invSqrt(float x)
 {
@@ -208,7 +209,7 @@ Vector3 Vector3::rotate(float angle,Vector3 axis)
 
 	Quaternion RotationQ(rX, rY, rZ, rW);
 
-    Quaternion ConjugateQ = RotationQ.Conjugate();
+    Quaternion ConjugateQ = RotationQ.conjugate();
   //  ConjugateQ.Normalize();
     Quaternion W = RotationQ * (*this) * ConjugateQ;
 
@@ -426,7 +427,7 @@ const float EPSILON = 0.00001f;
 
 Vector3 Rotate(Vector3 newrt,Quaternion rotation) 
 {
-	Quaternion conjugateQ = rotation.Conjugate();
+	Quaternion conjugateQ = rotation.conjugate();
 	Quaternion w = rotation * (newrt) * conjugateQ;
 
 	Vector3 ret(w.x, w.y, w.z);
@@ -1758,55 +1759,266 @@ Matrix4 Matrix4::lookAt(Vector3 const &eye,Vector3 const &center,Vector3 const &
 }
 
 // END OF MATRIX4 //////////////////////////////////////////////////////
+	 Quaternion::Quaternion(float X, float Y, float Z, float W): w (W),x (X),y(Y),z(Z)
+	{
+	}
+	 Quaternion::Quaternion(float real, const Vector3 &i)
+	{
+		x = i.x;
+		y = i.y;
+		z = i.z;
+		w = real;
+	}
 
-	Quaternion::Quaternion(float _x, float _y, float _z, float _w)
-{
-    x = _x;
-    y = _y;
-    z = _z;
-    w = _w;
-}
+	//! from 3 euler angles
+	 Quaternion::Quaternion(float theta_z, float theta_y, float theta_x)
+	{
+		float cos_z_2 = cosf(0.5*theta_z);
+		float cos_y_2 = cosf(0.5*theta_y);
+		float cos_x_2 = cosf(0.5*theta_x);
 
-void Quaternion::Normalize()
-{
-    float Length = sqrtf(x * x + y * y + z * z + w * w);
+		float sin_z_2 = sinf(0.5*theta_z);
+		float sin_y_2 = sinf(0.5*theta_y);
+		float sin_x_2 = sinf(0.5*theta_x);
 
-    x /= Length;
-    y /= Length;
-    z /= Length;
-    w /= Length;
-}
+		// and now compute quaternion
+		w   = cos_z_2*cos_y_2*cos_x_2 + sin_z_2*sin_y_2*sin_x_2;
+		x = cos_z_2*cos_y_2*sin_x_2 - sin_z_2*sin_y_2*cos_x_2;
+		y = cos_z_2*sin_y_2*cos_x_2 + sin_z_2*cos_y_2*sin_x_2;
+		z = sin_z_2*cos_y_2*cos_x_2 - cos_z_2*sin_y_2*sin_x_2;
+
+	}
+	
+	//! from 3 euler angles 
+	 Quaternion::Quaternion(const Vector3 &angles)
+	{	
+		float cos_z_2 = cosf(0.5*angles.z);
+		float cos_y_2 = cosf(0.5*angles.y);
+		float cos_x_2 = cosf(0.5*angles.x);
+
+		float sin_z_2 = sinf(0.5*angles.z);
+		float sin_y_2 = sinf(0.5*angles.y);
+		float sin_x_2 = sinf(0.5*angles.x);
+
+		// and now compute quaternion
+		w   = cos_z_2*cos_y_2*cos_x_2 + sin_z_2*sin_y_2*sin_x_2;
+		x = cos_z_2*cos_y_2*sin_x_2 - sin_z_2*sin_y_2*cos_x_2;
+		y = cos_z_2*sin_y_2*cos_x_2 + sin_z_2*cos_y_2*sin_x_2;
+		z = sin_z_2*cos_y_2*cos_x_2 - cos_z_2*sin_y_2*sin_x_2;		
+	} 
+
+     Quaternion::Quaternion(const Vector3& v, float W) {
+      x = v.x;
+      y = v.y;
+      z = v.z;
+     w = W;
+    }
+
+    Quaternion:: Quaternion(const Vector4& v) {
+      x = v.x;
+      y = v.y;
+      z = v.z;
+     w = v.w;
+    }
+
+     Quaternion::Quaternion(const float* array) {
+      if(!array) Quaternion();
+	 x = array[0];
+	 y = array[1];
+	 z = array[2];
+	 w = array[3];
+    }
+    Vector3  Quaternion::complex() const { return Vector3(x,y,z); }
+    void  Quaternion::complex(const Vector3& c) { x = c[0]; y = c[1];  z = c[2]; }
+
+    float  Quaternion::real() const { return w; }
+    void  Quaternion::real(float r) {w = r; }
+
+    Quaternion  Quaternion::conjugate(void) const 
+	{
+      return Quaternion(-complex(), real());
+    }
+    Quaternion  Quaternion::inverse(void) const {
+      return conjugate() / norm();
+    }
 
 
-Quaternion Quaternion::Conjugate()
-{
-    Quaternion ret(-x, -y, -z, w);
-    return ret;
-}
+    /** 
+     * @brief Computes the product of this quaternion with the
+     * quaternion 'rhs'.
+     *
+     * @param rhs The right-hand-side of the product operation.
+     *
+     * @return The quaternion product (*this) x @p rhs.
+     */
+    Quaternion Quaternion::product(const Quaternion& rhs) const {
+      return Quaternion(y*rhs.z - z*rhs.y + x*rhs.w + w*rhs.x,
+                        z*rhs.x - x*rhs.z + y*rhs.w + w*rhs.y,
+                        x*rhs.y - y*rhs.x + z*rhs.w + w*rhs.z,
+                        w*rhs.w - x*rhs.x - y*rhs.y - z*rhs.z);
+    }
 
-Quaternion operator*(const Quaternion& l, const Quaternion& r)
-{
-    const float w = (l.w * r.w) - (l.x * r.x) - (l.y * r.y) - (l.z * r.z);
-    const float x = (l.x * r.w) + (l.w * r.x) + (l.y * r.z) - (l.z * r.y);
-    const float y = (l.y * r.w) + (l.w * r.y) + (l.z * r.x) - (l.x * r.z);
-    const float z = (l.z * r.w) + (l.w * r.z) + (l.x * r.y) - (l.y * r.x);
+    Quaternion  Quaternion::operator*(const Quaternion& rhs) const {
+      return product(rhs);
+    }
+    Quaternion  Quaternion::operator*(float s) const {
+      return Quaternion(complex()*s, real()*s);
+    }
 
-    Quaternion ret(x, y, z, w);
+    Quaternion  Quaternion::operator+(const Quaternion& rhs) const {
+      return Quaternion(x+rhs.x, y+rhs.y, z+rhs.z, w+rhs.w);
+    }
 
-    return ret;
-}
+    Quaternion  Quaternion::operator-(const Quaternion& rhs) const {
+      return Quaternion(x-rhs.x, y-rhs.y, z-rhs.z, w-rhs.w);
+    }
 
-Quaternion operator*(const Quaternion& q, const Vector3& v)
-{
-    const float w = - (q.x * v.x) - (q.y * v.y) - (q.z * v.z);
-    const float x =   (q.w * v.x) + (q.y * v.z) - (q.z * v.y);
-    const float y =   (q.w * v.y) + (q.z * v.x) - (q.x * v.z);
-    const float z =   (q.w * v.z) + (q.x * v.y) - (q.y * v.x);
+    Quaternion Quaternion::operator-() const {
+      return Quaternion(-x, -y, -z, -w);
+    }
 
-    Quaternion ret(x, y, z, w);
+    Quaternion  Quaternion::operator/(float s) const {
+      if (s == 0) std::clog << "Dividing quaternion by 0." << std::endl;
+      return Quaternion(complex()/s, real()/s);
+    }
 
-    return ret;
-}
+    Matrix4  Quaternion::matrix() const {
+      float m[16] = {
+         w, -z,  y, x,
+         z,  w, -x, y,
+        -y,  x,  w, z,
+        -x, -y, -z, w
+      };
+      return Matrix4(m);
+    }
+
+    /**
+     * @brief Returns a matrix representation of this
+     * quaternion for right multiplication.
+     *
+     * Specifically this is the matrix such that:
+     *
+     * q.vector().transpose() * this->matrix() = (q *
+     * (*this)).vector().transpose() for any quaternion q.
+     *
+     * Note that this is @e NOT the rotation matrix that may be
+     * represented by a unit quaternion.
+     */
+    Matrix4  Quaternion::rightMatrix() const {
+      float m[16] = {
+        +w, -z,  y, -x,
+        +z,  w, -x, -y,
+        -y,  x,  w, -z,
+        +x,  y,  z,  w 
+      };
+      return Matrix4(m);
+    }
+
+    /**
+     * @brief Returns this quaternion as a 4-vector.
+     *
+     * This is simply the vector [x y z w]<sup>T</sup>
+     */
+    Vector4  Quaternion::vector() const { return Vector4(x,y,z,w); }
+
+    /**
+     * @brief Returns the norm ("magnitude") of the quaternion.
+     * @return The 2-norm of [ w(), x(), y(), z() ]<sup>T</sup>.
+     */
+    float  Quaternion::norm() const { return sqrt(x*x+y*y+
+                                      z*z+w*w); }
+
+    /**
+     * @brief Computes the rotation matrix represented by a unit
+     * quaternion.
+     *
+     * @note This does not check that this quaternion is normalized.
+     * It formulaically returns the matrix, which will not be a
+     * rotation if the quaternion is non-unit.
+     */
+    Matrix3  Quaternion::rotationMatrix() const {
+      float m[9] = {
+        1-2*y*y-2*z*z, 2*x*y - 2*z*w, 2*x*z+ 2*y*w,
+        2*x*y + 2*z*w, 1-2*x*x-2*z*z, 2*y*z - 2*x*w,
+        2*x*z - 2*y*w, 2*y*z + 2*x*w, 1-2*x*x-2*y*y
+      };
+      return Matrix3(m);
+    }
+
+
+    /**
+     * @brief Returns a vector rotated by this quaternion.
+     *
+     * Functionally equivalent to:  (rotationMatrix() * v)
+     * or (q * Quaternion(0, v) * q.inverse()).
+     *
+     * @warning conjugate() is used instead of inverse() for better
+     * performance, when this quaternion must be normalized.
+     */
+    Vector3  Quaternion::rotatedVector(const Vector3& v) const {
+      return (((*this) * Quaternion(v, 0)) * conjugate()).complex();
+    }
+
+
+
+    /**
+     * @brief Computes the quaternion that is equivalent to a given
+     * euler angle rotation.
+     * @param euler A 3-vector in order:  roll-pitch-yaw.
+     */
+    void  Quaternion::euler(const Vector3& euler) 
+	{
+      float c1 = cos(euler[2] * 0.5);
+      float c2 = cos(euler[1] * 0.5);
+      float c3 = cos(euler[0] * 0.5);
+      float s1 = sin(euler[2] * 0.5);
+      float s2 = sin(euler[1] * 0.5);
+      float s3 = sin(euler[0] * 0.5);
+
+      x = c1*c2*s3 - s1*s2*c3;
+      y = c1*s2*c3 + s1*c2*s3;
+      z = s1*c2*c3 - c1*s2*s3;
+     w = c1*c2*c3 + s1*s2*s3;
+    }
+
+    /** @brief Returns an equivalent euler angle representation of
+     * this quaternion.
+     * @return Euler angles in roll-pitch-yaw order.
+     */
+    Vector3  Quaternion::euler(void) const {
+      Vector3 euler;
+      const static float PI_OVER_2 = PI * 0.5;
+      const static float EPSILON = 1e-10;
+      float sqw, sqx, sqy, sqz;
+      
+      // quick conversion to Euler angles to give tilt to user
+      sqw =w*w;
+      sqx = x*x;
+      sqy = y*y;
+      sqz = z*z;
+      
+      euler[1] = asin(2.0 * (w*y - x*z));
+      if (PI_OVER_2 - fabs(euler[1]) > EPSILON) {
+        euler[2] = atan2(2.0 * (x*y +w*z),
+                         sqx - sqy - sqz + sqw);
+        euler[0] = atan2(2.0 * (w*x + y*z),
+                         sqw - sqx - sqy + sqz);
+      } else {
+        // compute heading from local 'down' vector
+        euler[2] = atan2(2*y*z - 2*x*w,
+                         2*x*z + 2*y*w);
+        euler[0] = 0.0;
+        
+        // If facing down, reverse yaw
+        if (euler[1] < 0)
+          euler[2] = PI - euler[2];
+      }
+      return euler;
+    }
+
+
+
+
 
 
 

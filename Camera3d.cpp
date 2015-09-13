@@ -28,7 +28,7 @@ Ray Camera3d::getDirClick(int x,int y)
 }
 Camera3d::Camera3d(Vector3 Pos,float fov,int width,int height,float zNear,float zFar):_listeners(NULL)
 {
-	projectionMatrix=Matrix4().perspective(fov,width/height,zNear,zFar);
+	projectionMatrix=Matrix4().perspective(fov,(float)width/height,zNear,zFar);
 	pos = Pos;
 	up = Vector3(0,1,0);
 	up.normalize();
@@ -111,7 +111,7 @@ void Camera3d::updateProjectionMatrix(float fov,int width,int height,float zNear
 {
 
 
-	projectionMatrix=Matrix4().identity().perspective(fov,width/height,zNear,zFar);
+	projectionMatrix=Matrix4().identity().perspective(fov,(float)width/height,zNear,zFar);
 	windowWidth = width;
 	windowHeight = height;
 }
@@ -202,10 +202,10 @@ Vector3 Camera3d::getUp()
 void Camera3d::OnMouse(int x, int y,bool ignore)
 {
 	
-	mousePos.x = x;
-	mousePos.y = y;
-	x = (float)x /windowWidth * 1000;
-    y = (float)y /windowHeight * 1000;
+	mousePos.x = (float) x;
+	mousePos.y = (float)y;
+	x = x /windowWidth * 1000;
+    y = y /windowHeight * 1000;
 
 	if(ignore) return;
 	

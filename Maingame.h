@@ -39,6 +39,7 @@
 #include "AudioListener.h"
 #include "Engine.h"
 #include "Component.h"
+#include "Time.h"
 struct GameState
 {
 	bool playing;

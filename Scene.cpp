@@ -126,6 +126,7 @@ void Scene::renderScene()
 		util.renderInPolygone();
 	}
 	ComponentManager::get().render(shader,camera);
+	//PhysicsEngine::get().world->debugDrawWorld();
 	glFinish();
 }; 
 
@@ -141,7 +142,7 @@ void Scene::saveFile(std::string name)
 
 void Scene::addEntity(Entity* object)
 {
-	entities.insert(std::make_pair(object->getID(),object)); //store objects in vecto
+	entities.insert(std::make_pair(object->getID(),object)); //store objects in map
 	entityCount++;
 }
 
@@ -153,8 +154,9 @@ void Scene::deleteEntity(int ID)
 		//delete(temp->second);
 		temp->second = NULL;
 		entities.erase(ID);
+		entityCount--;
 	}
-	entityCount--;
+	
 }
 
 

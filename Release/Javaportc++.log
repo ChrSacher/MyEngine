@@ -1,70 +1,870 @@
-﻿Der Buildvorgang wurde am 15.08.2015 21:23:03 gestartet.
+﻿Der Buildvorgang wurde am 12.09.2015 15:09:20 gestartet.
      1>Projekt "C:\Users\Christian\Documents\GitHub\MyEngine\Javaportc++.vcxproj" auf Knoten "2", Build Ziel(e).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Maingame.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Audio.cpp AudioListener.cpp Camera3d.cpp Component.cpp Engine.cpp InputManager.cpp LuaEngine.cpp main.cpp Maingame.cpp MusicPlayer.cpp ParticleSystem.cpp Picker.cpp Entity.cpp Scene.cpp ServiceLocator.cpp Terrain.cpp UIrenderer.cpp Window.cpp
+         Audio.cpp
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(17): error C2059: Syntaxfehler: '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(17): error C2334: Unerwartete(s) Token vor '{'; sichtbarer Funktionstext wird übersprungen
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2143: Syntaxfehler: Es fehlt ')' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2059: Syntaxfehler: ','
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2447: '{': Funktionsheader fehlt - Parameterliste im alten Stil?
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2059: Syntaxfehler: ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(16): error C2143: Syntaxfehler: Es fehlt ',' vor '...'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(17): error C2065: 'Vs': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(17): error C2143: Syntaxfehler: Es fehlt ',' vor '...'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(19): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(22): error C2906: 'sel::detail::_arity<void>': Explizite Spezialisierung erfordert 'Vorlage <>'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(27): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2065: 'N': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2065: 'Is': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2143: Syntaxfehler: Es fehlt ',' vor '...'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(33): error C2065: 'Is': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(33): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(35): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(37): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(38): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(39): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(7): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(8): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(11): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(12): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(14): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(15): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(16): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(17): error C2065: 'TypeID': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(19): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(20): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2065: 'TypeID': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2065: 'Hasher': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2065: 'EqualTo': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2923: "std::unordered_map": "TypeID" ist kein gültiges template-Typargument für den _Kty-Parameter.
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2923: "std::unordered_map": "Hasher" ist kein gültiges template-Typargument für den _Hasher-Parameter.
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2923: "std::unordered_map": "EqualTo" ist kein gültiges template-Typargument für den _Keyeq-Parameter.
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(24): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(26): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(28): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(30): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(32): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(34): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(38): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(39): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(40): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(7): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(11): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(18): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(21): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(23): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(25): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(27): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(29): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(31): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(33): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(35): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(37): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(39): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(41): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(43): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(48): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(50): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(53): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(54): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(57): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(58): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(64): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(66): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(68): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(68): fatal error C1003: Mehr als 100 Fehler gefunden; Kompilierung wird abgebrochen.
+         AudioListener.cpp
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(17): error C2059: Syntaxfehler: '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(17): error C2334: Unerwartete(s) Token vor '{'; sichtbarer Funktionstext wird übersprungen
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2143: Syntaxfehler: Es fehlt ')' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2059: Syntaxfehler: ','
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2447: '{': Funktionsheader fehlt - Parameterliste im alten Stil?
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2059: Syntaxfehler: ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(16): error C2143: Syntaxfehler: Es fehlt ',' vor '...'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(17): error C2065: 'Vs': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(17): error C2143: Syntaxfehler: Es fehlt ',' vor '...'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(19): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(22): error C2906: 'sel::detail::_arity<void>': Explizite Spezialisierung erfordert 'Vorlage <>'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(27): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2065: 'N': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2065: 'Is': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2143: Syntaxfehler: Es fehlt ',' vor '...'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(33): error C2065: 'Is': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(33): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(35): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(37): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(38): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(39): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(7): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(8): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(11): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(12): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(14): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(15): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(16): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(17): error C2065: 'TypeID': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(19): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(20): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2065: 'TypeID': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2065: 'Hasher': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2065: 'EqualTo': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2923: "std::unordered_map": "TypeID" ist kein gültiges template-Typargument für den _Kty-Parameter.
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2923: "std::unordered_map": "Hasher" ist kein gültiges template-Typargument für den _Hasher-Parameter.
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2923: "std::unordered_map": "EqualTo" ist kein gültiges template-Typargument für den _Keyeq-Parameter.
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(24): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(26): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(28): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(30): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(32): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(34): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(38): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(39): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(40): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(7): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(11): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(18): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(21): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(23): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(25): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(27): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(29): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(31): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(33): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(35): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(37): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(39): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(41): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(43): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(48): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(50): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(53): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(54): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(57): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(58): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(64): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(66): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(68): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(68): fatal error C1003: Mehr als 100 Fehler gefunden; Kompilierung wird abgebrochen.
+         Camera3d.cpp
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(17): error C2059: Syntaxfehler: '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(17): error C2334: Unerwartete(s) Token vor '{'; sichtbarer Funktionstext wird übersprungen
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2143: Syntaxfehler: Es fehlt ')' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2059: Syntaxfehler: ','
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2447: '{': Funktionsheader fehlt - Parameterliste im alten Stil?
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2059: Syntaxfehler: ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(16): error C2143: Syntaxfehler: Es fehlt ',' vor '...'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(17): error C2065: 'Vs': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(17): error C2143: Syntaxfehler: Es fehlt ',' vor '...'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(19): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(22): error C2906: 'sel::detail::_arity<void>': Explizite Spezialisierung erfordert 'Vorlage <>'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(27): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2065: 'N': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2065: 'Is': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2143: Syntaxfehler: Es fehlt ',' vor '...'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(33): error C2065: 'Is': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(33): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(35): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(37): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(38): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(39): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(7): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(8): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(11): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(12): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(14): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(15): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(16): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(17): error C2065: 'TypeID': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(19): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(20): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2065: 'TypeID': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2065: 'Hasher': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2065: 'EqualTo': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2923: "std::unordered_map": "TypeID" ist kein gültiges template-Typargument für den _Kty-Parameter.
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2923: "std::unordered_map": "Hasher" ist kein gültiges template-Typargument für den _Hasher-Parameter.
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2923: "std::unordered_map": "EqualTo" ist kein gültiges template-Typargument für den _Keyeq-Parameter.
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(24): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(26): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(28): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(30): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(32): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(34): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(38): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(39): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(40): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(7): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(11): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(18): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(21): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(23): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(25): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(27): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(29): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(31): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(33): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(35): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(37): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(39): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(41): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(43): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(48): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(50): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(53): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(54): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(57): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(58): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(64): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(66): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(68): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(68): fatal error C1003: Mehr als 100 Fehler gefunden; Kompilierung wird abgebrochen.
+         Component.cpp
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(17): error C2059: Syntaxfehler: '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(17): error C2334: Unerwartete(s) Token vor '{'; sichtbarer Funktionstext wird übersprungen
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2143: Syntaxfehler: Es fehlt ')' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2059: Syntaxfehler: ','
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2447: '{': Funktionsheader fehlt - Parameterliste im alten Stil?
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2059: Syntaxfehler: ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(16): error C2143: Syntaxfehler: Es fehlt ',' vor '...'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(17): error C2065: 'Vs': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(17): error C2143: Syntaxfehler: Es fehlt ',' vor '...'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(19): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(22): error C2906: 'sel::detail::_arity<void>': Explizite Spezialisierung erfordert 'Vorlage <>'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(27): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2065: 'N': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2065: 'Is': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2143: Syntaxfehler: Es fehlt ',' vor '...'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(33): error C2065: 'Is': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(33): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(35): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(37): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(38): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(39): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(7): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(8): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(11): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(12): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(14): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(15): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(16): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(17): error C2065: 'TypeID': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(19): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(20): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2065: 'TypeID': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2065: 'Hasher': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2065: 'EqualTo': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2923: "std::unordered_map": "TypeID" ist kein gültiges template-Typargument für den _Kty-Parameter.
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2923: "std::unordered_map": "Hasher" ist kein gültiges template-Typargument für den _Hasher-Parameter.
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2923: "std::unordered_map": "EqualTo" ist kein gültiges template-Typargument für den _Keyeq-Parameter.
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(24): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(26): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(28): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(30): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(32): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(34): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(38): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(39): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(40): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(7): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(11): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(18): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(21): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(23): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(25): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(27): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(29): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(31): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(33): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(35): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(37): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(39): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(41): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(43): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(48): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(50): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(53): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(54): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(57): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(58): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(64): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(66): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(68): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(68): fatal error C1003: Mehr als 100 Fehler gefunden; Kompilierung wird abgebrochen.
+         Engine.cpp
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(17): error C2059: Syntaxfehler: '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(17): error C2334: Unerwartete(s) Token vor '{'; sichtbarer Funktionstext wird übersprungen
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2143: Syntaxfehler: Es fehlt ')' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2059: Syntaxfehler: ','
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2447: '{': Funktionsheader fehlt - Parameterliste im alten Stil?
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2059: Syntaxfehler: ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(16): error C2143: Syntaxfehler: Es fehlt ',' vor '...'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(17): error C2065: 'Vs': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(17): error C2143: Syntaxfehler: Es fehlt ',' vor '...'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(19): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(22): error C2906: 'sel::detail::_arity<void>': Explizite Spezialisierung erfordert 'Vorlage <>'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(27): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2065: 'N': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2065: 'Is': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2143: Syntaxfehler: Es fehlt ',' vor '...'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(33): error C2065: 'Is': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(33): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(35): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(37): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(38): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(39): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(7): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(8): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(11): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(12): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(14): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(15): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(16): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(17): error C2065: 'TypeID': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(19): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(20): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2065: 'TypeID': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2065: 'Hasher': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2065: 'EqualTo': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2923: "std::unordered_map": "TypeID" ist kein gültiges template-Typargument für den _Kty-Parameter.
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2923: "std::unordered_map": "Hasher" ist kein gültiges template-Typargument für den _Hasher-Parameter.
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2923: "std::unordered_map": "EqualTo" ist kein gültiges template-Typargument für den _Keyeq-Parameter.
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(24): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(26): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(28): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(30): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(32): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(34): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(38): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(39): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(40): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(7): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(11): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(18): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(21): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(23): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(25): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(27): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(29): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(31): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(33): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(35): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(37): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(39): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(41): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(43): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(48): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(50): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(53): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(54): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(57): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(58): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(64): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(66): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(68): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(68): fatal error C1003: Mehr als 100 Fehler gefunden; Kompilierung wird abgebrochen.
+         InputManager.cpp
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(17): error C2059: Syntaxfehler: '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(17): error C2334: Unerwartete(s) Token vor '{'; sichtbarer Funktionstext wird übersprungen
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2143: Syntaxfehler: Es fehlt ')' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2059: Syntaxfehler: ','
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2447: '{': Funktionsheader fehlt - Parameterliste im alten Stil?
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2059: Syntaxfehler: ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(16): error C2143: Syntaxfehler: Es fehlt ',' vor '...'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(17): error C2065: 'Vs': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(17): error C2143: Syntaxfehler: Es fehlt ',' vor '...'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(19): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(22): error C2906: 'sel::detail::_arity<void>': Explizite Spezialisierung erfordert 'Vorlage <>'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(27): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2065: 'N': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2065: 'Is': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2143: Syntaxfehler: Es fehlt ',' vor '...'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(33): error C2065: 'Is': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(33): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(35): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(37): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(38): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(39): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(7): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(8): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(11): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(12): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(14): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(15): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(16): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(17): error C2065: 'TypeID': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(19): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(20): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2065: 'TypeID': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2065: 'Hasher': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2065: 'EqualTo': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2923: "std::unordered_map": "TypeID" ist kein gültiges template-Typargument für den _Kty-Parameter.
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2923: "std::unordered_map": "Hasher" ist kein gültiges template-Typargument für den _Hasher-Parameter.
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2923: "std::unordered_map": "EqualTo" ist kein gültiges template-Typargument für den _Keyeq-Parameter.
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(24): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(26): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(28): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(30): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(32): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(34): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(38): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(39): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(40): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(7): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(11): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(18): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(21): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(23): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(25): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(27): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(29): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(31): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(33): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(35): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(37): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(39): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(41): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(43): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(48): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(50): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(53): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(54): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(57): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(58): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(64): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(66): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(68): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(68): fatal error C1003: Mehr als 100 Fehler gefunden; Kompilierung wird abgebrochen.
+         LuaEngine.cpp
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xkeycheck.h(180): warning C4005: 'constexpr': Makro-Neudefinition
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\selene.h(4): Siehe vorherige Definition von 'constexpr'
+     1>C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\xkeycheck.h(242): fatal error C1189: #error :  The C++ Standard Library forbids macroizing keywords. Enable warning C4005 to find the forbidden macro.
+         main.cpp
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(17): error C2059: Syntaxfehler: '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(17): error C2334: Unerwartete(s) Token vor '{'; sichtbarer Funktionstext wird übersprungen
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2143: Syntaxfehler: Es fehlt ')' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2059: Syntaxfehler: ','
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2447: '{': Funktionsheader fehlt - Parameterliste im alten Stil?
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2059: Syntaxfehler: ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(16): error C2143: Syntaxfehler: Es fehlt ',' vor '...'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(17): error C2065: 'Vs': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(17): error C2143: Syntaxfehler: Es fehlt ',' vor '...'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(19): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(22): error C2906: 'sel::detail::_arity<void>': Explizite Spezialisierung erfordert 'Vorlage <>'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(27): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2065: 'N': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2065: 'Is': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2143: Syntaxfehler: Es fehlt ',' vor '...'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(33): error C2065: 'Is': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(33): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(35): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(37): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(38): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(39): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(7): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(8): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(11): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(12): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(14): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(15): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(16): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(17): error C2065: 'TypeID': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(19): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(20): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2065: 'TypeID': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2065: 'Hasher': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2065: 'EqualTo': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2923: "std::unordered_map": "TypeID" ist kein gültiges template-Typargument für den _Kty-Parameter.
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2923: "std::unordered_map": "Hasher" ist kein gültiges template-Typargument für den _Hasher-Parameter.
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2923: "std::unordered_map": "EqualTo" ist kein gültiges template-Typargument für den _Keyeq-Parameter.
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(24): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(26): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(28): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(30): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(32): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(34): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(38): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(39): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(40): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(7): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(11): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(18): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(21): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(23): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(25): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(27): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(29): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(31): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(33): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(35): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(37): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(39): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(41): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(43): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(48): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(50): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(53): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(54): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(57): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(58): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(64): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(66): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(68): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(68): fatal error C1003: Mehr als 100 Fehler gefunden; Kompilierung wird abgebrochen.
          Maingame.cpp
-     1>c:\users\christian\documents\github\myengine\Camera3d.h(43): warning C4244: 'Argument': Konvertierung von 'int' in 'float', möglicher Datenverlust
-     1>Maingame.cpp(27): warning C4244: '=': Konvertierung von 'float' in 'int', möglicher Datenverlust
-     1>Maingame.cpp(28): warning C4244: '=': Konvertierung von 'float' in 'int', möglicher Datenverlust
-     1>Maingame.cpp(81): warning C4244: 'Argument': Konvertierung von 'float' in 'int', möglicher Datenverlust
-     1>Maingame.cpp(181): warning C4244: 'Argument': Konvertierung von 'GLuint' in 'GLfloat', möglicher Datenverlust
-     1>Maingame.cpp(198): warning C4244: 'Argument': Konvertierung von 'long' in 'float', möglicher Datenverlust
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Christian\Documents\GitHub\MyEngine\Release\ProperEngine.exe" /INCREMENTAL:NO /NOLOGO SDL2.lib SDL2main.lib glew32.lib OpengL32.lib glu32.lib freetype26d.lib irrKlang.lib "CEGUIOpenGLRenderer-0.lib" "CEGUIBase-0.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Christian\Documents\GitHub\MyEngine\Release\ProperEngine.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Christian\Documents\GitHub\MyEngine\Release\ProperEngine.lib" /MACHINE:X86 /SAFESEH Release\Audio.obj
-         Release\Camera3d.obj
-         Release\Errors.obj
-         Release\FBO.obj
-         Release\InputManager.obj
-         Release\Lighting.obj
-         Release\main.obj
-         Release\Maingame.obj
-         Release\Material.obj
-         Release\3DMath.obj
-         Release\Mesh.obj
-         Release\Object.obj
-         Release\Observer.obj
-         Release\ParticleSystem.obj
-         Release\Picker.obj
-         Release\RenderUtil.obj
-         Release\Scene.obj
-         Release\Shader.obj
-         Release\Shadow.obj
-         Release\Terrain.obj
-         Release\Text.obj
-         Release\Texture.obj
-         Release\timing.obj
-         Release\Transform.obj
-         Release\UIrenderer.obj
-         Release\Window.obj
-     1>LINK : warning LNK4098: Standardbibliothek "MSVCRTD" steht in Konflikt mit anderen Bibliotheken; /NODEFAULTLIB:Bibliothek verwenden.
-         Code wird generiert.
-         Codegenerierung ist abgeschlossen.
-     1>freetype26d.lib(autofit.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(autofit.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
-     1>freetype26d.lib(bdf.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(bdf.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
-     1>freetype26d.lib(cff.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(cff.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
-     1>freetype26d.lib(ftbase.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(ftbase.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
-     1>freetype26d.lib(ftbitmap.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(ftbitmap.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
-     1>freetype26d.lib(ftdebug.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(ftdebug.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
-     1>freetype26d.lib(ftgzip.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(ftgzip.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
-     1>freetype26d.lib(ftinit.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(ftinit.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
-     1>freetype26d.lib(ftlzw.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(ftlzw.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
-     1>freetype26d.lib(ftsystem.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(ftsystem.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
-     1>freetype26d.lib(smooth.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(smooth.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
-     1>freetype26d.lib(pcf.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(pcf.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
-     1>freetype26d.lib(pfr.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(pfr.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
-     1>freetype26d.lib(psaux.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(psaux.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
-     1>freetype26d.lib(pshinter.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(pshinter.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
-     1>freetype26d.lib(psmodule.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(psmodule.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
-     1>freetype26d.lib(raster.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(raster.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
-     1>freetype26d.lib(sfnt.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(sfnt.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
-     1>freetype26d.lib(truetype.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(truetype.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
-     1>freetype26d.lib(type1.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(type1.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
-     1>freetype26d.lib(type1cid.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(type1cid.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
-     1>freetype26d.lib(type42.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(type42.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
-     1>freetype26d.lib(winfnt.obj) : warning LNK4099: PDB "freetype26d.pdb" wurde nicht mit "freetype26d.lib(winfnt.obj)" oder an "C:\Users\Christian\Documents\GitHub\MyEngine\Release\freetype26d.pdb" gefunden; Objekt wird verknüpft, als ob keine Debuginformationen vorhanden wären.
-         Javaportc++.vcxproj -> C:\Users\Christian\Documents\GitHub\MyEngine\Release\ProperEngine.exe
-     1>Die Erstellung des Projekts "C:\Users\Christian\Documents\GitHub\MyEngine\Javaportc++.vcxproj" ist abgeschlossen, Build Ziel(e).
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(17): error C2059: Syntaxfehler: '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(17): error C2334: Unerwartete(s) Token vor '{'; sichtbarer Funktionstext wird übersprungen
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2143: Syntaxfehler: Es fehlt ')' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2059: Syntaxfehler: ','
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2447: '{': Funktionsheader fehlt - Parameterliste im alten Stil?
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\LuaRef.h(28): error C2059: Syntaxfehler: ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(16): error C2143: Syntaxfehler: Es fehlt ',' vor '...'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(17): error C2065: 'Vs': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(17): error C2143: Syntaxfehler: Es fehlt ',' vor '...'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(19): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(22): error C2906: 'sel::detail::_arity<void>': Explizite Spezialisierung erfordert 'Vorlage <>'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(27): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2065: 'N': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2065: 'Is': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2143: Syntaxfehler: Es fehlt ',' vor '...'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(30): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(33): error C2065: 'Is': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(33): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(35): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(37): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(38): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\traits.h(39): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(7): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(8): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(11): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(12): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(14): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(15): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(16): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(17): error C2065: 'TypeID': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(19): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(20): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2065: 'TypeID': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2065: 'Hasher': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2065: 'EqualTo': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2923: "std::unordered_map": "TypeID" ist kein gültiges template-Typargument für den _Kty-Parameter.
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2923: "std::unordered_map": "Hasher" ist kein gültiges template-Typargument für den _Hasher-Parameter.
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(21): error C2923: "std::unordered_map": "EqualTo" ist kein gültiges template-Typargument für den _Keyeq-Parameter.
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(24): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(26): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(28): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(30): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(32): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(34): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(38): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(39): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\MetatableRegistry.h(40): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(7): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(11): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(17): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(18): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(21): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(23): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(25): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(27): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(29): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(31): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(33): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(35): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(37): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(39): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(41): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(43): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(47): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(48): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(50): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(52): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(53): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(54): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(56): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(57): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(58): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2275: 'lua_State': Ungültige Verwendung dieses Typs als Ausdruck
+                 C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\lua.h(50): Siehe Deklaration von 'lua_State'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2146: Syntaxfehler: Fehlendes ',' vor Bezeichner 'index'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2143: Syntaxfehler: Es fehlt ',' vor ')'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(60): error C2143: Syntaxfehler: Es fehlt ';' vor '{'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(64): error C2065: 'index': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(66): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(68): error C2065: 'l': nichtdeklarierter Bezeichner
+     1>c:\users\christian\documents\github\myengine\dep\include\selene\primitives.h(68): fatal error C1003: Mehr als 100 Fehler gefunden; Kompilierung wird abgebrochen.
+         MusicPlayer.cpp
+     1>Die Erstellung des Projekts "C:\Users\Christian\Documents\GitHub\MyEngine\Javaportc++.vcxproj" ist abgeschlossen, Build Ziel(e) -- FEHLER.
 
-Build erfolgreich.
+Fehler beim Buildvorgang.
 
-Verstrichene Zeit 00:00:06.44
+Verstrichene Zeit 00:00:04.23

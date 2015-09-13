@@ -3,6 +3,7 @@
 #include "Component.h"
 #include <vector>
 #include "Component.h"
+#include "PhysicsEngine.h"
 class Engine
 {
 public:
@@ -18,9 +19,9 @@ public:
 		ServiceLocator::initialize();
 		ServiceLocator::provide(audio);
 		ServiceLocator::provide(text);
+		//PhysicsEngine::get().world->getDebugDrawer()->setDebugMode(btIDebugDraw::DBG_DrawWireframe);
 
-	};
-	
+	};	
 	static void update(double delta)
 	{
 		return;//for now

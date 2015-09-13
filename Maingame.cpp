@@ -169,7 +169,7 @@ void Maingame::render()
 	
 	static std::string fps = "60";
 	if(counter%60 == 0) fps = std::to_string((int)(1000/(start-end + 0.0001)));
-	
+
 	ServiceLocator::getText().renderText("FPS " + fps,890,0,100,30,Vector3(1,1,1));
 	ServiceLocator::getText().renderText("Frametime " + std::to_string(start-end) + " ms",890,30,100,30,Vector3(1,1,1));
 	ServiceLocator::getText().renderText("# Objects " + std::to_string(scene->getEntityDrawCount()),890,60,100,30,Vector3(1,1,1));
@@ -193,6 +193,7 @@ void Maingame::gameloop()
 		start = SDL_GetTicks();	
 		if(!gamestate.paused) updateFrame(start - end);
 		delta+=(float)(start - end);
+		Time::delta = start - end;
 		while (delta >= frames) 
 		{
 			handleKeys();

@@ -18,6 +18,7 @@
 #include "Terrain.h"
 #include "UIrenderer.h"
 #include "Lighting.h"
+#include "PhysicsEngine.h"
 
 class Entity;
 

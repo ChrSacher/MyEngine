@@ -62,7 +62,7 @@ void ParticleSystem::addParticle(Vector3 &Pos,Vector3 &Vel,Vector4 &Color)
 	ParticleBuffer.insert(ParticleBuffer.begin(),Particle(Pos,Vel,Color));
 	lastActive++;
 }
-void ParticleSystem::update(double deltatime)
+void ParticleSystem::update(float deltatime)
 {
 
 	//

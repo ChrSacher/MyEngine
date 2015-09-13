@@ -354,16 +354,180 @@ struct Quaternion
 {
     float x, y, z, w;
 
-    Quaternion(float _x, float _y, float _z, float _w);
+    Quaternion(float _x = 0.0f, float _y = 0.0f, float _z = 0.0f, float _w = 1.0f);
 
-    void Normalize();
+	Quaternion(float real, const Vector3 &i);
 
-    Quaternion Conjugate();  
+	//! from 3 euler angles
+	Quaternion(float theta_z, float theta_y, float theta_x);
+	
+	//! from 3 euler angles 
+	Quaternion(const Vector3 &angles); 
+
+	Quaternion(const Vector3& v, float W);
+
+    Quaternion(const Vector4& v);
+
+    Quaternion(const float* array);
+
+    Vector3 complex() const ;
+    void complex(const Vector3& c);
+
+    float real() const;
+    void real(float r);
+
+    Quaternion conjugate(void) const ;
+
+    /** 
+     * @brief Computes the inverse of this quaternion.
+     *
+     * @note This is a general inverse.  If you know a priori
+     * that you're using a unit quaternion (i.e., norm() == 1),
+     * it will be significantly faster to use conjugate() instead.
+     * 
+     * @return The quaternion q such that q * (*this) == (*this) * q
+     * == [ 0 0 0 1 ]<sup>T</sup>.
+     */
+    Quaternion inverse(void) const ;
+
+
+    /** 
+     * @brief Computes the product of this quaternion with the
+     * quaternion 'rhs'.
+     *
+     * @param rhs The right-hand-side of the product operation.
+     *
+     * @return The quaternion product (*this) x @p rhs.
+     */
+    Quaternion product(const Quaternion& rhs) const ;
+
+    /**
+     * @brief Quaternion product operator.
+     *
+     * The result is a quaternion such that:
+     *
+     * result.real() = (*this).real() * rhs.real() -
+     * (*this).complex().dot(rhs.complex());
+     *
+     * and:
+     *
+     * result.complex() = rhs.complex() * (*this).real
+     * + (*this).complex() * rhs.real()
+     * - (*this).complex().cross(rhs.complex());
+     *
+     * @return The quaternion product (*this) x rhs.
+     */
+    Quaternion operator*(const Quaternion& rhs) const ;
+
+    /**
+     * @brief Quaternion scalar product operator.
+     * @param s A scalar by which to multiply all components
+     * of this quaternion.
+     * @return The quaternion (*this) * s.
+     */
+    Quaternion operator*(float s) const;
+
+    /**
+     * @brief Produces the sum of this quaternion and rhs.
+     */
+    Quaternion operator+(const Quaternion& rhs) const;
+
+    /**
+     * @brief Produces the difference of this quaternion and rhs.
+     */
+    Quaternion operator-(const Quaternion& rhs) const;
+
+    /**
+     * @brief Unary negation.
+     */
+    Quaternion operator-() const;
+
+    /**
+     * @brief Quaternion scalar division operator.
+     * @param s A scalar by which to divide all components
+     * of this quaternion.
+     * @return The quaternion (*this) / s.
+     */
+    Quaternion operator/(float s) const;
+
+    /**
+     * @brief Returns a matrix representation of this
+     * quaternion.
+     *
+     * Specifically this is the matrix such that:
+     *
+     * this->matrix() * q.vector() = (*this) * q for any quaternion q.
+     *
+     * Note that this is @e NOT the rotation matrix that may be
+     * represented by a unit quaternion.
+     */
+    Matrix4 matrix() const;
+
+    /**
+     * @brief Returns a matrix representation of this
+     * quaternion for right multiplication.
+     *
+     * Specifically this is the matrix such that:
+     *
+     * q.vector().transpose() * this->matrix() = (q *
+     * (*this)).vector().transpose() for any quaternion q.
+     *
+     * Note that this is @e NOT the rotation matrix that may be
+     * represented by a unit quaternion.
+     */
+    Matrix4 rightMatrix() const;
+
+    /**
+     * @brief Returns this quaternion as a 4-vector.
+     *
+     * This is simply the vector [x y z w]<sup>T</sup>
+     */
+    Vector4 vector() const;
+
+    /**
+     * @brief Returns the norm ("magnitude") of the quaternion.
+     * @return The 2-norm of [ w(), x(), y(), z() ]<sup>T</sup>.
+     */
+    float norm() const;
+
+    /**
+     * @brief Computes the rotation matrix represented by a unit
+     * quaternion.
+     *
+     * @note This does not check that this quaternion is normalized.
+     * It formulaically returns the matrix, which will not be a
+     * rotation if the quaternion is non-unit.
+     */
+    Matrix3 rotationMatrix() const;
+
+
+    /**
+     * @brief Returns a vector rotated by this quaternion.
+     *
+     * Functionally equivalent to:  (rotationMatrix() * v)
+     * or (q * Quaternion(0, v) * q.inverse()).
+     *
+     * @warning conjugate() is used instead of inverse() for better
+     * performance, when this quaternion must be normalized.
+     */
+    Vector3 rotatedVector(const Vector3& v) const ;
+
+
+
+    /**
+     * @brief Computes the quaternion that is equivalent to a given
+     * euler angle rotation.
+     * @param euler A 3-vector in order:  roll-pitch-yaw.
+     */
+    void euler(const Vector3& euler) ;
+
+    /** @brief Returns an equivalent euler angle representation of
+     * this quaternion.
+     * @return Euler angles in roll-pitch-yaw order.
+     */
+    Vector3 euler(void) const ;
 
 };
 
-Quaternion operator*(const Quaternion& l, const Quaternion& r);
-
-Quaternion operator*(const Quaternion& q, const Vector3& v);
 
 
