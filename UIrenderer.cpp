@@ -37,7 +37,7 @@ void UIrenderer::addOverlay(Vector2 Start,Vector2 Size,Vector4 Color,bool Render
 
 void UIrenderer::draw()
 {
-	if(!buttons.size() > 1) return;
+	if(!(buttons.size() > 1)) return;
 	glDisable(GL_CULL_FACE);
 	shader->use();
 	shader->setUniform("ortho",ortho);
@@ -367,13 +367,13 @@ void LineRenderer::render(Camera3d* camera)
 	if(lines.size() < 1 && timedLineCount < 1) return;
 	shader->use();
 	shader->setUniform("MVP",camera->GetViewProjection());
-	if(!lineCount < 1)
+	if(!(lineCount < 1))
 	{
 		glBindVertexArray(vao[0]);
 		glDrawArrays(GL_LINES,0,lineCount * 2);
 		glBindVertexArray(0);
 	}
-	if(!timedLineCount < 1)
+	if(!(timedLineCount < 1))
 	{
 		glBindVertexArray(vao[1]);
 		glDrawArrays(GL_LINES,0,timedLineCount * 2);

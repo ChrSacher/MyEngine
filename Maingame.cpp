@@ -33,8 +33,9 @@ Maingame::~Maingame(void)
 
 void Maingame::init()
 {
-	__screenH = cfg.getValueOfKey<float>("height",480);
-	__screenW = cfg.getValueOfKey<float>("width",640);
+	
+	__screenH = cfg.getValueOfKey<float>("height",480.0f);
+	__screenW = cfg.getValueOfKey<float>("width",640.0f);
 	gamestate.playing=true;
 	gamestate.paused=false;
 	gamestate.cameramove = true;
@@ -44,6 +45,7 @@ void Maingame::init()
 	scene = NULL;
 	line = NULL;
 	window = new Window(__screenW,__screenH,"My Engine");
+	Engine::startUp();
 	std::printf("***   OpenGL Version: %s   ***\n", glGetString(GL_VERSION));
 	util.initGraphics();	
 	createObjects();
@@ -78,7 +80,7 @@ void Maingame::handleKeys()
 				{
 					scene->getCamera()->OnMouse(event.motion.x,event.motion.y);
 					SDL_WarpMouseInWindow(window->GetSDLWindow(),__screenW /2,__screenH /2);
-					
+					std::cout << event.motion.x << "  "<< event.motion.y << std::endl;
 				}
 				 
 			};break;
@@ -146,17 +148,14 @@ void Maingame::handleKeys()
 	return;
 }
 
-void Maingame::update(float delta)
+void Maingame::update()
 {
-	scene->update(delta);
+	scene->update(Time::delta);
+	music->update();
+	ServiceLocator::getText().update(Time::delta);
+	gui.update(Time::delta);
 }
 
-void Maingame::updateFrame(float delta)
-{
-	ServiceLocator::getText().update(delta);
-	gui.update(delta);
-	music->update();
-}
 
 void Maingame::render()
 {
@@ -168,10 +167,10 @@ void Maingame::render()
 	if(ui) ui->draw();
 	
 	static std::string fps = "60";
-	if(counter%60 == 0) fps = std::to_string((int)(1000/(start-end + 0.0001)));
+	if(Time::counter%60 == 0) fps = std::to_string((int)(1000/(Time::frameTime + 0.0001)));
 
 	ServiceLocator::getText().renderText("FPS " + fps,890,0,100,30,Vector3(1,1,1));
-	ServiceLocator::getText().renderText("Frametime " + std::to_string(start-end) + " ms",890,30,100,30,Vector3(1,1,1));
+	ServiceLocator::getText().renderText("Frametime " + std::to_string(Time::frameTime) + " ms",890,30,100,30,Vector3(1,1,1));
 	ServiceLocator::getText().renderText("# Objects " + std::to_string(scene->getEntityDrawCount()),890,60,100,30,Vector3(1,1,1));
 	ServiceLocator::getText().renderText("Time " + std::to_string(SDL_GetTicks()/1000),890,90,100,30,Vector3(1,1,1));
 	std::string temp = std::to_string(music->getSongNumber()) + " " +  music->getCurrentTitle();
@@ -183,27 +182,21 @@ void Maingame::render()
 void Maingame::gameloop()
 {
 	SDL_StartTextInput(); //text eingabe aktivieren
-	start = 0;
-	end = SDL_GetTicks();
-	counter  = 0;
-	delta = 0;
-	float frames = 1 / maxFPS * 1000;
+	
+	
+	Time::begin(maxFPS);
 	while( gamestate.playing )//Solange es nicht beended ist
 	{ 
-		start = SDL_GetTicks();	
-		if(!gamestate.paused) updateFrame(start - end);
-		delta+=(float)(start - end);
-		Time::delta = start - end;
-		while (delta >= frames) 
+		Time::startFrame();
+		while (Time::frameStep()) 
 		{
 			handleKeys();
-			if(!gamestate.paused) update(frames);
-			delta -= frames;
+			if(!gamestate.paused) update();
+			
 		}
 		
 		render();	
-		end = start;
-		counter ++;
+		Time::endFrame();
 	}
 	SDL_StopTextInput();	//Text Eingabe anhalten
 	close(); //SDL beenden und Resourcen freigeben
@@ -228,7 +221,7 @@ void Maingame::run()
 
 void Maingame::createObjects()
 {
-	Engine::startUp();
+	
 	scene = Scene::createScene(__screenH,__screenW,"res/Scenes/test.sc");
 	AudioListener::getInstance()->setCamera(scene->getCamera());
 	auto it  = scene->getEntityVector();

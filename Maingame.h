@@ -59,8 +59,7 @@ class Maingame
 
 		//bool initGL();//matrizen initialisieren + farbe
 		void handleKeys(); //Eingabe 
-		void update(float delta);//Pro frame update
-		void updateFrame(float delta);
+		void update();//Pro maxfps update
 		void render();//Objecte rendern
 		void close(); //Schliessen von SDL + Resourcen
 		void run();
@@ -99,9 +98,6 @@ private:
 		float _time;
 		float maxFPS;
 		ConfigFile cfg;
-		float delta;
-		long int start, end;
-		GLuint counter;
 		std::vector<Command*> command_queue;
 		std::vector<Command*> executedCommands;
 		std::vector<Entity*> entities;

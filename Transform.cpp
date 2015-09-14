@@ -30,6 +30,13 @@ Matrix4* Transform::getMatrix()
 void Transform::calculateMatrix()
 {
 	modelMatrix = Matrix4().identity().scale(sca).rotateX(rot.x).rotateY(rot.y).rotateZ(rot.z).translate(pos);
+	Matrix4 temp;
+	temp.identity().rotateX(rot.x).rotateY(rot.y).rotateZ(rot.z);
+	forward = Vector3(temp[8],temp[9],temp[10]);
+	right = Vector3(temp[0], temp[1], temp[2]);
+	up = Vector3(temp[4], temp[5], temp[6]);
+	down = -up;
+	left = -right;
 }
 
 void Transform::setPos(Vector3& Pos)

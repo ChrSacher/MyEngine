@@ -7,6 +7,34 @@
 #include <tuple>
 #include <vector>
 
+#include "util.h"
+
+#ifdef HAS_REF_QUALIFIERS
+# undef HAS_REF_QUALIFIERS
+# undef REF_QUAL_LVALUE
+#endif
+
+#if defined(__clang__)
+# if __has_feature(cxx_reference_qualified_functions)
+#  define HAS_REF_QUALIFIERS
+# endif
+#elif defined(__GNUC__)
+# define GCC_VERSION (__GNUC__ * 10000 + __GNUC_MINOR__ * 100 + __GNUC_PATCHLEVEL__)
+# if GCC_VERSION >= 40801
+#  define HAS_REF_QUALIFIERS
+# endif
+#elif defined(_MSC_VER)
+# if _MSC_VER >= 1900 // since MSVS-14 CTP1
+#  define HAS_REF_QUALIFIERS
+# endif
+#endif
+
+#if defined(HAS_REF_QUALIFIERS)
+# define REF_QUAL_LVALUE &
+#else
+# define REF_QUAL_LVALUE
+#endif
+
 namespace sel {
 class State;
 class Selector {
@@ -34,17 +62,19 @@ private:
 
     Selector(lua_State *s, Registry &r, const std::string &name,
              std::vector<Fun> traversal, Fun get, PFun put)
-        : _state(s), _registry(r), _name(name), _traversal{traversal},
+        : _state(s), _registry(r), _name(name), _traversal(traversal),
           _get(get), _put(put) {}
 
-    Selector(lua_State *s, Registry &r, const char *name)
+    Selector(lua_State *s, Registry &r, const std::string& name)
         : _state(s), _registry(r), _name(name) {
-        _get = [this, name]() {
-            lua_getglobal(_state, name);
+        const auto state = _state; // gcc-5.1 doesn't support implicit member capturing
+        // `name' is passed by value because lambda's lifetime may be longer than lifetime of `name'
+        _get = [state, name]() {
+            lua_getglobal(state, name.c_str());
         };
-        _put = [this, name](Fun fun) {
+        _put = [state, name](Fun fun) {
             fun();
-            lua_setglobal(_state, name);
+            lua_setglobal(state, name.c_str());
         };
     }
 
@@ -72,12 +102,23 @@ public:
     Selector(const Selector &other)
         : _state(other._state),
           _registry(other._registry),
-          _name{other._name},
-          _traversal{other._traversal},
-          _get{other._get},
-          _put{other._put},
+          _name(other._name),
+          _traversal(other._traversal),
+          _get(other._get),
+          _put(other._put),
           _functor(other._functor)
         {}
+
+    Selector(Selector&& other)
+        : _state(other._state),
+          _registry(other._registry),
+          _name(other._name),
+          _traversal(other._traversal),
+          _get(other._get),
+          _put(other._put),
+          _functor(other._functor) {
+        other._functor = nullptr;
+    }
 
     ~Selector() {
         // If there is a functor is not empty, execute it and collect no args
@@ -97,9 +138,27 @@ public:
         auto tuple_args = std::make_tuple(std::forward<Args>(args)...);
         constexpr int num_args = sizeof...(Args);
         Selector copy{*this};
-        copy._functor = [this, tuple_args, num_args](int num_ret) {
-            detail::_push(_state, tuple_args);
-            lua_call(_state, num_args, num_ret);
+        const auto state = _state; // gcc-5.1 doesn't support implicit member capturing
+        copy._functor = [state, tuple_args, num_args](int num_ret) {
+            // install handler, and swap(handler, function) on lua stack
+            int handler_index = SetErrorHandler(state);
+            int func_index = handler_index - 1;
+#if LUA_VERSION_NUM >= 502
+            lua_pushvalue(state, func_index);
+            lua_copy(state, handler_index, func_index);
+            lua_replace(state, handler_index);
+#else
+            lua_pushvalue(state, func_index);
+            lua_pushvalue(state, handler_index);
+            lua_replace(state, func_index);
+            lua_replace(state, handler_index);
+#endif
+            // call lua function with error handler
+            detail::_push(state, tuple_args);
+            lua_pcall(state, num_args, num_ret, handler_index - 1);
+
+            // remove error handler
+            lua_remove(state, handler_index - 1);
         };
         return copy;
     }
@@ -320,65 +379,79 @@ public:
 
     // Chaining operators. If the selector is an rvalue, modify in
     // place. Otherwise, create a new Selector and return it.
-    Selector&& operator[](const char *name) && {
+#ifdef HAS_REF_QUALIFIERS
+    Selector&& operator[](const std::string& name) && {
         _name += std::string(".") + name;
         _check_create_table();
         _traversal.push_back(_get);
-        _get = [this, name]() {
-            lua_getfield(_state, -1, name);
+        const auto state = _state; // gcc-5.1 doesn't support implicit member capturing
+	// `name' is passed by value because lambda lifetime may be longer than `name'
+        _get = [state, name]() {
+            lua_getfield(state, -1, name.c_str());
         };
-        _put = [this, name](Fun fun) {
+        _put = [state, name](Fun fun) {
             fun();
-            lua_setfield(_state, -2, name);
-            lua_pop(_state, 1);
+            lua_setfield(state, -2, name.c_str());
+            lua_pop(state, 1);
         };
         return std::move(*this);
+    }
+    Selector&& operator[](const char* name) && {
+        return std::move(*this)[std::string{name}];
     }
     Selector&& operator[](const int index) && {
         _name += std::string(".") + std::to_string(index);
         _check_create_table();
         _traversal.push_back(_get);
-        _get = [this, index]() {
-            lua_pushinteger(_state, index);
-            lua_gettable(_state, -2);
+        const auto state = _state; // gcc-5.1 doesn't support implicit member capturing
+        _get = [state, index]() {
+            lua_pushinteger(state, index);
+            lua_gettable(state, -2);
         };
-        _put = [this, index](Fun fun) {
-            lua_pushinteger(_state, index);
+        _put = [state, index](Fun fun) {
+            lua_pushinteger(state, index);
             fun();
-            lua_settable(_state, -3);
-            lua_pop(_state, 1);
+            lua_settable(state, -3);
+            lua_pop(state, 1);
         };
         return std::move(*this);
     }
-    Selector operator[](const char *name) const & {
+#endif // HAS_REF_QUALIFIERS
+    Selector operator[](const std::string& name) const REF_QUAL_LVALUE {
         auto n = _name + "." + name;
         _check_create_table();
         auto traversal = _traversal;
         traversal.push_back(_get);
-        Fun get = [this, name]() {
-            lua_getfield(_state, -1, name);
+        const auto state = _state; // gcc-5.1 doesn't support implicit member capturing
+	// `name' is passed by value because lambda lifetime may be longer than `name'
+        Fun get = [state, name]() {
+            lua_getfield(state, -1, name.c_str());
         };
-        PFun put = [this, name](Fun fun) {
+        PFun put = [state, name](Fun fun) {
             fun();
-            lua_setfield(_state, -2, name);
-            lua_pop(_state, 1);
+            lua_setfield(state, -2, name.c_str());
+            lua_pop(state, 1);
         };
         return Selector{_state, _registry, n, traversal, get, put};
     }
-    Selector operator[](const int index) const & {
+    Selector operator[](const char* name) const REF_QUAL_LVALUE {
+        return (*this)[std::string{name}];
+    }
+    Selector operator[](const int index) const REF_QUAL_LVALUE {
         auto name = _name + "." + std::to_string(index);
         _check_create_table();
         auto traversal = _traversal;
         traversal.push_back(_get);
-        Fun get = [this, index]() {
-            lua_pushinteger(_state, index);
-            lua_gettable(_state, -2);
+        const auto state = _state; // gcc-5.1 doesn't support implicit member capturing
+        Fun get = [state, index]() {
+            lua_pushinteger(state, index);
+            lua_gettable(state, -2);
         };
-        PFun put = [this, index](Fun fun) {
-            lua_pushinteger(_state, index);
+        PFun put = [state, index](Fun fun) {
+            lua_pushinteger(state, index);
             fun();
-            lua_settable(_state, -3);
-            lua_pop(_state, 1);
+            lua_settable(state, -3);
+            lua_pop(state, 1);
         };
         return Selector{_state, _registry, name, traversal, get, put};
     }

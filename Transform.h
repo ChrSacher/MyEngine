@@ -18,6 +18,8 @@ public:
 	void setPos(Vector3& Pos);
 	void setRot(Vector3& Rot);
 	void setScale(Vector3& Scale);
+	inline void translate(Vector3 &trans) { pos += trans; }
+	inline void rotate(Vector3 &Rot) {rot += Rot;}
 	/*
 		returns modelMatrix and sets needsupdate to false
 	*/
@@ -29,9 +31,15 @@ public:
 	void update(Shader* shader){shader->setUniform("modelMatrix",*getMatrix());};
 	void calculateMatrix();
 	bool needsUpdate(){return hasUpdate;}
+	Vector3 forward;
+	Vector3 right;
+	Vector3 down;
+	Vector3 up;
+	Vector3 left;
 private:
 	Vector3 pos;
 	Vector3 rot;
 	Vector3 sca;
+	 
 };
 

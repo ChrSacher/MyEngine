@@ -15,10 +15,13 @@ public:
 		audio->initialize();
 		text =  new Text();
 		text->initialize();
+		lua = new LuaEngine();
+		lua->initialize();
 		ComponentManager::get().startup();
 		ServiceLocator::initialize();
 		ServiceLocator::provide(audio);
 		ServiceLocator::provide(text);
+		ServiceLocator::provide(lua);
 		//PhysicsEngine::get().world->getDebugDrawer()->setDebugMode(btIDebugDraw::DBG_DrawWireframe);
 
 	};	
@@ -38,5 +41,6 @@ public:
 	};
 	static Audio* audio;
 	static Text* text;
+	static LuaEngine* lua;
 };
 

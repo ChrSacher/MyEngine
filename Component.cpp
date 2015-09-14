@@ -149,7 +149,7 @@
 		Vector3 color = Vector3(0,0,0); 
 		if(ambients.size() > 0)
 		{
-			for(int i = 0; i < ambients.size();i++)
+			for(unsigned int i = 0; i < ambients.size();i++)
 			{
 				color += ambients[i].ambient.getAmbient();
 			}
@@ -204,29 +204,29 @@
 	}
 	void ComponentManager::update(float delta)
 	{
-		for(int i = 0;i < directionals.size();i++) directionals[i].update(delta);
-		for(int i = 0;i < ambients.size();i++) ambients[i].update(delta);
-		for(int i = 0;i < graphics.size();i++) graphics[i].update(delta);
-		for(int i = 0;i < physics.size();i++) physics[i].update(delta);
-		for(int i = 0;i < collisions.size();i++) collisions[i].update(delta);
-		for(int i = 0;i < terrains.size();i++) terrains[i].update(delta);
+		for(unsigned int i = 0;i < directionals.size();i++) directionals[i].update(delta);
+		for(unsigned int i = 0;i < ambients.size();i++) ambients[i].update(delta);
+		for(unsigned int i = 0;i < graphics.size();i++) graphics[i].update(delta);
+		for(unsigned int i = 0;i < physics.size();i++) physics[i].update(delta);
+		for(unsigned int i = 0;i < collisions.size();i++) collisions[i].update(delta);
+		for(unsigned int i = 0;i < terrains.size();i++) terrains[i].update(delta);
 	}
 	void ComponentManager::render(Shader* shader,Camera3d* camera)
 	{
 		AmbientLightComponent::setColor(ambients,shader);
-		for(int i = 0;i < skies.size();i++) skies[i].render(shader,camera);
-		for(int i = 0;i < directionals.size();i++) directionals[i].render(shader,camera);
-		for(int i = 0;i < graphics.size();i++) graphics[i].render(shader,camera);
-		for(int i = 0;i < physics.size();i++) physics[i].render(shader,camera);
-		for(int i = 0;i < collisions.size();i++) collisions[i].render(shader,camera);
-		for(int i = 0;i < terrains.size();i++) terrains[i].render(shader,camera);
+		for(unsigned int i = 0;i < skies.size();i++) skies[i].render(shader,camera);
+		for(unsigned int i = 0;i < directionals.size();i++) directionals[i].render(shader,camera);
+		for(unsigned int i = 0;i < graphics.size();i++) graphics[i].render(shader,camera);
+		for(unsigned int i = 0;i < physics.size();i++) physics[i].render(shader,camera);
+		for(unsigned int i = 0;i < collisions.size();i++) collisions[i].render(shader,camera);
+		for(unsigned int i = 0;i < terrains.size();i++) terrains[i].render(shader,camera);
 	}
 	GraphicsComponent& ComponentManager::createGraphics(std::string texturePath,std::string normalMap,std::string ObjectPath, Vector3 color,bool autoCenter)
 	{
-		static int size = graphics.capacity(); //update if getting bigger
+		static unsigned int size = graphics.capacity(); //update if getting bigger
 		graphics.emplace_back(texturePath,normalMap,ObjectPath,color,autoCenter);
 		{
-			for(int i = 0;i < graphics.size() - 1;i++) graphics[i].updatePointer(); //size - 1 because the last one doesn't have a parent yet and also it is automatically updated witht he returnS
+			for(unsigned int i = 0;i < graphics.size() - 1;i++) graphics[i].updatePointer(); //size - 1 because the last one doesn't have a parent yet and also it is automatically updated witht he returnS
 			size = graphics.capacity();
 		}
 		return graphics.back();
@@ -239,18 +239,18 @@
 			{
 				graphics.erase(graphics.begin() + i);
 				i--;
-				for(int j = i;j < graphics.size();j++) graphics[i].updatePointer();
+				for(unsigned int j = i;j < graphics.size();j++) graphics[i].updatePointer();
 				return;
 			}
 		}
 	}
 	TerrainComponent& ComponentManager::createTerrain(std::string Path,std::string Texture,Vector3 Scale,bool Center)
 	{
-		static int size = terrains.capacity(); //update if getting bigger
+		static unsigned int size = terrains.capacity(); //update if getting bigger
 		terrains.emplace_back(Path,Texture,Scale,Center);
 		if(size <= terrains.size())
 		{
-			for(int i = 0;i < terrains.size() - 1;i++) terrains[i].updatePointer(); //size - 1 because the last one doesn't have a parent yet and also it is automatically updated witht he returnS
+			for(unsigned int i = 0;i < terrains.size() - 1;i++) terrains[i].updatePointer(); //size - 1 because the last one doesn't have a parent yet and also it is automatically updated witht he returnS
 			size = terrains.capacity();
 		}
 		return terrains.back();
@@ -263,18 +263,18 @@
 			{
 				terrains.erase(terrains.begin() + i);
 				i--;
-				for(int j = i;j < terrains.size();j++) terrains[i].updatePointer();
+				for(unsigned int j = i;j < terrains.size();j++) terrains[i].updatePointer();
 				return;
 			}
 		}
 	}
 	AmbientLightComponent& ComponentManager::createAmbient(Vector3 Color)
 	{
-		static int size = ambients.capacity(); //update if getting bigger
+		static unsigned  int size = ambients.capacity(); //update if getting bigger
 		ambients.emplace_back(Color);
 		if(size <=  ambients.size())
 		{
-			for(int i = 0;i <  ambients.size() - 1;i++)  ambients[i].updatePointer(); //size - 1 because the last one doesn't have a parent yet and also it is automatically updated witht he returnS
+			for(unsigned int i = 0;i <  ambients.size() - 1;i++)  ambients[i].updatePointer(); //size - 1 because the last one doesn't have a parent yet and also it is automatically updated witht he returnS
 			size =  ambients.capacity();
 		}
 		return ambients.back();
@@ -294,11 +294,11 @@
 	}
 	DirectionalLightComponent& ComponentManager::createDirectional(Vector3 Color,float Intensity,Vector3 Dir)
 	{
-		static int size = directionals.capacity(); //update if getting bigger
+		static unsigned int size = directionals.capacity(); //update if getting bigger
 		directionals.emplace_back(BaseLight(Color,Intensity),Dir);
 		if(size <=  directionals.size())
 		{
-			for(int i = 0;i <  directionals.size() - 1;i++)  directionals[i].updatePointer(); //size - 1 because the last one doesn't have a parent yet and also it is automatically updated witht he returnS
+			for(unsigned int i = 0;i <  directionals.size() - 1;i++)  directionals[i].updatePointer(); //size - 1 because the last one doesn't have a parent yet and also it is automatically updated witht he returnS
 			size =  directionals.capacity();
 		}
 		return directionals.back();
@@ -311,14 +311,14 @@
 			{
 				 directionals.erase( directionals.begin() + i);
 				i--;
-				for(int j = i;j <  directionals.size();j++)  directionals[i].updatePointer();
+				for(unsigned int j = i;j <  directionals.size();j++)  directionals[i].updatePointer();
 				return;
 			}
 		}
 	}
 	SkyBoxComponent&  ComponentManager::createSkyBox(Vector3 color,std::string Directory, std::string posx, std::string negx, std::string posy, std::string negy, std::string posz, std::string negz)
 	{
-		static int size = skies.capacity(); //update if getting bigger
+		static int unsigned  size = skies.capacity(); //update if getting bigger
 		std::vector<std::string> paths;
 		paths.push_back(Directory);
 		paths.push_back(posx);

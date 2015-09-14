@@ -11,7 +11,7 @@
 #include "Transform.h"
 #include <math.h>
 #include "Shader.h"
-#include "LuaEngine.h"
+#include "ServiceLocator.h"
 #define PI 3.14159265358979323846f
  
 struct Ray
@@ -67,7 +67,7 @@ public:
 	Vector3 getPos();
 	Vector3 getUp();
 	Vector2 getZ(){return Vector2(zNear,zFar);}
-	Vector2 getSize(){return Vector2(windowWidth,windowHeight);}
+	Vector2 getSize(){return Vector2((float)windowWidth, (float)windowHeight);}
 	float getFov(){return fov;}
 	void setDir(Vector3 Dir){dir = Dir;}
 	void setPos(Vector3 Pos){pos = Pos;}
@@ -85,7 +85,9 @@ public:
 	void strafeleft();
 	void straferight();
 	 
-
+	void setScript(LuaScript* script);
+	void setScript(std::string Path);
+	LuaScript* getScript();
 	//checks
 	bool isBehind(Vector3 pos)
 	{

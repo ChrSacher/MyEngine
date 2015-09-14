@@ -13,6 +13,9 @@ public:
 		state["startUp"]();
 		updateFun = state["update"];
 	}
+	LuaScript() :state(true),path("NA")
+	{
+	}
 	~LuaScript()
 	{
 		state["shutDown"]();
@@ -36,34 +39,69 @@ public:
 	Selector* updateFun;
 };
 using namespace sel;
+
 class LuaEngine
 {
+public:
 	LuaEngine() {}
 	LuaScript* createScript(std::string Path)
 	{
-		  scripts.push_back(new LuaScript(Path));
-		  return scripts.back();
+		LuaScript* temp = new LuaScript(Path);
+		scripts.insert(std::make_pair(temp,temp));
+		return temp;
 	}
-	std::vector<LuaScript*> scripts;
-	void startUp()
+	std::map<LuaScript*,LuaScript*> scripts;
+	void deleteScript(LuaScript* script)
+	{
+		auto pos = scripts.find(script);
+		if (pos != scripts.end())
+		{
+			delete (pos->second);
+			scripts.erase(pos);
+		}
+	}
+	void initialize()
 	{
 
 	}
 	void update()
 	{
-		for(unsigned int i = 0;i < scripts.size();i++)
+		for (auto it = scripts.begin(); it != scripts.end();it++)
 		{
-			scripts[i]->update();
+			it->second->update();
 		}
 	}
-	void shutDown()
+	void destroy()
 	{
-		for(unsigned int i = 0;i < scripts.size();i++)
+		for (auto it = scripts.begin(); it != scripts.end(); it++)
 		{
-			  delete(scripts[i]);
+			  delete(it->second);
 		}		
 	}	
 };
+
+class NullLuaEngine : public LuaEngine
+{
+	LuaScript* createScript(std::string Path)
+	{
+		return new LuaScript();
+	}
+	std::map<LuaScript*, LuaScript*> scripts;
+	void deleteScript(LuaScript* script)
+	{
+	}
+	void initialize()
+	{
+
+	}
+	void update()
+	{
+		
+	}
+	void destroy()
+	{
+	}
+}
 
 
 

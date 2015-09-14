@@ -1,1353 +1,384 @@
-﻿Der Buildvorgang wurde am 13.09.2015 02:58:07 gestartet.
-     1>Projekt "C:\Users\Christian\Documents\GitHub\MyEngine\Javaportc++.vcxproj" auf Knoten "2", Build Ziel(e).
-     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Platforms\Win32\PlatformToolsets\v140_xp\Toolset.targets(36,5): warning MSB8003: Could not find WindowsSdkDir_71A variable from the registry.  TargetFrameworkVersion or PlatformToolset may be set to an invalid version number.
-     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(366,5): warning MSB8003: Could not find WindowsSDKDir variable from the registry.  TargetFrameworkVersion or PlatformToolset may be set to an invalid version number.
-     1>ClCompile:
-         D:\Visual\VC\bin\CL.exe /c /I"C:\Program Files (x86)\Microsoft Visual Studio 12.0\include" /IC:\Users\Christian\Documents\GitHub\MyEngine\dep\lib\debug /I"$SDK Path\Include" /IC:\Users\Christian\Documents\GitHub\MyEngine\dep\include\bullet /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _USING_V110_SDK71_ /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Audio.cpp AudioListener.cpp Camera3d.cpp Component.cpp Engine.cpp Errors.cpp FBO.cpp InputManager.cpp Lighting.cpp LuaEngine.cpp main.cpp Maingame.cpp Material.cpp Math\3DMath.cpp Mesh.cpp MusicPlayer.cpp Observer.cpp ParticleSystem.cpp PhysicsEngine.cpp Picker.cpp Entity.cpp RenderUtil.cpp Scene.cpp ServiceLocator.cpp Shader.cpp Shadow.cpp Terrain.cpp Text.cpp Texture.cpp Time.cpp timing.cpp Transform.cpp UIrenderer.cpp Window.cpp
-         Window.cpp
-     1>c:\users\christian\documents\github\myengine\camera3d.h(70): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
-     1>d:\visual\vc\include\type_traits(1494): error C2893: Funktionsvorlage "unknown-type std::invoke(_Callable &&,_Types &&...)" konnte nicht spezialisiert werden
-         d:\visual\vc\include\type_traits(1494): note: Mit den folgenden Vorlagenargumenten:
-         d:\visual\vc\include\type_traits(1494): note: "_Callable=_Decayed &"
-         d:\visual\vc\include\type_traits(1494): note: "_Types={}"
-         d:\visual\vc\include\functional(210): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Invoke_ret<_Rx,_Callable&>(std::_Forced<_Rx,true>,_Callable &)".
-                 with
-                 [
-                     _Rx=void,
-                     _Callable=_Decayed
-                 ]
-         d:\visual\vc\include\functional(208): note: Bei der Kompilierung der Klassen-template der "void std::_Func_impl<_Decayed,_Alloc,_Ret>::_Do_call(void)"-Memberfunktion
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(136): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Func_impl<_Decayed,_Alloc,_Ret>".
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(339): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Is_large<_Myimpl>".
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         UIrenderer.cpp
-     1>c:\users\christian\documents\github\myengine\camera3d.h(70): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\text.h(145): warning C4244: "return": Konvertierung von "GLuint" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\uirenderer.cpp(40): warning C4804: ">": unsichere Verwendung des Typs "bool" in einer Operation
-     1>c:\users\christian\documents\github\myengine\uirenderer.cpp(370): warning C4804: "<": unsichere Verwendung des Typs "bool" in einer Operation
-     1>c:\users\christian\documents\github\myengine\uirenderer.cpp(376): warning C4804: "<": unsichere Verwendung des Typs "bool" in einer Operation
-     1>c:\users\christian\documents\github\myengine\uirenderer.cpp(632): warning C4244: "Argument": Konvertierung von "Sint32" in "const float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\uirenderer.cpp(640): warning C4244: "Argument": Konvertierung von "Sint32" in "float", möglicher Datenverlust
-     1>d:\visual\vc\include\type_traits(1494): error C2893: Funktionsvorlage "unknown-type std::invoke(_Callable &&,_Types &&...)" konnte nicht spezialisiert werden
-         d:\visual\vc\include\type_traits(1494): note: Mit den folgenden Vorlagenargumenten:
-         d:\visual\vc\include\type_traits(1494): note: "_Callable=_Decayed &"
-         d:\visual\vc\include\type_traits(1494): note: "_Types={}"
-         d:\visual\vc\include\functional(210): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Invoke_ret<_Rx,_Callable&>(std::_Forced<_Rx,true>,_Callable &)".
-                 with
-                 [
-                     _Rx=void,
-                     _Callable=_Decayed
-                 ]
-         d:\visual\vc\include\functional(208): note: Bei der Kompilierung der Klassen-template der "void std::_Func_impl<_Decayed,_Alloc,_Ret>::_Do_call(void)"-Memberfunktion
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(136): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Func_impl<_Decayed,_Alloc,_Ret>".
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(339): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Is_large<_Myimpl>".
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         Transform.cpp
-         timing.cpp
-     1>c:\users\christian\documents\github\myengine\timing.cpp(23): warning C4244: "Initialisierung": Konvertierung von "Uint32" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\timing.cpp(40): warning C4244: "Initialisierung": Konvertierung von "Uint32" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\timing.cpp(43): warning C4244: "Initialisierung": Konvertierung von "Uint32" in "float", möglicher Datenverlust
-         Time.cpp
-     1>c:\users\christian\documents\github\myengine\time.cpp(4): warning C4305: "Initialisierung": Verkürzung von "double" in "float"
-         Texture.cpp
-         Text.cpp
-     1>c:\users\christian\documents\github\myengine\text.h(145): warning C4244: "return": Konvertierung von "GLuint" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\text.cpp(84): warning C4244: "Argument": Konvertierung von "unsigned int" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\text.cpp(85): warning C4244: "Argument": Konvertierung von "FT_Int" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\text.cpp(87): warning C4838: Konvertierung von "FT_Pos" zu "GLuint" erfordert eine einschränkende Konvertierung
-         Terrain.cpp
-     1>c:\users\christian\documents\github\myengine\camera3d.h(70): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\terrain.cpp(70): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\terrain.cpp(77): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\terrain.cpp(81): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\terrain.cpp(91): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\terrain.cpp(95): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\terrain.cpp(117): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\terrain.cpp(118): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\terrain.cpp(119): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\terrain.cpp(120): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\terrain.cpp(152): warning C4244: "=": Konvertierung von "int" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\terrain.cpp(153): warning C4244: "=": Konvertierung von "int" in "float", möglicher Datenverlust
-     1>d:\visual\vc\include\type_traits(1494): error C2893: Funktionsvorlage "unknown-type std::invoke(_Callable &&,_Types &&...)" konnte nicht spezialisiert werden
-         d:\visual\vc\include\type_traits(1494): note: Mit den folgenden Vorlagenargumenten:
-         d:\visual\vc\include\type_traits(1494): note: "_Callable=_Decayed &"
-         d:\visual\vc\include\type_traits(1494): note: "_Types={}"
-         d:\visual\vc\include\functional(210): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Invoke_ret<_Rx,_Callable&>(std::_Forced<_Rx,true>,_Callable &)".
-                 with
-                 [
-                     _Rx=void,
-                     _Callable=_Decayed
-                 ]
-         d:\visual\vc\include\functional(208): note: Bei der Kompilierung der Klassen-template der "void std::_Func_impl<_Decayed,_Alloc,_Ret>::_Do_call(void)"-Memberfunktion
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(136): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Func_impl<_Decayed,_Alloc,_Ret>".
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(339): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Is_large<_Myimpl>".
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         Shadow.cpp
-         Shader.cpp
-     1>c:\users\christian\documents\github\myengine\shader.cpp(213): warning C4244: "=": Konvertierung von "int" in "float", möglicher Datenverlust
-         ServiceLocator.cpp
-     1>c:\users\christian\documents\github\myengine\camera3d.h(70): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\text.h(145): warning C4244: "return": Konvertierung von "GLuint" in "float", möglicher Datenverlust
-     1>d:\visual\vc\include\type_traits(1494): error C2893: Funktionsvorlage "unknown-type std::invoke(_Callable &&,_Types &&...)" konnte nicht spezialisiert werden
-         d:\visual\vc\include\type_traits(1494): note: Mit den folgenden Vorlagenargumenten:
-         d:\visual\vc\include\type_traits(1494): note: "_Callable=_Decayed &"
-         d:\visual\vc\include\type_traits(1494): note: "_Types={}"
-         d:\visual\vc\include\functional(210): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Invoke_ret<_Rx,_Callable&>(std::_Forced<_Rx,true>,_Callable &)".
-                 with
-                 [
-                     _Rx=void,
-                     _Callable=_Decayed
-                 ]
-         d:\visual\vc\include\functional(208): note: Bei der Kompilierung der Klassen-template der "void std::_Func_impl<_Decayed,_Alloc,_Ret>::_Do_call(void)"-Memberfunktion
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(136): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Func_impl<_Decayed,_Alloc,_Ret>".
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(339): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Is_large<_Myimpl>".
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         Scene.cpp
-     1>c:\users\christian\documents\github\myengine\camera3d.h(70): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\text.h(145): warning C4244: "return": Konvertierung von "GLuint" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\scene.cpp(35): warning C4244: "Argument": Konvertierung von "double" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\scene.cpp(312): warning C4244: "Argument": Konvertierung von "double" in "float", möglicher Datenverlust
-     1>d:\visual\vc\include\type_traits(1494): error C2893: Funktionsvorlage "unknown-type std::invoke(_Callable &&,_Types &&...)" konnte nicht spezialisiert werden
-         d:\visual\vc\include\type_traits(1494): note: Mit den folgenden Vorlagenargumenten:
-         d:\visual\vc\include\type_traits(1494): note: "_Callable=_Decayed &"
-         d:\visual\vc\include\type_traits(1494): note: "_Types={}"
-         d:\visual\vc\include\functional(210): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Invoke_ret<_Rx,_Callable&>(std::_Forced<_Rx,true>,_Callable &)".
-                 with
-                 [
-                     _Rx=void,
-                     _Callable=_Decayed
-                 ]
-         d:\visual\vc\include\functional(208): note: Bei der Kompilierung der Klassen-template der "void std::_Func_impl<_Decayed,_Alloc,_Ret>::_Do_call(void)"-Memberfunktion
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(136): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Func_impl<_Decayed,_Alloc,_Ret>".
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(339): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Is_large<_Myimpl>".
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         RenderUtil.cpp
-         Entity.cpp
-     1>c:\users\christian\documents\github\myengine\camera3d.h(70): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\text.h(145): warning C4244: "return": Konvertierung von "GLuint" in "float", möglicher Datenverlust
-         Macro definition of max detected - undefining
-         Macro definition of min detected - undefining
-     1>c:\users\christian\documents\github\myengine\entity.cpp(25): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\entity.cpp(36): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\entity.cpp(45): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\entity.cpp(59): warning C4018: "<=": Konflikt zwischen "signed" und "unsigned"
-     1>d:\visual\vc\include\type_traits(1494): error C2893: Funktionsvorlage "unknown-type std::invoke(_Callable &&,_Types &&...)" konnte nicht spezialisiert werden
-         d:\visual\vc\include\type_traits(1494): note: Mit den folgenden Vorlagenargumenten:
-         d:\visual\vc\include\type_traits(1494): note: "_Callable=_Decayed &"
-         d:\visual\vc\include\type_traits(1494): note: "_Types={}"
-         d:\visual\vc\include\functional(210): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Invoke_ret<_Rx,_Callable&>(std::_Forced<_Rx,true>,_Callable &)".
-                 with
-                 [
-                     _Rx=void,
-                     _Callable=_Decayed
-                 ]
-         d:\visual\vc\include\functional(208): note: Bei der Kompilierung der Klassen-template der "void std::_Func_impl<_Decayed,_Alloc,_Ret>::_Do_call(void)"-Memberfunktion
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(136): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Func_impl<_Decayed,_Alloc,_Ret>".
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(339): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Is_large<_Myimpl>".
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         Picker.cpp
-     1>c:\users\christian\documents\github\myengine\camera3d.h(70): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\text.h(145): warning C4244: "return": Konvertierung von "GLuint" in "float", möglicher Datenverlust
-         Macro definition of max detected - undefining
-         Macro definition of min detected - undefining
-     1>c:\users\christian\documents\github\myengine\picker.cpp(43): warning C4244: "Argument": Konvertierung von "unsigned int" in "const float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\picker.cpp(61): warning C4244: "+=": Konvertierung von "float" in "unsigned int", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\picker.cpp(90): warning C4244: "Argument": Konvertierung von "unsigned int" in "const float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\picker.cpp(111): warning C4244: "+=": Konvertierung von "float" in "unsigned int", möglicher Datenverlust
-     1>d:\visual\vc\include\type_traits(1494): error C2893: Funktionsvorlage "unknown-type std::invoke(_Callable &&,_Types &&...)" konnte nicht spezialisiert werden
-         d:\visual\vc\include\type_traits(1494): note: Mit den folgenden Vorlagenargumenten:
-         d:\visual\vc\include\type_traits(1494): note: "_Callable=_Decayed &"
-         d:\visual\vc\include\type_traits(1494): note: "_Types={}"
-         d:\visual\vc\include\functional(210): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Invoke_ret<_Rx,_Callable&>(std::_Forced<_Rx,true>,_Callable &)".
-                 with
-                 [
-                     _Rx=void,
-                     _Callable=_Decayed
-                 ]
-         d:\visual\vc\include\functional(208): note: Bei der Kompilierung der Klassen-template der "void std::_Func_impl<_Decayed,_Alloc,_Ret>::_Do_call(void)"-Memberfunktion
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(136): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Func_impl<_Decayed,_Alloc,_Ret>".
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(339): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Is_large<_Myimpl>".
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         PhysicsEngine.cpp
-         ParticleSystem.cpp
-     1>c:\users\christian\documents\github\myengine\camera3d.h(70): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
-     1>d:\visual\vc\include\type_traits(1494): error C2893: Funktionsvorlage "unknown-type std::invoke(_Callable &&,_Types &&...)" konnte nicht spezialisiert werden
-         d:\visual\vc\include\type_traits(1494): note: Mit den folgenden Vorlagenargumenten:
-         d:\visual\vc\include\type_traits(1494): note: "_Callable=_Decayed &"
-         d:\visual\vc\include\type_traits(1494): note: "_Types={}"
-         d:\visual\vc\include\functional(210): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Invoke_ret<_Rx,_Callable&>(std::_Forced<_Rx,true>,_Callable &)".
-                 with
-                 [
-                     _Rx=void,
-                     _Callable=_Decayed
-                 ]
-         d:\visual\vc\include\functional(208): note: Bei der Kompilierung der Klassen-template der "void std::_Func_impl<_Decayed,_Alloc,_Ret>::_Do_call(void)"-Memberfunktion
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(136): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Func_impl<_Decayed,_Alloc,_Ret>".
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(339): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Is_large<_Myimpl>".
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         Observer.cpp
-         MusicPlayer.cpp
-     1>c:\users\christian\documents\github\myengine\camera3d.h(70): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\text.h(145): warning C4244: "return": Konvertierung von "GLuint" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\musicplayer.cpp(51): warning C4018: ">=": Konflikt zwischen "signed" und "unsigned"
-     1>d:\visual\vc\include\type_traits(1494): error C2893: Funktionsvorlage "unknown-type std::invoke(_Callable &&,_Types &&...)" konnte nicht spezialisiert werden
-         d:\visual\vc\include\type_traits(1494): note: Mit den folgenden Vorlagenargumenten:
-         d:\visual\vc\include\type_traits(1494): note: "_Callable=_Decayed &"
-         d:\visual\vc\include\type_traits(1494): note: "_Types={}"
-         d:\visual\vc\include\functional(210): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Invoke_ret<_Rx,_Callable&>(std::_Forced<_Rx,true>,_Callable &)".
-                 with
-                 [
-                     _Rx=void,
-                     _Callable=_Decayed
-                 ]
-         d:\visual\vc\include\functional(208): note: Bei der Kompilierung der Klassen-template der "void std::_Func_impl<_Decayed,_Alloc,_Ret>::_Do_call(void)"-Memberfunktion
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(136): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Func_impl<_Decayed,_Alloc,_Ret>".
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(339): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Is_large<_Myimpl>".
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         Mesh.cpp
-     1>c:\users\christian\documents\github\myengine\mesh.cpp(139): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\mesh.cpp(142): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\mesh.cpp(178): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-         Code wird generiert...
-         Kompilieren...
-         3DMath.cpp
-     1>c:\users\christian\documents\github\myengine\math\3dmath.cpp(2): warning C4305: "Initialisierung": Verkürzung von "double" in "float"
-     1>c:\users\christian\documents\github\myengine\math\3dmath.cpp(1776): warning C4244: "Argument": Konvertierung von "double" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\math\3dmath.cpp(1777): warning C4244: "Argument": Konvertierung von "double" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\math\3dmath.cpp(1778): warning C4244: "Argument": Konvertierung von "double" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\math\3dmath.cpp(1780): warning C4244: "Argument": Konvertierung von "double" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\math\3dmath.cpp(1781): warning C4244: "Argument": Konvertierung von "double" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\math\3dmath.cpp(1782): warning C4244: "Argument": Konvertierung von "double" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\math\3dmath.cpp(1795): warning C4244: "Argument": Konvertierung von "double" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\math\3dmath.cpp(1796): warning C4244: "Argument": Konvertierung von "double" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\math\3dmath.cpp(1797): warning C4244: "Argument": Konvertierung von "double" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\math\3dmath.cpp(1799): warning C4244: "Argument": Konvertierung von "double" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\math\3dmath.cpp(1800): warning C4244: "Argument": Konvertierung von "double" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\math\3dmath.cpp(1801): warning C4244: "Argument": Konvertierung von "double" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\math\3dmath.cpp(1971): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\math\3dmath.cpp(1972): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\math\3dmath.cpp(1973): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\math\3dmath.cpp(1974): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\math\3dmath.cpp(1975): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\math\3dmath.cpp(1976): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\math\3dmath.cpp(1991): warning C4305: "Initialisierung": Verkürzung von "double" in "float"
-     1>c:\users\christian\documents\github\myengine\math\3dmath.cpp(2000): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\math\3dmath.cpp(2003): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\math\3dmath.cpp(2005): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
-         Material.cpp
-         Maingame.cpp
-     1>c:\users\christian\documents\github\myengine\camera3d.h(70): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\text.h(145): warning C4244: "return": Konvertierung von "GLuint" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\maingame.cpp(36): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\maingame.cpp(37): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\maingame.cpp(89): warning C4244: "Argument": Konvertierung von "float" in "int", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\maingame.cpp(194): warning C4244: "Argument": Konvertierung von "long" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\maingame.cpp(196): warning C4244: "=": Konvertierung von "long" in "float", möglicher Datenverlust
-     1>d:\visual\vc\include\type_traits(1494): error C2893: Funktionsvorlage "unknown-type std::invoke(_Callable &&,_Types &&...)" konnte nicht spezialisiert werden
-         d:\visual\vc\include\type_traits(1494): note: Mit den folgenden Vorlagenargumenten:
-         d:\visual\vc\include\type_traits(1494): note: "_Callable=_Decayed &"
-         d:\visual\vc\include\type_traits(1494): note: "_Types={}"
-         d:\visual\vc\include\functional(210): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Invoke_ret<_Rx,_Callable&>(std::_Forced<_Rx,true>,_Callable &)".
-                 with
-                 [
-                     _Rx=void,
-                     _Callable=_Decayed
-                 ]
-         d:\visual\vc\include\functional(208): note: Bei der Kompilierung der Klassen-template der "void std::_Func_impl<_Decayed,_Alloc,_Ret>::_Do_call(void)"-Memberfunktion
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(136): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Func_impl<_Decayed,_Alloc,_Ret>".
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(339): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Is_large<_Myimpl>".
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         main.cpp
-     1>c:\users\christian\documents\github\myengine\camera3d.h(70): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\text.h(145): warning C4244: "return": Konvertierung von "GLuint" in "float", möglicher Datenverlust
-     1>d:\visual\vc\include\type_traits(1494): error C2893: Funktionsvorlage "unknown-type std::invoke(_Callable &&,_Types &&...)" konnte nicht spezialisiert werden
-         d:\visual\vc\include\type_traits(1494): note: Mit den folgenden Vorlagenargumenten:
-         d:\visual\vc\include\type_traits(1494): note: "_Callable=_Decayed &"
-         d:\visual\vc\include\type_traits(1494): note: "_Types={}"
-         d:\visual\vc\include\functional(210): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Invoke_ret<_Rx,_Callable&>(std::_Forced<_Rx,true>,_Callable &)".
-                 with
-                 [
-                     _Rx=void,
-                     _Callable=_Decayed
-                 ]
-         d:\visual\vc\include\functional(208): note: Bei der Kompilierung der Klassen-template der "void std::_Func_impl<_Decayed,_Alloc,_Ret>::_Do_call(void)"-Memberfunktion
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(136): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Func_impl<_Decayed,_Alloc,_Ret>".
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(339): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Is_large<_Myimpl>".
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         LuaEngine.cpp
-     1>d:\visual\vc\include\type_traits(1494): error C2893: Funktionsvorlage "unknown-type std::invoke(_Callable &&,_Types &&...)" konnte nicht spezialisiert werden
-         d:\visual\vc\include\type_traits(1494): note: Mit den folgenden Vorlagenargumenten:
-         d:\visual\vc\include\type_traits(1494): note: "_Callable=_Decayed &"
-         d:\visual\vc\include\type_traits(1494): note: "_Types={}"
-         d:\visual\vc\include\functional(210): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Invoke_ret<_Rx,_Callable&>(std::_Forced<_Rx,true>,_Callable &)".
-                 with
-                 [
-                     _Rx=void,
-                     _Callable=_Decayed
-                 ]
-         d:\visual\vc\include\functional(208): note: Bei der Kompilierung der Klassen-template der "void std::_Func_impl<_Decayed,_Alloc,_Ret>::_Do_call(void)"-Memberfunktion
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(136): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Func_impl<_Decayed,_Alloc,_Ret>".
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(339): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Is_large<_Myimpl>".
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         Lighting.cpp
-         InputManager.cpp
-     1>c:\users\christian\documents\github\myengine\camera3d.h(70): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\text.h(145): warning C4244: "return": Konvertierung von "GLuint" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\inputmanager.cpp(9): warning C4244: "Argument": Konvertierung von "Sint32" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\inputmanager.cpp(137): warning C4018: ">": Konflikt zwischen "signed" und "unsigned"
-     1>d:\visual\vc\include\type_traits(1494): error C2893: Funktionsvorlage "unknown-type std::invoke(_Callable &&,_Types &&...)" konnte nicht spezialisiert werden
-         d:\visual\vc\include\type_traits(1494): note: Mit den folgenden Vorlagenargumenten:
-         d:\visual\vc\include\type_traits(1494): note: "_Callable=_Decayed &"
-         d:\visual\vc\include\type_traits(1494): note: "_Types={}"
-         d:\visual\vc\include\functional(210): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Invoke_ret<_Rx,_Callable&>(std::_Forced<_Rx,true>,_Callable &)".
-                 with
-                 [
-                     _Rx=void,
-                     _Callable=_Decayed
-                 ]
-         d:\visual\vc\include\functional(208): note: Bei der Kompilierung der Klassen-template der "void std::_Func_impl<_Decayed,_Alloc,_Ret>::_Do_call(void)"-Memberfunktion
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(136): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Func_impl<_Decayed,_Alloc,_Ret>".
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(339): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Is_large<_Myimpl>".
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         FBO.cpp
-         Errors.cpp
-         Engine.cpp
-     1>c:\users\christian\documents\github\myengine\camera3d.h(70): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\text.h(145): warning C4244: "return": Konvertierung von "GLuint" in "float", möglicher Datenverlust
-         Macro definition of max detected - undefining
-         Macro definition of min detected - undefining
-     1>d:\visual\vc\include\type_traits(1494): error C2893: Funktionsvorlage "unknown-type std::invoke(_Callable &&,_Types &&...)" konnte nicht spezialisiert werden
-         d:\visual\vc\include\type_traits(1494): note: Mit den folgenden Vorlagenargumenten:
-         d:\visual\vc\include\type_traits(1494): note: "_Callable=_Decayed &"
-         d:\visual\vc\include\type_traits(1494): note: "_Types={}"
-         d:\visual\vc\include\functional(210): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Invoke_ret<_Rx,_Callable&>(std::_Forced<_Rx,true>,_Callable &)".
-                 with
-                 [
-                     _Rx=void,
-                     _Callable=_Decayed
-                 ]
-         d:\visual\vc\include\functional(208): note: Bei der Kompilierung der Klassen-template der "void std::_Func_impl<_Decayed,_Alloc,_Ret>::_Do_call(void)"-Memberfunktion
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(136): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Func_impl<_Decayed,_Alloc,_Ret>".
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(339): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Is_large<_Myimpl>".
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         Component.cpp
-     1>c:\users\christian\documents\github\myengine\camera3d.h(70): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\text.h(145): warning C4244: "return": Konvertierung von "GLuint" in "float", möglicher Datenverlust
-         Macro definition of max detected - undefining
-         Macro definition of min detected - undefining
-     1>c:\users\christian\documents\github\myengine\component.cpp(152): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\component.cpp(156): warning C4244: "Argument": Konvertierung von "unsigned int" in "const float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\component.cpp(207): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\component.cpp(208): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\component.cpp(209): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\component.cpp(210): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\component.cpp(211): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\component.cpp(212): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\component.cpp(217): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\component.cpp(218): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\component.cpp(219): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\component.cpp(220): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\component.cpp(221): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\component.cpp(222): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\component.cpp(229): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\component.cpp(242): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\component.cpp(251): warning C4018: "<=": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\component.cpp(253): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\component.cpp(266): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\component.cpp(275): warning C4018: "<=": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\component.cpp(277): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\component.cpp(290): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\component.cpp(299): warning C4018: "<=": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\component.cpp(301): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\component.cpp(314): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\component.cpp(331): warning C4018: "<=": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\component.cpp(333): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>c:\users\christian\documents\github\myengine\component.cpp(347): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-     1>d:\visual\vc\include\type_traits(1494): error C2893: Funktionsvorlage "unknown-type std::invoke(_Callable &&,_Types &&...)" konnte nicht spezialisiert werden
-         d:\visual\vc\include\type_traits(1494): note: Mit den folgenden Vorlagenargumenten:
-         d:\visual\vc\include\type_traits(1494): note: "_Callable=_Decayed &"
-         d:\visual\vc\include\type_traits(1494): note: "_Types={}"
-         d:\visual\vc\include\functional(210): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Invoke_ret<_Rx,_Callable&>(std::_Forced<_Rx,true>,_Callable &)".
-                 with
-                 [
-                     _Rx=void,
-                     _Callable=_Decayed
-                 ]
-         d:\visual\vc\include\functional(208): note: Bei der Kompilierung der Klassen-template der "void std::_Func_impl<_Decayed,_Alloc,_Ret>::_Do_call(void)"-Memberfunktion
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(136): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Func_impl<_Decayed,_Alloc,_Ret>".
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(339): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Is_large<_Myimpl>".
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         Camera3d.cpp
-     1>c:\users\christian\documents\github\myengine\camera3d.h(70): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\camera3d.cpp(49): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
-     1>d:\visual\vc\include\type_traits(1494): error C2893: Funktionsvorlage "unknown-type std::invoke(_Callable &&,_Types &&...)" konnte nicht spezialisiert werden
-         d:\visual\vc\include\type_traits(1494): note: Mit den folgenden Vorlagenargumenten:
-         d:\visual\vc\include\type_traits(1494): note: "_Callable=_Decayed &"
-         d:\visual\vc\include\type_traits(1494): note: "_Types={}"
-         d:\visual\vc\include\functional(210): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Invoke_ret<_Rx,_Callable&>(std::_Forced<_Rx,true>,_Callable &)".
-                 with
-                 [
-                     _Rx=void,
-                     _Callable=_Decayed
-                 ]
-         d:\visual\vc\include\functional(208): note: Bei der Kompilierung der Klassen-template der "void std::_Func_impl<_Decayed,_Alloc,_Ret>::_Do_call(void)"-Memberfunktion
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(136): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Func_impl<_Decayed,_Alloc,_Ret>".
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(339): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Is_large<_Myimpl>".
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         AudioListener.cpp
-     1>c:\users\christian\documents\github\myengine\camera3d.h(70): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
-     1>c:\users\christian\documents\github\myengine\text.h(145): warning C4244: "return": Konvertierung von "GLuint" in "float", möglicher Datenverlust
-     1>d:\visual\vc\include\type_traits(1494): error C2893: Funktionsvorlage "unknown-type std::invoke(_Callable &&,_Types &&...)" konnte nicht spezialisiert werden
-         d:\visual\vc\include\type_traits(1494): note: Mit den folgenden Vorlagenargumenten:
-         d:\visual\vc\include\type_traits(1494): note: "_Callable=_Decayed &"
-         d:\visual\vc\include\type_traits(1494): note: "_Types={}"
-         d:\visual\vc\include\functional(210): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Invoke_ret<_Rx,_Callable&>(std::_Forced<_Rx,true>,_Callable &)".
-                 with
-                 [
-                     _Rx=void,
-                     _Callable=_Decayed
-                 ]
-         d:\visual\vc\include\functional(208): note: Bei der Kompilierung der Klassen-template der "void std::_Func_impl<_Decayed,_Alloc,_Ret>::_Do_call(void)"-Memberfunktion
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(136): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Func_impl<_Decayed,_Alloc,_Ret>".
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(339): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Is_large<_Myimpl>".
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         Audio.cpp
-     1>c:\users\christian\documents\github\myengine\camera3d.h(70): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
-     1>d:\visual\vc\include\type_traits(1494): error C2893: Funktionsvorlage "unknown-type std::invoke(_Callable &&,_Types &&...)" konnte nicht spezialisiert werden
-         d:\visual\vc\include\type_traits(1494): note: Mit den folgenden Vorlagenargumenten:
-         d:\visual\vc\include\type_traits(1494): note: "_Callable=_Decayed &"
-         d:\visual\vc\include\type_traits(1494): note: "_Types={}"
-         d:\visual\vc\include\functional(210): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Invoke_ret<_Rx,_Callable&>(std::_Forced<_Rx,true>,_Callable &)".
-                 with
-                 [
-                     _Rx=void,
-                     _Callable=_Decayed
-                 ]
-         d:\visual\vc\include\functional(208): note: Bei der Kompilierung der Klassen-template der "void std::_Func_impl<_Decayed,_Alloc,_Ret>::_Do_call(void)"-Memberfunktion
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(136): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Func_impl<_Decayed,_Alloc,_Ret>".
-                 with
-                 [
-                     _Alloc=std::allocator<int>,
-                     _Ret=void
-                 ]
-         d:\visual\vc\include\functional(339): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Klassen-template "std::_Is_large<_Myimpl>".
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(318): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset_alloc<_Ty,std::allocator<int>>(_Fx &&,const _Alloc &)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>,
-                     _Alloc=std::allocator<int>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         d:\visual\vc\include\functional(484): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Func_class<_Ret>::_Reset<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx &&)".
-                 with
-                 [
-                     _Ret=void,
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         c:\users\christian\documents\github\myengine\dep\include\selene\selector.h(38): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::function<void (void)>::function<std::vector<sel::Selector::Fun,std::allocator<_Ty>>>(_Fx)".
-                 with
-                 [
-                     _Ty=sel::Selector::Fun,
-                     _Fx=std::vector<sel::Selector::Fun,std::allocator<sel::Selector::Fun>>
-                 ]
-         Code wird generiert...
-     1>Die Erstellung des Projekts "C:\Users\Christian\Documents\GitHub\MyEngine\Javaportc++.vcxproj" ist abgeschlossen, Build Ziel(e) -- FEHLER.
-
-Fehler beim Buildvorgang.
-
-Verstrichene Zeit 00:00:37.12
+﻿  main.cpp
+c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
+c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
+c:\users\christian\documents\github\myengine\audio.h(122): error C2653: "Camera3d": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\audio.h(151): error C2061: Syntaxfehler: Bezeichner "Camera3d"
+c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
+c:\users\christian\documents\github\myengine\engine.h(21): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\engine.h(21): error C3861: "initialize": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\engine.h(22): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\engine.h(22): error C3861: "provide": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\engine.h(23): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\engine.h(23): error C3861: "provide": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\engine.h(24): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\engine.h(24): error C3861: "provide": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\time.h(16): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(24): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+  UIrenderer.cpp
+c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
+c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
+c:\users\christian\documents\github\myengine\audio.h(122): error C2653: "Camera3d": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\audio.h(151): error C2061: Syntaxfehler: Bezeichner "Camera3d"
+c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
+  Macro definition of max detected - undefining
+  Macro definition of min detected - undefining
+c:\users\christian\documents\github\myengine\uirenderer.cpp(64): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\uirenderer.cpp(64): error C3861: "getText": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\uirenderer.cpp(64): error C2228: Links von ".renderText" müssen sich in einer Klasse/Struktur/Union befinden
+  c:\users\christian\documents\github\myengine\uirenderer.cpp(64): note: Typ ist "unknown-type"
+c:\users\christian\documents\github\myengine\uirenderer.cpp(632): warning C4244: "Argument": Konvertierung von "Sint32" in "const float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\uirenderer.cpp(640): warning C4244: "Argument": Konvertierung von "Sint32" in "float", möglicher Datenverlust
+  ServiceLocator.cpp
+c:\users\christian\documents\github\myengine\camera3d.h(88): error C2061: Syntaxfehler: Bezeichner "LuaScript"
+c:\users\christian\documents\github\myengine\camera3d.h(90): error C2143: Syntaxfehler: Es fehlt ";" vor "*"
+c:\users\christian\documents\github\myengine\camera3d.h(90): error C4430: Fehlender Typspezifizierer - int wird angenommen. Hinweis: "default-int" wird von C++ nicht unterstützt.
+c:\users\christian\documents\github\myengine\camera3d.h(90): error C2238: Unerwartete(s) Token vor ";"
+c:\users\christian\documents\github\myengine\camera3d.h(104): error C2143: Syntaxfehler: Es fehlt ";" vor "*"
+c:\users\christian\documents\github\myengine\camera3d.h(104): error C4430: Fehlender Typspezifizierer - int wird angenommen. Hinweis: "default-int" wird von C++ nicht unterstützt.
+c:\users\christian\documents\github\myengine\camera3d.h(104): error C2238: Unerwartete(s) Token vor ";"
+c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
+c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
+c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
+c:\users\christian\documents\github\myengine\servicelocator.cpp(3): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\servicelocator.cpp(4): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\servicelocator.cpp(5): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\servicelocator.cpp(6): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\servicelocator.cpp(7): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\servicelocator.cpp(8): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+  Scene.cpp
+c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
+c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
+c:\users\christian\documents\github\myengine\audio.h(122): error C2653: "Camera3d": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\audio.h(151): error C2061: Syntaxfehler: Bezeichner "Camera3d"
+c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
+  Macro definition of max detected - undefining
+  Macro definition of min detected - undefining
+c:\users\christian\documents\github\myengine\engine.h(21): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\engine.h(21): error C3861: "initialize": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\engine.h(22): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\engine.h(22): error C3861: "provide": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\engine.h(23): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\engine.h(23): error C3861: "provide": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\engine.h(24): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\engine.h(24): error C3861: "provide": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\scene.cpp(35): warning C4244: "Argument": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\scene.cpp(312): warning C4244: "Argument": Konvertierung von "double" in "float", möglicher Datenverlust
+  Picker.cpp
+c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
+c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
+c:\users\christian\documents\github\myengine\audio.h(122): error C2653: "Camera3d": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\audio.h(151): error C2061: Syntaxfehler: Bezeichner "Camera3d"
+c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
+  Macro definition of max detected - undefining
+  Macro definition of min detected - undefining
+c:\users\christian\documents\github\myengine\picker.cpp(43): warning C4244: "Argument": Konvertierung von "unsigned int" in "const float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\picker.cpp(61): warning C4244: "+=": Konvertierung von "float" in "unsigned int", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\picker.cpp(90): warning C4244: "Argument": Konvertierung von "unsigned int" in "const float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\picker.cpp(111): warning C4244: "+=": Konvertierung von "float" in "unsigned int", möglicher Datenverlust
+  MusicPlayer.cpp
+c:\users\christian\documents\github\myengine\camera3d.h(88): error C2061: Syntaxfehler: Bezeichner "LuaScript"
+c:\users\christian\documents\github\myengine\camera3d.h(90): error C2143: Syntaxfehler: Es fehlt ";" vor "*"
+c:\users\christian\documents\github\myengine\camera3d.h(90): error C4430: Fehlender Typspezifizierer - int wird angenommen. Hinweis: "default-int" wird von C++ nicht unterstützt.
+c:\users\christian\documents\github\myengine\camera3d.h(90): error C2238: Unerwartete(s) Token vor ";"
+c:\users\christian\documents\github\myengine\camera3d.h(104): error C2143: Syntaxfehler: Es fehlt ";" vor "*"
+c:\users\christian\documents\github\myengine\camera3d.h(104): error C4430: Fehlender Typspezifizierer - int wird angenommen. Hinweis: "default-int" wird von C++ nicht unterstützt.
+c:\users\christian\documents\github\myengine\camera3d.h(104): error C2238: Unerwartete(s) Token vor ";"
+c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
+c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
+c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
+c:\users\christian\documents\github\myengine\musicplayer.cpp(14): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\musicplayer.cpp(14): error C3861: "getAudio": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\musicplayer.cpp(14): error C2228: Links von ".getSound" müssen sich in einer Klasse/Struktur/Union befinden
+  c:\users\christian\documents\github\myengine\musicplayer.cpp(14): note: Typ ist "unknown-type"
+c:\users\christian\documents\github\myengine\musicplayer.cpp(14): error C2227: Links von "->isFinished" muss sich ein Zeiger auf Klassen-/Struktur-/Union-/generischen Typ befinden.
+c:\users\christian\documents\github\myengine\musicplayer.cpp(18): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\musicplayer.cpp(18): error C3861: "getAudio": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\musicplayer.cpp(18): error C2228: Links von ".getSound" müssen sich in einer Klasse/Struktur/Union befinden
+  c:\users\christian\documents\github\myengine\musicplayer.cpp(18): note: Typ ist "unknown-type"
+c:\users\christian\documents\github\myengine\musicplayer.cpp(18): error C2227: Links von "->stop" muss sich ein Zeiger auf Klassen-/Struktur-/Union-/generischen Typ befinden.
+c:\users\christian\documents\github\myengine\musicplayer.cpp(24): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\musicplayer.cpp(24): error C3861: "getAudio": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\musicplayer.cpp(24): error C2228: Links von ".getSound" müssen sich in einer Klasse/Struktur/Union befinden
+  c:\users\christian\documents\github\myengine\musicplayer.cpp(24): note: Typ ist "unknown-type"
+c:\users\christian\documents\github\myengine\musicplayer.cpp(24): error C2227: Links von "->setIsPaused" muss sich ein Zeiger auf Klassen-/Struktur-/Union-/generischen Typ befinden.
+c:\users\christian\documents\github\myengine\musicplayer.cpp(29): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\musicplayer.cpp(29): error C3861: "getAudio": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\musicplayer.cpp(29): error C2228: Links von ".getSound" müssen sich in einer Klasse/Struktur/Union befinden
+  c:\users\christian\documents\github\myengine\musicplayer.cpp(29): note: Typ ist "unknown-type"
+c:\users\christian\documents\github\myengine\musicplayer.cpp(29): error C2227: Links von "->setIsPaused" muss sich ein Zeiger auf Klassen-/Struktur-/Union-/generischen Typ befinden.
+c:\users\christian\documents\github\myengine\musicplayer.cpp(38): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\musicplayer.cpp(38): error C3861: "getAudio": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\musicplayer.cpp(38): error C2228: Links von ".play2D" müssen sich in einer Klasse/Struktur/Union befinden
+  c:\users\christian\documents\github\myengine\musicplayer.cpp(38): note: Typ ist "unknown-type"
+c:\users\christian\documents\github\myengine\musicplayer.cpp(42): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\musicplayer.cpp(42): error C3861: "getAudio": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\musicplayer.cpp(42): error C2228: Links von ".play2D" müssen sich in einer Klasse/Struktur/Union befinden
+  c:\users\christian\documents\github\myengine\musicplayer.cpp(42): note: Typ ist "unknown-type"
+c:\users\christian\documents\github\myengine\musicplayer.cpp(50): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\musicplayer.cpp(50): error C3861: "getAudio": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\musicplayer.cpp(50): error C2228: Links von ".getSound" müssen sich in einer Klasse/Struktur/Union befinden
+  c:\users\christian\documents\github\myengine\musicplayer.cpp(50): note: Typ ist "unknown-type"
+c:\users\christian\documents\github\myengine\musicplayer.cpp(50): error C2227: Links von "->stop" muss sich ein Zeiger auf Klassen-/Struktur-/Union-/generischen Typ befinden.
+c:\users\christian\documents\github\myengine\musicplayer.cpp(51): warning C4018: ">=": Konflikt zwischen "signed" und "unsigned"
+c:\users\christian\documents\github\myengine\musicplayer.cpp(57): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\musicplayer.cpp(57): error C3861: "getAudio": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\musicplayer.cpp(57): error C2228: Links von ".getSound" müssen sich in einer Klasse/Struktur/Union befinden
+  c:\users\christian\documents\github\myengine\musicplayer.cpp(57): note: Typ ist "unknown-type"
+c:\users\christian\documents\github\myengine\musicplayer.cpp(57): error C2227: Links von "->stop" muss sich ein Zeiger auf Klassen-/Struktur-/Union-/generischen Typ befinden.
+c:\users\christian\documents\github\myengine\musicplayer.cpp(60): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\musicplayer.cpp(60): error C3861: "getAudio": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\musicplayer.cpp(60): error C2228: Links von ".play2D" müssen sich in einer Klasse/Struktur/Union befinden
+  c:\users\christian\documents\github\myengine\musicplayer.cpp(60): note: Typ ist "unknown-type"
+  Maingame.cpp
+c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
+c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
+c:\users\christian\documents\github\myengine\audio.h(122): error C2653: "Camera3d": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\audio.h(151): error C2061: Syntaxfehler: Bezeichner "Camera3d"
+c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
+c:\users\christian\documents\github\myengine\engine.h(21): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\engine.h(21): error C3861: "initialize": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\engine.h(22): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\engine.h(22): error C3861: "provide": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\engine.h(23): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\engine.h(23): error C3861: "provide": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\engine.h(24): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\engine.h(24): error C3861: "provide": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\time.h(16): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(24): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\maingame.cpp(37): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\maingame.cpp(38): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\maingame.cpp(91): warning C4244: "Argument": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\maingame.cpp(155): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\maingame.cpp(155): error C3861: "getText": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\maingame.cpp(155): error C2228: Links von ".update" müssen sich in einer Klasse/Struktur/Union befinden
+  c:\users\christian\documents\github\myengine\maingame.cpp(155): note: Typ ist "unknown-type"
+c:\users\christian\documents\github\myengine\maingame.cpp(172): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\maingame.cpp(172): error C3861: "getText": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\maingame.cpp(172): error C2228: Links von ".renderText" müssen sich in einer Klasse/Struktur/Union befinden
+  c:\users\christian\documents\github\myengine\maingame.cpp(172): note: Typ ist "unknown-type"
+c:\users\christian\documents\github\myengine\maingame.cpp(173): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\maingame.cpp(173): error C3861: "getText": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\maingame.cpp(173): error C2228: Links von ".renderText" müssen sich in einer Klasse/Struktur/Union befinden
+  c:\users\christian\documents\github\myengine\maingame.cpp(173): note: Typ ist "unknown-type"
+c:\users\christian\documents\github\myengine\maingame.cpp(174): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\maingame.cpp(174): error C3861: "getText": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\maingame.cpp(174): error C2228: Links von ".renderText" müssen sich in einer Klasse/Struktur/Union befinden
+  c:\users\christian\documents\github\myengine\maingame.cpp(174): note: Typ ist "unknown-type"
+c:\users\christian\documents\github\myengine\maingame.cpp(175): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\maingame.cpp(175): error C3861: "getText": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\maingame.cpp(175): error C2228: Links von ".renderText" müssen sich in einer Klasse/Struktur/Union befinden
+  c:\users\christian\documents\github\myengine\maingame.cpp(175): note: Typ ist "unknown-type"
+c:\users\christian\documents\github\myengine\maingame.cpp(177): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\maingame.cpp(177): error C3861: "getText": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\maingame.cpp(177): error C2228: Links von ".renderText" müssen sich in einer Klasse/Struktur/Union befinden
+  c:\users\christian\documents\github\myengine\maingame.cpp(177): note: Typ ist "unknown-type"
+c:\users\christian\documents\github\myengine\maingame.cpp(187): warning C4244: "Argument": Konvertierung von "float" in "int", möglicher Datenverlust
+  LuaEngine.cpp
+c:\users\christian\documents\github\myengine\luaengine.cpp(9): fatal error C1004: Unerwartetes Dateiende gefunden.
+  InputManager.cpp
+c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
+c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
+c:\users\christian\documents\github\myengine\audio.h(122): error C2653: "Camera3d": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\audio.h(151): error C2061: Syntaxfehler: Bezeichner "Camera3d"
+c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
+  Macro definition of max detected - undefining
+  Macro definition of min detected - undefining
+c:\users\christian\documents\github\myengine\engine.h(21): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\engine.h(21): error C3861: "initialize": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\engine.h(22): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\engine.h(22): error C3861: "provide": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\engine.h(23): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\engine.h(23): error C3861: "provide": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\engine.h(24): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\engine.h(24): error C3861: "provide": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\inputmanager.cpp(9): warning C4244: "Argument": Konvertierung von "Sint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\inputmanager.cpp(137): warning C4018: ">": Konflikt zwischen "signed" und "unsigned"
+  Entity.cpp
+c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
+c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
+c:\users\christian\documents\github\myengine\audio.h(122): error C2653: "Camera3d": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\audio.h(151): error C2061: Syntaxfehler: Bezeichner "Camera3d"
+c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
+  Macro definition of max detected - undefining
+  Macro definition of min detected - undefining
+c:\users\christian\documents\github\myengine\entity.cpp(25): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+c:\users\christian\documents\github\myengine\entity.cpp(36): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+c:\users\christian\documents\github\myengine\entity.cpp(59): warning C4018: "<=": Konflikt zwischen "signed" und "unsigned"
+  Engine.cpp
+c:\users\christian\documents\github\myengine\camera3d.h(88): error C2061: Syntaxfehler: Bezeichner "LuaScript"
+c:\users\christian\documents\github\myengine\camera3d.h(90): error C2143: Syntaxfehler: Es fehlt ";" vor "*"
+c:\users\christian\documents\github\myengine\camera3d.h(90): error C4430: Fehlender Typspezifizierer - int wird angenommen. Hinweis: "default-int" wird von C++ nicht unterstützt.
+c:\users\christian\documents\github\myengine\camera3d.h(90): error C2238: Unerwartete(s) Token vor ";"
+c:\users\christian\documents\github\myengine\camera3d.h(104): error C2143: Syntaxfehler: Es fehlt ";" vor "*"
+c:\users\christian\documents\github\myengine\camera3d.h(104): error C4430: Fehlender Typspezifizierer - int wird angenommen. Hinweis: "default-int" wird von C++ nicht unterstützt.
+c:\users\christian\documents\github\myengine\camera3d.h(104): error C2238: Unerwartete(s) Token vor ";"
+c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
+c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
+c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
+  Macro definition of max detected - undefining
+  Macro definition of min detected - undefining
+c:\users\christian\documents\github\myengine\engine.h(21): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\engine.h(21): error C3861: "initialize": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\engine.h(22): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\engine.h(22): error C3861: "provide": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\engine.h(23): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\engine.h(23): error C3861: "provide": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\engine.h(24): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\engine.h(24): error C3861: "provide": Bezeichner wurde nicht gefunden.
+  Component.cpp
+c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
+c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
+c:\users\christian\documents\github\myengine\audio.h(122): error C2653: "Camera3d": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\audio.h(151): error C2061: Syntaxfehler: Bezeichner "Camera3d"
+c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
+  Macro definition of max detected - undefining
+  Macro definition of min detected - undefining
+c:\users\christian\documents\github\myengine\component.cpp(156): warning C4244: "Argument": Konvertierung von "unsigned int" in "const float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\component.cpp(290): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+c:\users\christian\documents\github\myengine\component.cpp(333): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+c:\users\christian\documents\github\myengine\component.cpp(347): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+  Camera3d.cpp
+c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
+c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
+c:\users\christian\documents\github\myengine\audio.h(122): error C2653: "Camera3d": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\audio.h(151): error C2061: Syntaxfehler: Bezeichner "Camera3d"
+c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
+c:\users\christian\documents\github\myengine\camera3d.cpp(31): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\camera3d.cpp(49): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\camera3d.cpp(114): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\camera3d.cpp(205): warning C4244: "=": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\camera3d.cpp(206): warning C4244: "=": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\camera3d.cpp(207): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\camera3d.cpp(208): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\camera3d.cpp(281): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\camera3d.cpp(281): error C3861: "getLua": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\camera3d.cpp(281): error C2228: Links von ".deleteScript" müssen sich in einer Klasse/Struktur/Union befinden
+  c:\users\christian\documents\github\myengine\camera3d.cpp(281): note: Typ ist "unknown-type"
+c:\users\christian\documents\github\myengine\camera3d.cpp(281): warning C4390: ";": Leere kontrollierte Anweisung aufgetreten; ist dies beabsichtigt?
+c:\users\christian\documents\github\myengine\camera3d.cpp(287): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\camera3d.cpp(287): error C3861: "getLua": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\camera3d.cpp(287): error C2228: Links von ".deleteScript" müssen sich in einer Klasse/Struktur/Union befinden
+  c:\users\christian\documents\github\myengine\camera3d.cpp(287): note: Typ ist "unknown-type"
+c:\users\christian\documents\github\myengine\camera3d.cpp(288): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\camera3d.cpp(288): error C3861: "getLua": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\camera3d.cpp(288): error C2228: Links von ".createScript" müssen sich in einer Klasse/Struktur/Union befinden
+  c:\users\christian\documents\github\myengine\camera3d.cpp(288): note: Typ ist "unknown-type"
+c:\users\christian\documents\github\myengine\camera3d.cpp(287): warning C4390: ";": Leere kontrollierte Anweisung aufgetreten; ist dies beabsichtigt?
+  AudioListener.cpp
+c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
+c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
+c:\users\christian\documents\github\myengine\audio.h(122): error C2653: "Camera3d": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\audio.h(151): error C2061: Syntaxfehler: Bezeichner "Camera3d"
+c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
+c:\users\christian\documents\github\myengine\audiolistener.cpp(122): error C2653: "ServiceLocator": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\audiolistener.cpp(122): error C3861: "getAudio": Bezeichner wurde nicht gefunden.
+c:\users\christian\documents\github\myengine\audiolistener.cpp(122): error C2228: Links von ".update" müssen sich in einer Klasse/Struktur/Union befinden
+  c:\users\christian\documents\github\myengine\audiolistener.cpp(122): note: Typ ist "unknown-type"
+  Audio.cpp
+c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
+c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
+c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
+  Code wird generiert...
+  Kompilieren...
+  ParticleSystem.cpp
+c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
+c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
+c:\users\christian\documents\github\myengine\audio.h(122): error C2653: "Camera3d": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\audio.h(151): error C2061: Syntaxfehler: Bezeichner "Camera3d"
+c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
+  Code wird generiert...
+  Kompilieren...
+  Terrain.cpp
+c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
+c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
+c:\users\christian\documents\github\myengine\audio.h(122): error C2653: "Camera3d": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\audio.h(151): error C2061: Syntaxfehler: Bezeichner "Camera3d"
+c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
+c:\users\christian\documents\github\myengine\terrain.cpp(70): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(77): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(81): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(91): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(95): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(117): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(118): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(119): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(120): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(152): warning C4244: "=": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(153): warning C4244: "=": Konvertierung von "int" in "float", möglicher Datenverlust
+  Code wird generiert...
+  Kompilieren...
+  Window.cpp
+c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
+c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
+c:\users\christian\documents\github\myengine\audio.h(122): error C2653: "Camera3d": Keine Klasse oder Namespace
+c:\users\christian\documents\github\myengine\audio.h(151): error C2061: Syntaxfehler: Bezeichner "Camera3d"
+c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
+c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
+  Code wird generiert...

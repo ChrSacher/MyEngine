@@ -142,5 +142,5 @@ struct NullText:public Text
 };
 inline float convertSTT(GLuint wanted,GLuint maxSize)
 {
-	return wanted/maxSize * 1000;
+	return (float)wanted/ (float)maxSize * 1000;
 }

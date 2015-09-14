@@ -20,7 +20,6 @@ void Text::initialize()
 		shader->addVertexShader("res/Shaders/textShader.vert");
 		shader->addFragmentShader( "res/Shaders/textShader.frag");
 		shader->linkShaders();
-		
 		glGenVertexArrays(1, &vao);
 		glGenBuffers(1, &vbo);
 		glBindVertexArray(vao);

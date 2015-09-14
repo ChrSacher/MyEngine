@@ -42,7 +42,7 @@ Entity* Entity::removeComponent(Component* component)
 
 	void Entity::notify(int eventType,Component* sender ,Entity* entityInteractedWith) //this can be enchanched with Commands
 	{
-		for(int i = 0;i < components.size();i++)
+		for(unsigned int i = 0;i < components.size();i++)
 		{
 			if(components[i] != sender)
 			components[i]->receive(eventType,sender,entityInteractedWith);
