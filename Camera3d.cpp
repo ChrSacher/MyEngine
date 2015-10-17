@@ -318,10 +318,9 @@ void Camera3d::loadScriptVariables()
 	//"x", &Vector3::x, "y", &Vector3::y, "z", &Vector3::z);
 	//state["Vector2"].SetClass<Vector2, float, float>("set", &Vector2::set, "distance", &Vector2::distance,
 	//"x", &Vector2::x, "y", &Vector2::y);
-	//state["Camera"].SetObj(*this,
-		//"setPos", &Camera3d::setPos,
-		//"getPos", &Camera3d::getPos);
-		/*,
+	state["Camera"].SetObj(*this,
+											"setPos", &Camera3d::setPos,
+											"getPos", &Camera3d::getPos),
 											"setDir", &Camera3d::setDir,
 											"getDir", &Camera3d::getDir,
 											"setUp", &Camera3d::setUp,
@@ -337,5 +336,5 @@ void Camera3d::loadScriptVariables()
 											"raise" ,&Camera3d::raise,
 											"sink" ,&Camera3d::sink,
 											"strafeleft",&Camera3d::strafeleft,
-											"straferight",&Camera3d::straferight);*/
+											"straferight",&Camera3d::straferight);
 }
