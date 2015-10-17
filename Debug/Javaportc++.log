@@ -1,363 +1,34 @@
-﻿  main.cpp
-c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
-c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
-c:\users\christian\documents\github\myengine\audio.h(122): error C2653: "Camera3d": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\audio.h(151): error C2061: Syntaxfehler: Bezeichner "Camera3d"
-c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
-c:\users\christian\documents\github\myengine\engine.h(21): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\engine.h(21): error C3861: "initialize": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\engine.h(22): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\engine.h(22): error C3861: "provide": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\engine.h(23): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\engine.h(23): error C3861: "provide": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\engine.h(24): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\engine.h(24): error C3861: "provide": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\time.h(16): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
-c:\users\christian\documents\github\myengine\time.h(24): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+﻿  AudioListener.cpp
+c:\users\christian\documents\github\myengine\time.h(17): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(23): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(30): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\time.h(505): note: Siehe Deklaration von "localtime"
+  Code wird generiert...
+  Kompilieren...
+  main.cpp
+c:\users\christian\documents\github\myengine\time.h(17): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(23): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(30): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\time.h(505): note: Siehe Deklaration von "localtime"
+  Window.cpp
+c:\users\christian\documents\github\myengine\time.h(17): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(23): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(30): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\time.h(505): note: Siehe Deklaration von "localtime"
   UIrenderer.cpp
-c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
-c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
-c:\users\christian\documents\github\myengine\audio.h(122): error C2653: "Camera3d": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\audio.h(151): error C2061: Syntaxfehler: Bezeichner "Camera3d"
-c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
+c:\users\christian\documents\github\myengine\time.h(17): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(23): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(30): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\time.h(505): note: Siehe Deklaration von "localtime"
   Macro definition of max detected - undefining
   Macro definition of min detected - undefining
-c:\users\christian\documents\github\myengine\uirenderer.cpp(64): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\uirenderer.cpp(64): error C3861: "getText": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\uirenderer.cpp(64): error C2228: Links von ".renderText" müssen sich in einer Klasse/Struktur/Union befinden
-  c:\users\christian\documents\github\myengine\uirenderer.cpp(64): note: Typ ist "unknown-type"
 c:\users\christian\documents\github\myengine\uirenderer.cpp(632): warning C4244: "Argument": Konvertierung von "Sint32" in "const float", möglicher Datenverlust
 c:\users\christian\documents\github\myengine\uirenderer.cpp(640): warning C4244: "Argument": Konvertierung von "Sint32" in "float", möglicher Datenverlust
-  ServiceLocator.cpp
-c:\users\christian\documents\github\myengine\camera3d.h(88): error C2061: Syntaxfehler: Bezeichner "LuaScript"
-c:\users\christian\documents\github\myengine\camera3d.h(90): error C2143: Syntaxfehler: Es fehlt ";" vor "*"
-c:\users\christian\documents\github\myengine\camera3d.h(90): error C4430: Fehlender Typspezifizierer - int wird angenommen. Hinweis: "default-int" wird von C++ nicht unterstützt.
-c:\users\christian\documents\github\myengine\camera3d.h(90): error C2238: Unerwartete(s) Token vor ";"
-c:\users\christian\documents\github\myengine\camera3d.h(104): error C2143: Syntaxfehler: Es fehlt ";" vor "*"
-c:\users\christian\documents\github\myengine\camera3d.h(104): error C4430: Fehlender Typspezifizierer - int wird angenommen. Hinweis: "default-int" wird von C++ nicht unterstützt.
-c:\users\christian\documents\github\myengine\camera3d.h(104): error C2238: Unerwartete(s) Token vor ";"
-c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
-c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
-c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
-c:\users\christian\documents\github\myengine\servicelocator.cpp(3): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\servicelocator.cpp(4): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\servicelocator.cpp(5): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\servicelocator.cpp(6): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\servicelocator.cpp(7): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\servicelocator.cpp(8): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-  Scene.cpp
-c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
-c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
-c:\users\christian\documents\github\myengine\audio.h(122): error C2653: "Camera3d": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\audio.h(151): error C2061: Syntaxfehler: Bezeichner "Camera3d"
-c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
-  Macro definition of max detected - undefining
-  Macro definition of min detected - undefining
-c:\users\christian\documents\github\myengine\engine.h(21): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\engine.h(21): error C3861: "initialize": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\engine.h(22): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\engine.h(22): error C3861: "provide": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\engine.h(23): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\engine.h(23): error C3861: "provide": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\engine.h(24): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\engine.h(24): error C3861: "provide": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\scene.cpp(35): warning C4244: "Argument": Konvertierung von "double" in "float", möglicher Datenverlust
-c:\users\christian\documents\github\myengine\scene.cpp(312): warning C4244: "Argument": Konvertierung von "double" in "float", möglicher Datenverlust
-  Picker.cpp
-c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
-c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
-c:\users\christian\documents\github\myengine\audio.h(122): error C2653: "Camera3d": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\audio.h(151): error C2061: Syntaxfehler: Bezeichner "Camera3d"
-c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
-  Macro definition of max detected - undefining
-  Macro definition of min detected - undefining
-c:\users\christian\documents\github\myengine\picker.cpp(43): warning C4244: "Argument": Konvertierung von "unsigned int" in "const float", möglicher Datenverlust
-c:\users\christian\documents\github\myengine\picker.cpp(61): warning C4244: "+=": Konvertierung von "float" in "unsigned int", möglicher Datenverlust
-c:\users\christian\documents\github\myengine\picker.cpp(90): warning C4244: "Argument": Konvertierung von "unsigned int" in "const float", möglicher Datenverlust
-c:\users\christian\documents\github\myengine\picker.cpp(111): warning C4244: "+=": Konvertierung von "float" in "unsigned int", möglicher Datenverlust
-  MusicPlayer.cpp
-c:\users\christian\documents\github\myengine\camera3d.h(88): error C2061: Syntaxfehler: Bezeichner "LuaScript"
-c:\users\christian\documents\github\myengine\camera3d.h(90): error C2143: Syntaxfehler: Es fehlt ";" vor "*"
-c:\users\christian\documents\github\myengine\camera3d.h(90): error C4430: Fehlender Typspezifizierer - int wird angenommen. Hinweis: "default-int" wird von C++ nicht unterstützt.
-c:\users\christian\documents\github\myengine\camera3d.h(90): error C2238: Unerwartete(s) Token vor ";"
-c:\users\christian\documents\github\myengine\camera3d.h(104): error C2143: Syntaxfehler: Es fehlt ";" vor "*"
-c:\users\christian\documents\github\myengine\camera3d.h(104): error C4430: Fehlender Typspezifizierer - int wird angenommen. Hinweis: "default-int" wird von C++ nicht unterstützt.
-c:\users\christian\documents\github\myengine\camera3d.h(104): error C2238: Unerwartete(s) Token vor ";"
-c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
-c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
-c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
-c:\users\christian\documents\github\myengine\musicplayer.cpp(14): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\musicplayer.cpp(14): error C3861: "getAudio": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\musicplayer.cpp(14): error C2228: Links von ".getSound" müssen sich in einer Klasse/Struktur/Union befinden
-  c:\users\christian\documents\github\myengine\musicplayer.cpp(14): note: Typ ist "unknown-type"
-c:\users\christian\documents\github\myengine\musicplayer.cpp(14): error C2227: Links von "->isFinished" muss sich ein Zeiger auf Klassen-/Struktur-/Union-/generischen Typ befinden.
-c:\users\christian\documents\github\myengine\musicplayer.cpp(18): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\musicplayer.cpp(18): error C3861: "getAudio": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\musicplayer.cpp(18): error C2228: Links von ".getSound" müssen sich in einer Klasse/Struktur/Union befinden
-  c:\users\christian\documents\github\myengine\musicplayer.cpp(18): note: Typ ist "unknown-type"
-c:\users\christian\documents\github\myengine\musicplayer.cpp(18): error C2227: Links von "->stop" muss sich ein Zeiger auf Klassen-/Struktur-/Union-/generischen Typ befinden.
-c:\users\christian\documents\github\myengine\musicplayer.cpp(24): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\musicplayer.cpp(24): error C3861: "getAudio": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\musicplayer.cpp(24): error C2228: Links von ".getSound" müssen sich in einer Klasse/Struktur/Union befinden
-  c:\users\christian\documents\github\myengine\musicplayer.cpp(24): note: Typ ist "unknown-type"
-c:\users\christian\documents\github\myengine\musicplayer.cpp(24): error C2227: Links von "->setIsPaused" muss sich ein Zeiger auf Klassen-/Struktur-/Union-/generischen Typ befinden.
-c:\users\christian\documents\github\myengine\musicplayer.cpp(29): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\musicplayer.cpp(29): error C3861: "getAudio": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\musicplayer.cpp(29): error C2228: Links von ".getSound" müssen sich in einer Klasse/Struktur/Union befinden
-  c:\users\christian\documents\github\myengine\musicplayer.cpp(29): note: Typ ist "unknown-type"
-c:\users\christian\documents\github\myengine\musicplayer.cpp(29): error C2227: Links von "->setIsPaused" muss sich ein Zeiger auf Klassen-/Struktur-/Union-/generischen Typ befinden.
-c:\users\christian\documents\github\myengine\musicplayer.cpp(38): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\musicplayer.cpp(38): error C3861: "getAudio": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\musicplayer.cpp(38): error C2228: Links von ".play2D" müssen sich in einer Klasse/Struktur/Union befinden
-  c:\users\christian\documents\github\myengine\musicplayer.cpp(38): note: Typ ist "unknown-type"
-c:\users\christian\documents\github\myengine\musicplayer.cpp(42): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\musicplayer.cpp(42): error C3861: "getAudio": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\musicplayer.cpp(42): error C2228: Links von ".play2D" müssen sich in einer Klasse/Struktur/Union befinden
-  c:\users\christian\documents\github\myengine\musicplayer.cpp(42): note: Typ ist "unknown-type"
-c:\users\christian\documents\github\myengine\musicplayer.cpp(50): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\musicplayer.cpp(50): error C3861: "getAudio": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\musicplayer.cpp(50): error C2228: Links von ".getSound" müssen sich in einer Klasse/Struktur/Union befinden
-  c:\users\christian\documents\github\myengine\musicplayer.cpp(50): note: Typ ist "unknown-type"
-c:\users\christian\documents\github\myengine\musicplayer.cpp(50): error C2227: Links von "->stop" muss sich ein Zeiger auf Klassen-/Struktur-/Union-/generischen Typ befinden.
-c:\users\christian\documents\github\myengine\musicplayer.cpp(51): warning C4018: ">=": Konflikt zwischen "signed" und "unsigned"
-c:\users\christian\documents\github\myengine\musicplayer.cpp(57): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\musicplayer.cpp(57): error C3861: "getAudio": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\musicplayer.cpp(57): error C2228: Links von ".getSound" müssen sich in einer Klasse/Struktur/Union befinden
-  c:\users\christian\documents\github\myengine\musicplayer.cpp(57): note: Typ ist "unknown-type"
-c:\users\christian\documents\github\myengine\musicplayer.cpp(57): error C2227: Links von "->stop" muss sich ein Zeiger auf Klassen-/Struktur-/Union-/generischen Typ befinden.
-c:\users\christian\documents\github\myengine\musicplayer.cpp(60): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\musicplayer.cpp(60): error C3861: "getAudio": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\musicplayer.cpp(60): error C2228: Links von ".play2D" müssen sich in einer Klasse/Struktur/Union befinden
-  c:\users\christian\documents\github\myengine\musicplayer.cpp(60): note: Typ ist "unknown-type"
-  Maingame.cpp
-c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
-c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
-c:\users\christian\documents\github\myengine\audio.h(122): error C2653: "Camera3d": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\audio.h(151): error C2061: Syntaxfehler: Bezeichner "Camera3d"
-c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
-c:\users\christian\documents\github\myengine\engine.h(21): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\engine.h(21): error C3861: "initialize": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\engine.h(22): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\engine.h(22): error C3861: "provide": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\engine.h(23): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\engine.h(23): error C3861: "provide": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\engine.h(24): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\engine.h(24): error C3861: "provide": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\time.h(16): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
-c:\users\christian\documents\github\myengine\time.h(24): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
-c:\users\christian\documents\github\myengine\maingame.cpp(37): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
-c:\users\christian\documents\github\myengine\maingame.cpp(38): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
-c:\users\christian\documents\github\myengine\maingame.cpp(91): warning C4244: "Argument": Konvertierung von "float" in "int", möglicher Datenverlust
-c:\users\christian\documents\github\myengine\maingame.cpp(155): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\maingame.cpp(155): error C3861: "getText": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\maingame.cpp(155): error C2228: Links von ".update" müssen sich in einer Klasse/Struktur/Union befinden
-  c:\users\christian\documents\github\myengine\maingame.cpp(155): note: Typ ist "unknown-type"
-c:\users\christian\documents\github\myengine\maingame.cpp(172): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\maingame.cpp(172): error C3861: "getText": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\maingame.cpp(172): error C2228: Links von ".renderText" müssen sich in einer Klasse/Struktur/Union befinden
-  c:\users\christian\documents\github\myengine\maingame.cpp(172): note: Typ ist "unknown-type"
-c:\users\christian\documents\github\myengine\maingame.cpp(173): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\maingame.cpp(173): error C3861: "getText": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\maingame.cpp(173): error C2228: Links von ".renderText" müssen sich in einer Klasse/Struktur/Union befinden
-  c:\users\christian\documents\github\myengine\maingame.cpp(173): note: Typ ist "unknown-type"
-c:\users\christian\documents\github\myengine\maingame.cpp(174): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\maingame.cpp(174): error C3861: "getText": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\maingame.cpp(174): error C2228: Links von ".renderText" müssen sich in einer Klasse/Struktur/Union befinden
-  c:\users\christian\documents\github\myengine\maingame.cpp(174): note: Typ ist "unknown-type"
-c:\users\christian\documents\github\myengine\maingame.cpp(175): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\maingame.cpp(175): error C3861: "getText": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\maingame.cpp(175): error C2228: Links von ".renderText" müssen sich in einer Klasse/Struktur/Union befinden
-  c:\users\christian\documents\github\myengine\maingame.cpp(175): note: Typ ist "unknown-type"
-c:\users\christian\documents\github\myengine\maingame.cpp(177): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\maingame.cpp(177): error C3861: "getText": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\maingame.cpp(177): error C2228: Links von ".renderText" müssen sich in einer Klasse/Struktur/Union befinden
-  c:\users\christian\documents\github\myengine\maingame.cpp(177): note: Typ ist "unknown-type"
-c:\users\christian\documents\github\myengine\maingame.cpp(187): warning C4244: "Argument": Konvertierung von "float" in "int", möglicher Datenverlust
-  LuaEngine.cpp
-c:\users\christian\documents\github\myengine\luaengine.cpp(9): fatal error C1004: Unerwartetes Dateiende gefunden.
-  InputManager.cpp
-c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
-c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
-c:\users\christian\documents\github\myengine\audio.h(122): error C2653: "Camera3d": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\audio.h(151): error C2061: Syntaxfehler: Bezeichner "Camera3d"
-c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
-  Macro definition of max detected - undefining
-  Macro definition of min detected - undefining
-c:\users\christian\documents\github\myengine\engine.h(21): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\engine.h(21): error C3861: "initialize": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\engine.h(22): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\engine.h(22): error C3861: "provide": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\engine.h(23): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\engine.h(23): error C3861: "provide": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\engine.h(24): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\engine.h(24): error C3861: "provide": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\inputmanager.cpp(9): warning C4244: "Argument": Konvertierung von "Sint32" in "float", möglicher Datenverlust
-c:\users\christian\documents\github\myengine\inputmanager.cpp(137): warning C4018: ">": Konflikt zwischen "signed" und "unsigned"
-  Entity.cpp
-c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
-c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
-c:\users\christian\documents\github\myengine\audio.h(122): error C2653: "Camera3d": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\audio.h(151): error C2061: Syntaxfehler: Bezeichner "Camera3d"
-c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
-  Macro definition of max detected - undefining
-  Macro definition of min detected - undefining
-c:\users\christian\documents\github\myengine\entity.cpp(25): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-c:\users\christian\documents\github\myengine\entity.cpp(36): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-c:\users\christian\documents\github\myengine\entity.cpp(59): warning C4018: "<=": Konflikt zwischen "signed" und "unsigned"
-  Engine.cpp
-c:\users\christian\documents\github\myengine\camera3d.h(88): error C2061: Syntaxfehler: Bezeichner "LuaScript"
-c:\users\christian\documents\github\myengine\camera3d.h(90): error C2143: Syntaxfehler: Es fehlt ";" vor "*"
-c:\users\christian\documents\github\myengine\camera3d.h(90): error C4430: Fehlender Typspezifizierer - int wird angenommen. Hinweis: "default-int" wird von C++ nicht unterstützt.
-c:\users\christian\documents\github\myengine\camera3d.h(90): error C2238: Unerwartete(s) Token vor ";"
-c:\users\christian\documents\github\myengine\camera3d.h(104): error C2143: Syntaxfehler: Es fehlt ";" vor "*"
-c:\users\christian\documents\github\myengine\camera3d.h(104): error C4430: Fehlender Typspezifizierer - int wird angenommen. Hinweis: "default-int" wird von C++ nicht unterstützt.
-c:\users\christian\documents\github\myengine\camera3d.h(104): error C2238: Unerwartete(s) Token vor ";"
-c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
-c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
-c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
-  Macro definition of max detected - undefining
-  Macro definition of min detected - undefining
-c:\users\christian\documents\github\myengine\engine.h(21): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\engine.h(21): error C3861: "initialize": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\engine.h(22): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\engine.h(22): error C3861: "provide": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\engine.h(23): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\engine.h(23): error C3861: "provide": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\engine.h(24): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\engine.h(24): error C3861: "provide": Bezeichner wurde nicht gefunden.
-  Component.cpp
-c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
-c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
-c:\users\christian\documents\github\myengine\audio.h(122): error C2653: "Camera3d": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\audio.h(151): error C2061: Syntaxfehler: Bezeichner "Camera3d"
-c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
-  Macro definition of max detected - undefining
-  Macro definition of min detected - undefining
-c:\users\christian\documents\github\myengine\component.cpp(156): warning C4244: "Argument": Konvertierung von "unsigned int" in "const float", möglicher Datenverlust
-c:\users\christian\documents\github\myengine\component.cpp(290): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-c:\users\christian\documents\github\myengine\component.cpp(333): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-c:\users\christian\documents\github\myengine\component.cpp(347): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-  Camera3d.cpp
-c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
-c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
-c:\users\christian\documents\github\myengine\audio.h(122): error C2653: "Camera3d": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\audio.h(151): error C2061: Syntaxfehler: Bezeichner "Camera3d"
-c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
-c:\users\christian\documents\github\myengine\camera3d.cpp(31): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
-c:\users\christian\documents\github\myengine\camera3d.cpp(49): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
-c:\users\christian\documents\github\myengine\camera3d.cpp(114): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
-c:\users\christian\documents\github\myengine\camera3d.cpp(205): warning C4244: "=": Konvertierung von "int" in "float", möglicher Datenverlust
-c:\users\christian\documents\github\myengine\camera3d.cpp(206): warning C4244: "=": Konvertierung von "int" in "float", möglicher Datenverlust
-c:\users\christian\documents\github\myengine\camera3d.cpp(207): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
-c:\users\christian\documents\github\myengine\camera3d.cpp(208): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
-c:\users\christian\documents\github\myengine\camera3d.cpp(281): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\camera3d.cpp(281): error C3861: "getLua": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\camera3d.cpp(281): error C2228: Links von ".deleteScript" müssen sich in einer Klasse/Struktur/Union befinden
-  c:\users\christian\documents\github\myengine\camera3d.cpp(281): note: Typ ist "unknown-type"
-c:\users\christian\documents\github\myengine\camera3d.cpp(281): warning C4390: ";": Leere kontrollierte Anweisung aufgetreten; ist dies beabsichtigt?
-c:\users\christian\documents\github\myengine\camera3d.cpp(287): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\camera3d.cpp(287): error C3861: "getLua": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\camera3d.cpp(287): error C2228: Links von ".deleteScript" müssen sich in einer Klasse/Struktur/Union befinden
-  c:\users\christian\documents\github\myengine\camera3d.cpp(287): note: Typ ist "unknown-type"
-c:\users\christian\documents\github\myengine\camera3d.cpp(288): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\camera3d.cpp(288): error C3861: "getLua": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\camera3d.cpp(288): error C2228: Links von ".createScript" müssen sich in einer Klasse/Struktur/Union befinden
-  c:\users\christian\documents\github\myengine\camera3d.cpp(288): note: Typ ist "unknown-type"
-c:\users\christian\documents\github\myengine\camera3d.cpp(287): warning C4390: ";": Leere kontrollierte Anweisung aufgetreten; ist dies beabsichtigt?
-  AudioListener.cpp
-c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
-c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
-c:\users\christian\documents\github\myengine\audio.h(122): error C2653: "Camera3d": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\audio.h(151): error C2061: Syntaxfehler: Bezeichner "Camera3d"
-c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
-c:\users\christian\documents\github\myengine\audiolistener.cpp(122): error C2653: "ServiceLocator": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\audiolistener.cpp(122): error C3861: "getAudio": Bezeichner wurde nicht gefunden.
-c:\users\christian\documents\github\myengine\audiolistener.cpp(122): error C2228: Links von ".update" müssen sich in einer Klasse/Struktur/Union befinden
-  c:\users\christian\documents\github\myengine\audiolistener.cpp(122): note: Typ ist "unknown-type"
-  Audio.cpp
-c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
-c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
-c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
-  Code wird generiert...
-  Kompilieren...
-  ParticleSystem.cpp
-c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
-c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
-c:\users\christian\documents\github\myengine\audio.h(122): error C2653: "Camera3d": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\audio.h(151): error C2061: Syntaxfehler: Bezeichner "Camera3d"
-c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
-  Code wird generiert...
-  Kompilieren...
   Terrain.cpp
-c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
-c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
-c:\users\christian\documents\github\myengine\audio.h(122): error C2653: "Camera3d": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\audio.h(151): error C2061: Syntaxfehler: Bezeichner "Camera3d"
-c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
+c:\users\christian\documents\github\myengine\time.h(17): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(23): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(30): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\time.h(505): note: Siehe Deklaration von "localtime"
 c:\users\christian\documents\github\myengine\terrain.cpp(70): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
 c:\users\christian\documents\github\myengine\terrain.cpp(77): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
 c:\users\christian\documents\github\myengine\terrain.cpp(81): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
@@ -369,16 +40,96 @@ c:\users\christian\documents\github\myengine\terrain.cpp(119): warning C4244: "=
 c:\users\christian\documents\github\myengine\terrain.cpp(120): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
 c:\users\christian\documents\github\myengine\terrain.cpp(152): warning C4244: "=": Konvertierung von "int" in "float", möglicher Datenverlust
 c:\users\christian\documents\github\myengine\terrain.cpp(153): warning C4244: "=": Konvertierung von "int" in "float", möglicher Datenverlust
+  ServiceLocator.cpp
+c:\users\christian\documents\github\myengine\time.h(17): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(23): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(30): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\time.h(505): note: Siehe Deklaration von "localtime"
+  Scene.cpp
+c:\users\christian\documents\github\myengine\time.h(17): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(23): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(30): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\time.h(505): note: Siehe Deklaration von "localtime"
+  Macro definition of max detected - undefining
+  Macro definition of min detected - undefining
+c:\users\christian\documents\github\myengine\scene.cpp(35): warning C4244: "Argument": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\scene.cpp(305): warning C4244: "Argument": Konvertierung von "double" in "float", möglicher Datenverlust
+  Picker.cpp
+c:\users\christian\documents\github\myengine\time.h(17): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(23): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(30): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\time.h(505): note: Siehe Deklaration von "localtime"
+  Macro definition of max detected - undefining
+  Macro definition of min detected - undefining
+c:\users\christian\documents\github\myengine\picker.cpp(43): warning C4244: "Argument": Konvertierung von "unsigned int" in "const float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\picker.cpp(61): warning C4244: "+=": Konvertierung von "float" in "unsigned int", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\picker.cpp(90): warning C4244: "Argument": Konvertierung von "unsigned int" in "const float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\picker.cpp(111): warning C4244: "+=": Konvertierung von "float" in "unsigned int", möglicher Datenverlust
+  ParticleSystem.cpp
+c:\users\christian\documents\github\myengine\time.h(17): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(23): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(30): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\time.h(505): note: Siehe Deklaration von "localtime"
+  MusicPlayer.cpp
+c:\users\christian\documents\github\myengine\time.h(17): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(23): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(30): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\time.h(505): note: Siehe Deklaration von "localtime"
+c:\users\christian\documents\github\myengine\musicplayer.cpp(51): warning C4018: ">=": Konflikt zwischen "signed" und "unsigned"
+  Maingame.cpp
+c:\users\christian\documents\github\myengine\time.h(17): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(23): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(30): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\time.h(505): note: Siehe Deklaration von "localtime"
+c:\users\christian\documents\github\myengine\maingame.cpp(40): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\maingame.cpp(41): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\maingame.cpp(95): warning C4244: "Argument": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\maingame.cpp(191): warning C4244: "Argument": Konvertierung von "float" in "int", möglicher Datenverlust
+  LuaEngine.cpp
+  InputManager.cpp
+c:\users\christian\documents\github\myengine\time.h(17): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(23): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(30): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\time.h(505): note: Siehe Deklaration von "localtime"
+  Macro definition of max detected - undefining
+  Macro definition of min detected - undefining
+c:\users\christian\documents\github\myengine\inputmanager.cpp(9): warning C4244: "Argument": Konvertierung von "Sint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\inputmanager.cpp(137): warning C4018: ">": Konflikt zwischen "signed" und "unsigned"
+  Entity.cpp
+c:\users\christian\documents\github\myengine\time.h(17): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(23): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(30): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\time.h(505): note: Siehe Deklaration von "localtime"
+  Macro definition of max detected - undefining
+  Macro definition of min detected - undefining
+  Engine.cpp
+c:\users\christian\documents\github\myengine\time.h(17): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(23): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(30): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\time.h(505): note: Siehe Deklaration von "localtime"
+  Macro definition of max detected - undefining
+  Macro definition of min detected - undefining
+  Component.cpp
+c:\users\christian\documents\github\myengine\time.h(17): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(23): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(30): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\time.h(505): note: Siehe Deklaration von "localtime"
+  Macro definition of max detected - undefining
+  Macro definition of min detected - undefining
+c:\users\christian\documents\github\myengine\component.cpp(142): warning C4244: "Argument": Konvertierung von "unsigned int" in "const float", möglicher Datenverlust
+  Camera3d.cpp
+c:\users\christian\documents\github\myengine\time.h(17): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(23): warning C4244: "=": Konvertierung von "Uint32" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\time.h(30): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\time.h(505): note: Siehe Deklaration von "localtime"
+c:\users\christian\documents\github\myengine\camera3d.cpp(31): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\camera3d.cpp(49): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\camera3d.cpp(114): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\camera3d.cpp(221): warning C4244: "=": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\camera3d.cpp(222): warning C4244: "=": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\camera3d.cpp(223): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\camera3d.cpp(224): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
   Code wird generiert...
-  Kompilieren...
-  Window.cpp
-c:\program files (x86)\microsoft visual studio 12.0\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
-c:\program files (x86)\microsoft visual studio 12.0\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
-c:\users\christian\documents\github\myengine\audio.h(122): error C2653: "Camera3d": Keine Klasse oder Namespace
-c:\users\christian\documents\github\myengine\audio.h(151): error C2061: Syntaxfehler: Bezeichner "Camera3d"
-c:\users\christian\documents\github\myengine\servicelocator.h(8): error C2236: Unerwartetes Token "class". Haben Sie ein ";" vergessen?
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
-c:\users\christian\documents\github\myengine\servicelocator.h(9): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
-  Code wird generiert...
+  Überspringen... (keine relevanten Änderungen gefunden)
+  Audio.cpp
+  Javaportc++.vcxproj -> C:\Users\Christian\Documents\GitHub\MyEngine\Debug\ProperEngine.exe

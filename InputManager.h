@@ -5,15 +5,15 @@
 #include "Math/3DMath.h"
 #include <SDL.h>
 #include "Commands.h"
+#include "LuaEngine.h"
 
-class InputManager
-{
-
-};
-
-class InputHandler
+class InputHandler :public LuaEngine::Listener
 {
 public:
+	void scriptCreated(LuaScript* script)
+	{
+		State &state = script->getState();
+	};
 	InputHandler(){generateKeyMap();}
 	  ~InputHandler()
 	  {
@@ -27,13 +27,14 @@ public:
 	void generate_input(std::vector<Command*> &command_queue);
 	
 public:
+
 	void update();
 	void pressKey(unsigned int keyID);
 	void releaseKey(unsigned int keyID);
 	bool isKeyDown(unsigned int keyID);
 	bool isKeyPressed(unsigned int keyID);
 	bool isKeyReleased(unsigned int keyID);
-	
+	static InputHandler& get() { static InputHandler in; return in; }
 bool isKeyDownS(std::string &string)
 {
 	auto &r = stringKeyMap.find(string);
@@ -53,6 +54,8 @@ bool isKeyReleasedS(std::string &string)
 	if(r == stringKeyMap.end()) return false;
 	return isKeyReleased(r->second);
 }
+
+//this is needed for LUA
 void generateKeyMap()
 {
 	
@@ -124,7 +127,6 @@ void generateKeyMap()
 	stringKeyMap.insert(std::make_pair("END",SDLK_END));
 	stringKeyMap.insert(std::make_pair("PAGEUP",SDLK_PAGEUP));
 	stringKeyMap.insert(std::make_pair("PAGEDOWN",SDLK_PAGEDOWN));
-
 	stringKeyMap.insert(std::make_pair("F1",SDLK_F1));
 	stringKeyMap.insert(std::make_pair("F2",SDLK_F2));
 	stringKeyMap.insert(std::make_pair("F3",SDLK_F3));

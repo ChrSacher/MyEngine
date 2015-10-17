@@ -1,8 +1,8 @@
 #include "ServiceLocator.h"
 
-Audio* ServiceLocator::service_;
+Audio* ServiceLocator::service_ = NULL;
 NullAudio  ServiceLocator::nullService_;
-Text* ServiceLocator::text_;
+Text* ServiceLocator::text_ = NULL;
 NullText ServiceLocator::nullText_;
-LuaEngine* ServiceLocator::lua;
-NullLuaEngine ServiceLocator::nulllua;
+LuaEngine* ServiceLocator::lua = NULL;
+NullLuaEngine ServiceLocator::nullLua_;

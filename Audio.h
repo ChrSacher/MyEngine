@@ -4,19 +4,19 @@
 #include "Errors.h"
 #include <vector>
 #include "Math\3DMath.h"
-#include "Camera3d.h"
 #include <map>
 #include <SDL.h>
 #include <tchar.h>
 #include <fstream>
 #include <Windows.h>
-
+#include <gl/glew.h>
+#include <gl/GL.h>
 //#pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
-
 inline irrklang::vec3df vec3df(Vector3 x)
 {
 	return irrklang::vec3df(x.x,x.y,x.z);
 }
+//class for all audio in the Engine
 
 class Audio
 {
@@ -25,25 +25,18 @@ public:
 	{
 		
 	};
-	class Listener
-	{
-		virtual ~Listener() { }
-
-        /**
-         * Handles when an camera settings change.
-         *
-         * @param camera The camera that was changed.
-         */
-        virtual void audioChanged(Audio* audio) = 0;
-	};
+	/* Start the Engine and load all necessary things
+	*/
 	void initialize()
 	{
 		 engine =  irrklang::createIrrKlangDevice();
 		 if (!engine) fatalError("Failed to create Audio Device");
 		 engine->update();
 		 last = 0;
-		 _listeners = NULL;
 	};
+	/*
+		Destroy all loaded things and all sounds which are currently loaded
+	*/
 	void destroy()
 	{
 		engine->drop();
@@ -51,7 +44,6 @@ public:
 		 {
 			 delete(it->second);
 		 }
-		 if(_listeners) delete(_listeners);
 		
 		 info.clear();
 	}
@@ -61,8 +53,10 @@ public:
 		
 		
 	}
-	
-	GLuint play2D(std::string audiopath,bool startpaused = false,float Volume = 1.0f)
+	//Play 2d Sound
+	// #return will return an Int with location of the current sound
+	// if -1 then sound couldn't be loaded
+	int play2D(std::string audiopath,bool startpaused = false,float Volume = 1.0f)
 	{
 		irrklang::ISound* temp = engine->play2D(audiopath.c_str(),false,startpaused,true);
 		if(temp) 
@@ -76,7 +70,10 @@ public:
 		return -1;
 		
 	}
-	GLuint play3D(std::string audiopath,Vector3 position,float Volume = 1.0f,bool startpaused = false)
+	//Play 3d Sound
+	// #return will return an Int with location of the current sound
+	// if -1 then sound couldn't be loaded
+	int play3D(std::string audiopath,Vector3 position,float Volume = 1.0f,bool startpaused = false)
 	{
 		irrklang::ISound* temp = engine->play3D(audiopath.c_str(),vec3df(position),false,startpaused,true);
 		if(temp) 
@@ -113,25 +110,14 @@ public:
 		else
 			return NULL;
 	}
-private:
+protected:
 	irrklang::ISoundEngine* engine;
-	std::map<GLuint,irrklang::ISound*> info;
+	std::map<int,irrklang::ISound*> info;
 	GLuint last;
 	Vector3 pos;
-protected:
-	std::list<Camera3d::Listener*>* _listeners;
 };
 
-struct SongInformation
-{
-	SongInformation(std::string &string,std::string &string2)
-	{
-		title = string;
-		path = string2;
-	}
-	std::string title;
-	std::string path;
-};
+
 
 class NullAudio: public Audio
 {
@@ -148,7 +134,7 @@ public:
 	void pauseSounds(bool paused)
 	{
 	}
-	void update(Camera3d* cam)
+	void update(Vector3 Pos = Vector3(), Vector3 Dir = Vector3(0, 0, -1), Vector3 Vel = Vector3(), Vector3 Up = Vector3(0, 0, 1))
 	{
 	}
 	void initialize()
@@ -169,7 +155,6 @@ public:
 		 std::cout<< "Initiliazing Audio"<<std::endl;
 		 engine->update();
 		 last = 0;
-		 _listeners = NULL;
 	};
 	void destroy()
 	{
@@ -179,7 +164,6 @@ public:
 			 delete(it->second);
 		 }
 		 info.clear();
-		 if(_listeners) delete(_listeners);
 		 engine->drop();
 		 
 	}
@@ -191,10 +175,6 @@ public:
 	{
 		
 	}
-	irrklang::ISoundEngine* engine;
-	std::map<GLuint,irrklang::ISound*> info;
-	GLuint last;
-	Vector3 pos;
 	GLuint play2D(std::string audiopath,bool startpaused = false,float Volume = 1.0f)
 	{
 		irrklang::ISound* temp = engine->play2D(audiopath.c_str(),false,startpaused,true);

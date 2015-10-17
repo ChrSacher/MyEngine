@@ -34,12 +34,13 @@
 #include "Window.h"
 #include "config.h"
 #include "Text.h"
-#include "Audio.h"
 #include "MusicPlayer.h"
-#include "AudioListener.h"
+#include "ServiceLocator.h"
 #include "Engine.h"
 #include "Component.h"
 #include "Time.h"
+#include "AudioListener.h"
+
 struct GameState
 {
 	bool playing;
@@ -88,7 +89,6 @@ private:
 		UIrenderer *ui;
 		GameState gamestate;
 		FpsLimiter fpsLimiter;
-		InputHandler input;
 		Scene* scene;
 		MusicPlayer* music;
 		LineRenderer* line;
@@ -101,5 +101,6 @@ private:
 		std::vector<Command*> command_queue;
 		std::vector<Command*> executedCommands;
 		std::vector<Entity*> entities;
+		LuaScript* script;
 };
 

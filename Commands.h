@@ -5,6 +5,7 @@
 #include "Scene.h"
 #include "Window.h"
 #include "MusicPlayer.h"
+#include "Time.h"
 class Window;
 class Scene;
 
@@ -52,6 +53,7 @@ struct SceneCommand : public Command
 	{
 		scene = Scene;
 	}
+public:
 	Scene* scene;
 };
 
@@ -86,7 +88,7 @@ struct SceneAddObject :public SceneCommand
 	virtual void execute()
 	{
 		Entity* newEntity = Entity::create("BOX",scene->getCamera()->getPos());
-		newEntity->addComponent(&ComponentManager::get().createGraphics("","res/texture/normal_map.jpg","res/models/box.obj"));
+		newEntity->addComponent(ComponentManager::get().createGraphics("","res/texture/normal_map.jpg","res/models/box.obj"));
 		scene->addEntity(newEntity);
 	}
 };
@@ -123,7 +125,7 @@ struct CameraMoveUp : public CameraCommand
 	}
 	virtual void execute()
 	{
-		cam->raise();
+		cam->raise(50 * Time::delta);
 	}
 	
 };
@@ -137,7 +139,7 @@ struct CameraMoveDown : public CameraCommand
 	}
 	virtual void execute()
 	{
-		cam->sink();
+		cam->sink(50 * Time::delta);
 	}
 };
 struct CameraMoveRight: public CameraCommand
@@ -149,7 +151,7 @@ struct CameraMoveRight: public CameraCommand
 	}
 	virtual void execute()
 	{
-		cam->straferight();
+		cam->straferight(50 * Time::delta);
 	}
 };
 struct CameraMoveLeft : public Command
@@ -161,7 +163,7 @@ struct CameraMoveLeft : public Command
 	}
 	virtual void execute()
 	{
-		cam->strafeleft();
+		cam->strafeleft(50 * Time::delta);
 	}
 	Camera3d *cam;
 };
@@ -174,7 +176,7 @@ struct CameraMoveForward : public CameraCommand
 	}
 	virtual void execute()
 	{
-		cam->moveforward();
+		cam->moveforward(50 * Time::delta);
 	}
 };
 struct CameraMoveBackward : public CameraCommand
@@ -186,7 +188,7 @@ struct CameraMoveBackward : public CameraCommand
 	}
 	virtual void execute()
 	{
-		cam->movebackward();
+		cam->movebackward(50 * Time::delta);
 	}
 };
 

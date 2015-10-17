@@ -8,7 +8,7 @@
 #include "Shader.h"
 #include "Camera3d.h"
 #include <random>
-
+#include "Time.h"
 class Particle                                                                         
 { 
 public: 
@@ -57,7 +57,7 @@ public:
 	int lastActive;
 
 	void init();
-	void update(float deltatime);
+	void update();
 	void addParticle(Vector3 &Pos,Vector3 &Vel,Vector4 &Color);
 	void draw();
 	

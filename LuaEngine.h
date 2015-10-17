@@ -3,54 +3,105 @@
 #include <selene.h>
 #include <string>
 #include <vector>
+#include "Math\3DMath.h"
 using namespace sel;
+//a script which will be used by the Engine and regulary updated
 class LuaScript
 {
 public:
-	LuaScript(std::string Path) :state(true), path(Path)
+	//Path to LuaScript which will be used
+	LuaScript(std::string Path) :state(true), path(Path), updateFun(state["update"]), hasUpdate(false)
 	{
-		state.Load(Path);
-		state["startUp"]();
-		updateFun = state["update"];
+
+		bool found = state.Load(Path);
+		if (!found)
+		{
+			std::cout << "LuaScript not found" << std::endl;
+			return;
+		}
+		if (!state.CheckNil("update")) hasUpdate = true;
+		
 	}
-	LuaScript() :state(true),path("NA")
+	// start the startUp function if exists
+	void begin()
 	{
+		if (!state.CheckNil("startUp"))
+		{
+			state["startUp"]();
+		}
+	}
+	//load empty Script
+	LuaScript() :state(true),path("NA"),updateFun(state[""])
+	{
+		hasUpdate = false;
+	}
+	//reload the Script with new state and file
+	//new objects need to be loaded in again
+	void reload(std::string &Path)
+	{
+		path = Path;
+		state = State(true);
+		state.Load(Path);
 	}
 	~LuaScript()
 	{
-		state["shutDown"]();
+		if (!state.CheckNil("shutDown"))
+		{
+			state["shutDown"]();
+		}
 	}
+	//uuse update function
 	void update()
 	{
-		state["update"]();
+		updateFun();
 	}
-	void executeFile(std::string Path)
-	{
-		path = Path;
-	}
+	//loads new empty state
 	void reload()
 	{
 		state = sel::State(true);
+		state.Load(path);
 	}
-	State* getState() { return &state; }
-	State state;
+	sel::State& getState() { return state; }
+protected:
+	sel::State state;
 	std::string path;
-	std::map<std::string, Selector> variables;
-	Selector* updateFun;
+	std::map<std::string, sel::Selector> variables;
+	sel::Selector updateFun;
+	bool hasUpdate;
 };
-using namespace sel;
 
+//Class for keeping track and updating all scripts
 class LuaEngine
 {
 public:
-	LuaEngine() {}
+	LuaEngine() { _listeners = NULL; }
+	~LuaEngine() {}
 	LuaScript* createScript(std::string Path)
 	{
 		LuaScript* temp = new LuaScript(Path);
 		scripts.insert(std::make_pair(temp,temp));
 		return temp;
 	}
-	std::map<LuaScript*,LuaScript*> scripts;
+	class Listener
+	{
+	public:
+		virtual ~Listener() { }
+
+		/**
+		* Handles when an camera settings change.
+		*
+		* @param camera The camera that was changed.
+		*/
+		virtual void scriptCreated(LuaScript* script) = 0;
+	};
+	void scriptCreated(LuaScript* script);
+	/**
+	* Adds a camera listener.
+	*
+	* @param listener The listener to add.
+	*/
+	void addListener(LuaEngine::Listener* listener);
+	void removeListener(LuaEngine::Listener* listener);
 	void deleteScript(LuaScript* script)
 	{
 		auto pos = scripts.find(script);
@@ -77,16 +128,21 @@ public:
 		{
 			  delete(it->second);
 		}		
-	}	
+	}
+protected:
+	std::map<LuaScript*, LuaScript*> scripts;
+	std::list<LuaEngine::Listener*>* _listeners;
 };
 
 class NullLuaEngine : public LuaEngine
 {
+public:
+	NullLuaEngine() {}
+	~NullLuaEngine() {}
 	LuaScript* createScript(std::string Path)
 	{
 		return new LuaScript();
 	}
-	std::map<LuaScript*, LuaScript*> scripts;
 	void deleteScript(LuaScript* script)
 	{
 	}
@@ -101,8 +157,7 @@ class NullLuaEngine : public LuaEngine
 	void destroy()
 	{
 	}
-}
-
+};
 
 
 

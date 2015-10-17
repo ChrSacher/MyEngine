@@ -71,7 +71,7 @@ Scene* Scene::createScene(int Height,int Width,std::string path)
 		else
 		{
 			Entity* terrainEntity = Entity::create("Terrain");
-			terrainEntity->addComponent(&ComponentManager::get().createTerrain("res/Texture/standardTerrain.png","res/Texture/White.png",Vector3(1,1,1),true));
+			terrainEntity->addComponent(ComponentManager::get().createTerrain("res/Texture/standardTerrain.png","res/Texture/White.png",Vector3(1,1,1),true));
 			scene->addEntity(terrainEntity);
 		}
 	return scene;
@@ -107,11 +107,11 @@ Ray Scene::getClick(int x,int y)
 	return Ray();
 }
 
-void Scene::update(float delta)
+void Scene::update()
 {
 	static int counter = 0;
 	counter++;
-	ComponentManager::get().update(delta);
+	ComponentManager::get().update();
 }
 
 void Scene::renderScene()
@@ -223,7 +223,6 @@ bool Scene::loadScene(std::string Path)
 	std::map<std::string,ComponentType> type;
 	type.insert(std::make_pair("E",ENTITY));
 	type.insert(std::make_pair("G",GRAPHICS));
-	type.insert(std::make_pair("P",PHYSICS));
 	type.insert(std::make_pair("C",COLLISIONS));
 	type.insert(std::make_pair("A",AMBIENT));
 	type.insert(std::make_pair("D",DIRECTIONAL));
@@ -271,23 +270,8 @@ bool Scene::loadScene(std::string Path)
 				{
 					if(lines.size() == 7)
 					{
-						currentEntity->addComponent(&ComponentManager::get().createGraphics(lines[1],lines[2],lines[3],stV(lines[4],lines[5],lines[6])));
+						currentEntity->addComponent(ComponentManager::get().createGraphics(lines[1],lines[2],lines[3],stV(lines[4],lines[5],lines[6])));
 						std::cout<<"Loading Graphic"<<std::endl;
-					}
-					else std::cout<<"Broken Scene Line"<<std::endl;
-				}
-			}break;
-			case PHYSICS:
-			{
-			}break;
-			case TERRAIN:
-			{
-				if(currentEntity != NULL)
-				{
-					if(lines.size() == 7)
-					{
-						currentEntity->addComponent(&ComponentManager::get().createTerrain(lines[1],lines[2],stV(lines[3],lines[4],lines[5]),STB(lines[6])));
-						std::cout<<"Loading Terrain"<<std::endl;
 					}
 					else std::cout<<"Broken Scene Line"<<std::endl;
 				}
@@ -296,11 +280,20 @@ bool Scene::loadScene(std::string Path)
 			{
 					if(lines.size() == 4)
 					{
-						currentEntity->addComponent(&ComponentManager::get().createAmbient(stV(lines[1],lines[2],lines[3])));
+						currentEntity->addComponent(ComponentManager::get().createAmbient(stV(lines[1],lines[2],lines[3])));
 						std::cout<<"Loading Ambient"<<std::endl;
 					}
 					else std::cout<<"Broken Scene Line"<<std::endl;
 			};break;
+			case TERRAIN:
+			{
+				if (lines.size() == 7)
+				{
+					currentEntity->addComponent(ComponentManager::get().createTerrain(lines[1], lines[2], stV(lines[3], lines[4], lines[5]), STB(lines[6])));
+					std::cout << "Loading Ambient" << std::endl;
+				}
+				else std::cout << "Broken Scene Line" << std::endl;
+			}; break;
 			case COLLISIONS:
 			{
 
@@ -309,7 +302,7 @@ bool Scene::loadScene(std::string Path)
 			{
 					if(lines.size() == 8)
 					{
-						currentEntity->addComponent(&ComponentManager::get().createDirectional(stV(lines[1],lines[2],lines[3]),atof(lines[4].c_str()),stV(lines[5],lines[6],lines[7])));
+						currentEntity->addComponent(ComponentManager::get().createDirectional(stV(lines[1],lines[2],lines[3]),atof(lines[4].c_str()),stV(lines[5],lines[6],lines[7])));
 						std::cout<<"Loading Directional"<<std::endl;
 					}
 					else std::cout<<"Broken Scene Line"<<std::endl;
@@ -318,7 +311,7 @@ bool Scene::loadScene(std::string Path)
 			{
 				if(lines.size() == 11)
 				{
-					currentEntity->addComponent(&ComponentManager::get().createSkyBox(stV(lines[1],lines[2],lines[3]),lines[4],lines[5],lines[6],lines[7],lines[8],lines[9],lines[10]));
+					currentEntity->addComponent(ComponentManager::get().createSkyBox(stV(lines[1],lines[2],lines[3]),lines[4],lines[5],lines[6],lines[7],lines[8],lines[9],lines[10]));
 					std::cout<<"Loading Skybox"<<std::endl;
 				}
 				else std::cout<<"Broken Scene Line"<<std::endl;

@@ -3,6 +3,17 @@
 #include <string>
 #include "ServiceLocator.h"
 
+struct SongInformation
+{
+	SongInformation(std::string &string, std::string &string2)
+	{
+		title = string;
+		path = string2;
+	}
+	std::string title;
+	std::string path;
+};
+//litteraly the thing it says
 class MusicPlayer
 {
 public:
@@ -16,6 +27,7 @@ public:
 	void loadSongList(std::string path);
 	void update();
 	//getters
+	//returns the song number geinning from 1
 	GLuint getSongNumber(){return currentID + 1;}
 	std::string& getCurrentTitle(){return songList[currentID].title;}
 	bool isPaused() {return paused;}

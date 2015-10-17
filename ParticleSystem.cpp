@@ -62,7 +62,7 @@ void ParticleSystem::addParticle(Vector3 &Pos,Vector3 &Vel,Vector4 &Color)
 	ParticleBuffer.insert(ParticleBuffer.begin(),Particle(Pos,Vel,Color));
 	lastActive++;
 }
-void ParticleSystem::update(float deltatime)
+void ParticleSystem::update()
 {
 
 	//
@@ -70,8 +70,8 @@ void ParticleSystem::update(float deltatime)
 	{
 		if(ParticleBuffer[i].lifeTime > 0)
 		{
-			ParticleBuffer[i].pos += ParticleBuffer[i].vel * deltatime;
-			ParticleBuffer[i].lifeTime =- deltatime;
+			ParticleBuffer[i].pos += ParticleBuffer[i].vel * Time::delta;
+			ParticleBuffer[i].lifeTime =-Time::delta;
 		}
 		else
 		{

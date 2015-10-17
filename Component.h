@@ -14,11 +14,11 @@
 #include "Camera3d.h"
 #include "Transform.h"
 #include "Entity.h"
-#include "Audio.h"
 #include "Terrain.h"
 #include "UIrenderer.h"
 #include "Lighting.h"
 #include "PhysicsEngine.h"
+#include "ServiceLocator.h"
 
 class Entity;
 
@@ -27,7 +27,6 @@ enum ComponentType
 {
 	GRAPHICS,
 	COLLISIONS,
-	PHYSICS,
 	ENTITY,
 	TERRAIN,
 	AMBIENT,
@@ -36,6 +35,13 @@ enum ComponentType
 	NUMCOMPONENT
 };
 
+struct ComponentPosition
+{
+	ComponentType type;
+	unsigned int position;
+	unsigned int ID;
+	ComponentPosition(ComponentType Type, unsigned int Pos) :type(Type), position(Pos) { static unsigned int id = 0; ID = id++; };
+};
 
 class Component
 {
@@ -48,8 +54,10 @@ public:
 	}
 	virtual ~Component() {}
 
-	virtual void processInput(float delta) {} //not inputmanager but input subclass
-	virtual void update(float delta) {}
+	//whatever input 
+	virtual void processInput() {} //not inputmanager but input subclass
+	//update the Component
+	virtual void update() {}
 	virtual void render(Shader* shader,Camera3d* camera){}
 	virtual std::string sceneSave(){return "";};
 	int getID(){return ID;}
@@ -57,13 +65,10 @@ public:
 	inline const Transform& GetTransform() const;
 	
 	void notify(int eventType,Entity* entityInteractedWith = NULL);
-	void receive(int eventType,Component* sender,Entity* entityInteractedWith = NULL);
-	void SetParent(Entity* Parent,int Position);
-	void updatePointer();
-	void setPosition(int Position){position = Position;};
+	void receive(int eventType, Component* sender,Entity* entityInteractedWith = NULL);
+	void SetParent(Entity* Parent);
 protected:
 	Entity* parent;
-	int position;
 	Component(const Component& other) {}
 	void operator=(const Component& other) {}
 	int ID;
@@ -118,23 +123,6 @@ private:
 
 };
 
-
-
-
-class PhysicsWorld //should be in physics.cpp and should be gatchered in an Engine Class also more 
-{
-public:
-};
-class PhysicsComponent:public Component
-{
-public:
-	static PhysicsComponent* create();
-	~PhysicsComponent();
-	PhysicsComponent(PhysicsWorld *World = NULL); //if Null no physics on object
-	void update(float delta);
-	PhysicsWorld* world;
-};
-
 class CollisionWorld
 {
 
@@ -145,7 +133,7 @@ public:
 	static CollisionComponent* create();
 	~CollisionComponent();
 	CollisionComponent(CollisionWorld *World = NULL);
-	void update(float delta);
+	void update();
 	CollisionWorld* world;
 };
 
@@ -173,44 +161,41 @@ private:
 //THIS IS DONE BY STORING THE COMPONENT ARRAY POSITION INSIDE THE THE ACTUAL COMPONENT ... done
 
 //create Functions should be moved to Content Manager
-//A component Pointer should be returned
-//delete Functions should be moved to Content Manager
-//if deletion all pointers must be updated
-//Also try to ask someone who knows shit
-//also this shit is fucking huge thing
-//creatXXX(resources for emplace back) to avoid copying
+//A component Pointer should be returned done
+//delete Functions should be moved to Content Manager done
+//creatXXX(resources for emplace back) to avoid copying 
 //this will be  a singelton ..... done
-
+//add this to ServiceLocator
 //this gives me the freedom of setting actuall order of rendering
 class ComponentManager
 {
 public:
-	
+	//start the Manager
 	void startup();
+	//destroy Manager and all components
 	void shutdown();
 	static ComponentManager& get();
-	void update(float delta);
+	//update all Components
+	void update();
+	//render all Components
 	void render(Shader* shader,Camera3d* camera);
 
 
-	GraphicsComponent& createGraphics(std::string texturePath,std::string normalMap,std::string ObjectPath, Vector3 color = Vector3(1.0f,1.0f,1.0f),bool autoCenter = false);
-	void deleteGraphics(Component *graphicsC);
-	TerrainComponent& createTerrain(std::string Path,std::string Texture,Vector3 Scale = Vector3(1.0f,1.0f,1.0f),bool Center = false);
-	void deleteTerrain(Component *terrain);
-	AmbientLightComponent& createAmbient(Vector3 Color);
-	void deleteAmbient(Component * ambient);
-	DirectionalLightComponent& createDirectional(Vector3 Color = Vector3(1.0f,1.0f,1.0f),float Intensity = 0.2f,Vector3 Dir = Vector3(1.0f,1.0f,1.0f));
-	void deleteDirectional(Component * directional);
-	SkyBoxComponent& createSkyBox(Vector3 color,std::string Directory, std::string posx, std::string negx, std::string posy, std::string negy, std::string posz, std::string negz);
-	void deleteSkyBox(Component* sky);
+	ComponentPosition& createGraphics(std::string texturePath,std::string normalMap,std::string ObjectPath, Vector3 color = Vector3(1.0f,1.0f,1.0f),bool autoCenter = false);
+	ComponentPosition& createTerrain(std::string Path,std::string Texture,Vector3 Scale = Vector3(1.0f,1.0f,1.0f),bool Center = false);
+	ComponentPosition& createAmbient(Vector3 Color);
+	ComponentPosition& createDirectional(Vector3 Color = Vector3(1.0f,1.0f,1.0f),float Intensity = 0.2f,Vector3 Dir = Vector3(1.0f,1.0f,1.0f));
+	ComponentPosition& createSkyBox(Vector3 color,std::string Directory, std::string posx, std::string negx, std::string posy, std::string negy, std::string posz, std::string negz);
+	void deleteComponent(ComponentPosition& Pos);
+	Component* findComponent(ComponentPosition Pos);
 private:
 	std::vector<GraphicsComponent> graphics;
-	std::vector<PhysicsComponent> physics;
 	std::vector<CollisionComponent> collisions;
 	std::vector<TerrainComponent> terrains;
 	std::vector<AmbientLightComponent> ambients;
 	std::vector<DirectionalLightComponent> directionals;
 	std::vector<SkyBoxComponent> skies;
+	std::map<ComponentType,std::map<unsigned int,ComponentPosition*>> positions; //positions begin at 0
 	ComponentManager()
 	{
 	}

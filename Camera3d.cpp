@@ -170,20 +170,36 @@ void Camera3d::turnleft()
 
 }
 
-void Camera3d::strafeleft()
+void Camera3d::strafeleft(float distance)
 {
 	Vector3 Left = dir.cross(up);
 	Left.normalize();
-	Left *= cameraspeed;
-	pos += Left;
+	if (distance == 0)
+	{
+		Left *= cameraspeed;
+		pos += Left;
+	}
+	else
+	{
+		Left *= distance;
+		pos += Left;
+	}
 
 }
-void Camera3d::straferight()
+void Camera3d::straferight(float distance)
 {
 	Vector3 Right = up.cross(dir);
 	Right.normalize();
+	if (distance == 0)
+	{
 	Right *= cameraspeed;
 	pos += Right;
+	}
+	else
+	{
+		Right *= distance;
+		pos += Right;
+	}
 }
 
 Vector3 Camera3d::getDir()
@@ -280,14 +296,46 @@ void Camera3d::setScript(LuaScript* script)
 {
 	if (cameraScript != NULL) ServiceLocator::getLua().deleteScript(cameraScript);
 	cameraScript = script;
+	loadScriptVariables();
 }
 
 void Camera3d::setScript(std::string Path)
 {
 	if (cameraScript != NULL) ServiceLocator::getLua().deleteScript(cameraScript);
 	cameraScript = ServiceLocator::getLua().createScript(Path);
+	loadScriptVariables();
 }
 LuaScript* Camera3d::getScript()
 {
 	return cameraScript;
+}
+void Camera3d::loadScriptVariables()
+{
+	State &state = cameraScript->getState();
+	//state["Vector3"].SetClass<Vector4, float, float, float, float>("set", &Vector4::set, "distance", &Vector4::distance,
+	//"x", &Vector4::x, "y", &Vector4::y, "z", &Vector4::z, "w", &Vector4::w);
+	//state["Vector3"].SetClass<Vector3, float, float, float>("set", &Vector3::set, "distance", &Vector3::distance,
+	//"x", &Vector3::x, "y", &Vector3::y, "z", &Vector3::z);
+	//state["Vector2"].SetClass<Vector2, float, float>("set", &Vector2::set, "distance", &Vector2::distance,
+	//"x", &Vector2::x, "y", &Vector2::y);
+	//state["Camera"].SetObj(*this,
+		//"setPos", &Camera3d::setPos,
+		//"getPos", &Camera3d::getPos);
+		/*,
+											"setDir", &Camera3d::setDir,
+											"getDir", &Camera3d::getDir,
+											"setUp", &Camera3d::setUp,
+											"getUp", &Camera3d::getUp,
+											"setFov",&Camera3d::setFov,
+											"getFov", &Camera3d::getFov,
+											"onMouse",&Camera3d::OnMouse,
+											"getSize",&Camera3d::getSize,
+											"updateProjectionMatrix",&Camera3d::updateProjectionMatrix,
+											"trackPos",&Camera3d::trackPos,
+											"moveForward",&Camera3d::moveforward,
+											"moveBackward", &Camera3d::movebackward,
+											"raise" ,&Camera3d::raise,
+											"sink" ,&Camera3d::sink,
+											"strafeleft",&Camera3d::strafeleft,
+											"straferight",&Camera3d::straferight);*/
 }

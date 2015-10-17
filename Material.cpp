@@ -13,6 +13,7 @@ Material::Material(std::string path,std::string normalPath,Vector3 Color,float i
 		texture = TextureLoader::load(path);
 		normalMap = TextureLoader::loadNormal(normalPath);
 	}
+	isCached = fromCache;
 	color=Color;
 	specularIntensity=intensity;
 	specularPower= power;
@@ -21,7 +22,7 @@ Material::Material(std::string path,std::string normalPath,Vector3 Color,float i
 
 Material::~Material(void)
 {
-	TextureCache::lowerCount(texture.ID);
+	if(isCached) TextureCache::lowerCount(texture.texturepath);
 }
 
 void Material::update(Shader *shader)

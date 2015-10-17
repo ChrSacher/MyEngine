@@ -4,7 +4,10 @@
 Maingame::Maingame(void):cfg(std::string("res/config.cfg"))
 {
 }
-
+void write(std::string r)
+{
+	std::cout << r << std::endl;
+}
 
 Maingame::~Maingame(void)
 {
@@ -17,16 +20,16 @@ Maingame::~Maingame(void)
 	if(ui) delete(ui);
 	if(line) delete(line);
 	gui.destroy();
-	TextureCache::deleteCache();
-	GUI::deleteRenderer();
+
 	util.~RenderUtil();
 	Engine::shutDown();
 	if(window) delete(window);
-	SDL_Quit();
-	for(unsigned int i = 0;i < executedCommands.size();i++)
+	for (unsigned int i = 0; i < executedCommands.size(); i++)
 	{
 		delete(executedCommands[i]);
 	}
+	SDL_Quit();
+	
 	
 
 }
@@ -57,10 +60,10 @@ void Maingame::handleKeys()
 {
 
 	unsigned char key=NULL;
-	input.update();
+	InputHandler::get().update();
 	while( SDL_PollEvent( &event ) != 0 ) //Eingaben kontrolieren
 	{
-		input.handle(event);
+		InputHandler::get().handle(event);
 		if(window->handle(event)) 
 		{
 			scene->getCamera()->updateProjectionMatrix(scene->getCamera()->getFov(),window->GetWidth(),window->GetHeight(),scene->getCamera()->getZ().x,scene->getCamera()->getZ().y);
@@ -80,52 +83,53 @@ void Maingame::handleKeys()
 				{
 					scene->getCamera()->OnMouse(event.motion.x,event.motion.y);
 					SDL_WarpMouseInWindow(window->GetSDLWindow(),__screenW /2,__screenH /2);
-					std::cout << event.motion.x << "  "<< event.motion.y << std::endl;
+					
 				}
 				 
 			};break;
-			case SDL_MOUSEBUTTONDOWN:
-			{
-				if(gamestate.ray && input.isKeyPressed(1))
-				{
-					scene->pick(input.getMouseCoords().x,input.getMouseCoords().y);
-
-				}
-			};
-			
 		}
 	}
-	input.generate_input(command_queue);
-	
+	InputHandler::get().generate_input(command_queue);
+	if (gamestate.ray && InputHandler::get().isKeyPressed(1))
+	{
+		scene->pick(InputHandler::get().getMouseCoords().x, InputHandler::get().getMouseCoords().y);
+
+	}
 
 	
-	if(input.isKeyDown(SDLK_w)) generateCommand(new CameraMoveForward(scene->getCamera()));
-	if(input.isKeyDown(SDLK_s)) generateCommand(new CameraMoveBackward(scene->getCamera()));
-	if(input.isKeyDown(SDLK_a)) generateCommand(new CameraMoveLeft(scene->getCamera()));
-	if(input.isKeyDown(SDLK_d)) generateCommand(new CameraMoveRight(scene->getCamera()));
-	if(input.isKeyDown(SDLK_q)) generateCommand(new CameraMoveUp(scene->getCamera()));
-	if(input.isKeyDown(SDLK_e)) generateCommand(new CameraMoveDown(scene->getCamera()));
+	if(InputHandler::get().isKeyDown(SDLK_w)) generateCommand(new CameraMoveForward(scene->getCamera()));
+	if(InputHandler::get().isKeyDown(SDLK_s)) generateCommand(new CameraMoveBackward(scene->getCamera()));
+	if(InputHandler::get().isKeyDown(SDLK_a)) generateCommand(new CameraMoveLeft(scene->getCamera()));
+	if(InputHandler::get().isKeyDown(SDLK_d)) generateCommand(new CameraMoveRight(scene->getCamera()));
+	if(InputHandler::get().isKeyDown(SDLK_q)) generateCommand(new CameraMoveUp(scene->getCamera()));
+	if(InputHandler::get().isKeyDown(SDLK_e)) generateCommand(new CameraMoveDown(scene->getCamera()));
 
-	if(input.isKeyPressed(SDLK_F3)) generateCommand(new PlayMusic(music));
-	if(input.isKeyPressed(SDLK_RIGHT)) generateCommand(new NextMusic(music));
-	if(input.isKeyPressed(SDLK_LEFT)) generateCommand(new PreviousMusic(music));
-	if(input.isKeyPressed(SDLK_1)) generateCommand(new switchRender());
+	if(InputHandler::get().isKeyPressed(SDLK_F3)) generateCommand(new PlayMusic(music));
+	if(InputHandler::get().isKeyPressed(SDLK_RIGHT)) generateCommand(new NextMusic(music));
+	if(InputHandler::get().isKeyPressed(SDLK_LEFT)) generateCommand(new PreviousMusic(music));
+	if(InputHandler::get().isKeyPressed(SDLK_1)) generateCommand(new switchRender());
 
-	if(input.isKeyPressed(SDLK_RETURN))
+	if(InputHandler::get().isKeyPressed(SDLK_RETURN))
 	{
 		generateCommand(new SceneAddObject(scene));
 		
 	}
-	
-	if(input.isKeyPressed(SDLK_F9))
+	if (InputHandler::get().isKeyPressed(SDLK_h))
+	{
+		ServiceLocator::getLua().deleteScript(script);
+		script = ServiceLocator::getLua().createScript("res/Scripts/test.lua");
+		script->getState()["write"] = &write;
+		script->begin();
+	}
+	if(InputHandler::get().isKeyPressed(SDLK_F9))
 	{
 			generateCommand(new WindowFullScreen(window));
 	}
-	if(input.isKeyDown(SDLK_ESCAPE))
+	if(InputHandler::get().isKeyDown(SDLK_ESCAPE))
 	{
 		gamestate.playing=false;
 	}
-	if(input.isKeyPressed(SDLK_SPACE))
+	if(InputHandler::get().isKeyPressed(SDLK_SPACE))
 	{
 		static bool windowed = true;
 		if(windowed)
@@ -150,10 +154,10 @@ void Maingame::handleKeys()
 
 void Maingame::update()
 {
-	scene->update(Time::delta);
+	scene->update();
 	music->update();
-	ServiceLocator::getText().update(Time::delta);
-	gui.update(Time::delta);
+	ServiceLocator::getText().update();
+	gui.update();
 }
 
 
@@ -167,10 +171,10 @@ void Maingame::render()
 	if(ui) ui->draw();
 	
 	static std::string fps = "60";
-	if(Time::counter%60 == 0) fps = std::to_string((int)(1000/(Time::frameTime + 0.0001)));
+	if(Time::counter%60 == 0) fps = std::to_string((int)((Time::delta + 0.0001)));
 
 	ServiceLocator::getText().renderText("FPS " + fps,890,0,100,30,Vector3(1,1,1));
-	ServiceLocator::getText().renderText("Frametime " + std::to_string(Time::frameTime) + " ms",890,30,100,30,Vector3(1,1,1));
+	ServiceLocator::getText().renderText("Frametime " + std::to_string(Time::delta) + " ms",890,30,100,30,Vector3(1,1,1));
 	ServiceLocator::getText().renderText("# Objects " + std::to_string(scene->getEntityDrawCount()),890,60,100,30,Vector3(1,1,1));
 	ServiceLocator::getText().renderText("Time " + std::to_string(SDL_GetTicks()/1000),890,90,100,30,Vector3(1,1,1));
 	std::string temp = std::to_string(music->getSongNumber()) + " " +  music->getCurrentTitle();
@@ -188,13 +192,8 @@ void Maingame::gameloop()
 	while( gamestate.playing )//Solange es nicht beended ist
 	{ 
 		Time::startFrame();
-		while (Time::frameStep()) 
-		{
-			handleKeys();
-			if(!gamestate.paused) update();
-			
-		}
-		
+		handleKeys();
+		if(!gamestate.paused) update();
 		render();	
 		Time::endFrame();
 	}
@@ -242,7 +241,10 @@ void Maingame::createObjects()
 	listbox->addItem(listboxi);
 	listbox->addItem(new CEGUI::ListboxTextItem("text22",1));
     gui.setMouseCursor("TaharezLook/MouseArrow");
-
+	script = ServiceLocator::getLua().createScript("res/Scripts/test.lua");
+	script->getState()["write"] = &write;
+	script->begin();
+	
 	
 }
 

@@ -45,7 +45,7 @@ void Texture::drawTexture(bool check)  const
 
 
 
-Texture TextureCache::getTexture(std::string texturePath) 
+Texture TextureCache::getTexture(std::string &texturePath) 
 {
 
     //lookup the texture and see if its in the map
@@ -66,7 +66,7 @@ Texture TextureCache::getTexture(std::string texturePath)
     return mit->second.texture;
 }
 
-Texture NormalCache::getTexture(std::string texturePath) 
+Texture NormalCache::getTexture(std::string &texturePath) 
 {
 
     //lookup the texture and see if its in the map
@@ -162,7 +162,7 @@ Texture TextureLoader::loadNormal(std::string filepath)
 	return texture;
 }
 
-void TextureCache::lowerCount(std::string texturePath)
+void TextureCache::lowerCount(std::string &texturePath)
 {
 	auto mit = textureMap.find(texturePath);
     
@@ -181,9 +181,9 @@ void TextureCache::lowerCount(std::string texturePath)
 	return;
 }
 
-void TextureCache::lowerCount(GLuint textureID)
+void TextureCache::lowerCount(GLuint &textureID)
 {
-	for (std::map<std::string,TextureAndCount>::iterator mit = textureMap.begin(); mit != textureMap.end(); ++mit)
+	for (std::map<std::string,TextureAndCount>::iterator &mit = textureMap.begin(); mit != textureMap.end(); ++mit)
 	{
 		if(mit->second.texture.ID == textureID)
 		{
@@ -199,7 +199,7 @@ void TextureCache::lowerCount(GLuint textureID)
 	std::cout<<"couldn't find Texture ID "<<textureID<<std::endl;
 }
 
-void NormalCache::lowerCount(std::string texturePath)
+void NormalCache::lowerCount(std::string &texturePath)
 {
 	auto mit = normalMap.find(texturePath);
     
@@ -218,7 +218,7 @@ void NormalCache::lowerCount(std::string texturePath)
 	return;
 }
 
-void NormalCache::lowerCount(GLuint textureID)
+void NormalCache::lowerCount(GLuint &textureID)
 {
 	for (std::map<std::string,TextureAndCount>::iterator mit = normalMap.begin(); mit != normalMap.end(); ++mit)
 	{

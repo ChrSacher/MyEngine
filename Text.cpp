@@ -210,14 +210,14 @@ void Text::renderText(std::string text, GLfloat x, GLfloat y,  GLfloat scale, Ve
 		glBindTexture(GL_TEXTURE_2D, 0);
 		glEnable(GL_CULL_FACE);
 }
-void Text::update(GLfloat time)
+void Text::update()
 {
 	for(unsigned int i = 0; i < data.size();i++)
 	{
 		if(data[i].timetolive > 0)
 		{
 			renderText(data[i].text,data[i].x,data[i].y,data[i].sx,data[i].sy,data[i].color);
-			data[i].timetolive -= time/1000;
+			data[i].timetolive -= Time::delta/1000;
 		}
 		else
 		{

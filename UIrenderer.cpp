@@ -485,9 +485,9 @@ void GUI::draw()
 	glEnable(GL_DEPTH_TEST);
 }
 
-void GUI::update(float delta) 
+void GUI::update() 
 {
-    context->injectTimePulse(delta / 1000.0f);
+    context->injectTimePulse(Time::delta / 1000.0f);
 }
 
 void GUI::setMouseCursor(const std::string& imageFile) 

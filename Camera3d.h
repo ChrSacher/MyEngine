@@ -13,7 +13,6 @@
 #include "Shader.h"
 #include "ServiceLocator.h"
 #define PI 3.14159265358979323846f
- 
 struct Ray
 {
 	Vector3 pos;
@@ -57,10 +56,16 @@ public:
 	Matrix4 viewProjection;
 	float cameraspeed;
 
+	//should be called when mouse ahs moved
+	//will update the Camera Angles
     void OnMouse(int x, int y,bool ignore = false);
+	//load variables into Shader
 	void update(Shader *shader);
+	//set new Projection
 	void updateProjectionMatrix(float fov,int width,int height,float zNear,float zFar);
+	//start the camera
 	void init();
+	//convert screenpos to world ray
 	Ray getDirClick(int x,int y);
 	Matrix4& GetViewProjection();
 	Vector3 getDir();
@@ -74,6 +79,7 @@ public:
 	void setUp(Vector3 UP){up = UP;}
 	void setFov(float Nfov);
 	
+	//returns pos as reference to track it
 	const Vector3& trackPos(){return pos;}
 	//movement
 	void moveforward(float distance = 0);
@@ -82,11 +88,12 @@ public:
 	void sink(float distance = 0);
 	void turnright();
 	void turnleft();
-	void strafeleft();
-	void straferight();
+	void strafeleft(float distance = 0);
+	void straferight(float distance = 0);
 	 
 	void setScript(LuaScript* script);
 	void setScript(std::string Path);
+	void loadScriptVariables();
 	LuaScript* getScript();
 	//checks
 	bool isBehind(Vector3 pos)

@@ -5,19 +5,21 @@
 //This class will hold all kinds of services for audio logging and so on
 //This allows for fast new binding of different things
 
-static class ServiceLocator
+class LuaEngine;
+class ServiceLocator
 {
 public:
+	static Audio& getAudio() { return *service_; }
+	static Text& getText() { return *text_; }
+	static LuaEngine& getLua() { return *lua; }
 	static void initialize()
 	{
 		service_ = &nullService_;
 		text_ = &nullText_;
-		lua = &nulllua;
+		lua = &nullLua_;
 	}
 
-	static Audio& getAudio() { return *service_; }
-	static Text& getText() { return *text_; }
-  static LuaEngine& getLua() { return *lua; }
+	
   static void provide(Audio* service)
   {
     if (service == NULL)
@@ -35,7 +37,7 @@ public:
 	  if (engine == NULL)
 	  {
 		  // Revert to null service.
-		  lua = &nulllua;
+		  lua = &nullLua_;
 	  }
 	  else
 	  {
@@ -61,6 +63,6 @@ private:
   static Text* text_;
   static NullText nullText_;
   static LuaEngine* lua;
-  static NullLuaEngine nulllua;
+  static NullLuaEngine nullLua_;
 };
 

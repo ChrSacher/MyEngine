@@ -4,7 +4,9 @@
 	
 Entity* Entity::create(std::string Name,Vector3 pos,Vector3 rot,Vector3 skal)
 {
+
 	return new Entity(Name,pos,rot,skal);
+
 }
 Transform* Entity::getTransform()             
 {
@@ -14,71 +16,57 @@ const Transform& Entity::getTransform() const
 { 
 	return transform; 
 }
-Entity* Entity::addComponent(Component* component)
+Entity* Entity::addComponent(ComponentPosition& component)
 {
-	components.push_back(component);
-	component->SetParent(this,components.size() - 1); //-1 because array begins with 0
+	components.push_back(&component);
+	ComponentManager::get().findComponent(component)->SetParent(this); //-1 because array begins with 0
 	return this;
 }
-Entity* Entity::removeComponent(Component* component)
+Entity* Entity::removeComponent(ComponentPosition& component)
 {
-	for(int i = 0;i < components.size();i++)
+	for (unsigned int i = 0; i < components.size(); i++)
 	{
-		if(components[i]->getID() == component->getID())
+		if (components[i]->ID == component.ID)
 		{
-			ComponentManager::get().deleteGraphics(components[i]);
-			//delete(component);
+			ComponentManager::get().deleteComponent(component);
 			components.erase(components.begin() + i);
-
 		}
-
-	}
-	for(int i = 0;i < components.size();i++)
-	{
-		components[i]->setPosition(i);
 	}
 	return this;
+		
 }
 
 	void Entity::notify(int eventType,Component* sender ,Entity* entityInteractedWith) //this can be enchanched with Commands
 	{
 		for(unsigned int i = 0;i < components.size();i++)
 		{
-			if(components[i] != sender)
-			components[i]->receive(eventType,sender,entityInteractedWith);
+				ComponentManager::get().findComponent(*components[i])->receive(eventType,sender,entityInteractedWith);
 		}
 	}
-	void Entity::receive(int eventType,Component* sender,Entity* entityInteractedWith)
+	void Entity::receive(int eventType, Component* sender,Entity* entityInteractedWith)
 	{
 		//do stuff if necessary
 		notify(eventType,sender,entityInteractedWith);
 	}
-
-bool Entity::updateComponentPointer(int Position,Component* component)
-{
-	if(components.size() <= Position ||Position < 0 ) return false;
-	components[Position] = component;
-	return true;
-}
 Entity::~Entity()
 {
 	for(unsigned int i = 0;i < components.size();i++)
 	{
-		//delete(components[i]);//needs to be moved to ComponentManager
+		ComponentManager::get().deleteComponent(*components[i]);
 	}
 }
 void Entity::render(Shader* shader,Camera3d* camera)
 {
 	for(unsigned int i = 0;i < components.size();i++)
 	{
-		components[i]->render(shader,camera);
+		ComponentManager::get().findComponent(*components[i])->render(shader,camera);
 	}
 }
-void Entity::update(float delta)
+void Entity::update()
 {
 	for(unsigned int i = 0;i < components.size();i++)
 	{
-		components[i]->update(delta);
+		ComponentManager::get().findComponent(*components[i])->update();
 	}
 }
 int Entity::getID()
@@ -88,7 +76,7 @@ int Entity::getID()
 Entity::Entity(std::string Name,Vector3 pos,Vector3 rot,Vector3 skal):transform(pos,rot,skal),name(Name)
 {
 	ID = id++;
-	
+	components.reserve(50);
 }
 
 std::string Entity::saveScene()
@@ -99,7 +87,7 @@ std::string Entity::saveScene()
 
 	for(unsigned int i = 0;i < components.size();i++)
 	{
-		returnS += components[i]->sceneSave();
+		returnS += ComponentManager::get().findComponent(*components[i])->sceneSave();
 	}
 	return returnS;
 }

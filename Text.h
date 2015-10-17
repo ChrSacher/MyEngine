@@ -6,6 +6,7 @@
 #include <map>
 #include <vector>
 #include FT_FREETYPE_H
+#include "Time.h"
 struct Character 
 {
     GLuint TextureID;   // ID handle of the glyph texture
@@ -40,7 +41,7 @@ struct Text
 	void destroy();
 	std::vector<TextData> data;
 	/* update timed text*/
-	void update(GLfloat time);
+	void update();
 	/*
 		param /text/ text that will be displaced
 		param /x/ x pos on screen
@@ -97,7 +98,7 @@ struct NullText:public Text
 	
 	NullText(){};
 	/* update timed text*/
-	void update(GLfloat time){};
+	void update(){};
 	/*
 		param /text/ text that will be displaced
 		param /x/ x pos on screen

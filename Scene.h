@@ -19,7 +19,7 @@
 #include <Windows.h>
 #include "FBO.h"
 #include "Picker.h"
-#include "Engine.h"
+//#include "Engine.h"
 #include "Component.h"
 
 enum Primitives
@@ -50,7 +50,7 @@ public:
 	bool loadScene(std::string path);
 
 
-	void update(float delta);
+	void update();
 	//update
 	
 

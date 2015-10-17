@@ -12,6 +12,7 @@
 #include <CEGUI/RendererModules/OpenGL/GL3Renderer.h>
 #include <SDL/SDL_events.h>
 #include "ServiceLocator.h"
+#include "Time.h"
 enum SE_ButtonType
 {
 	UP,
@@ -168,7 +169,7 @@ private:
         void destroy();
 		GUI(){context = nullptr;root = nullptr; lastTime= 0;}
         void draw();
-        void update(float delta);
+        void update();
 
         void setMouseCursor(const std::string& imageFile);
         void showMouseCursor();

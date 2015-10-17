@@ -46,11 +46,18 @@ public:
 	virtual ~Mesh(void);
 	Mesh(std::vector<Vertex> vertices);
 	Mesh(std::string path,bool autoCenter = false);
+	//function to load Buffers
 	void init();
+	//draw the mesh
 	void draw();
+	//draw mesh as Instances
 	void drawInstanced(int count);
+	//load a new OBJ
 	void loadOBJ(std::string path,bool autoCenter = false);
+	//load a new OBJ uncached
+	//autocenter of the OBJ should be centered
 	void loadOBJuncached(std::string path,bool autoCenter);
+	//load Mesh into Biffer
 	void loadBufferVertex();
 	void clearData();
 	std::string getPath(){return filePath;}
