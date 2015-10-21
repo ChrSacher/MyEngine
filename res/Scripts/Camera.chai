@@ -1,0 +1,31 @@
+
+
+def update()
+{
+	var cspeed = 30;
+	if (Input.isKeyDown("w")) 
+	{
+		Camera.moveForward(cspeed * delta);
+	}
+	if (Input.isKeyDown("s")) 
+	{
+		Camera.moveBackward(cspeed * delta);
+	}
+	if (Input.isKeyDown("a")) 
+	{
+		Camera.strafeleft(cspeed * delta);
+	}
+	if (Input.isKeyDown("d")) 
+	{
+		Camera.straferight(cspeed * delta);
+	}
+	if (Input.isKeyDown("q")) 
+	{
+		Camera.raise(cspeed * delta);
+	}
+	if (Input.isKeyDown("e")) 
+	{
+		Camera.sink(cspeed * delta);
+	}
+	Camera.onMouse(Input.getMouseCoords());
+}

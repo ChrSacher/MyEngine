@@ -263,7 +263,7 @@ bool CubemapTexture::Load()
         if(data ==NULL)
 		{
 			std::cout << "Couldn't load Cube Texture" <<fileNames[i]<<std::endl;
-			data = (char*)stbi_load("res/texture/white.png",&width,&height,&numComponents,4);
+			data = (char*)stbi_load("res/Texture/white.png",&width,&height,&numComponents,4);
 			if(data == NULL)
 			{
 				fatalError("Was not able to load basic texture\n");

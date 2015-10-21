@@ -38,15 +38,23 @@ struct Vector2
 
     // operators
     Vector2     operator-() const;                      // unary operator (negate)
-    Vector2     operator+(const Vector2& rhs) const;    // add rhs
+	
+    Vector2     operator+(const Vector2& rhs) const;   // add rhs
+	
     Vector2     operator-(const Vector2& rhs) const;    // subtract rhs
+	
     Vector2&    operator+=(const Vector2& rhs);         // add rhs and update this object
     Vector2&    operator-=(const Vector2& rhs);         // subtract rhs and update this object
     Vector2     operator*(const float scale) const;     // scale
+	Vector2		mul(const Vector2& rhs) const { return *this  * rhs; }
+	Vector2		div(const float scale) const { return *this / scale; }// inverse scale
+	Vector2		sub(const Vector2& rhs) const { return *this - rhs; }
+	Vector2		add(const Vector2& rhs) const { return *this + rhs; }
     Vector2     operator*(const Vector2& rhs) const;    // multiply each element
     Vector2&    operator*=(const float scale);          // scale and update this object
     Vector2&    operator*=(const Vector2& rhs);         // multiply each element and update this object
-    Vector2     operator/(const float scale) const;     // inverse scale
+    Vector2     operator/(const float scale) const; 
+	
     Vector2&    operator/=(const float scale);          // scale and update this object
     bool        operator==(const Vector2& rhs) const;   // exact compare, no epsilon
     bool        operator!=(const Vector2& rhs) const;   // exact compare, no epsilon
@@ -100,7 +108,10 @@ struct Vector3
     bool        operator<(const Vector3& rhs) const;    // comparison for sort
     float       operator[](int index) const;            // subscript operator v[0], v[1]
     float&      operator[](int index);                  // subscript operator v[0], v[1]
-	
+	Vector3		mul(const Vector3& rhs) const { return *this  * rhs; }
+	Vector3		div(const float scale) const { return *this / scale; }// inverse scale
+	Vector3		sub(const Vector3& rhs) const { return *this - rhs; }
+	Vector3		add(const Vector3& rhs) const { return *this + rhs; }
     friend Vector3 operator*(const float a, const Vector3 vec);
     friend std::ostream& operator<<(std::ostream& os, const Vector3& vec);
 };
@@ -143,7 +154,10 @@ struct Vector4
     bool        operator<(const Vector4& rhs) const;    // comparison for sort
     float       operator[](int index) const;            // subscript operator v[0], v[1]
     float&      operator[](int index);                  // subscript operator v[0], v[1]
-	
+	Vector4		mul(const Vector4& rhs) const { return *this  * rhs; }
+	Vector4		div(const float scale) const { return *this / scale; }// inverse scale
+	Vector4 	sub(const Vector4& rhs) const { return *this - rhs; }
+	Vector4		add(const Vector4& rhs) const { return *this + rhs; }
     friend Vector4 operator*(const float a, const Vector4 vec);
     friend std::ostream& operator<<(std::ostream& os, const Vector4& vec);
 };

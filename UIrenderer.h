@@ -11,7 +11,6 @@
 #include <CEGUI/CEGUI.h>
 #include <CEGUI/RendererModules/OpenGL/GL3Renderer.h>
 #include <SDL/SDL_events.h>
-#include "ServiceLocator.h"
 #include "Time.h"
 enum SE_ButtonType
 {

@@ -10,10 +10,7 @@
 class InputHandler :public LuaEngine::Listener
 {
 public:
-	void scriptCreated(LuaScript* script)
-	{
-		State &state = script->getState();
-	};
+	void scriptCreated(LuaScript* script);
 	InputHandler(){generateKeyMap();}
 	  ~InputHandler()
 	  {
@@ -35,25 +32,9 @@ public:
 	bool isKeyPressed(unsigned int keyID);
 	bool isKeyReleased(unsigned int keyID);
 	static InputHandler& get() { static InputHandler in; return in; }
-bool isKeyDownS(std::string &string)
-{
-	auto &r = stringKeyMap.find(string);
-	if(r == stringKeyMap.end()) return false;
-	return isKeyDown(r->second);
-}
-
-bool isKeyPressedS(std::string &string)
-{
-	auto &r = stringKeyMap.find(string);
-	if(r == stringKeyMap.end()) return false;
-	return isKeyPressed(r->second);
-}
-bool isKeyReleasedS(std::string &string)
-{
-	auto &r = stringKeyMap.find(string);
-	if(r == stringKeyMap.end()) return false;
-	return isKeyReleased(r->second);
-}
+bool isKeyDownS(const std::string &string);//copy because lua to c++
+bool isKeyPressedS(const std::string &string);
+bool isKeyReleasedS(const std::string &string);
 
 //this is needed for LUA
 void generateKeyMap()
@@ -153,7 +134,7 @@ void generateKeyMap()
 	bool wasKeyDown(unsigned int keyID) ;
 	void setMouseCoords(float x,float y);
 	void handle(SDL_Event &e);
-	Vector2 getMouseCoords() const {return _mousecoords;};
+	Vector2 getMouseCoords() {return _mousecoords;};
 	std::vector<unsigned int> keyListPressed; //will be cleared once Handler got them
 	Command* getCommand(GLuint ID);
 private:

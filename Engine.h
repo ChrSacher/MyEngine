@@ -5,7 +5,7 @@
 #include "Component.h"
 #include "PhysicsEngine.h"
 #include "InputManager.h"
-
+#include "Time.h"
 //Engine class which starts all Subsystem and keeps track of various things
 class Engine
 {
@@ -33,6 +33,13 @@ public:
 		//PhysicsEngine::get().world->getDebugDrawer()->setDebugMode(btIDebugDraw::DBG_DrawWireframe);
 
 	};	
+	static void update()
+	{
+		ServiceLocator::getLua().update();
+		ServiceLocator::getAudio().update();
+		ServiceLocator::getText().update();
+		ComponentManager::get().update();
+	}
 	//shutdown the Engine
 	static void shutDown()
 	{	

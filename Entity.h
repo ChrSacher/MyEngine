@@ -1,6 +1,6 @@
 #pragma once
 #include "Component.h"
-
+#include "Camera3d.h"
 class DirectionalLightComponent;
 class AmbientLightComponent;
 class PhysicsComponent;
@@ -22,9 +22,11 @@ public:
 	Transform* getTransform();
 	const Transform& getTransform() const;
 	//add a Component to the Entity
-	Entity* addComponent(ComponentPosition& component);
+	Entity* addComponent(ComponentPosition* component);
 	//remove a Component from the Entity
-	Entity* removeComponent(ComponentPosition& component);
+	Entity* removeComponent(ComponentPosition* component);
+	Entity* addScript(ChaiPosition* chai);
+	Entity* removeScript(ChaiPosition* chai);
 	//tells all components that something happend
 	void notify(int eventType, Component* sender ,Entity* entityInteractedWith = NULL); //this can be enchanched with Commands
 	//receive message froma component
@@ -40,6 +42,7 @@ private:
 	std::string name;
 	Entity(std::string Name,Vector3 pos = Vector3(0.0f,0.0f,0.0f),Vector3 rot = Vector3(0.0f,0.0f,0.0f),Vector3 skal = Vector3(1.0f,1.0f,1.0f));
 	std::vector<ComponentPosition*> components;
+	std::vector<ChaiPosition*> scripts;
 	Transform transform; 
 	Entity(const Entity& other);
 	void operator=(const Entity& other);

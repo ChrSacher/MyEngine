@@ -1,4 +1,5 @@
 #include "Camera3d.h"
+#include "ServiceLocator.h"
 const float DEG2RAD = 3.141593f / 180;
 const float RAD2DEG = 180 / 3.141593f;
 
@@ -6,6 +7,8 @@ const static float STEP_SCALE = 0.1f;
 const float mouseSpeed = 0.2f;
 const static float EDGE_STEP = 0.5f;
 const static int MARGIN = 50;
+
+Camera3d* Camera3d::currentCamera;
 
 Ray Camera3d::getDirClick(int x, int y)
 {
@@ -26,7 +29,7 @@ Ray Camera3d::getDirClick(int x, int y)
 	return Ray(pos, returnV);
 
 }
-Camera3d::Camera3d(Vector3 Pos, float fov, int width, int height, float zNear, float zFar) :_listeners(NULL), cameraScript(NULL)
+Camera3d::Camera3d(Vector3 &Pos, float fov, int width, int height, float zNear, float zFar) :_listeners(NULL)
 {
 	projectionMatrix = Matrix4().perspective(fov, width / height, zNear, zFar);
 	pos = Pos;
@@ -40,6 +43,7 @@ Camera3d::Camera3d(Vector3 Pos, float fov, int width, int height, float zNear, f
 	windowHeight = height;
 	cameraspeed = 1;
 	this->fov = fov;
+	currentCamera = this;
 	init();
 }
 
@@ -292,49 +296,41 @@ void Camera3d::removeListener(Camera3d::Listener* listener)
 		}
 	}
 }
-void Camera3d::setScript(LuaScript* script)
+void Camera3d::setScript(ChaiPosition* script)
 {
 	if (cameraScript != NULL) ServiceLocator::getLua().deleteScript(cameraScript);
 	cameraScript = script;
-	loadScriptVariables();
 }
 
 void Camera3d::setScript(std::string Path)
 {
 	if (cameraScript != NULL) ServiceLocator::getLua().deleteScript(cameraScript);
 	cameraScript = ServiceLocator::getLua().createScript(Path);
-	loadScriptVariables();
 }
-LuaScript* Camera3d::getScript()
+ChaiPosition* Camera3d::getScript()
 {
 	return cameraScript;
 }
-void Camera3d::loadScriptVariables()
+
+void Camera3d::scriptCreated(LuaScript* script)
 {
-	State &state = cameraScript->getState();
-	//state["Vector3"].SetClass<Vector4, float, float, float, float>("set", &Vector4::set, "distance", &Vector4::distance,
-	//"x", &Vector4::x, "y", &Vector4::y, "z", &Vector4::z, "w", &Vector4::w);
-	//state["Vector3"].SetClass<Vector3, float, float, float>("set", &Vector3::set, "distance", &Vector3::distance,
-	//"x", &Vector3::x, "y", &Vector3::y, "z", &Vector3::z);
-	//state["Vector2"].SetClass<Vector2, float, float>("set", &Vector2::set, "distance", &Vector2::distance,
-	//"x", &Vector2::x, "y", &Vector2::y);
-	state["Camera"].SetObj(*this,
-											"setPos", &Camera3d::setPos,
-											"getPos", &Camera3d::getPos),
-											"setDir", &Camera3d::setDir,
-											"getDir", &Camera3d::getDir,
-											"setUp", &Camera3d::setUp,
-											"getUp", &Camera3d::getUp,
-											"setFov",&Camera3d::setFov,
-											"getFov", &Camera3d::getFov,
-											"onMouse",&Camera3d::OnMouse,
-											"getSize",&Camera3d::getSize,
-											"updateProjectionMatrix",&Camera3d::updateProjectionMatrix,
-											"trackPos",&Camera3d::trackPos,
-											"moveForward",&Camera3d::moveforward,
-											"moveBackward", &Camera3d::movebackward,
-											"raise" ,&Camera3d::raise,
-											"sink" ,&Camera3d::sink,
-											"strafeleft",&Camera3d::strafeleft,
-											"straferight",&Camera3d::straferight);
+	ChaiScript& Script = script->getState();
+	Script.add(user_type<Camera3d>(), "Camera3d");
+	Script.add_global(var(currentCamera), "Camera");
+	Script.add(fun(&Camera3d::setPos), "setPos");
+	Script.add(fun(&Camera3d::getPos), "getPos");
+	Script.add(fun(&Camera3d::setDir), "setDir");
+	Script.add(fun(&Camera3d::getDir), "getDir");
+	Script.add(fun(&Camera3d::setUp), "setUp");
+	Script.add(fun(&Camera3d::getUp), "getUp");
+	Script.add(fun(&Camera3d::setFov),"setFov");
+	Script.add(fun(&Camera3d::getFov),"getFov");
+	Script.add(fun(&Camera3d::OnMouse),"onMouse");
+	Script.add(fun(&Camera3d::getSize),"getSize");
+	Script.add(fun(&Camera3d::moveforward),"moveForward");
+	Script.add(fun(&Camera3d::movebackward),"moveBackward");
+	Script.add(fun(&Camera3d::raise),"raise");
+	Script.add(fun(&Camera3d::sink),"sink");
+	Script.add(fun(&Camera3d::strafeleft),"strafeleft");
+	Script.add(fun(&Camera3d::straferight),"straferight");
 }

@@ -214,35 +214,35 @@
 		for(unsigned int i = 0;i < collisions.size();i++) collisions[i].render(shader,camera);
 		for(unsigned int i = 0;i < terrains.size();i++) terrains[i].render(shader,camera);
 	}
-	ComponentPosition& ComponentManager::createGraphics(std::string texturePath,std::string normalMap,std::string ObjectPath, Vector3 color,bool autoCenter)
+	ComponentPosition* ComponentManager::createGraphics(std::string texturePath,std::string normalMap,std::string ObjectPath, Vector3 color,bool autoCenter)
 	{
 		graphics.emplace_back(texturePath,normalMap,ObjectPath,color,autoCenter);
 		ComponentPosition* r = new ComponentPosition(GRAPHICS, graphics.size() - 1);
 		positions[GRAPHICS].insert(std::make_pair(r->ID,r));
-		return *r;
+		return r;
 	}
-	ComponentPosition& ComponentManager::createTerrain(std::string Path,std::string Texture,Vector3 Scale,bool Center)
+	ComponentPosition* ComponentManager::createTerrain(std::string Path,std::string Texture,Vector3 Scale,bool Center)
 	{
 		terrains.emplace_back(Path,Texture,Scale,Center);
 		ComponentPosition* r = new ComponentPosition(TERRAIN, terrains.size() - 1);
 		positions[TERRAIN].insert(std::make_pair(r->ID, r));
-		return *r;
+		return r;
 	}
-	ComponentPosition& ComponentManager::createAmbient(Vector3 Color)
+	ComponentPosition* ComponentManager::createAmbient(Vector3 Color)
 	{
 		ambients.emplace_back(Color);
 		ComponentPosition* r = new ComponentPosition(TERRAIN, ambients.size() - 1);
 		positions[AMBIENT].insert(std::make_pair(r->ID, r));
-		return *r;
+		return r;
 	}
-	ComponentPosition& ComponentManager::createDirectional(Vector3 Color,float Intensity,Vector3 Dir)
+	ComponentPosition* ComponentManager::createDirectional(Vector3 Color,float Intensity,Vector3 Dir)
 	{
 		directionals.emplace_back(BaseLight(Color,Intensity),Dir);
 		ComponentPosition* r = new ComponentPosition(DIRECTIONAL, directionals.size() - 1);
 		positions[DIRECTIONAL].insert(std::make_pair(r->ID, r));
-		return *r;
+		return r;
 	}
-	ComponentPosition&  ComponentManager::createSkyBox(Vector3 color,std::string Directory, std::string posx, std::string negx, std::string posy, std::string negy, std::string posz, std::string negz)
+	ComponentPosition*  ComponentManager::createSkyBox(Vector3 color,std::string Directory, std::string posx, std::string negx, std::string posy, std::string negy, std::string posz, std::string negz)
 	{
 		std::vector<std::string> paths;
 		paths.push_back(Directory);
@@ -255,11 +255,12 @@
 		skies.emplace_back(color,paths);//emplace back only accepts certtain number of variables for whatever reason
 		ComponentPosition* r = new ComponentPosition(SKYBOX, skies.size() - 1);
 		positions[SKYBOX].insert(std::make_pair(r->ID, r));
-		return *r;
+		return r;
 
 	}
-Component* ComponentManager::findComponent(ComponentPosition Pos)
+Component* ComponentManager::findComponent(ComponentPosition* Posi)
 {
+	ComponentPosition &Pos = *Posi;
 	switch (Pos.type)
 	{
 		case GRAPHICS:
@@ -300,8 +301,9 @@ Component* ComponentManager::findComponent(ComponentPosition Pos)
 	}
 }
 
-void ComponentManager::deleteComponent(ComponentPosition& Pos)
+void ComponentManager::deleteComponent(ComponentPosition* Posi)
 {
+	ComponentPosition &Pos = *Posi;
 	switch (Pos.type)
 	{
 		case GRAPHICS:

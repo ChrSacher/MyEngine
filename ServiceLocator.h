@@ -2,6 +2,7 @@
 #include "Audio.h"
 #include "Text.h"
 #include "LuaEngine.h"
+#include "Component.h"
 //This class will hold all kinds of services for audio logging and so on
 //This allows for fast new binding of different things
 

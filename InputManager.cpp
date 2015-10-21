@@ -1,5 +1,17 @@
 #include "InputManager.h"
 
+void InputHandler::scriptCreated(LuaScript* script)
+{
+
+	ChaiScript &Script = script->getState();
+	Script.add(user_type<InputHandler>(), "InputHandler");
+	Script.add_global(var(this), "Input");
+	Script.add(fun(&InputHandler::isKeyDownS), "isKeyDown");
+	Script.add(fun(&InputHandler::isKeyPressedS), "isKeyPressed");
+	Script.add(fun(&InputHandler::isKeyReleasedS), "isKeyReleased");
+	Script.add(fun(&InputHandler::getMouseCoords), "getMouseCoords");
+};
+
 void InputHandler::handle(SDL_Event &e)
 {
 		switch(e.type)
@@ -132,7 +144,7 @@ void InputHandler::generate_input(std::vector<Command*> &command_queue)
 			}
 		}
 	}
-	static int maxCommandsRemembered = 50;
+	static unsigned int maxCommandsRemembered = 50;
 	if(keyListPressed.size() == 0) return;
 	if(lastCommands.size() > maxCommandsRemembered)
 	{
@@ -164,4 +176,24 @@ Command* InputHandler::getCommand(GLuint ID)
 	auto r = commands.find(ID);
 	if(r == commands.end()) return NULL;
 	return r->second;
+}
+
+bool InputHandler::isKeyDownS(const std::string &string)
+{
+	auto &r = stringKeyMap.find(string);
+	if (r == stringKeyMap.end()) return false;
+	return isKeyDown(r->second);
+}
+
+bool InputHandler::isKeyPressedS(const std::string &string)
+{
+	auto &r = stringKeyMap.find(string);
+	if (r == stringKeyMap.end()) return false;
+	return isKeyPressed(r->second);
+}
+bool InputHandler::isKeyReleasedS(const std::string &string)
+{
+	auto &r = stringKeyMap.find(string);
+	if (r == stringKeyMap.end()) return false;
+	return isKeyReleased(r->second);
 }

@@ -11,17 +11,14 @@
 #include "Transform.h"
 #include <math.h>
 #include "Material.h"
-#include "Camera3d.h"
 #include "Transform.h"
 #include "Entity.h"
 #include "Terrain.h"
 #include "UIrenderer.h"
 #include "Lighting.h"
 #include "PhysicsEngine.h"
-#include "ServiceLocator.h"
-
+#include "Camera3d.h"
 class Entity;
-
 
 enum ComponentType
 {
@@ -181,13 +178,13 @@ public:
 	void render(Shader* shader,Camera3d* camera);
 
 
-	ComponentPosition& createGraphics(std::string texturePath,std::string normalMap,std::string ObjectPath, Vector3 color = Vector3(1.0f,1.0f,1.0f),bool autoCenter = false);
-	ComponentPosition& createTerrain(std::string Path,std::string Texture,Vector3 Scale = Vector3(1.0f,1.0f,1.0f),bool Center = false);
-	ComponentPosition& createAmbient(Vector3 Color);
-	ComponentPosition& createDirectional(Vector3 Color = Vector3(1.0f,1.0f,1.0f),float Intensity = 0.2f,Vector3 Dir = Vector3(1.0f,1.0f,1.0f));
-	ComponentPosition& createSkyBox(Vector3 color,std::string Directory, std::string posx, std::string negx, std::string posy, std::string negy, std::string posz, std::string negz);
-	void deleteComponent(ComponentPosition& Pos);
-	Component* findComponent(ComponentPosition Pos);
+	ComponentPosition* createGraphics(std::string texturePath,std::string normalMap,std::string ObjectPath, Vector3 color = Vector3(1.0f,1.0f,1.0f),bool autoCenter = false);
+	ComponentPosition* createTerrain(std::string Path,std::string Texture,Vector3 Scale = Vector3(1.0f,1.0f,1.0f),bool Center = false);
+	ComponentPosition* createAmbient(Vector3 Color);
+	ComponentPosition* createDirectional(Vector3 Color = Vector3(1.0f,1.0f,1.0f),float Intensity = 0.2f,Vector3 Dir = Vector3(1.0f,1.0f,1.0f));
+	ComponentPosition* createSkyBox(Vector3 color,std::string Directory, std::string posx, std::string negx, std::string posy, std::string negy, std::string posz, std::string negz);
+	void deleteComponent(ComponentPosition* Posi);
+	Component* findComponent(ComponentPosition* Posi);
 private:
 	std::vector<GraphicsComponent> graphics;
 	std::vector<CollisionComponent> collisions;

@@ -1,5 +1,5 @@
 #include "Entity.h"
-
+#include "ServiceLocator.h"
 	int Entity::id = 0;
 	
 Entity* Entity::create(std::string Name,Vector3 pos,Vector3 rot,Vector3 skal)
@@ -16,17 +16,17 @@ const Transform& Entity::getTransform() const
 { 
 	return transform; 
 }
-Entity* Entity::addComponent(ComponentPosition& component)
+Entity* Entity::addComponent(ComponentPosition* component)
 {
-	components.push_back(&component);
+	components.push_back(component);
 	ComponentManager::get().findComponent(component)->SetParent(this); //-1 because array begins with 0
 	return this;
 }
-Entity* Entity::removeComponent(ComponentPosition& component)
+Entity* Entity::removeComponent(ComponentPosition* component)
 {
 	for (unsigned int i = 0; i < components.size(); i++)
 	{
-		if (components[i]->ID == component.ID)
+		if (components[i]->ID == component->ID)
 		{
 			ComponentManager::get().deleteComponent(component);
 			components.erase(components.begin() + i);
@@ -36,11 +36,30 @@ Entity* Entity::removeComponent(ComponentPosition& component)
 		
 }
 
+Entity*  Entity::addScript(ChaiPosition* chai)
+{
+	scripts.push_back(chai);
+	return this;
+}
+Entity* Entity::removeScript(ChaiPosition* chai)
+{
+	for (unsigned int i = 0; i < scripts.size(); i++)
+	{
+		if (scripts[i]->ID == chai->ID)
+		{
+			ServiceLocator::getLua().deleteScript(chai);
+			scripts.erase(scripts.begin() + i);
+		}
+	}
+	return this;
+}
+
+
 	void Entity::notify(int eventType,Component* sender ,Entity* entityInteractedWith) //this can be enchanched with Commands
 	{
 		for(unsigned int i = 0;i < components.size();i++)
 		{
-				ComponentManager::get().findComponent(*components[i])->receive(eventType,sender,entityInteractedWith);
+				ComponentManager::get().findComponent(components[i])->receive(eventType,sender,entityInteractedWith);
 		}
 	}
 	void Entity::receive(int eventType, Component* sender,Entity* entityInteractedWith)
@@ -52,21 +71,21 @@ Entity::~Entity()
 {
 	for(unsigned int i = 0;i < components.size();i++)
 	{
-		ComponentManager::get().deleteComponent(*components[i]);
+		ComponentManager::get().deleteComponent(components[i]);
 	}
 }
 void Entity::render(Shader* shader,Camera3d* camera)
 {
 	for(unsigned int i = 0;i < components.size();i++)
 	{
-		ComponentManager::get().findComponent(*components[i])->render(shader,camera);
+		ComponentManager::get().findComponent(components[i])->render(shader,camera);
 	}
 }
 void Entity::update()
 {
 	for(unsigned int i = 0;i < components.size();i++)
 	{
-		ComponentManager::get().findComponent(*components[i])->update();
+		ComponentManager::get().findComponent(components[i])->update();
 	}
 }
 int Entity::getID()
@@ -87,7 +106,7 @@ std::string Entity::saveScene()
 
 	for(unsigned int i = 0;i < components.size();i++)
 	{
-		returnS += ComponentManager::get().findComponent(*components[i])->sceneSave();
+		returnS += ComponentManager::get().findComponent(components[i])->sceneSave();
 	}
 	return returnS;
 }

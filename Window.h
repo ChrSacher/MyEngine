@@ -8,10 +8,39 @@
 #include "Debugger.h"
 #include "Errors.h"
 #include "Camera3d.h"
-class Window
+#include "LuaEngine.h"
+class Window : public LuaEngine::Listener
 {
 public:
 	Window(int width, int height, const std::string& title);
+	void scriptCreated(LuaScript* script);
+	class Listener
+	{
+	public:
+
+		virtual ~Listener() { }
+
+		/**
+		* Handles when an camera settings change.
+		*
+		* @param camera The camera that was changed.
+		*/
+		virtual void windowChanged(Window* window) = 0;
+	};
+	void windowChanged();
+	/**
+	* Adds a camera listener.
+	*
+	* @param listener The listener to add.
+	*/
+	void addListener(Window::Listener* listener);
+
+	/**
+	* Removes a camera listener.
+	*
+	* @param listener The listener to remove.
+	*/
+	void removeListener(Window::Listener* listener);
 	~Window();
 	//not implemented
 	void Update();
@@ -40,6 +69,7 @@ private:
 	bool          isCloseRequested;
 	//disable copying because its breaks alot of shit
 	void operator=(const Window& other) {}
+	std::list<Window::Listener*>* _listeners;
 };
 
 #endif

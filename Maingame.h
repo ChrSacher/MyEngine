@@ -101,6 +101,5 @@ private:
 		std::vector<Command*> command_queue;
 		std::vector<Command*> executedCommands;
 		std::vector<Entity*> entities;
-		LuaScript* script;
 };
 

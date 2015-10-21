@@ -96,13 +96,6 @@ void Maingame::handleKeys()
 
 	}
 
-	
-	if(InputHandler::get().isKeyDown(SDLK_w)) generateCommand(new CameraMoveForward(scene->getCamera()));
-	if(InputHandler::get().isKeyDown(SDLK_s)) generateCommand(new CameraMoveBackward(scene->getCamera()));
-	if(InputHandler::get().isKeyDown(SDLK_a)) generateCommand(new CameraMoveLeft(scene->getCamera()));
-	if(InputHandler::get().isKeyDown(SDLK_d)) generateCommand(new CameraMoveRight(scene->getCamera()));
-	if(InputHandler::get().isKeyDown(SDLK_q)) generateCommand(new CameraMoveUp(scene->getCamera()));
-	if(InputHandler::get().isKeyDown(SDLK_e)) generateCommand(new CameraMoveDown(scene->getCamera()));
 
 	if(InputHandler::get().isKeyPressed(SDLK_F3)) generateCommand(new PlayMusic(music));
 	if(InputHandler::get().isKeyPressed(SDLK_RIGHT)) generateCommand(new NextMusic(music));
@@ -116,10 +109,7 @@ void Maingame::handleKeys()
 	}
 	if (InputHandler::get().isKeyPressed(SDLK_h))
 	{
-		ServiceLocator::getLua().deleteScript(script);
-		script = ServiceLocator::getLua().createScript("res/Scripts/test.lua");
-		script->getState()["write"] = &write;
-		script->begin();
+		scene->getCamera()->setScript("res/Scripts/Camera.chai");
 	}
 	if(InputHandler::get().isKeyPressed(SDLK_F9))
 	{
@@ -156,7 +146,7 @@ void Maingame::update()
 {
 	scene->update();
 	music->update();
-	ServiceLocator::getText().update();
+	Engine::update();
 	gui.update();
 }
 
@@ -171,7 +161,7 @@ void Maingame::render()
 	if(ui) ui->draw();
 	
 	static std::string fps = "60";
-	if(Time::counter%60 == 0) fps = std::to_string((int)((Time::delta + 0.0001)));
+	if(Time::counter%60 == 0) fps = std::to_string((int)(1/(Time::delta + 0.0001)));
 
 	ServiceLocator::getText().renderText("FPS " + fps,890,0,100,30,Vector3(1,1,1));
 	ServiceLocator::getText().renderText("Frametime " + std::to_string(Time::delta) + " ms",890,30,100,30,Vector3(1,1,1));
@@ -241,11 +231,9 @@ void Maingame::createObjects()
 	listbox->addItem(listboxi);
 	listbox->addItem(new CEGUI::ListboxTextItem("text22",1));
     gui.setMouseCursor("TaharezLook/MouseArrow");
-	script = ServiceLocator::getLua().createScript("res/Scripts/test.lua");
-	script->getState()["write"] = &write;
-	script->begin();
-	
-	
+	ServiceLocator::getLua().addListener(scene->getCamera());
+	ServiceLocator::getLua().addListener(window);
+	scene->getCamera()->setScript("res/Scripts/Camera.chai");
 }
 
 void Maingame::generateCommand(Command* command)

@@ -33,7 +33,7 @@ public:
 	int width,height;
 	std::string texturepath;
 	void drawTexture(bool check) const; //disables or enables Textures in the engine
-	void addTexture(std::string path = "res/texture/white.png"); //replaces current Texture with path
+	void addTexture(std::string path = "res/Texture/white.png"); //replaces current Texture with path
 	void releaseTexture(); //clears memory in opengl
 };
 

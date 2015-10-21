@@ -111,7 +111,6 @@ void Scene::update()
 {
 	static int counter = 0;
 	counter++;
-	ComponentManager::get().update();
 }
 
 void Scene::renderScene()

@@ -2,7 +2,14 @@
 
 
 
-
+void Window::scriptCreated(LuaScript* script)
+{
+	ChaiScript& Script = script->getState();
+	Script.add(user_type<Window>(), "WindowClass");
+	Window* win = this;
+	Script.add_global(var(win), "Window");
+	Script.add(fun(&Window::SetFullScreen), "setPos");
+}
 Window::Window(int width, int height, const std::string& title) :
 	 width(width),
 	 height(height),
@@ -128,4 +135,39 @@ void Window::SetFullScreen(bool value)
 		mode = 0;
 	}
 	SDL_SetWindowFullscreen( window, mode);
+}
+
+void Window::windowChanged()
+{
+	if (_listeners == NULL)
+		return;
+
+	for (std::list<Window::Listener*>::iterator itr = _listeners->begin(); itr != _listeners->end(); ++itr)
+	{
+		Window::Listener* listener = (*itr);
+		listener->windowChanged(this);
+	}
+}
+
+void Window::addListener(Window::Listener* listener)
+{
+	if (_listeners == NULL)
+		_listeners = new std::list<Window::Listener*>();
+	if (listener) _listeners->push_back(listener);
+}
+
+void Window::removeListener(Window::Listener* listener)
+{
+
+	if (_listeners)
+	{
+		for (std::list<Window::Listener*>::iterator itr = _listeners->begin(); itr != _listeners->end(); ++itr)
+		{
+			if ((*itr) == listener)
+			{
+				_listeners->erase(itr);
+				break;
+			}
+		}
+	}
 }

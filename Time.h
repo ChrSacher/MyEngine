@@ -73,6 +73,14 @@ public:
 		Time::_end = Time::_start;
 		Time::_counter++;
 	}
+	static float getDelta()
+	{
+		return _delta;
+	}
+	static float getCounter()
+	{
+		return _counter;
+	}
 private:
 	static float _start;
 	static float _end;
@@ -86,4 +94,3 @@ private:
 	static unsigned int _seconds;
 	
 };
-
