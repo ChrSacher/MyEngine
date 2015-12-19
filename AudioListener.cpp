@@ -119,5 +119,5 @@ void AudioListener::cameraChanged(Camera3d* camera)
         setOrientation(Vector3(0,1,0), -Vector3(0,0,-1));
 		setVelocity(Vector3());
     }
-	ServiceLocator::getAudio().update(_position,_dir,_velocity,_up);
+	ServiceLocator::getAudio().setPos(_position,_dir,_velocity,_up);
 }

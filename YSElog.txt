@@ -1,0 +1,852 @@
+
+**********************************************************
+=== start of YSE log ===
+Log started: 9 Dec 2015 10:38:21pm
+
+
+**********************************************************
+=== start of YSE log ===
+Log started: 9 Dec 2015 10:40:19pm
+
+
+**********************************************************
+=== start of YSE log ===
+Log started: 9 Dec 2015 10:46:20pm
+
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
+
+**********************************************************
+=== start of YSE log ===
+Log started: 9 Dec 2015 10:46:56pm
+
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
+
+**********************************************************
+=== start of YSE log ===
+Log started: 9 Dec 2015 11:05:26pm
+
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_American_Swing.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Big_Iron.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blues_For_You.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blue_Moon.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Cobwebs_and_Rainbows.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_For_2_Vl_Str_In_D_Minor.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_01.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_02.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_EddyArnold_Rca_ItsASin.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Flower_Duet_Lakm_KPM.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Four_Seasons_No_4_The_Winter.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Goin_Under.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Hallo_Mister_X.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Happy_Times.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Heartaches_by_the_Number.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_HomeOnTheWastes.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_In_The_Shadow_Of_The_Valley.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Its_A_Sin_To_Tell_A_Lie.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_Movin_Out.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_So_Blue.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Blues_GT.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Club_Blues_CAS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jingle_Jangle_Jingle.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Joe_Cool_CAS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Johnny_Guitar.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lazy_Day_Blues.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Let_s_Ride_Into_The_Sunset_Together.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lone_Star.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Love_Me_As_Though_No_Tomorrow.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Mad_About_The_Boy.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Manhattan.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_NewVegasValley.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Piano_Concerto_No_21__Elvira_Madigan.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Ride_Of_The_Valkyries_01.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Roundhouse_Rock.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sit_And_Dream.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sleepy_Town_Blues_CAS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Bounce.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Sax_KOS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Somethings_Gotta_Give.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Spring_Song_KPMC.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Stars_Of_The_Midnight_Range.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Strahlende_Trompete.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_StreetsOfNewReno.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Von_Spanien_Nach_S_damerika.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Where_Have_You_Been_All_My_Life.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Why_Dont_You_Do_Right.mp3
+
+**********************************************************
+=== start of YSE log ===
+Log started: 9 Dec 2015 11:12:34pm
+
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_American_Swing.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Big_Iron.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blues_For_You.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blue_Moon.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Cobwebs_and_Rainbows.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_For_2_Vl_Str_In_D_Minor.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_01.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_02.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_EddyArnold_Rca_ItsASin.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Flower_Duet_Lakm_KPM.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Four_Seasons_No_4_The_Winter.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Goin_Under.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Hallo_Mister_X.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Happy_Times.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Heartaches_by_the_Number.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_HomeOnTheWastes.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_In_The_Shadow_Of_The_Valley.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Its_A_Sin_To_Tell_A_Lie.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_Movin_Out.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_So_Blue.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Blues_GT.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Club_Blues_CAS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jingle_Jangle_Jingle.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Joe_Cool_CAS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Johnny_Guitar.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lazy_Day_Blues.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Let_s_Ride_Into_The_Sunset_Together.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lone_Star.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Love_Me_As_Though_No_Tomorrow.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Mad_About_The_Boy.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Manhattan.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_NewVegasValley.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Piano_Concerto_No_21__Elvira_Madigan.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Ride_Of_The_Valkyries_01.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Roundhouse_Rock.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sit_And_Dream.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sleepy_Town_Blues_CAS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Bounce.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Sax_KOS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Somethings_Gotta_Give.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Spring_Song_KPMC.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Stars_Of_The_Midnight_Range.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Strahlende_Trompete.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_StreetsOfNewReno.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Von_Spanien_Nach_S_damerika.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Where_Have_You_Been_All_My_Life.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Why_Dont_You_Do_Right.mp3
+
+**********************************************************
+=== start of YSE log ===
+Log started: 9 Dec 2015 11:13:23pm
+
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_American_Swing.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Big_Iron.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blues_For_You.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blue_Moon.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Cobwebs_and_Rainbows.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_For_2_Vl_Str_In_D_Minor.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_01.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_02.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_EddyArnold_Rca_ItsASin.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Flower_Duet_Lakm_KPM.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Four_Seasons_No_4_The_Winter.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Goin_Under.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Hallo_Mister_X.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Happy_Times.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Heartaches_by_the_Number.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_HomeOnTheWastes.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_In_The_Shadow_Of_The_Valley.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Its_A_Sin_To_Tell_A_Lie.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_Movin_Out.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_So_Blue.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Blues_GT.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Club_Blues_CAS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jingle_Jangle_Jingle.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Joe_Cool_CAS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Johnny_Guitar.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lazy_Day_Blues.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Let_s_Ride_Into_The_Sunset_Together.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lone_Star.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Love_Me_As_Though_No_Tomorrow.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Mad_About_The_Boy.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Manhattan.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_NewVegasValley.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Piano_Concerto_No_21__Elvira_Madigan.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Ride_Of_The_Valkyries_01.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Roundhouse_Rock.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sit_And_Dream.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sleepy_Town_Blues_CAS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Bounce.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Sax_KOS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Somethings_Gotta_Give.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Spring_Song_KPMC.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Stars_Of_The_Midnight_Range.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Strahlende_Trompete.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_StreetsOfNewReno.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Von_Spanien_Nach_S_damerika.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Where_Have_You_Been_All_My_Life.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Why_Dont_You_Do_Right.mp3
+
+**********************************************************
+=== start of YSE log ===
+Log started: 9 Dec 2015 11:13:37pm
+
+
+**********************************************************
+=== start of YSE log ===
+Log started: 9 Dec 2015 11:16:29pm
+
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_American_Swing.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Big_Iron.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blues_For_You.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blue_Moon.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Cobwebs_and_Rainbows.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_For_2_Vl_Str_In_D_Minor.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_01.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_02.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_EddyArnold_Rca_ItsASin.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Flower_Duet_Lakm_KPM.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Four_Seasons_No_4_The_Winter.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Goin_Under.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Hallo_Mister_X.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Happy_Times.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Heartaches_by_the_Number.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_HomeOnTheWastes.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_In_The_Shadow_Of_The_Valley.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Its_A_Sin_To_Tell_A_Lie.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_Movin_Out.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_So_Blue.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Blues_GT.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Club_Blues_CAS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jingle_Jangle_Jingle.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Joe_Cool_CAS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Johnny_Guitar.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lazy_Day_Blues.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Let_s_Ride_Into_The_Sunset_Together.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lone_Star.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Love_Me_As_Though_No_Tomorrow.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Mad_About_The_Boy.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Manhattan.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_NewVegasValley.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Piano_Concerto_No_21__Elvira_Madigan.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Ride_Of_The_Valkyries_01.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Roundhouse_Rock.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sit_And_Dream.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sleepy_Town_Blues_CAS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Bounce.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Sax_KOS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Somethings_Gotta_Give.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Spring_Song_KPMC.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Stars_Of_The_Midnight_Range.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Strahlende_Trompete.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_StreetsOfNewReno.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Von_Spanien_Nach_S_damerika.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Where_Have_You_Been_All_My_Life.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Why_Dont_You_Do_Right.mp3
+
+**********************************************************
+=== start of YSE log ===
+Log started: 9 Dec 2015 11:19:13pm
+
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_American_Swing.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Big_Iron.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blues_For_You.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blue_Moon.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Cobwebs_and_Rainbows.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_For_2_Vl_Str_In_D_Minor.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_01.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_02.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_EddyArnold_Rca_ItsASin.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Flower_Duet_Lakm_KPM.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Four_Seasons_No_4_The_Winter.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Goin_Under.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Hallo_Mister_X.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Happy_Times.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Heartaches_by_the_Number.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_HomeOnTheWastes.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_In_The_Shadow_Of_The_Valley.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Its_A_Sin_To_Tell_A_Lie.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_Movin_Out.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_So_Blue.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Blues_GT.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Club_Blues_CAS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jingle_Jangle_Jingle.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Joe_Cool_CAS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Johnny_Guitar.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lazy_Day_Blues.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Let_s_Ride_Into_The_Sunset_Together.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lone_Star.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Love_Me_As_Though_No_Tomorrow.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Mad_About_The_Boy.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Manhattan.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_NewVegasValley.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Piano_Concerto_No_21__Elvira_Madigan.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Ride_Of_The_Valkyries_01.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Roundhouse_Rock.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sit_And_Dream.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sleepy_Town_Blues_CAS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Bounce.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Sax_KOS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Somethings_Gotta_Give.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Spring_Song_KPMC.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Stars_Of_The_Midnight_Range.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Strahlende_Trompete.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_StreetsOfNewReno.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Von_Spanien_Nach_S_damerika.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Where_Have_You_Been_All_My_Life.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Why_Dont_You_Do_Right.mp3
+
+**********************************************************
+=== start of YSE log ===
+Log started: 9 Dec 2015 11:21:14pm
+
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_American_Swing.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Big_Iron.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blues_For_You.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blue_Moon.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Cobwebs_and_Rainbows.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_For_2_Vl_Str_In_D_Minor.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_01.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_02.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_EddyArnold_Rca_ItsASin.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Flower_Duet_Lakm_KPM.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Four_Seasons_No_4_The_Winter.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Goin_Under.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Hallo_Mister_X.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Happy_Times.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Heartaches_by_the_Number.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_HomeOnTheWastes.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_In_The_Shadow_Of_The_Valley.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Its_A_Sin_To_Tell_A_Lie.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_Movin_Out.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_So_Blue.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Blues_GT.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Club_Blues_CAS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jingle_Jangle_Jingle.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Joe_Cool_CAS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Johnny_Guitar.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lazy_Day_Blues.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Let_s_Ride_Into_The_Sunset_Together.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lone_Star.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Love_Me_As_Though_No_Tomorrow.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Mad_About_The_Boy.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Manhattan.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_NewVegasValley.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Piano_Concerto_No_21__Elvira_Madigan.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Ride_Of_The_Valkyries_01.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Roundhouse_Rock.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sit_And_Dream.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sleepy_Town_Blues_CAS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Bounce.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Sax_KOS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Somethings_Gotta_Give.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Spring_Song_KPMC.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Stars_Of_The_Midnight_Range.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Strahlende_Trompete.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_StreetsOfNewReno.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Von_Spanien_Nach_S_damerika.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Where_Have_You_Been_All_My_Life.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Why_Dont_You_Do_Right.mp3
+
+**********************************************************
+=== start of YSE log ===
+Log started: 9 Dec 2015 11:21:59pm
+
+
+**********************************************************
+=== start of YSE log ===
+Log started: 9 Dec 2015 11:48:21pm
+
+
+**********************************************************
+=== start of YSE log ===
+Log started: 9 Dec 2015 11:48:37pm
+
+
+**********************************************************
+=== start of YSE log ===
+Log started: 9 Dec 2015 11:51:35pm
+
+
+**********************************************************
+=== start of YSE log ===
+Log started: 9 Dec 2015 11:52:25pm
+
+
+**********************************************************
+=== start of YSE log ===
+Log started: 9 Dec 2015 11:53:37pm
+
+
+**********************************************************
+=== start of YSE log ===
+Log started: 9 Dec 2015 11:58:17pm
+
+
+**********************************************************
+=== start of YSE log ===
+Log started: 9 Dec 2015 11:58:40pm
+
+
+**********************************************************
+=== start of YSE log ===
+Log started: 9 Dec 2015 11:59:32pm
+
+
+**********************************************************
+=== start of YSE log ===
+Log started: 10 Dec 2015 12:01:24am
+
+
+**********************************************************
+=== start of YSE log ===
+Log started: 10 Dec 2015 12:10:39am
+
+
+**********************************************************
+=== start of YSE log ===
+Log started: 10 Dec 2015 12:11:21am
+
+
+**********************************************************
+=== start of YSE log ===
+Log started: 10 Dec 2015 12:12:00am
+
+
+**********************************************************
+=== start of YSE log ===
+Log started: 10 Dec 2015 12:12:15am
+
+
+**********************************************************
+=== start of YSE log ===
+Log started: 10 Dec 2015 12:22:57am
+
+
+**********************************************************
+=== start of YSE log ===
+Log started: 10 Dec 2015 12:29:02am
+
+
+**********************************************************
+=== start of YSE log ===
+Log started: 10 Dec 2015 12:33:21am
+
+
+**********************************************************
+=== start of YSE log ===
+Log started: 10 Dec 2015 12:33:54am
+
+
+**********************************************************
+=== start of YSE log ===
+Log started: 10 Dec 2015 12:35:21am
+
+
+**********************************************************
+=== start of YSE log ===
+Log started: 10 Dec 2015 12:36:06am
+
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 3:47:09am
+
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_American_Swing.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Big_Iron.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blues_For_You.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blue_Moon.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Cobwebs_and_Rainbows.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_For_2_Vl_Str_In_D_Minor.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_01.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_02.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_EddyArnold_Rca_ItsASin.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Flower_Duet_Lakm_KPM.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Four_Seasons_No_4_The_Winter.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Goin_Under.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Hallo_Mister_X.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Happy_Times.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Heartaches_by_the_Number.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_HomeOnTheWastes.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_In_The_Shadow_Of_The_Valley.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Its_A_Sin_To_Tell_A_Lie.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_Movin_Out.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_So_Blue.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Blues_GT.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Club_Blues_CAS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jingle_Jangle_Jingle.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Joe_Cool_CAS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Johnny_Guitar.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lazy_Day_Blues.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Let_s_Ride_Into_The_Sunset_Together.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lone_Star.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Love_Me_As_Though_No_Tomorrow.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Mad_About_The_Boy.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Manhattan.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_NewVegasValley.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Piano_Concerto_No_21__Elvira_Madigan.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Ride_Of_The_Valkyries_01.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Roundhouse_Rock.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sit_And_Dream.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sleepy_Town_Blues_CAS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Bounce.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Sax_KOS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Somethings_Gotta_Give.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Spring_Song_KPMC.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Stars_Of_The_Midnight_Range.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Strahlende_Trompete.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_StreetsOfNewReno.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Von_Spanien_Nach_S_damerika.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Where_Have_You_Been_All_My_Life.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Why_Dont_You_Do_Right.mp3
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 3:51:53am
+
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 3:52:54am
+
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 3:55:06am
+
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_American_Swing.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Big_Iron.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blues_For_You.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blue_Moon.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Cobwebs_and_Rainbows.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_For_2_Vl_Str_In_D_Minor.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_01.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_02.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_EddyArnold_Rca_ItsASin.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Flower_Duet_Lakm_KPM.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Four_Seasons_No_4_The_Winter.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Goin_Under.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Hallo_Mister_X.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Happy_Times.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Heartaches_by_the_Number.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_HomeOnTheWastes.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_In_The_Shadow_Of_The_Valley.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Its_A_Sin_To_Tell_A_Lie.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_Movin_Out.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_So_Blue.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Blues_GT.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Club_Blues_CAS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jingle_Jangle_Jingle.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Joe_Cool_CAS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Johnny_Guitar.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lazy_Day_Blues.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Let_s_Ride_Into_The_Sunset_Together.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lone_Star.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Love_Me_As_Though_No_Tomorrow.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Mad_About_The_Boy.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Manhattan.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_NewVegasValley.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Piano_Concerto_No_21__Elvira_Madigan.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Ride_Of_The_Valkyries_01.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Roundhouse_Rock.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sit_And_Dream.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sleepy_Town_Blues_CAS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Bounce.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Sax_KOS.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Somethings_Gotta_Give.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Spring_Song_KPMC.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Stars_Of_The_Midnight_Range.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Strahlende_Trompete.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_StreetsOfNewReno.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Von_Spanien_Nach_S_damerika.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Where_Have_You_Been_All_My_Life.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Why_Dont_You_Do_Right.mp3
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 3:56:41am
+
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 3:59:26am
+
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_American_Swing.mp3
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 3:59:54am
+
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 4:01:10am
+
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 4:01:45am
+
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 4:02:29am
+
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 4:03:38am
+
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 4:06:37am
+
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 4:07:22am
+
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_American_Swing.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Big_Iron.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blues_For_You.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blue_Moon.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Cobwebs_and_Rainbows.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_For_2_Vl_Str_In_D_Minor.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_01.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_02.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_EddyArnold_Rca_ItsASin.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Flower_Duet_Lakm_KPM.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Four_Seasons_No_4_The_Winter.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Goin_Under.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Hallo_Mister_X.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Happy_Times.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Heartaches_by_the_Number.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_HomeOnTheWastes.mp3
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 4:15:55am
+
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
+(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 4:19:59am
+
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 4:42:04am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 4:50:52am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 4:51:53am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 4:53:41am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 1:41:21pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 1:41:49pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 1:44:21pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 1:45:06pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Aint_That_A_Kick_In_the_Head.mp3;
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_American_Swing.mp3;
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Big_Iron.mp3;
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Blues_For_You.mp3;
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Blue_Moon.mp3;
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Blues_For_You.mp3;
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Big_Iron.mp3;
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_American_Swing.mp3;
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Aint_That_A_Kick_In_the_Head.mp3;
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_American_Swing.mp3;
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Big_Iron.mp3;
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Blues_For_You.mp3;
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Blue_Moon.mp3;
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Cobwebs_and_Rainbows.mp3;
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Concerto_For_2_Vl_Str_In_D_Minor.mp3;
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Cobwebs_and_Rainbows.mp3;
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Blue_Moon.mp3;
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Blues_For_You.mp3;
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Big_Iron.mp3;
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_American_Swing.mp3;
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Aint_That_A_Kick_In_the_Head.mp3;
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Why_Dont_You_Do_Right.mp3;
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 1:46:34pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Aint_That_A_Kick_In_the_Head.mp3;
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 1:49:23pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 1:50:10pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 1:54:31pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Aint_That_A_Kick_In_the_Head.mp3; 
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_American_Swing.mp3; 
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Aint_That_A_Kick_In_the_Head.mp3; 
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_American_Swing.mp3; 
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 1:59:10pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Aint_That_A_Kick_In_the_Head.mp3; 
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_American_Swing.mp3; 
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 2:01:05pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 2:03:32pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 2:05:22pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Aint_That_A_Kick_In_the_Head.mp3;
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_American_Swing.mp3;
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Big_Iron.mp3;
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 2:06:06pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Aint_That_A_Kick_In_the_Head.mp3;
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 2:06:58pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 2:08:54pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 2:10:02pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Dec 2015 2:11:01pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+=== end of YSE log ===

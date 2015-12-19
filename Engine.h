@@ -5,7 +5,7 @@
 #include "Component.h"
 #include "PhysicsEngine.h"
 #include "InputManager.h"
-#include "Time.h"
+#include "Timer.h"
 //Engine class which starts all Subsystem and keeps track of various things
 class Engine
 {
@@ -24,21 +24,26 @@ public:
 		text->initialize();
 		lua = new LuaEngine();
 		lua->initialize();
-		ComponentManager::get().startup();
+		CM = new ComponentManager();
+		CM->initialize();
+		EM = new EntityManager();
+		EM->initialize();
 		ServiceLocator::initialize();
+		ServiceLocator::provide(CM);
 		ServiceLocator::provide(audio);
 		ServiceLocator::provide(text);
 		ServiceLocator::provide(lua);
+		ServiceLocator::provide(EM);
 		lua->addListener( &InputHandler::get());
 		//PhysicsEngine::get().world->getDebugDrawer()->setDebugMode(btIDebugDraw::DBG_DrawWireframe);
 
 	};	
 	static void update()
 	{
-		ServiceLocator::getLua().update();
-		ServiceLocator::getAudio().update();
-		ServiceLocator::getText().update();
-		ComponentManager::get().update();
+		lua->update();
+		audio->update();
+		text->update();
+		CM->update();
 	}
 	//shutdown the Engine
 	static void shutDown()
@@ -47,16 +52,18 @@ public:
 		text->destroy();
 		audio->destroy();
 		lua->destroy();
-		ComponentManager::get().shutdown();
+		CM->destroy();
 		TextureCache::deleteCache();
 		GUI::deleteRenderer();
 		delete(audio);
 		delete(text);
 		delete(lua);
-
+		delete(CM);
 	};
 	static Audio* audio;
 	static Text* text;
 	static LuaEngine* lua;
+	static ComponentManager* CM;
+	static EntityManager* EM;
 };
 

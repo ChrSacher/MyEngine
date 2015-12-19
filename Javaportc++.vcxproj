@@ -63,11 +63,12 @@
       <AdditionalIncludeDirectories>C:\Users\Christian\Documents\GitHub\MyEngine\dep\lib\debug;C:\Users\Christian\Documents\GitHub\MyEngine\dep\include\bullet;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>
       </DisableSpecificWarnings>
+      <ShowIncludes>false</ShowIncludes>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;OpengL32.lib;glu32.lib;freetype26d.lib;irrKlang.lib;CEGUIOpenGLRenderer-0_d.lib;CEGUIBase-0_d.lib;assimp.lib;Bullet3Dynamics_Debug.lib;Bullet3Collision_Debug.lib;LinearMath_Debug.lib;Bullet3Common_Debug.lib;Bullet3Geometry_Debug.lib;Bullet3OpenCL_clew_Debug.lib;BulletFileLoader_Debug.lib;BulletSoftBody_Debug.lib;BulletWorldImporter_Debug.lib;BulletXmlWorldImporter_Debug.lib;ConvexDecomposition_Debug.lib;GIMPACTUtils_Debug.lib;HACD_Debug.lib;lua52.lib;luac.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;OpengL32.lib;glu32.lib;freetype26d.lib;irrKlang.lib;CEGUIOpenGLRenderer-0_d.lib;CEGUIBase-0_d.lib;assimp.lib;Bullet3Dynamics_Debug.lib;Bullet3Collision_Debug.lib;LinearMath_Debug.lib;Bullet3Common_Debug.lib;Bullet3Geometry_Debug.lib;Bullet3OpenCL_clew_Debug.lib;BulletFileLoader_Debug.lib;BulletSoftBody_Debug.lib;BulletWorldImporter_Debug.lib;BulletXmlWorldImporter_Debug.lib;ConvexDecomposition_Debug.lib;GIMPACTUtils_Debug.lib;HACD_Debug.lib;lua52.lib;luac.lib;yse_debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <EntryPointSymbol>
       </EntryPointSymbol>
       <ShowProgress>NotSet</ShowProgress>
@@ -100,12 +101,15 @@
     <ClInclude Include="Camera3d.h" />
     <ClInclude Include="Commands.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="ComponentManager.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="config.h" />
     <ClInclude Include="Debugger.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="EntityManager.h" />
     <ClInclude Include="Errors.h" />
     <ClInclude Include="FBO.h" />
+    <ClInclude Include="GameState.h" />
     <ClInclude Include="glTexture.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Lighting.h" />
@@ -128,7 +132,7 @@
     <ClInclude Include="Terrain.h" />
     <ClInclude Include="Text.h" />
     <ClInclude Include="Texture.h" />
-    <ClInclude Include="Time.h" />
+    <ClInclude Include="Timer.h" />
     <ClInclude Include="timing.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="UIrenderer.h" />
@@ -139,9 +143,12 @@
     <ClCompile Include="AudioListener.cpp" />
     <ClCompile Include="Camera3d.cpp" />
     <ClCompile Include="Component.cpp" />
+    <ClCompile Include="ComponentManager.cpp" />
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="EntityManager.cpp" />
     <ClCompile Include="Errors.cpp" />
     <ClCompile Include="FBO.cpp" />
+    <ClCompile Include="GameState.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Lighting.cpp" />
     <ClCompile Include="LuaEngine.cpp" />
@@ -164,7 +171,7 @@
     <ClCompile Include="Terrain.cpp" />
     <ClCompile Include="Text.cpp" />
     <ClCompile Include="Texture.cpp" />
-    <ClCompile Include="Time.cpp" />
+    <ClCompile Include="Timer.cpp" />
     <ClCompile Include="timing.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="UIrenderer.cpp" />
@@ -172,6 +179,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="res\Scenes\test.sc" />
+    <None Include="res\Scripts\Camera.chai" />
     <None Include="res\Shaders\2DShader.frag" />
     <None Include="res\Shaders\2DShader.vert" />
     <None Include="res\Shaders\BasicShader.frag" />

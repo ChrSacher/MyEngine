@@ -6,7 +6,7 @@
 #include <map>
 #include <vector>
 #include FT_FREETYPE_H
-#include "Time.h"
+#include "Timer.h"
 struct Character 
 {
     GLuint TextureID;   // ID handle of the glyph texture

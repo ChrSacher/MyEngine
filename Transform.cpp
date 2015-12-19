@@ -8,13 +8,42 @@ Transform::Transform(const Vector3 &Pos,const Vector3 &Rot,const Vector3 &Scale)
 	sca=Scale;
 	hasUpdate = false;
 	calculateMatrix();
+	
 }
 
 
 Transform::~Transform(void)
 {
 }
+void Transform::transformChanged()
+{
 
+	for (std::list<Transform::Listener*>::iterator &itr = _listeners.begin(); itr != _listeners.end(); ++itr)
+	{
+		Transform::Listener* listener = (*itr);
+		listener->transformChanged(*this);
+	}
+}
+
+void Transform::addListener(Transform::Listener* listener)
+{
+	_listeners.push_back(listener);
+}
+
+void Transform::removeListener(Transform::Listener* listener)
+{
+
+	
+		for (std::list<Transform::Listener*>::iterator &itr = _listeners.begin(); itr != _listeners.end(); ++itr)
+		{
+			if ((*itr) == listener)
+			{
+				_listeners.erase(itr);
+				break;
+			}
+		}
+	
+}
 
 
 Matrix4* Transform::getMatrix() 
@@ -22,6 +51,7 @@ Matrix4* Transform::getMatrix()
 	if( hasUpdate)
 	{
 		calculateMatrix();
+		transformChanged();
 		hasUpdate=false;
 	}
 	return &modelMatrix;

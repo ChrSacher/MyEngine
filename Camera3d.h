@@ -27,7 +27,8 @@ public:
 	class Listener
     {
     public:
-
+		Listener() { static unsigned int i = 0; ListenerID = i++; }
+		unsigned int ListenerID;
         virtual ~Listener() { }
 
         /**
@@ -36,8 +37,9 @@ public:
          * @param camera The camera that was changed.
          */
         virtual void cameraChanged(Camera3d* camera) = 0;
+		
     };
-	void scriptCreated(LuaScript* script);
+	void scriptCreated(Script* script);
 	void cameraChanged();
 	/**
     * Adds a camera listener.
@@ -62,6 +64,7 @@ public:
 	//should be called when mouse ahs moved
 	//will update the Camera Angles
     void OnMouse(int x, int y,bool ignore = false);
+	void onMouse(Vector2 c);
 	//load variables into Shader
 	void update(Shader *shader);
 	//set new Projection
@@ -115,6 +118,6 @@ private:
     float AngleH;
 	ChaiPosition* cameraScript;
     float AngleV;
-	std::list<Camera3d::Listener*>* _listeners;
+	std::list<Camera3d::Listener*> _listeners;
 	static Camera3d *currentCamera;
 };

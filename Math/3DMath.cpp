@@ -199,24 +199,13 @@ bool Vector3::operator<(const Vector3& rhs) const {
 
 Vector3 Vector3::rotate(float angle,Vector3 axis)
 {
-	float sinhalfangle = sin(angle/2 * DEG2RAD);
-	float coshalfangle = cos(angle/2 * DEG2RAD);
+	const float sinr = sinf(-angle);
+	const float cosr = cosf(-angle);
 
-	float rX = axis[0] *sinhalfangle;
-	float rY = axis[1] *sinhalfangle;
-	float rZ = axis[2] *sinhalfangle;
-	float rW = coshalfangle;
-
-	Quaternion RotationQ(rX, rY, rZ, rW);
-
-    Quaternion ConjugateQ = RotationQ.conjugate();
-  //  ConjugateQ.Normalize();
-    Quaternion W = RotationQ * (*this) * ConjugateQ;
-
-    x = W.x;
-    y = W.y;
-    z = W.z;
-
+	Vector3 r(this->cross(axis * sinr) +        //Rotation on local X
+		(*this * cosr) +                     //Rotation on local Z
+		axis * this->dot(axis * (1 - cosr))); //Rotation on local Y
+	*this = r;
 	return *this;
 
 };

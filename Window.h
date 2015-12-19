@@ -13,7 +13,7 @@ class Window : public LuaEngine::Listener
 {
 public:
 	Window(int width, int height, const std::string& title);
-	void scriptCreated(LuaScript* script);
+	void scriptCreated(Script* script);
 	class Listener
 	{
 	public:
@@ -69,7 +69,7 @@ private:
 	bool          isCloseRequested;
 	//disable copying because its breaks alot of shit
 	void operator=(const Window& other) {}
-	std::list<Window::Listener*>* _listeners;
+	std::list<Window::Listener*> _listeners;
 };
 
 #endif

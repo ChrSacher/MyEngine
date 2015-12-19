@@ -126,7 +126,16 @@
     <ClInclude Include="LuaEngine.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Time.h">
+    <ClInclude Include="Timer.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityManager.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentManager.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
@@ -230,7 +239,16 @@
     <ClCompile Include="LuaEngine.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="Time.cpp">
+    <ClCompile Include="Timer.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Headerdateien</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityManager.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentManager.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -311,6 +329,9 @@
       <Filter>Ressourcendateien</Filter>
     </None>
     <None Include="res\Scenes\test.sc">
+      <Filter>Ressourcendateien</Filter>
+    </None>
+    <None Include="res\Scripts\Camera.chai">
       <Filter>Ressourcendateien</Filter>
     </None>
   </ItemGroup>

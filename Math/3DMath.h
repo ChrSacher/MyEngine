@@ -14,7 +14,7 @@
 #include <iostream>
 #include <iomanip>
 #include <cmath>
-
+#include <string>
 #include <algorithm>
 ///////////////////////////////////////////////////////////////////////////////
 // 2D vector
@@ -38,24 +38,19 @@ struct Vector2
 
     // operators
     Vector2     operator-() const;                      // unary operator (negate)
-	
-    Vector2     operator+(const Vector2& rhs) const;   // add rhs
-	
+    Vector2     operator+(const Vector2& rhs) const;    // add rhs
     Vector2     operator-(const Vector2& rhs) const;    // subtract rhs
-	
     Vector2&    operator+=(const Vector2& rhs);         // add rhs and update this object
     Vector2&    operator-=(const Vector2& rhs);         // subtract rhs and update this object
     Vector2     operator*(const float scale) const;     // scale
-	Vector2		mul(const Vector2& rhs) const { return *this  * rhs; }
-	Vector2		div(const float scale) const { return *this / scale; }// inverse scale
-	Vector2		sub(const Vector2& rhs) const { return *this - rhs; }
-	Vector2		add(const Vector2& rhs) const { return *this + rhs; }
-    Vector2     operator*(const Vector2& rhs) const;    // multiply each element
+    Vector2     operator*(const Vector2& rhs) const;
+	Vector2     mul(const Vector2& rhs) const {return Vector2(*this * rhs);};// multiply each element
+	Vector2		sub(const Vector2& rhs) const { return  Vector2(*this - rhs); };
     Vector2&    operator*=(const float scale);          // scale and update this object
     Vector2&    operator*=(const Vector2& rhs);         // multiply each element and update this object
-    Vector2     operator/(const float scale) const; 
-	
+    Vector2     operator/(const float scale) const;     // inverse scale
     Vector2&    operator/=(const float scale);          // scale and update this object
+	std::string operator<<(const Vector2& rhs) const { return std::string(std::to_string(x) + " " + std::to_string(y)); }
     bool        operator==(const Vector2& rhs) const;   // exact compare, no epsilon
     bool        operator!=(const Vector2& rhs) const;   // exact compare, no epsilon
     bool        operator<(const Vector2& rhs) const;    // comparison for sort
@@ -96,7 +91,9 @@ struct Vector3
     Vector3     operator+(const Vector3& rhs) const;    // add rhs
     Vector3     operator-(const Vector3& rhs) const;    // subtract rhs
     Vector3&    operator+=(const Vector3& rhs);         // add rhs and update this object
-    Vector3&    operator-=(const Vector3& rhs);         // subtract rhs and update this object
+    Vector3&    operator-=(const Vector3& rhs);  
+	Vector3     mul(const Vector3& rhs) const { return Vector3(*this * rhs); };// multiply each element
+	Vector3		sub(const Vector3& rhs) const { return Vector3(*this - rhs); };// subtract rhs and update this object
     Vector3     operator*(const float scale) const;     // scale
     Vector3     operator*(const Vector3& rhs) const;    // multiplay each element
     Vector3&    operator*=(const float scale);          // scale and update this object
@@ -106,12 +103,10 @@ struct Vector3
     bool        operator==(const Vector3& rhs) const;   // exact compare, no epsilon
     bool        operator!=(const Vector3& rhs) const;   // exact compare, no epsilon
     bool        operator<(const Vector3& rhs) const;    // comparison for sort
+	std::string operator<<(const Vector3& rhs) const { return std::string(std::to_string(x) + " " + std::to_string(y) + " " + std::to_string(z));}
     float       operator[](int index) const;            // subscript operator v[0], v[1]
     float&      operator[](int index);                  // subscript operator v[0], v[1]
-	Vector3		mul(const Vector3& rhs) const { return *this  * rhs; }
-	Vector3		div(const float scale) const { return *this / scale; }// inverse scale
-	Vector3		sub(const Vector3& rhs) const { return *this - rhs; }
-	Vector3		add(const Vector3& rhs) const { return *this + rhs; }
+	
     friend Vector3 operator*(const float a, const Vector3 vec);
     friend std::ostream& operator<<(std::ostream& os, const Vector3& vec);
 };
@@ -148,16 +143,16 @@ struct Vector4
     Vector4&    operator*=(const float scale);          // scale and update this object
     Vector4&    operator*=(const Vector4& rhs);         // multiply each element and update this object
     Vector4     operator/(const float scale) const;     // inverse scale
-    Vector4&    operator/=(const float scale);          // scale and update this object
+    Vector4&    operator/=(const float scale);   
+	Vector4     mul(const Vector4& rhs) const { return Vector4(*this * rhs); };// multiply each element
+	Vector4		sub(const Vector4& rhs) const { return  Vector4(*this - rhs); };// scale and update this object
+	std::string operator<<(const Vector4& rhs) const { return std::string(std::to_string(x) + " " + std::to_string(y) + " " + std::to_string(z) + " " + std::to_string(w)); }
     bool        operator==(const Vector4& rhs) const;   // exact compare, no epsilon
     bool        operator!=(const Vector4& rhs) const;   // exact compare, no epsilon
     bool        operator<(const Vector4& rhs) const;    // comparison for sort
     float       operator[](int index) const;            // subscript operator v[0], v[1]
     float&      operator[](int index);                  // subscript operator v[0], v[1]
-	Vector4		mul(const Vector4& rhs) const { return *this  * rhs; }
-	Vector4		div(const float scale) const { return *this / scale; }// inverse scale
-	Vector4 	sub(const Vector4& rhs) const { return *this - rhs; }
-	Vector4		add(const Vector4& rhs) const { return *this + rhs; }
+	
     friend Vector4 operator*(const float a, const Vector4 vec);
     friend std::ostream& operator<<(std::ostream& os, const Vector4& vec);
 };

@@ -39,10 +39,10 @@ void Maingame::init()
 	
 	__screenH = cfg.getValueOfKey<float>("height",480.0f);
 	__screenW = cfg.getValueOfKey<float>("width",640.0f);
-	gamestate.playing=true;
-	gamestate.paused=false;
-	gamestate.cameramove = true;
-	gamestate.ray = false;
+	GameState::state.playing=true;
+	GameState::state.paused=false;
+	GameState::state.cameramove = true;
+	GameState::state.ray = false;
 	maxFPS=60;
 	ui = NULL;
 	scene = NULL;
@@ -75,22 +75,31 @@ void Maingame::handleKeys()
 		{
 			case SDL_QUIT://Fenster wird geschlossen
 			{
-				gamestate.playing=false;
+				GameState::state.playing=false;
 			};break;
 			case SDL_MOUSEMOTION:
 			{
-				if(gamestate.cameramove)
+				if(GameState::state.cameramove)
 				{
-					scene->getCamera()->OnMouse(event.motion.x,event.motion.y);
-					SDL_WarpMouseInWindow(window->GetSDLWindow(),__screenW /2,__screenH /2);
+					//scene->getCamera()->OnMouse(event.motion.x,event.motion.y);
+					
 					
 				}
 				 
 			};break;
+			case SDL_WINDOWEVENT_FOCUS_LOST:
+			{
+				bool alt = true;
+				while (alt)
+				{
+					SDL_PollEvent(&event);
+					if (event.window.event == SDL_WINDOWEVENT_FOCUS_GAINED) alt = false;
+				};
+			}; break;
 		}
 	}
 	InputHandler::get().generate_input(command_queue);
-	if (gamestate.ray && InputHandler::get().isKeyPressed(1))
+	if (GameState::state.ray && InputHandler::get().isKeyPressed(1))
 	{
 		scene->pick(InputHandler::get().getMouseCoords().x, InputHandler::get().getMouseCoords().y);
 
@@ -117,7 +126,7 @@ void Maingame::handleKeys()
 	}
 	if(InputHandler::get().isKeyDown(SDLK_ESCAPE))
 	{
-		gamestate.playing=false;
+		GameState::state.playing=false;
 	}
 	if(InputHandler::get().isKeyPressed(SDLK_SPACE))
 	{
@@ -125,21 +134,22 @@ void Maingame::handleKeys()
 		if(windowed)
 		{
 			windowed = false;
-			gamestate.cameramove = false;
-			gamestate.ray = true;
+			GameState::state.cameramove = false;
+			GameState::state.ray = true;
 			gui.showMouseCursor();
 		}
 		else
 		{
 			windowed = true;
-			gamestate.cameramove = true;
+			GameState::state.cameramove = true;
 			gui.hideMouseCursor();
-			gamestate.ray = false;
-			SDL_WarpMouseInWindow(window->GetSDLWindow(),__screenW /2,__screenH /2);
+			GameState::state.ray = false;
 		}
 	}
+	if(GameState::state.cameramove) SDL_WarpMouseInWindow(window->GetSDLWindow(), __screenW / 2, __screenH / 2);
 	executeCommands();
 	return;
+
 }
 
 void Maingame::update()
@@ -169,7 +179,7 @@ void Maingame::render()
 	ServiceLocator::getText().renderText("Time " + std::to_string(SDL_GetTicks()/1000),890,90,100,30,Vector3(1,1,1));
 	std::string temp = std::to_string(music->getSongNumber()) + " " +  music->getCurrentTitle();
 	ServiceLocator::getText().renderText(temp,convertSTT(__screenW,__screenW) - 155.0f,convertSTT(__screenW,__screenW) - 30.0f,140.0f,30.0f,Vector3(1,1,1));
-	if(gamestate.ray) gui.draw();
+	if(GameState::state.ray) gui.draw();
 	window->SwapBuffers();
 
 }
@@ -179,11 +189,11 @@ void Maingame::gameloop()
 	
 	
 	Time::begin(maxFPS);
-	while( gamestate.playing )//Solange es nicht beended ist
+	while( GameState::state.playing )//Solange es nicht beended ist
 	{ 
 		Time::startFrame();
 		handleKeys();
-		if(!gamestate.paused) update();
+		if(!GameState::state.paused) update();
 		render();	
 		Time::endFrame();
 	}
@@ -197,7 +207,7 @@ void Maingame::gameloop()
 
 void Maingame::close()
 {
-	gamestate.playing = false;
+	GameState::state.playing = false;
 }
 
 void Maingame::run()
@@ -218,7 +228,7 @@ void Maingame::createObjects()
 	ui = new UIrenderer();
 	line = new LineRenderer();
 	//ui->addOverlay(Vector2(0,0),Vector2(100,100),Vector4(1,0,1,1),true,"","Button","Text",RIGHTUP);
-	music = new MusicPlayer("res/Sound/*");
+	music = new MusicPlayer("res/Sound/Music/Music.mf");
 	gui.init("res/GUI");
 	gui.loadScheme("TaharezLook.scheme");
     gui.setFont("Jura-13");

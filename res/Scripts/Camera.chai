@@ -27,5 +27,9 @@ def update()
 	{
 		Camera.sink(cspeed * delta);
 	}
-	Camera.onMouse(Input.getMouseCoords());
+	if(state.cameraMove) 
+	{
+		Camera.onMouse(Input.getMouseCoords());
+	}
+
 }

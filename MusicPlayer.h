@@ -5,13 +5,15 @@
 
 struct SongInformation
 {
-	SongInformation(std::string &string, std::string &string2)
+	SongInformation(std::string &string, std::string &string2, unsigned int Num)
 	{
 		title = string;
 		path = string2;
+		number = Num;
 	}
 	std::string title;
 	std::string path;
+	unsigned int number;
 };
 //litteraly the thing it says
 class MusicPlayer
@@ -34,13 +36,12 @@ public:
 	
 private:
 	std::vector<SongInformation> songList;
-	GLuint currentSong;
+	YSE::sound* currentSong;
 	int currentID;
 	unsigned int timer;
 	bool paused;
 	bool isWorking;
 	std::vector<std::string> find_files(std::string path);
 	inline void split(const std::string& s, char c, std::vector<std::string>& v);
-	std::wstring s2ws(const std::string& s);
 };
 

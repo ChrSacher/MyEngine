@@ -1,6 +1,6 @@
 #include "InputManager.h"
 
-void InputHandler::scriptCreated(LuaScript* script)
+void InputHandler::scriptCreated(Script* script)
 {
 
 	ChaiScript &Script = script->getState();

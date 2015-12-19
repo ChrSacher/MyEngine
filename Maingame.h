@@ -38,19 +38,10 @@
 #include "ServiceLocator.h"
 #include "Engine.h"
 #include "Component.h"
-#include "Time.h"
+#include "Timer.h"
 #include "AudioListener.h"
+#include "GameState.h"
 
-struct GameState
-{
-	bool playing;
-	bool paused;
-	bool mainmenu;
-	bool escapemenu;
-	bool drawgrid;
-	bool cameramove;
-	bool ray;
-};
 
 class Maingame
 {
@@ -87,7 +78,7 @@ private:
 		Window *window;
 		GUI gui;
 		UIrenderer *ui;
-		GameState gamestate;
+		
 		FpsLimiter fpsLimiter;
 		Scene* scene;
 		MusicPlayer* music;

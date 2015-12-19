@@ -5,7 +5,7 @@
 #include "Scene.h"
 #include "Window.h"
 #include "MusicPlayer.h"
-#include "Time.h"
+#include "Timer.h"
 class Window;
 class Scene;
 
@@ -87,8 +87,8 @@ struct SceneAddObject :public SceneCommand
 	}
 	virtual void execute()
 	{
-		Entity* newEntity = Entity::create("BOX",scene->getCamera()->getPos());
-		newEntity->addComponent(ComponentManager::get().createGraphics("","res/Texture/normal_map.jpg","res/models/box.obj"));
+		Entity* newEntity = ServiceLocator::getEM().create("BOX",scene->getCamera()->getPos());
+		newEntity->addComponent(ServiceLocator::getCM().createGraphics("","res/Texture/normal_map.jpg","res/models/box.obj"));
 		scene->addEntity(newEntity);
 	}
 };

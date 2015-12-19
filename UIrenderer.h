@@ -11,7 +11,7 @@
 #include <CEGUI/CEGUI.h>
 #include <CEGUI/RendererModules/OpenGL/GL3Renderer.h>
 #include <SDL/SDL_events.h>
-#include "Time.h"
+#include "Timer.h"
 enum SE_ButtonType
 {
 	UP,

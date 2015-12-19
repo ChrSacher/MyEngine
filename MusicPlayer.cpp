@@ -1,9 +1,18 @@
 #include "MusicPlayer.h"
+//removes leading and trailing whitespace
+void trim(std::string& s)
+{
+    size_t p = s.find_first_not_of(" \t");
+    s.erase(0, p);
 
+   p = s.find_last_not_of(" \t");
+   if (std::string::npos != p)
+       s.erase(p + 1);
+}
 
 MusicPlayer::MusicPlayer(std::string path)
 {
-	paused = true;
+	paused = false;
 	currentID = 0;
 	timer = 0;
 	loadSongList(path);
@@ -11,22 +20,23 @@ MusicPlayer::MusicPlayer(std::string path)
 }
 void MusicPlayer::update()
 {
-	if(ServiceLocator::getAudio().getSound(currentSong)->isFinished()) nextSong();
+	if (currentSong == NULL) return; //if(currentSong->isStopped()) nextSong();
 }
 MusicPlayer::~MusicPlayer()
 {
-	ServiceLocator::getAudio().getSound(currentSong)->stop();
+	if (currentSong == NULL) return; currentSong->stop();
 }
 void MusicPlayer::pause()
 {
+	if (currentSong == NULL) return;
 	if(!paused)
 	{
-		ServiceLocator::getAudio().getSound(currentSong)->setIsPaused(true);
+		currentSong->pause();
 		paused = true;
 	}
 	else
 	{
-		ServiceLocator::getAudio().getSound(currentSong)->setIsPaused(false);
+		currentSong->play();
 		paused = false;
 	}
 
@@ -36,10 +46,12 @@ void MusicPlayer::play(std::string path)
 	if(paused)
 	{
 		currentSong = ServiceLocator::getAudio().play2D(path,true,1.0f);
+		currentSong->play();
 	}
 	else
 	{
-		currentSong = ServiceLocator::getAudio().play2D(path,false,1.0f);
+		currentSong = ServiceLocator::getAudio().play2D(path, true, 1.0f);
+		currentSong->play();
 		timer = SDL_GetTicks();
 	}
 	
@@ -47,14 +59,14 @@ void MusicPlayer::play(std::string path)
 void MusicPlayer::nextSong()
 {
 	currentID++;
-	ServiceLocator::getAudio().getSound(currentSong)->stop();
+	currentSong->stop();
 	if(currentID >= songList.size()) currentID = 0;
 	play(songList[currentID].path);
 }
 void MusicPlayer::previousSong()
 {
+	if (currentSong != NULL) currentSong->stop();
 	
-	ServiceLocator::getAudio().getSound(currentSong)->stop();
 	if(timer + 5 > SDL_GetTicks())
 	{
 		ServiceLocator::getAudio().play2D(songList[currentID].path);
@@ -73,21 +85,31 @@ void MusicPlayer::previousSong()
 void MusicPlayer::loadSongList(std::string path)
 {
 	songList.clear();
-	std::vector<std::string> temp = find_files(path);
-	for(unsigned int i = 0; i < temp.size() ; i++)
+	std::string line;
+	std::ifstream encodefile(path.c_str());
+	while (std::getline(encodefile, line))
 	{
-		std::string title = temp[i].substr(0,temp[i].find("."));
-		for(unsigned int j = 0; j < 10; j++)
+		auto pos = line.rfind(";");
+		if (pos != std::string::npos)
 		{
-			auto forward = title.find("/");
-			auto backward = title.find("\\");
-			if(backward == title.npos && forward == title.npos) break;
-			if(forward != title.npos) title = title.substr(forward + 1,title.npos);
-			if(backward != title.npos) title = title.substr(backward + 1,title.npos);
-			
+			line.erase(pos);
+
 		}
-		songList.push_back(SongInformation(title,temp[i]));
+		pos = line.rfind("//");
+		if (pos != std::string::npos)
+		{
+			line.erase(pos);
+		}
+		std::vector<std::string> lines;
+		split(line, ',', lines);
+		if (lines.size() < 3) continue;
+		
+		trim(lines[0]);
+		trim(lines[1]);
+		trim(lines[2]); //lazy
+		songList.push_back(SongInformation(lines[1], lines[2], std::stoi(lines[0])));
 	}
+	return;
 	
 }
 
@@ -104,38 +126,4 @@ inline void MusicPlayer::split(const std::string& s, char c, std::vector<std::st
 	  if (j == std::string::npos && s.substr(i, s.length()).length() != 0)
          v.push_back(s.substr(i, s.length()));
    }
-}
-std::wstring MusicPlayer::s2ws(const std::string& s)
-{
-    int len;
-    int slength = (int)s.length() + 1;
-    len = MultiByteToWideChar(CP_ACP, 0, s.c_str(), slength, 0, 0); 
-    wchar_t* buf = new wchar_t[len];
-    MultiByteToWideChar(CP_ACP, 0, s.c_str(), slength, buf, len);
-    std::wstring r(buf);
-    delete[] buf;
-    return r;
-}
-std::vector<std::string> MusicPlayer::find_files(std::string path)
-	{
-
-	  WIN32_FIND_DATA FindFileData;
-	  std::vector<std::string> temp;
-	  std::wstring stemp = std::wstring(path.begin(), path.end());
-	  LPCWSTR sw = stemp.c_str();
-	  HANDLE hFind = FindFirstFile(sw, &FindFileData);
-	  path =  path.substr(0,path.find("*"));
-	  if(hFind == INVALID_HANDLE_VALUE){
-		return temp;
-	  } 
-	  else while (FindNextFile(hFind, &FindFileData))
-	  {
-	 
-			  std::wstring ws(FindFileData.cFileName);
-			  std::string temp2(ws.begin(),ws.end());
-			  if(temp2 != ".." && temp2 != "." && temp2.find(".mp3") != temp2.npos) temp.push_back(path + temp2);;
-	
-	  };
-	  FindClose(hFind);
-	  return temp;
 }

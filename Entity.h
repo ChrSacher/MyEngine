@@ -13,12 +13,14 @@ class CollisionWorld;
 enum ComponentType;
 class ComponentManager;
 struct ComponentPosition;
+
+
 //Main Component for the Engine
-//make Entity Manager
+
 class Entity
 {
 public:
-	static Entity* create(std::string Name,Vector3 pos = Vector3(0.0f,0.0f,0.0f),Vector3 rot = Vector3(0.0f,0.0f,0.0f),Vector3 skal = Vector3(1.0f,1.0f,1.0f));
+	friend class EntityManager;
 	Transform* getTransform();
 	const Transform& getTransform() const;
 	//add a Component to the Entity
@@ -47,3 +49,4 @@ private:
 	Entity(const Entity& other);
 	void operator=(const Entity& other);
 };
+

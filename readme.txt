@@ -3,3 +3,24 @@ I plan to make a Game at some point with this but before i actually need to fini
 At its current Stage it has alot of groundlevel stuff like Models/Textures/NormalMaps/Script(ChaiScript)/Gui(used CEGUI)/Audio(Irrklang).
 Its still in  a rather early age and needs to be more streamlined and the communication between system is still in the works.
 
+
+Lib/DLL List:
+YSE sound
+ChaiScript
+Opengl
+ASSIMP
+Bullet 
+CEGUI
+Freetype
+SDL
+
+Include:
+YSE sound
+ChaiScript
+Opengl
+ASSIMP
+Bullet 
+CEGUI
+Freetype
+SDL
+ZIP

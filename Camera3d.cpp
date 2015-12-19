@@ -4,7 +4,7 @@ const float DEG2RAD = 3.141593f / 180;
 const float RAD2DEG = 180 / 3.141593f;
 
 const static float STEP_SCALE = 0.1f;
-const float mouseSpeed = 0.2f;
+const float mouseSpeed = 0.01f;
 const static float EDGE_STEP = 0.5f;
 const static int MARGIN = 50;
 
@@ -29,7 +29,7 @@ Ray Camera3d::getDirClick(int x, int y)
 	return Ray(pos, returnV);
 
 }
-Camera3d::Camera3d(Vector3 &Pos, float fov, int width, int height, float zNear, float zFar) :_listeners(NULL)
+Camera3d::Camera3d(Vector3 &Pos, float fov, int width, int height, float zNear, float zFar) 
 {
 	projectionMatrix = Matrix4().perspective(fov, width / height, zNear, zFar);
 	pos = Pos;
@@ -76,7 +76,7 @@ Matrix4& Camera3d::GetViewProjection()
 
 Camera3d::~Camera3d(void)
 {
-
+	
 }
 
 void Camera3d::init()
@@ -224,24 +224,25 @@ void Camera3d::OnMouse(int x, int y, bool ignore)
 
 	mousePos.x = x;
 	mousePos.y = y;
-	x = (float)x / windowWidth * 1000;
-	y = (float)y / windowHeight * 1000;
+	float X, Y;
+	X = (float)x / (float)windowWidth * 1000.0f;
+	Y = (float)y / (float)windowHeight * 1000.0f;
 
 	if (ignore) return;
 
-	AngleH -= mouseSpeed  * float(500 - x);
-	if (AngleH > 360) AngleH -= 360;
-	if (AngleH < 0) AngleH += 360;
+	AngleH -= mouseSpeed  * float(500.0f - X);
+	if (AngleH > 360.0f * DEG2RAD) AngleH -= 360 * DEG2RAD;
+	if (AngleH < 0.0f * DEG2RAD) AngleH += 360 * DEG2RAD;
 
-	AngleV -= mouseSpeed * float(500 - y);
-	if (AngleV > 360) AngleV -= 360;
-	if (AngleV < 0) AngleV += 360;
-
-	if (AngleV < 270 && AngleV > 180)AngleV = 270;
-	if (AngleV + 180 > 270 && AngleV  < 180)AngleV = 90;
+	AngleV -= mouseSpeed * float(500.0f - Y);
+	if (AngleV > 360.0f* DEG2RAD) AngleV -= 360 * DEG2RAD;
+	if (AngleV < 0.0f* DEG2RAD) AngleV += 360 * DEG2RAD;
+	if (AngleV * RAD2DEG < 270.0f && AngleV* RAD2DEG > 180.0f) AngleV = 270.0f * DEG2RAD;
+	if (AngleV * RAD2DEG> 90.0f && AngleV * RAD2DEG < 180.0f) AngleV = 90.0f* DEG2RAD;
 	Update();
 }
 
+void Camera3d::onMouse(Vector2 c) { OnMouse(c.x, c.y); }
 void Camera3d::Update()
 {
 	const Vector3 Vaxis(0.0f, 1.0f, 0.0f);
@@ -255,19 +256,15 @@ void Camera3d::Update()
 	Vector3 Haxis = Vaxis.cross(View);
 	Haxis.normalize();
 	View.rotate(AngleV, Haxis);
-
 	dir = View;
 	dir.normalize();
-
 	up = dir.cross(Haxis);
 	up.normalize();
 }
 void Camera3d::cameraChanged()
 {
-	if (_listeners == NULL)
-		return;
 
-	for (std::list<Camera3d::Listener*>::iterator itr = _listeners->begin(); itr != _listeners->end(); ++itr)
+	for (std::list<Camera3d::Listener*>::iterator &itr = _listeners.begin(); itr != _listeners.end(); ++itr)
 	{
 		Camera3d::Listener* listener = (*itr);
 		listener->cameraChanged(this);
@@ -276,25 +273,20 @@ void Camera3d::cameraChanged()
 
 void Camera3d::addListener(Camera3d::Listener* listener)
 {
-	if (_listeners == NULL)
-		_listeners = new std::list<Camera3d::Listener*>();
-	if (listener) _listeners->push_back(listener);
+	_listeners.push_back(listener);
 }
 
 void Camera3d::removeListener(Camera3d::Listener* listener)
 {
 
-	if (_listeners)
-	{
-		for (std::list<Camera3d::Listener*>::iterator itr = _listeners->begin(); itr != _listeners->end(); ++itr)
+		for (std::list<Camera3d::Listener*>::iterator &itr = _listeners.begin(); itr != _listeners.end(); ++itr)
 		{
 			if ((*itr) == listener)
 			{
-				_listeners->erase(itr);
+				_listeners.erase(itr);
 				break;
 			}
 		}
-	}
 }
 void Camera3d::setScript(ChaiPosition* script)
 {
@@ -312,7 +304,7 @@ ChaiPosition* Camera3d::getScript()
 	return cameraScript;
 }
 
-void Camera3d::scriptCreated(LuaScript* script)
+void Camera3d::scriptCreated(Script* script)
 {
 	ChaiScript& Script = script->getState();
 	Script.add(user_type<Camera3d>(), "Camera3d");
@@ -325,7 +317,7 @@ void Camera3d::scriptCreated(LuaScript* script)
 	Script.add(fun(&Camera3d::getUp), "getUp");
 	Script.add(fun(&Camera3d::setFov),"setFov");
 	Script.add(fun(&Camera3d::getFov),"getFov");
-	Script.add(fun(&Camera3d::OnMouse),"onMouse");
+	Script.add(fun(&Camera3d::onMouse),"onMouse");
 	Script.add(fun(&Camera3d::getSize),"getSize");
 	Script.add(fun(&Camera3d::moveforward),"moveForward");
 	Script.add(fun(&Camera3d::movebackward),"moveBackward");

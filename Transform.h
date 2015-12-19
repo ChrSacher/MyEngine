@@ -7,7 +7,25 @@ class Transform
 public:
 	Transform(const Vector3 &pos = Vector3() ,const Vector3 &rot = Vector3(),const Vector3 &scale = Vector3(1.0f,1.0f,1.0f));
 	~Transform(void);
-	
+	class Listener
+	{
+	public:
+
+		virtual ~Listener() { }
+
+		/**
+		* Handles when an camera settings change.
+		*
+		* @param camera The camera that was changed.
+		*/
+		virtual void transformChanged(Transform& transform) = 0;
+	};
+	void addListener(Transform::Listener* listener);
+	void removeListener(Transform::Listener* listener);
+	void transformChanged();
+
+
+
 	Matrix4 modelMatrix;
 	Vector3 getPos(){return pos;};
 	Vector3 getRot(){return rot;};
@@ -37,6 +55,7 @@ public:
 	Vector3 up;
 	Vector3 left;
 private:
+	std::list<Transform::Listener*> _listeners;
 	Vector3 pos;
 	Vector3 rot;
 	Vector3 sca;

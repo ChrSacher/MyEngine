@@ -132,7 +132,7 @@ class TextureAtlas
 			int width,height,numComponents;
 			printf("Loading texture %s\n",filepaths[i].c_str());
 			char* data = (char*)stbi_load(filepaths[i].c_str(),&width,&height,&numComponents,4);
-			if(data ==NULL)
+			if(data == NULL)
 			{
 				printf("Couldn't load texture %s\nLoading Backup Texture\n",filepaths[i].c_str());
 				data = (char*)stbi_load("res/Texture/white.png",&width,&height,&numComponents,4);

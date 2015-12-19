@@ -1,4 +1,5 @@
 #include "Scene.h"
+#include "ServiceLocator.h"
 #define TERRAINSIZE 6
 #define OBJECTSIZE 17
 #define POINTLIGHTSIZE 12
@@ -70,8 +71,8 @@ Scene* Scene::createScene(int Height,int Width,std::string path)
 		}
 		else
 		{
-			Entity* terrainEntity = Entity::create("Terrain");
-			terrainEntity->addComponent(ComponentManager::get().createTerrain("res/Texture/standardTerrain.png","res/Texture/White.png",Vector3(1,1,1),true));
+			Entity* terrainEntity = ServiceLocator::getEM().create("Terrain");
+			terrainEntity->addComponent(ServiceLocator::getCM().createTerrain("res/Texture/standardTerrain.png","res/Texture/White.png",Vector3(1,1,1),true));
 			scene->addEntity(terrainEntity);
 		}
 	return scene;
@@ -124,7 +125,7 @@ void Scene::renderScene()
 		picker.getPick()->render(shader,camera);
 		util.renderInPolygone();
 	}
-	ComponentManager::get().render(shader,camera);
+	ServiceLocator::getCM().render(shader,camera);
 	//PhysicsEngine::get().world->debugDrawWorld();
 	glFinish();
 }; 
@@ -254,7 +255,7 @@ bool Scene::loadScene(std::string Path)
 				if(lines.size() == 11)
 				{
 					if(currentEntity  != NULL) addEntity(currentEntity);
-					currentEntity = Entity::create(	lines[1],
+					currentEntity = ServiceLocator::getEM().create(	lines[1],
 													stV(lines[2],lines[3],lines[4]),
 													stV(lines[5],lines[6],lines[7]),
 													stV(lines[8],lines[9],lines[10]));
@@ -269,7 +270,7 @@ bool Scene::loadScene(std::string Path)
 				{
 					if(lines.size() == 7)
 					{
-						currentEntity->addComponent(ComponentManager::get().createGraphics(lines[1],lines[2],lines[3],stV(lines[4],lines[5],lines[6])));
+						currentEntity->addComponent(ServiceLocator::getCM().createGraphics(lines[1],lines[2],lines[3],stV(lines[4],lines[5],lines[6])));
 						std::cout<<"Loading Graphic"<<std::endl;
 					}
 					else std::cout<<"Broken Scene Line"<<std::endl;
@@ -279,7 +280,7 @@ bool Scene::loadScene(std::string Path)
 			{
 					if(lines.size() == 4)
 					{
-						currentEntity->addComponent(ComponentManager::get().createAmbient(stV(lines[1],lines[2],lines[3])));
+						currentEntity->addComponent(ServiceLocator::getCM().createAmbient(stV(lines[1],lines[2],lines[3])));
 						std::cout<<"Loading Ambient"<<std::endl;
 					}
 					else std::cout<<"Broken Scene Line"<<std::endl;
@@ -288,7 +289,7 @@ bool Scene::loadScene(std::string Path)
 			{
 				if (lines.size() == 7)
 				{
-					currentEntity->addComponent(ComponentManager::get().createTerrain(lines[1], lines[2], stV(lines[3], lines[4], lines[5]), STB(lines[6])));
+					currentEntity->addComponent(ServiceLocator::getCM().createTerrain(lines[1], lines[2], stV(lines[3], lines[4], lines[5]), STB(lines[6])));
 					std::cout << "Loading Ambient" << std::endl;
 				}
 				else std::cout << "Broken Scene Line" << std::endl;
@@ -301,7 +302,7 @@ bool Scene::loadScene(std::string Path)
 			{
 					if(lines.size() == 8)
 					{
-						currentEntity->addComponent(ComponentManager::get().createDirectional(stV(lines[1],lines[2],lines[3]),atof(lines[4].c_str()),stV(lines[5],lines[6],lines[7])));
+						currentEntity->addComponent(ServiceLocator::getCM().createDirectional(stV(lines[1],lines[2],lines[3]),atof(lines[4].c_str()),stV(lines[5],lines[6],lines[7])));
 						std::cout<<"Loading Directional"<<std::endl;
 					}
 					else std::cout<<"Broken Scene Line"<<std::endl;
@@ -310,7 +311,7 @@ bool Scene::loadScene(std::string Path)
 			{
 				if(lines.size() == 11)
 				{
-					currentEntity->addComponent(ComponentManager::get().createSkyBox(stV(lines[1],lines[2],lines[3]),lines[4],lines[5],lines[6],lines[7],lines[8],lines[9],lines[10]));
+					currentEntity->addComponent(ServiceLocator::getCM().createSkyBox(stV(lines[1],lines[2],lines[3]),lines[4],lines[5],lines[6],lines[7],lines[8],lines[9],lines[10]));
 					std::cout<<"Loading Skybox"<<std::endl;
 				}
 				else std::cout<<"Broken Scene Line"<<std::endl;

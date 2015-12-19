@@ -19,6 +19,14 @@
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
+structoEdit/[Dd]ebug/
+structoEdit/[Dd]ebugPublic/
+structoEdit/[Rr]elease/
+structoEdit/[Rr]eleases/
+structoEdit/structoEdit/[Dd]ebug/
+structoEdit/structoEdit/[Dd]ebugPublic/
+structoEdit/structoEdit/[Rr]elease/
+structoEdit/structoEdit/[Rr]eleases/
 x64/
 x86/
 build/
