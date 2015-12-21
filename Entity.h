@@ -17,10 +17,11 @@ struct ComponentPosition;
 
 //Main Component for the Engine
 
-class Entity
+class Entity :public Transform::Listener
 {
 public:
 	friend class EntityManager;
+	void transformChanged(Transform& transform);
 	Transform* getTransform();
 	const Transform& getTransform() const;
 	//add a Component to the Entity
@@ -35,7 +36,6 @@ public:
 	void receive(int eventType, Component* sender,Entity* entityInteractedWith = NULL);
 	~Entity();
 	void render(Shader* shader = NULL,Camera3d* camera = NULL);
-	void update();
 	std::string saveScene();
 	int getID();
 private:
@@ -45,7 +45,9 @@ private:
 	Entity(std::string Name,Vector3 pos = Vector3(0.0f,0.0f,0.0f),Vector3 rot = Vector3(0.0f,0.0f,0.0f),Vector3 skal = Vector3(1.0f,1.0f,1.0f));
 	std::vector<ComponentPosition*> components;
 	std::vector<ChaiPosition*> scripts;
-	Transform transform; 
+	Transform transform;
+
+
 	Entity(const Entity& other);
 	void operator=(const Entity& other);
 };

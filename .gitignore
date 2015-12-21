@@ -15,24 +15,11 @@
 *.userprefs
 
 # Build results
-[Dd]ebug/
-[Dd]ebugPublic/
-[Rr]elease/
-[Rr]eleases/
-structoEdit/[Dd]ebug/
-structoEdit/[Dd]ebugPublic/
-structoEdit/[Rr]elease/
-structoEdit/[Rr]eleases/
-structoEdit/structoEdit/[Dd]ebug/
-structoEdit/structoEdit/[Dd]ebugPublic/
-structoEdit/structoEdit/[Rr]elease/
-structoEdit/structoEdit/[Rr]eleases/
-x64/
-x86/
-build/
-bld/
-[Bb]in/
-[Oo]bj/
+Debug/
+DebugPublic/
+Release/
+Releases/
+
 res/sound/
 # Visual Studo 2015 cache/options directory
 .vs/
@@ -46,38 +33,11 @@ res/sound/
 TestResult.xml
 
 # Build Results of an ATL Project
-[Dd]ebugPS/
-[Rr]eleasePS/
+DebugPS/
+ReleasePS/
 dlldata.c
 
-*_i.c
-*_p.c
-*_i.h
-*.ilk
-*.meta
-*.pch
-*.pdb
-*.pgc
-*.pgd
-*.rsp
-*.sbr
-*.tlb
-*.tli
-*.tlh
-*.tmp
-*.tmp_proj
-*.log
-*.vspscc
-*.vssscc
-.builds
-*.pidb
-*.svclog
-*.scc
-*.sln
-*.sdf
-*.vcxproj
-# Chutzpah Test files
-_Chutzpah*
+*
 
 # Visual C++ cache files
 ipch/

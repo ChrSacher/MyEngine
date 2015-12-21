@@ -34,14 +34,14 @@ enum ComponentType
 	NUMCOMPONENT
 };
 //register all listeners inside the ComPos and then update through it
-struct ComponentPosition :public Transform::Listener
+struct ComponentPosition
 {
 	ComponentType type;
 	unsigned int position;
 	unsigned int ID;
 	ComponentPosition(ComponentType Type, unsigned int Pos) :type(Type), position(Pos) { static unsigned int id = 0; ID = id++; };
-	void transformChanged(Transform& transform);
 	Component* get();
+	
 	void destroy();
 };
 
@@ -60,8 +60,6 @@ public:
 	//whatever input 
 	virtual void processInput() {} //not inputmanager but input subclass
 	//update the Component
-	virtual void update() {}
-	virtual void render(Shader* shader,Camera3d* camera){}
 	virtual std::string sceneSave(){return "";};
 	int getID(){return ID;}
 	inline Transform* GetTransform();
@@ -70,6 +68,8 @@ public:
 	{
 		transform = Transform;
 	};
+	ComponentType getType() { return type; }
+	void render(Shader* shader, Camera3d* camera);
 	void notify(int eventType,Entity* entityInteractedWith = NULL);
 	void receive(int eventType, Component* sender,Entity* entityInteractedWith = NULL);
 	void SetParent(Entity* Parent);
@@ -84,42 +84,40 @@ protected:
 
 class SkyBoxComponent : public Component
 {
+	friend class SkyboxComponentSystem;
 public:
 	SkyBoxComponent(Vector3 color ,std::vector<std::string> paths);
 	~SkyBoxComponent();
 	Skybox skyBox;
-	void render(Shader* shader,Camera3d* camera) override;
 	std::string sceneSave();
 };
 
 class AmbientLightComponent :public Component
 {
+	friend class LightComponentSystem;
 public:
 	AmbientLightComponent(Vector3 Ambient = Vector3(0.5f,0.5f,0.5f)):ambient(Ambient){type = AMBIENT;};
 	~AmbientLightComponent();
 	AmbientLight ambient;
-	void render(Shader* shader,Camera3d* camera) override;
-	static void setColor(std::vector<AmbientLightComponent> &ambients,Shader *shader);
 	std::string sceneSave();
 };
 
 class DirectionalLightComponent :public Component
 {
+	friend class LightComponentSystem;
 public:
 	DirectionalLightComponent(BaseLight &Base = BaseLight(),Vector3 &Dir = Vector3(1,1,1)):light(Base,Dir){type = DIRECTIONAL;};
 	~DirectionalLightComponent();
 	DirectionalLight light;
-	void render(Shader* shader,Camera3d* camera) override;
-	static void setDirects(std::vector<DirectionalLightComponent> &ambients,Shader *shader);
 	std::string sceneSave();
 };
 
 
 class GraphicsComponent:public Component // this needs 2 things instanced and normal
 {
+	friend class GraphicComponentSystem;
 public:
 	~GraphicsComponent();
-	void render(Shader* shader,Camera3d* camera) override;
 	std::string sceneSave();
 	GraphicsComponent(std::string &texturePath,std::string &normalMap,std::string &ObjectPath, Vector3 color = Vector3(1,1,1),bool autoCenter = false);
 private:
@@ -146,9 +144,9 @@ public:
 
 class TerrainComponent:public Component
 {
+	friend class TerrainComponentSystem;
 	public:
 	~TerrainComponent();
-	void render(Shader* shader,Camera3d* camera);
 	std::string sceneSave();
 	TerrainComponent(std::string Path,std::string Texture,Vector3 Scale = Vector3(1,1,1),bool Center = false);
 private:
@@ -158,10 +156,49 @@ private:
 };
 
 
+class LightComponentSystem
+{
+	friend class ComponentManager;
+	friend class AmbientLightComponent;
+	friend class DirectionalLightComponent;
+	friend struct AmbientLight;
+	friend struct DirectionalLight;
+	LightComponentSystem() {}
+	void update(std::vector<DirectionalLightComponent> &r);
+	void update(std::vector<AmbientLightComponent> &r);
+	void render(std::vector<DirectionalLightComponent> &r,Shader *shader);
+	void render(std::vector<AmbientLightComponent> &r, Shader *shader);
+};
 
+class TerrainComponentSystem
+{
+	friend class ComponentManager;
+	friend class TerrainComponent;
+	TerrainComponentSystem(){}
+	void update(std::vector<TerrainComponent> &r);
+	void render(std::vector<TerrainComponent> &r, Shader* shader);
+	void update(TerrainComponent* r);
+	void render(TerrainComponent* r, Shader* shader);
+};
 
+class GraphicComponentSystem
+{
+	GraphicComponentSystem(){}
+	friend class ComponentManager;
+	friend class GraphicsComponent;
+	void update(std::vector<GraphicsComponent> &r);
+	void render(std::vector<GraphicsComponent> &r, Shader* shader, Camera3d* camera);
+	void render(GraphicsComponent &r, Shader* shader, Camera3d* camera);
+};
 
-
+class SkyBoxComponentSystem
+{
+	SkyBoxComponentSystem(){}
+	friend class ComponentManager;
+	friend class SkyBoxComponent;
+	void update(std::vector<SkyBoxComponent> &r);
+	void render(std::vector<SkyBoxComponent> &r, Camera3d* camera);
+};
 
 
 

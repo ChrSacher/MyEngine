@@ -21,12 +21,7 @@ DirectionalLight::DirectionalLight(BaseLight Base ,Vector3 Dir)
 	__ID = ID++;
 	__Identifier = "TEMP";
 }
-void DirectionalLight::update(Shader* shader)
-{
-	shader->setUniform("directionalLight.direction",direction);
-	shader->setUniform("directionalLight.base.color",base.getColor());
-	shader->setUniform("directionalLight.base.intensity",base.getIntensity());
-}
+
 	
 void AmbientLight::setAmbient(Vector3 newambient)
 {
@@ -38,10 +33,6 @@ Vector3 AmbientLight::getAmbient()
 	return ambientLight;
 }
 
-void AmbientLight::update(Shader *shader)
-{
-	shader->setUniform("ambientLight",ambientLight);
-}
 
 PointLight::PointLight(Vector3 Pos,BaseLight Base,Attenuation Atten,float Range)
 {

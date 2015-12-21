@@ -54,7 +54,7 @@ class Terrain
 public:
 	Terrain(std::string Path,std::string Texture,Vector3 Scale,bool Center = false);
 	~Terrain(void);
-	void render(Shader *shader = NULL);
+	void render(Shader *Shader = NULL);
 	
 	Material* getMaterial() {return &material;}
 	Transform* getTransform(){return &transform;};

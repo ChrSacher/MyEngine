@@ -29,13 +29,13 @@ protected:
 
 struct AmbientLight :public BasicTechniques
 {
+	friend class LightComponentSystem;
 public:
 	AmbientLight(Vector3 ambient = Vector3(0.1f,0.1f,0.1f));
 	~AmbientLight(void);
 	
 	void setAmbient(Vector3 newambient);
 	Vector3 getAmbient();
-	void update(Shader* shader);
 private:
 	Vector3 ambientLight;
 
@@ -59,13 +59,13 @@ private:
 };
 struct DirectionalLight:public BasicTechniques
 {
+	friend class LightComponentSystem;
 public:
 	DirectionalLight(BaseLight Base = BaseLight(),Vector3 Dir = Vector3(1,1,1));
 	void setBase(BaseLight Base){base=Base;};
 	void setDirection(Vector3 dir){direction=dir;}
 	BaseLight getBaseLight(){return base;};
 	Vector3 getDirection(){return direction;};
-	void update(Shader* shader);
 private:
 	BaseLight base;
 	Vector3 direction;

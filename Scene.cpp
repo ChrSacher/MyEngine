@@ -122,7 +122,7 @@ void Scene::renderScene()
 	if(picker.getPick() != NULL)
 	{
 		util.renderInWireframe();
-		picker.getPick()->render(shader,camera);
+		if(picker.getPick()) picker.getPick()->render(shader,camera);
 		util.renderInPolygone();
 	}
 	ServiceLocator::getCM().render(shader,camera);

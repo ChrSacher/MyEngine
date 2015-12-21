@@ -15,6 +15,11 @@
 class ComponentManager
 {
 public:
+
+	friend class GraphicComponentSystem;
+	friend class TerrainComponentSystem;
+	friend class SkyboxComponentSystem;
+	friend class LightComponentSystem;
 	//start the Manager
 	void initialize();
 	//destroy Manager and all components
@@ -35,7 +40,13 @@ public:
 	ComponentPosition* createDirectional(Vector3 Color = Vector3(1.0f, 1.0f, 1.0f), float Intensity = 0.2f, Vector3 Dir = Vector3(1.0f, 1.0f, 1.0f));
 	ComponentPosition* createSkyBox(Vector3 color, std::string Directory, std::string posx, std::string negx, std::string posy, std::string negy, std::string posz, std::string negz);
 	void deleteComponent(ComponentPosition* Posi);
+	void renderComponent(ComponentPosition* comp, Shader* shader, Camera3d* camera);
+	void renderComponent(Component* comp, Shader* shader, Camera3d* camera);
 	Component* findComponent(ComponentPosition* Posi);
+	GraphicComponentSystem GCS;
+	LightComponentSystem LCS;
+	SkyBoxComponentSystem SCS;
+	TerrainComponentSystem TCS;
 private:
 	std::vector<GraphicsComponent> graphics;
 	std::vector<CollisionComponent> collisions;
@@ -44,6 +55,8 @@ private:
 	std::vector<DirectionalLightComponent> directionals;
 	std::vector<SkyBoxComponent> skies;
 	std::map<ComponentType, std::map<unsigned int, ComponentPosition*>> positions; //positions begin at 0
+
+
 
 };
 

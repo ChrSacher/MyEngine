@@ -172,7 +172,6 @@ void Maingame::render()
 	
 	static std::string fps = "60";
 	if(Time::counter%60 == 0) fps = std::to_string((int)(1/(Time::delta + 0.0001)));
-
 	ServiceLocator::getText().renderText("FPS " + fps,890,0,100,30,Vector3(1,1,1));
 	ServiceLocator::getText().renderText("Frametime " + std::to_string(Time::delta) + " ms",890,30,100,30,Vector3(1,1,1));
 	ServiceLocator::getText().renderText("# Objects " + std::to_string(scene->getEntityDrawCount()),890,60,100,30,Vector3(1,1,1));

@@ -27,20 +27,21 @@ void ComponentManager::destroy()
 }
 void ComponentManager::update()
 {
-	for (unsigned int i = 0; i < directionals.size(); i++) directionals[i].update();
-	for (unsigned int i = 0; i < ambients.size(); i++) ambients[i].update();
-	for (unsigned int i = 0; i < graphics.size(); i++) graphics[i].update();
-	for (unsigned int i = 0; i < collisions.size(); i++) collisions[i].update();
-	for (unsigned int i = 0; i < terrains.size(); i++) terrains[i].update();
+	SCS.update(skies);
+	LCS.update(directionals);
+	LCS.update(ambients);
+	GCS.update(graphics);
+	TCS.update(terrains);
+	
 }
 void ComponentManager::render(Shader* shader, Camera3d* camera)
 {
-	AmbientLightComponent::setColor(ambients, shader);
-	for (unsigned int i = 0; i < skies.size(); i++) skies[i].render(shader, camera);
-	for (unsigned int i = 0; i < directionals.size(); i++) directionals[i].render(shader, camera);
-	for (unsigned int i = 0; i < graphics.size(); i++) graphics[i].render(shader, camera);
-	for (unsigned int i = 0; i < collisions.size(); i++) collisions[i].render(shader, camera);
-	for (unsigned int i = 0; i < terrains.size(); i++) terrains[i].render(shader, camera);
+	SCS.render(skies, camera);
+	LCS.render(directionals,shader);
+	LCS.render(ambients,shader);
+	GCS.render(graphics,shader,camera);
+	TCS.render(terrains,shader);
+	
 }
 ComponentPosition* ComponentManager::createGraphics(std::string texturePath, std::string normalMap, std::string ObjectPath, Vector3 color, bool autoCenter)
 {
@@ -178,4 +179,44 @@ void ComponentManager::deleteComponent(ComponentPosition* Posi)
 	}
 
 	r->second.erase(r->second.find(Pos.ID));
+}
+
+void ComponentManager::renderComponent(ComponentPosition* comp, Shader* shader, Camera3d* camera)
+{
+	renderComponent(comp->get(), shader, camera);
+}
+void ComponentManager::renderComponent(Component* comp, Shader* shader, Camera3d* camera)
+{
+	switch (comp->getType())
+	{
+		case GRAPHICS:
+		{
+			GCS.render(*static_cast<GraphicsComponent*>(comp), shader, camera);
+		}break;
+		case COLLISIONS:
+		{
+
+		}break;
+		case TERRAIN:
+		{
+
+		}break;
+		case AMBIENT:
+		{
+
+
+		}break;
+		case DIRECTIONAL:
+		{
+
+		}break;
+		case SKYBOX:
+		{
+
+		}break;
+		default:
+		{
+
+		}
+	}
 }

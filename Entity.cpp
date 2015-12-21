@@ -2,6 +2,14 @@
 	int Entity::id = 0;
 	
 
+
+void Entity::transformChanged(Transform& transform) 
+{ 
+	for (unsigned int i = 0; i < components.size(); i++)
+	{
+		components[i]->get()->setTransform(transform);
+	}
+};
 Transform* Entity::getTransform()             
 {
 	return &transform; 
@@ -14,7 +22,6 @@ Entity* Entity::addComponent(ComponentPosition* component)
 {
 	components.push_back(component);
 	component->get()->SetParent(this); //-1 because array begins with 0
-	transform.addListener(component);
 	return this;
 }
 Entity* Entity::removeComponent(ComponentPosition* component)
@@ -23,7 +30,6 @@ Entity* Entity::removeComponent(ComponentPosition* component)
 	{
 		if (components[i]->ID == component->ID)
 		{
-			transform.removeListener(component);
 			component->get()->SetParent(NULL);
 			component->destroy();
 			components.erase(components.begin() + i);
@@ -84,13 +90,6 @@ void Entity::render(Shader* shader,Camera3d* camera)
 		components[i]->get()->render(shader,camera);
 	}
 }
-void Entity::update()
-{
-	for(unsigned int i = 0;i < components.size();i++)
-	{
-		components[i]->get()->update();
-	}
-}
 int Entity::getID()
 {
 	return ID;
@@ -99,6 +98,7 @@ Entity::Entity(std::string Name,Vector3 pos,Vector3 rot,Vector3 skal):transform(
 {
 	ID = id++;
 	components.reserve(50);
+	transform.addListener(this);
 }
 
 std::string Entity::saveScene()
