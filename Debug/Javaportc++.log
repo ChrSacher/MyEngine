@@ -1,9 +1,15 @@
-﻿Der Buildvorgang wurde am 19.12.2015 14:11:00 gestartet.
-     1>Projekt "C:\Users\Christian\Documents\GitHub\MyEngine\Javaportc++.vcxproj" auf Knoten "2", Build Ziel(e).
-     1>Link:
-         Javaportc++.vcxproj -> C:\Users\Christian\Documents\GitHub\MyEngine\Debug\ProperEngine.exe
-     1>Die Erstellung von Projekt "C:\Users\Christian\Documents\GitHub\MyEngine\Javaportc++.vcxproj" ist abgeschlossen (Build Ziel(e)).
-
-Der Buildvorgang wurde erfolgreich ausgeführt.
-
-Verstrichene Zeit 00:00:00.08
+﻿  Terrain.cpp
+c:\users\christian\documents\github\myengine\terrain.cpp(83): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(130): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+c:\users\christian\documents\github\myengine\terrain.cpp(132): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+c:\users\christian\documents\github\myengine\terrain.cpp(135): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(139): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(149): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(153): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(172): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(173): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(174): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(175): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(207): warning C4244: "=": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(208): warning C4244: "=": Konvertierung von "int" in "float", möglicher Datenverlust
+  Javaportc++.vcxproj -> C:\Users\Christian\Documents\Github\MyEngine\Debug\ProperEngine.exe

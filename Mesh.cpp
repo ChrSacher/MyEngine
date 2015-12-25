@@ -80,14 +80,7 @@ void Mesh::loadBufferVertex()
 	indiced = true;
 	glBindVertexArray(vao);
 	glBindBuffer(GL_ARRAY_BUFFER,vab[0]);
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,sizeof(Vertex),(void*)offsetof(Vertex,pos));
-	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(1,2,GL_FLOAT,GL_FALSE,sizeof(Vertex),(void*)offsetof(Vertex,uv));
-	glEnableVertexAttribArray(2);
-	glVertexAttribPointer(2,3,GL_FLOAT,GL_FALSE,sizeof(Vertex),(void*)offsetof(Vertex,normal));
-	glEnableVertexAttribArray(3);
-	glVertexAttribPointer(3,3,GL_FLOAT,GL_FALSE,sizeof(Vertex),(void*)offsetof(Vertex,tangent));
+	Vertex::loadSet();
 	glBufferData(GL_ARRAY_BUFFER,sizeof(Vertex) * model.Vertices.size(),&model.Vertices[0],GL_STATIC_DRAW);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,vab[1]);
 	glEnableVertexAttribArray(4);

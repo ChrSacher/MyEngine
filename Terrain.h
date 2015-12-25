@@ -23,7 +23,7 @@
 #include "Transform.h"
 #include "Shader.h"
 
-struct TerrainIndex
+struct TerrainIndex //to be removed
 	{
 		GLuint vao,vab,count;
 
@@ -48,11 +48,54 @@ struct TerrainIndex
 			glDeleteVertexArrays(1,&vao);
 		}
 	};
+struct TerrainPatch
+{
+	GLuint vao, vab, count;
+	Material material;
+	std::vector<Vertex> vertices;
+	void load()
+	{
+		glGenVertexArrays(1, &vao);
+		glGenBuffers(1, &vab);
+		glBindVertexArray(vao);
+		glBindBuffer(GL_ARRAY_BUFFER, vab);
+		Vertex::loadSet();
+		glBufferData(GL_ARRAY_BUFFER, count * sizeof(Vertex), &vertices[0], GL_STATIC_DRAW);
+	}
+	TerrainPatch(std::vector<Vertex> &Vertices,Material &material2):vertices(Vertices)
+	{
+		count = Vertices.size();
+		load();
+		material = material2;
+	}
+	void operator=(const TerrainPatch &other)
+	{
+		count = other.count;
+		vertices = other.vertices;
+		material = other.material;
+		load();
+
+		
+	}
+	TerrainPatch(const TerrainPatch &other) :vertices(other.vertices)
+	{
+		material = other.material;
+		count = other.count;
+		load();
+		
+	}
+	
+	~TerrainPatch()
+	{
+		glDeleteBuffers(1, &vab);
+		glDeleteVertexArrays(1, &vao);
+	}
+};
 
 class Terrain
 {
 public:
-	Terrain(std::string Path,std::string Texture,Vector3 Scale,bool Center = false);
+	Terrain(std::string Path,std::string Texture,Vector3 Scale,bool Center = false,int NumPatches = 2);
 	~Terrain(void);
 	void render(Shader *Shader = NULL);
 	
@@ -61,7 +104,8 @@ public:
 	void loadTerrain();
 	void calculateNormalMap();
 	void calculateHeightMap(std::string Path);
-	std::string& getPath(){return path;}
+	void calculateVertices(std::vector<std::vector<int>> &heightmap, std::vector<std::vector<Vector3>> &normalMap, std::vector<Vertex> &vertices);
+	std::string getPath(){return path;}
 	float getHeight(float X,float Z);
 	void resizeTerrain(Vector3 Scale);
 	bool isCentered(){return centered;}
@@ -74,6 +118,7 @@ public:
 private: 
 	int width,height,numComponents,count;
 	TerrainIndex* Index;
+	std::vector<TerrainPatch> patches;
 	Material material;
 	Transform transform;
 	Shader *shader;
@@ -83,5 +128,6 @@ private:
 	std::vector<std::vector<Vector3>> normalMap;
 	int extension;
 	bool centered ;
+	int numPatches;
 };
 

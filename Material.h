@@ -24,6 +24,8 @@ public:
 		#param fromCache = true forload the Texture from the Cache and false for loading the Texture without entry to TextureCache 
 	*/
 	Material(std::string path = "res/Texture/white.png" ,std::string normalPath = "res/texture/normal_up.jpg", Vector3 Color = Vector3(1,1,1),float intensity = 2,float power = 32,bool fromCache = true);
+	Material(const Material &other);
+	void operator=(const Material &other);
 	~Material(void);
 
 	Texture texture; 
@@ -35,8 +37,10 @@ public:
 	/*
 	Will load variables into the shader
 	#param shader = Shader to render with
+	#param textureSlot int for place
+	#param normalSlot same
 	*/
-	void update(Shader *shader);
+	void update(Shader *shader, int textureSlot = 0, int normalSlot = 1);
 
 
 	float getIntensity(){return specularIntensity;}

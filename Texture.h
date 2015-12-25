@@ -48,9 +48,9 @@ class TextureCache
 {
 public:
 
-    static Texture getTexture(std::string &texturePath);
-	static void lowerCount(std::string &texturePath);
-	static void lowerCount(GLuint &textureID);
+    static Texture getTexture(const std::string &texturePath);
+	static void lowerCount(const std::string &texturePath);
+	static void lowerCount(const GLuint &textureID);
 	static void deleteCache();
 	
 private:
@@ -60,9 +60,9 @@ private:
 class NormalCache
 {
 public:
-    static Texture getTexture(std::string &texturePath);
-	static void lowerCount(std::string &texturePath);
-	static void lowerCount(GLuint &textureID);
+    static Texture getTexture(const std::string &texturePath);
+	static void lowerCount(const std::string &texturePath);
+	static void lowerCount(const GLuint &textureID);
 	static void deleteCache();
 private:
     static std::map<std::string, TextureAndCount> normalMap;

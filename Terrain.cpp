@@ -14,13 +14,14 @@ Vector3 calcNormal( const Vector3 &p1, const Vector3 &p2, const Vector3 &p3 )
     return surfaceNormal;
 }
 
-Terrain::Terrain(std::string Path,std::string Texture,Vector3 Scale,bool Center ) : material(Texture,"res/Texture/normal_up.jpg",Vector3(1,1,1),0,32) 
+Terrain::Terrain(std::string Path,std::string Texture,Vector3 Scale,bool Center, int NumPatches) : material(Texture,"res/Texture/normal_up.jpg",Vector3(1,1,1),0,32)
 {
 	printf("Loading terrain %s\n",Path.c_str());
 	path = Path;
 	centered = Center;
 	transform.setScale(Scale);
 	calculateHeightMap(Path);
+	numPatches = NumPatches;
 	if(heightMap.size() > 1)
 	{
 
@@ -40,8 +41,21 @@ Terrain::~Terrain(void)
 
 void Terrain::render(Shader* Nshader)
 {
-	if(heightMap.size() > 1)
+	if (heightMap.size() < 1) return;
+	/*Nshader->use();
+	Nshader->setUniform("Texture", 20);
+	transform.update(Nshader);
+	Nshader->setMVP(*transform.getMatrix());
+	for (int i = 0; i < patches.size(); i++)
 	{
+		
+		patches[i].material.update(Nshader);
+		patches[i].material.texture.bind(20);
+		glBindVertexArray(patches[i].vao);
+		glDrawArrays(GL_TRIANGLE_STRIP, 0, patches[i].count);
+	}
+	glBindVertexArray(0); */
+	
 		Nshader->use();
 		material.update(Nshader);
 		material.texture.bind(20);
@@ -51,7 +65,6 @@ void Terrain::render(Shader* Nshader)
 		glBindVertexArray(Index->vao);
 		glDrawArrays(GL_TRIANGLE_STRIP,0,Index->count);
 		glBindVertexArray(0);
-	}
 	
 }
 
@@ -61,7 +74,7 @@ void Terrain::loadTerrain()
 
 	//todo UV
 	std::vector<Vertex> vertices;
-	Vertex tempV;
+	
 	int sizeV = sizeof(Vertex);
 	//make terrain with width going
 	//add lowe height boundary
@@ -69,39 +82,81 @@ void Terrain::loadTerrain()
 	{
 		transform.setPos(Vector3(-width / 2,0,-height/ 2));	
 	}
-	for(int i = 0; i < height - 2;i++)
+	std::vector < std::vector<int>> subsetVec;
+	std::vector<  std::vector<Vector3>> subsetNormal;
+	//calculate Patches
+	/*
+	x--->
+	y
+	|
+	|
+	*/
+	unsigned int yOffset = 0;
+	unsigned int xOffset = 0;
+	int PatchSize = heightMap.size() / numPatches;
+	Material m = Material();
+	for ( yOffset = yOffset; yOffset < heightMap.size(); yOffset += PatchSize)
 	{
-		for(int j = 0; j < width ;j++)
+		for ( xOffset = xOffset; xOffset < heightMap.size(); xOffset += PatchSize)
 		{
-		
-			tempV.pos = Vector3(j,heightMap[i][j],(i));
-			tempV.uv =Vector2(((float)j / (float)width),((float)i / (float)height));
-			tempV.normal = normalMap[i][j];
-			vertices.push_back(tempV);
-			tempV.pos = Vector3(j ,heightMap[i + 1][j],(i + 1));
-			tempV.uv = Vector2(((float)j  / (float)width),((float)(i + 1) / (float)height));
-			tempV.normal = normalMap[i + 1][j];
-			vertices.push_back(tempV);
-			
+			for (unsigned int j = yOffset; j < yOffset + PatchSize; j++)
+			{
+
+				subsetVec.push_back(std::vector<int>());
+				subsetNormal.push_back(std::vector<Vector3>());
+				for (unsigned int i = xOffset; i < xOffset + PatchSize; i++)
+				{
+					subsetVec[j - yOffset].push_back(heightMap[i][j]);
+					subsetNormal[j - yOffset].push_back(normalMap[i][j]);
+				}
+			}
+			calculateVertices(subsetVec, subsetNormal, vertices);
+			patches.push_back(TerrainPatch(vertices, m)); //should use emplace back but doesn't work
+			vertices.clear();
+			subsetVec.clear();
+			subsetNormal.clear();
 		}
-		i ++;
-		for(int j = width - 1; j >= 0;j--)
-		{
-			
-			tempV.pos = Vector3(j,heightMap[i + 1][j],(i + 1) );
-			tempV.uv = Vector2(((float)j / (float)width),((float)(i + 1) / (float)height));
-			tempV.normal = normalMap[i + 1][j];
-			vertices.push_back(tempV);
-			tempV.pos = Vector3(j ,heightMap[i][j],(i));
-			tempV.uv = Vector2((float)j / (float)width,(float)i / (float)height);
-			tempV.normal = normalMap[i][j];
-			vertices.push_back(tempV);	
-		}		
 	}
+	
+	
+	calculateVertices(heightMap, normalMap,vertices);
 	Index = new TerrainIndex(vertices);
+	
 	vertices.clear();
 }
+void Terrain::calculateVertices(std::vector<std::vector<int>> &heightmap, std::vector<std::vector<Vector3>> &normalmap,std::vector<Vertex> &vertices)
+{
+	Vertex tempV(0,0,0);
+	for (int i = 0; i < heightmap.size() - 2; i++)
+	{
+		for (int j = 0; j < heightmap[i].size(); j++)
+		{
 
+			tempV.pos = Vector3(j, heightmap[i][j], (i));
+			tempV.uv = Vector2(((float)j / (float)width), ((float)i / (float)height));
+			tempV.normal = normalmap[i][j];
+			vertices.push_back(tempV);
+			tempV.pos = Vector3(j, heightmap[i + 1][j], (i + 1));
+			tempV.uv = Vector2(((float)j / (float)width), ((float)(i + 1) / (float)height));
+			tempV.normal = normalmap[i + 1][j];
+			vertices.push_back(tempV);
+
+		}
+		i++;
+		for (int j = heightmap[i].size() - 1; j >= 0; j--)
+		{
+
+			tempV.pos = Vector3(j, heightmap[i + 1][j], (i + 1));
+			tempV.uv = Vector2(((float)j / (float)width), ((float)(i + 1) / (float)height));
+			tempV.normal = normalmap[i + 1][j];
+			vertices.push_back(tempV);
+			tempV.pos = Vector3(j, heightmap[i][j], (i));
+			tempV.uv = Vector2((float)j / (float)width, (float)i / (float)height);
+			tempV.normal = normalmap[i][j];
+			vertices.push_back(tempV);
+		}
+	}
+}
 float Terrain::getHeight(float X,float Z)
 {
 	X = (X - transform.getPos().x) / transform.getScale().x;
