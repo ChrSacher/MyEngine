@@ -6,6 +6,7 @@
 #include "Math\3DMath.h"
 #include "Timer.h"
 #include <exception>
+#include "MessageEvent.h"
 
 using namespace chaiscript;
 //a script which will be used by the Engine and regulary updated
@@ -17,33 +18,13 @@ public:
 	//Path to LuaScript which will be used
 	Script(std::string &Path);
 	// start the startUp function if exists
-	void begin()
-	{
-		try 
-		{
-			if (isValid)	state("startUp()");
-		}
-		catch(std::exception e)
-		{
-		}
-	}
+	void begin();
+	std::string addEventHandler(std::string &Type, std::string &function, bool isFunction = false);
+	std::string addEventHandler(MessageEventType Type, std::string &function, bool isFunction = false);
 	//reload the Script with new state and file
 	//new objects need to be loaded in again
-	void reload(std::string &Path)
-	{
-		path = Path;
-		state.use(Path);
-	}
-	void end()
-	{
-		try
-		{
-			if (isValid) state("shutDown()");
-		}
-		catch (std::exception e)
-		{
-		}
-	}
+	void reload(std::string &Path);
+	void end();
 	~Script()
 	{
 		
@@ -77,8 +58,7 @@ public:
 		
 	}
 	chaiscript::ChaiScript& getState() { return state; }
-	void operator=(Script& other) {}
-	Script(Script& script);
+
 protected:
 	unsigned int ID;
 	chaiscript::ChaiScript state;
@@ -88,8 +68,10 @@ protected:
 	bool hasTestRun;
 	bool isValid;
 	std::function<void() > updateFun;
+	static int eventHandlerID;
 private:
-
+	std::vector<std::vector<std::string>> eventHandlers;
+	void operator=(Script& other) {}
 };
 struct ChaiPosition
 {

@@ -138,6 +138,9 @@
     <ClInclude Include="ComponentManager.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="MessageEvent.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Errors.cpp">
@@ -249,6 +252,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="ComponentManager.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageEvent.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

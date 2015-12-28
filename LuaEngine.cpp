@@ -2,6 +2,7 @@
 #include "LuaEngine.h"
 #include "GameState.h"
 #include "ServiceLocator.h"
+int Script::eventHandlerID = 0;
 
 Script* ChaiPosition::get()
 {
@@ -29,7 +30,10 @@ Script::Script(std::string &Path) :hasTestRun(false), state(chaiscript::Std_Lib:
 		hasTestRun = true;
 		return;
 	}
-
+	for (int i = 0; i < numEvents; i++)
+	{
+		eventHandlers.push_back(std::vector<std::string>());
+	}
 	state.add(user_type<GameState>(), "gameState");
 	state.add(fun(&GameState::cameramove), "cameraMove");
 	state.add(fun(&GameState::drawgrid), "drawGrid");
@@ -103,11 +107,43 @@ Script::Script(std::string &Path) :hasTestRun(false), state(chaiscript::Std_Lib:
 	state.add_global_const(const_var(&Time::start), "timeSinceStart");
 	updateFun = state.eval<std::function<void()>>("update");
 	begin();
-}
 
-Script::Script(Script& script):state(), hasUpdate(true)
+}
+void Script::end()
+{
+	try
+	{
+		if (isValid) state("shutDown()");
+	}
+	catch (std::exception e)
+	{
+	}
+}
+void Script::reload(std::string &Path)
+{
+	path = Path;
+	state.use(Path);
+}
+void Script::begin()
+{
+	try
+	{
+		if (isValid)	state("startUp()");
+	}
+	catch (std::exception e)
+	{
+	}
+}
+std::string Script::addEventHandler(std::string &Type, std::string &function, bool isFunction = false)
 {
 
+	eventHandlers[stringToMET(Type)].push_back(function);
+	return std::to_string(eventHandlerID++);
+}
+std::string Script::addEventHandler(MessageEventType Type, std::string &function, bool isFunction = false)
+{
+	eventHandlers[Type].push_back(function);
+	return std::to_string(eventHandlerID++);
 }
 void LuaEngine::scriptCreated(Script* script)
 {

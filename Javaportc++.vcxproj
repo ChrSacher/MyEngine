@@ -118,6 +118,7 @@
     <ClInclude Include="Material.h" />
     <ClInclude Include="Math\3DMath.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="MessageEvent.h" />
     <ClInclude Include="MusicPlayer.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="ParticleSystem.h" />
@@ -157,6 +158,7 @@
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="Math\3DMath.cpp" />
     <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="MessageEvent.cpp" />
     <ClCompile Include="MusicPlayer.cpp" />
     <ClCompile Include="Observer.cpp" />
     <ClCompile Include="ParticleSystem.cpp" />
