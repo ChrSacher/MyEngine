@@ -134,16 +134,16 @@ void Script::begin()
 	{
 	}
 }
-std::string Script::addEventHandler(std::string &Type, std::string &function, bool isFunction = false)
+int Script::addEventHandler(std::string &Type, std::string &function, bool isFunction = false)
 {
 
-	eventHandlers[stringToMET(Type)].push_back(function);
-	return std::to_string(eventHandlerID++);
+	eventHandlers[stringToMET(Type)].insert(std::make_pair(eventHandlerID, function));
+	return eventHandlerID++;
 }
-std::string Script::addEventHandler(MessageEventType Type, std::string &function, bool isFunction = false)
+int Script::addEventHandler(MessageEventType Type, std::string &function, bool isFunction = false)
 {
-	eventHandlers[Type].push_back(function);
-	return std::to_string(eventHandlerID++);
+	eventHandlers[Type].insert(std::make_pair(eventHandlerID, function));
+	return eventHandlerID++;
 }
 void LuaEngine::scriptCreated(Script* script)
 {

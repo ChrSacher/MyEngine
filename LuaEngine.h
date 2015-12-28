@@ -19,8 +19,8 @@ public:
 	Script(std::string &Path);
 	// start the startUp function if exists
 	void begin();
-	std::string addEventHandler(std::string &Type, std::string &function, bool isFunction = false);
-	std::string addEventHandler(MessageEventType Type, std::string &function, bool isFunction = false);
+	int addEventHandler(std::string &Type, std::string &function, bool isFunction = false);
+	int addEventHandler(MessageEventType Type, std::string &function, bool isFunction = false);
 	//reload the Script with new state and file
 	//new objects need to be loaded in again
 	void reload(std::string &Path);
@@ -70,7 +70,7 @@ protected:
 	std::function<void() > updateFun;
 	static int eventHandlerID;
 private:
-	std::vector<std::vector<std::string>> eventHandlers;
+	std::vector<std::map<int,std::string>> eventHandlers;
 	void operator=(Script& other) {}
 };
 struct ChaiPosition
