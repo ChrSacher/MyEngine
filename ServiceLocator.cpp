@@ -10,3 +10,5 @@ ComponentManager* ServiceLocator::manager = NULL;
 NullComponentManager ServiceLocator::nullCM;
 EntityManager* ServiceLocator::entity_ = NULL;
 NullEntityManager ServiceLocator::nullEntity;
+PhysicsEngine* ServiceLocator::physics_ = NULL;
+NullPhysicsEngine ServiceLocator::nullPhysics;

@@ -25,7 +25,6 @@ DirectionalLightComponent::~DirectionalLightComponent() {};
 	}
 	inline Transform* Component::GetTransform()             { return (parent->getTransform()); }
 	inline const Transform& Component::GetTransform() const { return *parent->getTransform(); }
-	
 	void Component::SetParent(Entity* Parent) 
 	{ 
 		parent = Parent;
@@ -47,7 +46,6 @@ DirectionalLightComponent::~DirectionalLightComponent() {};
 	SkyBoxComponent::~SkyBoxComponent()
 	{
 	}
-	
 	std::string SkyBoxComponent::sceneSave()
 	{
 		auto r = skyBox.getDirAndFile();
@@ -74,7 +72,7 @@ DirectionalLightComponent::~DirectionalLightComponent() {};
 	{
 		return "G " + material.texture.texturepath + " " + material.normalMap.texturepath +" " + mesh.getPath() + " " +  std::to_string(material.color.x) + " " +  std::to_string(material.color.y) + " " +  std::to_string(material.color.z) + "\n";
 	}
-	GraphicsComponent::GraphicsComponent(std::string &texturePath,std::string &normalMap,std::string &ObjectPath, Vector3 color,bool autoCenter):material(texturePath,normalMap,color,2,32),mesh(ObjectPath,autoCenter)
+	GraphicsComponent::GraphicsComponent()
 	{
 		renderable = true;
 		type = GRAPHICS;
@@ -104,7 +102,7 @@ DirectionalLightComponent::~DirectionalLightComponent() {};
 	{
 		return "T " + terrain.getPath() +" "+ terrain.getMaterial()->texture.texturepath +" " + std::to_string(terrain.getTransform()->getScale().x) + " " + std::to_string(terrain.getTransform()->getScale().y) + " " + std::to_string(terrain.getTransform()->getScale().z) +" " +BTS(terrain.isCentered()) + "\n";
 	}
-	TerrainComponent::TerrainComponent(std::string Path,std::string Texture,Vector3 Scale,bool Center):terrain(Path,Texture,Scale,Center)
+	TerrainComponent::TerrainComponent()
 	{
 		parent = NULL;
 		type = TERRAIN;
@@ -129,6 +127,19 @@ DirectionalLightComponent::~DirectionalLightComponent() {};
 	}
 
 
+	//TODO move all loading of resources to the system and make Components relativly constructorless
+	//GRAPHICS///////////////////////////////////////////////////////////////////////////////////
+	void GraphicComponentSystem::load(GraphicsComponent &r, std::string &texturePath, std::string &normalMap, std::string &ObjectPath, Vector3 color, bool autoCenter)
+	{
+		r.material = Material(texturePath, normalMap, color, 2, 32);
+		r.mesh = Mesh(ObjectPath, autoCenter);
+		r.type = GRAPHICS;
+		r.renderable = true;
+	}
+	void GraphicComponentSystem::unload(GraphicsComponent &r)
+	{
+
+	}
 	void GraphicComponentSystem::update(std::vector<GraphicsComponent> &r)
 	{
 	}
@@ -165,6 +176,12 @@ DirectionalLightComponent::~DirectionalLightComponent() {};
 				r.mesh.draw();
 			}
 	}
+	std::string GraphicComponentSystem::sceneSave(GraphicsComponent &r)
+	{
+		return "G " + r.material.texture.texturepath + " " + r.material.normalMap.texturepath + " " + r.mesh.getPath() + " " + std::to_string(r.material.color.x) + " " + std::to_string(r.material.color.y) + " " + std::to_string(r.material.color.z) + "\n";
+	};
+
+	//SKYBOX//////////////////////////////////////////////////////////////////////////////////////////
 	void SkyBoxComponentSystem::render(std::vector<SkyBoxComponent> &r, Camera3d* camera)
 	{
 		for (int i = 0; i < r.size();i++)
@@ -174,6 +191,14 @@ DirectionalLightComponent::~DirectionalLightComponent() {};
 	void SkyBoxComponentSystem::update(std::vector<SkyBoxComponent> &r)
 	{
 	}
+
+
+
+
+
+
+
+	//LIGHT//////////////////////////////////////////////////////////////////////////////////////////////////
 	void LightComponentSystem::update(std::vector<DirectionalLightComponent> &r)
 	{
 		
@@ -183,7 +208,10 @@ DirectionalLightComponent::~DirectionalLightComponent() {};
 	{
 		
 	}
-
+	void  LightComponentSystem::load(AmbientLightComponent &light, Vector3 Ambient)
+	{
+		light.ambient = AmbientLight(Ambient);
+	}
 	void LightComponentSystem::render(std::vector<DirectionalLightComponent> &r, Shader* shader)
 	{
 		for (int i = 0; i < r.size(); i++)
@@ -212,6 +240,14 @@ DirectionalLightComponent::~DirectionalLightComponent() {};
 		}
 		else shader->setUniform("ambientLight", Vector3(0.5f, 0.5f, 0.5f));
 	}
+
+
+
+
+
+
+
+	//TERRAIN  /////////////////////////////////////////////////////////////////////////////////////////////////////
 	void  TerrainComponentSystem::update(std::vector<TerrainComponent> &r)
 	{
 		
@@ -228,4 +264,71 @@ DirectionalLightComponent::~DirectionalLightComponent() {};
 	void TerrainComponentSystem::render(TerrainComponent* r, Shader* shader)
 	{
 		r->terrain.render(shader);
+	}
+	void TerrainComponentSystem::load(TerrainComponent &r, std::string Path, std::string Texture, Vector3 Scale, bool Center , int NumPatches)
+	{
+		r.terrain.start(Path, Texture, Scale, Center, NumPatches);
+		 
+	}
+
+	void TerrainComponentSystem::unload(TerrainComponent &r)
+	{
+		
+
+
+	}
+	///PHYSICS
+	void PhysicsComponentSystem::load(PhysicsComponent& comp)
+	{
+		//TODO add MASS 
+		static int ID = 0;
+		int Mass = 1;
+		comp.groundMotionState = new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0,0,0)));
+		comp.shape = new btSphereShape(1); //radius
+		btVector3 fallInertia;
+		comp.shape->calculateLocalInertia(Mass, fallInertia);
+		btRigidBody::btRigidBodyConstructionInfo
+			groundRigidBodyCI(Mass, comp.groundMotionState, comp.shape, fallInertia);
+		comp.object = new btRigidBody(groundRigidBodyCI);
+		comp.object->setUserPointer(comp.parent);//each body has a userpointer which can be use to retrieve the entity
+		ServiceLocator::getPE().world->addRigidBody(comp.object);
+	};
+	void  PhysicsComponent::set(Transform& transform)
+	{
+		object->activate(true);
+		
+		btQuaternion quat = btQuaternion(0,0,0,1);
+		btTransform tr = btTransform(quat,btVector3(0,0,0));
+		quat.setEuler(transform.getRot().x, transform.getRot().y, transform.getRot().z); //or quat.setEulerZYX depending on the ordering you want
+		tr.setRotation(quat);
+		object->setCenterOfMassTransform(tr);
+		object->translate(btVector3(transform.getPos().x, transform.getPos().y, transform.getPos().z));
+	}
+	void PhysicsComponentSystem::unload(PhysicsComponent& comp)
+	{
+		ServiceLocator::getPE().world->removeRigidBody(comp.object);
+		delete comp.shape;
+		delete comp.object;
+		delete comp.groundMotionState;
+		
+	};
+	void PhysicsComponentSystem::update(PhysicsComponent& comp)
+	{
+		Transform transform;
+		btTransform trans = comp.object->getWorldTransform();
+		btVector3 y = trans.getOrigin();
+		Vector3 x = Vector3(y.x(), y.y(), y.z());
+		transform.setPos(x);
+
+		btQuaternion z = trans.getRotation();
+		Quaternion euler = Quaternion(z.x(), z.y(), z.z(), z.w());
+		transform.setRot(euler.euler());
+		comp.parent->setTransform(transform);
+	}
+	void PhysicsComponentSystem::update(std::vector<PhysicsComponent>& comp)
+	{
+		for (int i = 0; i < comp.size(); i++)
+		{
+			update(comp[i]);
+		}
 	}

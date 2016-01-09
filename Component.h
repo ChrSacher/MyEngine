@@ -31,6 +31,7 @@ enum ComponentType
 	AMBIENT,
 	DIRECTIONAL,
 	SKYBOX,
+	PHYSICS,
 	NUMCOMPONENT
 };
 //register all listeners inside the ComPos and then update through it
@@ -41,7 +42,11 @@ struct ComponentPosition
 	unsigned int ID;
 	ComponentPosition(ComponentType Type, unsigned int Pos) :type(Type), position(Pos) { static unsigned int id = 0; ID = id++; };
 	Component* get();
-	
+	template <typename ValueType>
+	ValueType getT() 
+	{
+		return static_cast<ValueType>(get());
+	}
 	void destroy();
 };
 
@@ -96,7 +101,7 @@ class AmbientLightComponent :public Component
 {
 	friend class LightComponentSystem;
 public:
-	AmbientLightComponent(Vector3 Ambient = Vector3(0.5f,0.5f,0.5f)):ambient(Ambient){type = AMBIENT;};
+	AmbientLightComponent(){type = AMBIENT;};
 	~AmbientLightComponent();
 	AmbientLight ambient;
 	std::string sceneSave();
@@ -119,7 +124,7 @@ class GraphicsComponent:public Component // this needs 2 things instanced and no
 public:
 	~GraphicsComponent();
 	std::string sceneSave();
-	GraphicsComponent(std::string &texturePath,std::string &normalMap,std::string &ObjectPath, Vector3 color = Vector3(1,1,1),bool autoCenter = false);
+	GraphicsComponent();
 private:
 	Material material;
 	Mesh mesh;
@@ -142,20 +147,51 @@ public:
 	CollisionWorld* world;
 };
 
-class TerrainComponent:public Component
+class PhysicsComponent :public Component
 {
-	friend class TerrainComponentSystem;
-	public:
-	~TerrainComponent();
-	std::string sceneSave();
-	TerrainComponent(std::string Path,std::string Texture,Vector3 Scale = Vector3(1,1,1),bool Center = false);
-private:
-	Terrain terrain;
+public:
+	friend class PhysicsComponentSystem;
 	
+	std::string sceneSave()
+	{
+		return "";
+	}
+	~PhysicsComponent()
+	{
+	}
+	PhysicsComponent()
+	{
 
+	}
+	void set(Transform& transform);
+	btDefaultMotionState* groundMotionState;
+	btRigidBody* object;
+	btCollisionShape* shape;
 };
 
-
+class TerrainComponent :public Component
+{
+	friend class TerrainComponentSystem;
+	
+public:
+	~TerrainComponent();
+	std::string sceneSave();
+	TerrainComponent();
+private:
+	Terrain terrain;
+};
+class PhysicsComponentSystem
+{
+	friend class ComponentManager;
+	friend class PhysicsComponent;
+	~PhysicsComponentSystem() {};
+	PhysicsComponentSystem() {};
+	//TODO add what is needed for physics object for now its just a sphere
+	void load(PhysicsComponent& comp);
+	void unload(PhysicsComponent& comp);
+	void update(PhysicsComponent& comp);
+	void update(std::vector<PhysicsComponent>& comp);
+};
 class LightComponentSystem
 {
 	friend class ComponentManager;
@@ -168,13 +204,17 @@ class LightComponentSystem
 	void update(std::vector<AmbientLightComponent> &r);
 	void render(std::vector<DirectionalLightComponent> &r,Shader *shader);
 	void render(std::vector<AmbientLightComponent> &r, Shader *shader);
+	void load(AmbientLightComponent &light, Vector3 Ambient = Vector3(0.5f, 0.5f, 0.5f));
 };
 
 class TerrainComponentSystem
 {
+	friend class Terrain;
 	friend class ComponentManager;
 	friend class TerrainComponent;
 	TerrainComponentSystem(){}
+	void load(TerrainComponent &r, std::string Path, std::string Texture, Vector3 Scale, bool Center = false, int NumPatches = 2);
+	void unload(TerrainComponent &r);
 	void update(std::vector<TerrainComponent> &r);
 	void render(std::vector<TerrainComponent> &r, Shader* shader);
 	void update(TerrainComponent* r);
@@ -189,6 +229,9 @@ class GraphicComponentSystem
 	void update(std::vector<GraphicsComponent> &r);
 	void render(std::vector<GraphicsComponent> &r, Shader* shader, Camera3d* camera);
 	void render(GraphicsComponent &r, Shader* shader, Camera3d* camera);
+	void load(GraphicsComponent &r, std::string &texturePath, std::string &normalMap, std::string &ObjectPath, Vector3 color, bool autoCenter);
+	void unload(GraphicsComponent &r);
+	std::string sceneSave(GraphicsComponent &r);
 };
 
 class SkyBoxComponentSystem

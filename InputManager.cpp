@@ -1,15 +1,15 @@
 #include "InputManager.h"
 
-void InputHandler::scriptCreated(Script* script)
+void InputHandler::ScriptCreated(SeScript* SeScript)
 {
 
-	ChaiScript &Script = script->getState();
-	Script.add(user_type<InputHandler>(), "InputHandler");
-	Script.add_global(var(this), "Input");
-	Script.add(fun(&InputHandler::isKeyDownS), "isKeyDown");
-	Script.add(fun(&InputHandler::isKeyPressedS), "isKeyPressed");
-	Script.add(fun(&InputHandler::isKeyReleasedS), "isKeyReleased");
-	Script.add(fun(&InputHandler::getMouseCoords), "getMouseCoords");
+	ChaiScript &script = SeScript->getState();
+	script.add(user_type<InputHandler>(), "InputHandler");
+	script.add_global(var(this), "Input");
+	script.add(fun(&InputHandler::isKeyDownS), "isKeyDown");
+	script.add(fun(&InputHandler::isKeyPressedS), "isKeyPressed");
+	script.add(fun(&InputHandler::isKeyReleasedS), "isKeyReleased");
+	script.add(fun(&InputHandler::getMouseCoords), "getMouseCoords");
 };
 
 void InputHandler::handle(SDL_Event &e)

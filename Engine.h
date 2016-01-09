@@ -28,14 +28,19 @@ public:
 		CM->initialize();
 		EM = new EntityManager();
 		EM->initialize();
+		PE = new PhysicsEngine();
+		PE->initialize();
+		
 		ServiceLocator::initialize();
 		ServiceLocator::provide(CM);
 		ServiceLocator::provide(audio);
 		ServiceLocator::provide(text);
 		ServiceLocator::provide(lua);
 		ServiceLocator::provide(EM);
+		ServiceLocator::provide(PE);
+		//PE->world->getDebugDrawer()->setDebugMode(btIDebugDraw::DBG_DrawWireframe);
 		lua->addListener( &InputHandler::get());
-		//PhysicsEngine::get().world->getDebugDrawer()->setDebugMode(btIDebugDraw::DBG_DrawWireframe);
+		
 
 	};	
 	static void update()
@@ -44,6 +49,7 @@ public:
 		audio->update();
 		text->update();
 		CM->update();
+		PE->update();
 	}
 	//shutdown the Engine
 	static void shutDown()
@@ -59,11 +65,13 @@ public:
 		delete(text);
 		delete(lua);
 		delete(CM);
+		delete(PE);
 	};
 	static Audio* audio;
 	static Text* text;
 	static LuaEngine* lua;
 	static ComponentManager* CM;
 	static EntityManager* EM;
+	static PhysicsEngine* PE;
 };
 

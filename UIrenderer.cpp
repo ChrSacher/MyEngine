@@ -347,7 +347,7 @@ LineRenderer::~LineRenderer()
 	glDeleteVertexArrays(2,vao);
 	glDeleteBuffers(2,vab);
 }
-GLuint LineRenderer::addLine(Vector3 pos,Vector3 pos2)
+GLuint LineRenderer::addLine(Vector3 &pos,Vector3 &pos2)
 {
 	static int ID = 0;
 	lines.insert(std::make_pair(ID++,Ray(pos,pos2)));
@@ -362,6 +362,11 @@ GLuint LineRenderer::addLine(Vector3 pos,Vector3 pos2)
 	return ID - 1;
 }
 
+void LineRenderer::clear()
+{
+	lines.clear();
+	lineCount = 0;
+}
 void LineRenderer::render(Camera3d* camera)
 {
 	if(lines.size() < 1 && timedLineCount < 1) return;
@@ -382,7 +387,7 @@ void LineRenderer::render(Camera3d* camera)
 
 }
 
-GLuint LineRenderer::addTimedLine(Vector3 pos,Vector3 pos2,float time)
+GLuint LineRenderer::addTimedLine(Vector3 &pos,Vector3 &pos2,float time)
 {
 	static int ID = 0;
 	glBindVertexArray(vao[1]);
@@ -449,7 +454,7 @@ void GUI::init(const std::string& resourceDirectory)
         rp->setResourceGroupDirectory("fonts", resourceDirectory + "/fonts/");
         rp->setResourceGroupDirectory("layouts", resourceDirectory + "/layouts/");
         rp->setResourceGroupDirectory("looknfeels", resourceDirectory + "/looknfeel/");
-        rp->setResourceGroupDirectory("lua_scripts", resourceDirectory + "/lua_scripts/");
+        rp->setResourceGroupDirectory("lua_Scripts", resourceDirectory + "/lua_Scripts/");
 
 
         CEGUI::ImageManager::setImagesetDefaultResourceGroup("imagesets");
@@ -457,7 +462,7 @@ void GUI::init(const std::string& resourceDirectory)
         CEGUI::Font::setDefaultResourceGroup("fonts");
         CEGUI::WidgetLookManager::setDefaultResourceGroup("looknfeels");
         CEGUI::WindowManager::setDefaultResourceGroup("layouts");
-        CEGUI::ScriptModule::setDefaultResourceGroup("lua_scripts");
+        CEGUI::ScriptModule::setDefaultResourceGroup("lua_Scripts");
 		renderer->grabTextures();
 		renderer->restoreTextures();
     }

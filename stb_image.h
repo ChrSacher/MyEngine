@@ -5567,7 +5567,7 @@ static stbi_uc *stbi__gif_load_next(stbi__context *s, stbi__gif *g, int *comp, i
 
    for (;;) {
       switch (stbi__get8(s)) {
-         case 0x2C: /* Image Descriptor */
+         case 0x2C: /* Image DeScriptor */
          {
             stbi__int32 x, y, w, h;
             stbi_uc *o;
@@ -5577,7 +5577,7 @@ static stbi_uc *stbi__gif_load_next(stbi__context *s, stbi__gif *g, int *comp, i
             w = stbi__get16le(s);
             h = stbi__get16le(s);
             if (((x + w) > (g->w)) || ((y + h) > (g->h)))
-               return stbi__errpuc("bad Image Descriptor", "Corrupt GIF");
+               return stbi__errpuc("bad Image DeScriptor", "Corrupt GIF");
 
             g->line_size = g->w * 4;
             g->start_x = x * 4;

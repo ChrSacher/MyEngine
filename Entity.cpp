@@ -10,6 +10,10 @@ void Entity::transformChanged(Transform& transform)
 		components[i]->get()->setTransform(transform);
 	}
 };
+void Entity::setTransform(Transform& transformV)
+{
+	transform.set(transformV);
+}
 Transform* Entity::getTransform()             
 {
 	return &transform; 
@@ -42,23 +46,38 @@ Entity* Entity::removeComponent(ComponentPosition* component)
 
 Entity*  Entity::addScript(ChaiPosition* chai)
 {
-	scripts.push_back(chai);
+	Scripts.push_back(chai);
 	ChaiScript *ref = &chai->get()->getState();
 	return this;
 }
 Entity* Entity::removeScript(ChaiPosition* chai)
 {
-	for (unsigned int i = 0; i < scripts.size(); i++)
+	for (unsigned int i = 0; i < Scripts.size(); i++)
 	{
-		if (scripts[i]->ID == chai->ID)
+		if (Scripts[i]->ID == chai->ID)
 		{
 			chai->destroy();
-			scripts.erase(scripts.begin() + i);
+			Scripts.erase(Scripts.begin() + i);
 		}
 	}
 	return this;
 }
-
+//add a Component to the Entity
+Entity* Entity::addPhysics(ComponentPosition* component)
+{
+	removePhysics();
+	component->get()->SetParent(this);
+	physics = component;
+	PhysicsComponent* r = physics->getT<PhysicsComponent*>();
+	r->set(transform);
+	return this;
+}
+//remove a Component from the Entity
+Entity* Entity::removePhysics()
+{
+	if (physics != NULL) physics->destroy();
+	return this;
+}
 
 	void Entity::notify(int eventType,Component* sender ,Entity* entityInteractedWith) //this can be enchanched with Commands
 	{
@@ -78,9 +97,9 @@ Entity::~Entity()
 	{
 		components[i]->destroy();
 	}
-	for (unsigned int i = 0; i < scripts.size(); i++)
+	for (unsigned int i = 0; i < Scripts.size(); i++)
 	{
-		scripts[i]->destroy();
+		Scripts[i]->destroy();
 	}
 }
 void Entity::render(Shader* shader,Camera3d* camera)
@@ -99,6 +118,7 @@ Entity::Entity(std::string Name,Vector3 pos,Vector3 rot,Vector3 skal):transform(
 	ID = id++;
 	components.reserve(50);
 	transform.addListener(this);
+	physics = NULL;
 }
 
 std::string Entity::saveScene()

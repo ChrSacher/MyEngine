@@ -288,10 +288,10 @@ void Camera3d::removeListener(Camera3d::Listener* listener)
 			}
 		}
 }
-void Camera3d::setScript(ChaiPosition* script)
+void Camera3d::setScript(ChaiPosition* SeScript)
 {
 	if (cameraScript != NULL) ServiceLocator::getLua().deleteScript(cameraScript);
-	cameraScript = script;
+	cameraScript = SeScript;
 }
 
 void Camera3d::setScript(std::string Path)
@@ -304,25 +304,25 @@ ChaiPosition* Camera3d::getScript()
 	return cameraScript;
 }
 
-void Camera3d::scriptCreated(Script* script)
+void Camera3d::ScriptCreated(SeScript* SeScript)
 {
-	ChaiScript& Script = script->getState();
-	Script.add(user_type<Camera3d>(), "Camera3d");
-	Script.add_global(var(currentCamera), "Camera");
-	Script.add(fun(&Camera3d::setPos), "setPos");
-	Script.add(fun(&Camera3d::getPos), "getPos");
-	Script.add(fun(&Camera3d::setDir), "setDir");
-	Script.add(fun(&Camera3d::getDir), "getDir");
-	Script.add(fun(&Camera3d::setUp), "setUp");
-	Script.add(fun(&Camera3d::getUp), "getUp");
-	Script.add(fun(&Camera3d::setFov),"setFov");
-	Script.add(fun(&Camera3d::getFov),"getFov");
-	Script.add(fun(&Camera3d::onMouse),"onMouse");
-	Script.add(fun(&Camera3d::getSize),"getSize");
-	Script.add(fun(&Camera3d::moveforward),"moveForward");
-	Script.add(fun(&Camera3d::movebackward),"moveBackward");
-	Script.add(fun(&Camera3d::raise),"raise");
-	Script.add(fun(&Camera3d::sink),"sink");
-	Script.add(fun(&Camera3d::strafeleft),"strafeleft");
-	Script.add(fun(&Camera3d::straferight),"straferight");
+	ChaiScript& script = SeScript->getState();
+	script.add(user_type<Camera3d>(), "Camera3d");
+	script.add_global(var(currentCamera), "Camera");
+	script.add(fun(&Camera3d::setPos), "setPos");
+	script.add(fun(&Camera3d::getPos), "getPos");
+	script.add(fun(&Camera3d::setDir), "setDir");
+	script.add(fun(&Camera3d::getDir), "getDir");
+	script.add(fun(&Camera3d::setUp), "setUp");
+	script.add(fun(&Camera3d::getUp), "getUp");
+	script.add(fun(&Camera3d::setFov),"setFov");
+	script.add(fun(&Camera3d::getFov),"getFov");
+	script.add(fun(&Camera3d::onMouse),"onMouse");
+	script.add(fun(&Camera3d::getSize),"getSize");
+	script.add(fun(&Camera3d::moveforward),"moveForward");
+	script.add(fun(&Camera3d::movebackward),"moveBackward");
+	script.add(fun(&Camera3d::raise),"raise");
+	script.add(fun(&Camera3d::sink),"sink");
+	script.add(fun(&Camera3d::strafeleft),"strafeleft");
+	script.add(fun(&Camera3d::straferight),"straferight");
 }

@@ -28,8 +28,15 @@ public:
 	Entity* addComponent(ComponentPosition* component);
 	//remove a Component from the Entity
 	Entity* removeComponent(ComponentPosition* component);
+
+	//add a Component to the Entity
+	Entity* addPhysics(ComponentPosition* component);
+	//remove a Component from the Entity
+	Entity* removePhysics();
+
 	Entity* addScript(ChaiPosition* chai);
 	Entity* removeScript(ChaiPosition* chai);
+	void setTransform(Transform& transformV);
 	//tells all components that something happend
 	void notify(int eventType, Component* sender ,Entity* entityInteractedWith = NULL); //this can be enchanched with Commands
 	//receive message froma component
@@ -44,7 +51,8 @@ private:
 	std::string name;
 	Entity(std::string Name,Vector3 pos = Vector3(0.0f,0.0f,0.0f),Vector3 rot = Vector3(0.0f,0.0f,0.0f),Vector3 skal = Vector3(1.0f,1.0f,1.0f));
 	std::vector<ComponentPosition*> components;
-	std::vector<ChaiPosition*> scripts;
+	std::vector<ChaiPosition*> Scripts;
+	ComponentPosition* physics;
 	Transform transform;
 
 

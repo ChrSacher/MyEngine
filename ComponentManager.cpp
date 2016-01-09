@@ -6,6 +6,7 @@ void ComponentManager::initialize()
 	collisions.reserve(50);
 	directionals.reserve(5);
 	collisions.reserve(50);
+	physics.reserve(50);
 	skies.reserve(5);
 	terrains.reserve(2);
 }
@@ -17,6 +18,7 @@ void ComponentManager::destroy()
 	terrains.clear();
 	directionals.clear();
 	skies.clear();
+	physics.clear();
 	for (auto &i = positions.begin(); i != positions.end(); i++)
 	{
 		for (auto &k = i->second.begin(); k != i->second.end(); k++)
@@ -32,6 +34,7 @@ void ComponentManager::update()
 	LCS.update(ambients);
 	GCS.update(graphics);
 	TCS.update(terrains);
+	PCS.update(physics);
 	
 }
 void ComponentManager::render(Shader* shader, Camera3d* camera)
@@ -45,27 +48,40 @@ void ComponentManager::render(Shader* shader, Camera3d* camera)
 }
 ComponentPosition* ComponentManager::createGraphics(std::string texturePath, std::string normalMap, std::string ObjectPath, Vector3 color, bool autoCenter)
 {
-	graphics.emplace_back(texturePath, normalMap, ObjectPath, color, autoCenter);
+
+	graphics.emplace_back();
+	GCS.load(graphics[graphics.size() - 1], texturePath, normalMap, ObjectPath, color, autoCenter);
 	ComponentPosition* r = new ComponentPosition(GRAPHICS, graphics.size() - 1);
 	positions[GRAPHICS].insert(std::make_pair(r->ID, r));
 	return r;
 }
 ComponentPosition* ComponentManager::createTerrain(std::string Path, std::string Texture, Vector3 Scale, bool Center)
 {
-	terrains.emplace_back(Path, Texture, Scale, Center);
+	terrains.emplace_back();
+	TCS.load(terrains[terrains.size() - 1], Path, Texture, Scale, Center, 2);
 	ComponentPosition* r = new ComponentPosition(TERRAIN, terrains.size() - 1);
 	positions[TERRAIN].insert(std::make_pair(r->ID, r));
 	return r;
 }
 ComponentPosition* ComponentManager::createAmbient(Vector3 Color)
 {
-	ambients.emplace_back(Color);
-	ComponentPosition* r = new ComponentPosition(TERRAIN, ambients.size() - 1);
+	ambients.emplace_back();
+	LCS.load(ambients[ambients.size() - 1], Color);
+	ComponentPosition* r = new ComponentPosition(AMBIENT, ambients.size() - 1);
 	positions[AMBIENT].insert(std::make_pair(r->ID, r));
+	return r;
+}
+ComponentPosition* ComponentManager::createPhysicComponent()
+{
+	physics.emplace_back();
+	PCS.load(physics[physics.size() - 1]);
+	ComponentPosition* r = new ComponentPosition(PHYSICS, physics.size() - 1);
+	positions[PHYSICS].insert(std::make_pair(r->ID, r));
 	return r;
 }
 ComponentPosition* ComponentManager::createDirectional(Vector3 Color, float Intensity, Vector3 Dir)
 {
+	//TODO directional LCS loader
 	directionals.emplace_back(BaseLight(Color, Intensity), Dir);
 	ComponentPosition* r = new ComponentPosition(DIRECTIONAL, directionals.size() - 1);
 	positions[DIRECTIONAL].insert(std::make_pair(r->ID, r));
@@ -123,6 +139,11 @@ Component* ComponentManager::findComponent(ComponentPosition* Posi)
 		if (Pos.position >= skies.size()) return NULL;
 		return &skies[Pos.position];
 	}break;
+	case PHYSICS:
+	{
+		if (Pos.position >= physics.size()) return NULL;
+		return &physics[Pos.position];
+	}break;
 	default:
 	{
 		return NULL;
@@ -138,6 +159,7 @@ void ComponentManager::deleteComponent(ComponentPosition* Posi)
 	case GRAPHICS:
 	{
 		if (Pos.position >= graphics.size()) return;
+		GCS.unload(graphics[Pos.position]);
 		graphics.erase(graphics.begin() + Pos.position);
 
 	}break;
@@ -166,6 +188,12 @@ void ComponentManager::deleteComponent(ComponentPosition* Posi)
 	{
 		if (Pos.position >= skies.size()) return;
 		skies.erase(skies.begin() + Pos.position);
+	}break;
+	case PHYSICS:
+	{
+		if (Pos.position >= physics.size()) return;
+		PCS.unload(physics[Pos.position]);
+		physics.erase(physics.begin() + Pos.position);
 	}break;
 	default:
 	{

@@ -16,7 +16,7 @@ struct Vertex
 {
 public:
 	Vertex();
-	Vertex(const Vector3& position,const Vector2& tcoord,const Vector3 &tnormal,const Vector3& ttangent);
+	Vertex(const Vector3& position,const Vector2& tcoord,const Vector3 &tnormal = Vector3(),const Vector3& ttangent = Vector3());
 	Vertex(float x,float y,float z);
 	static void loadSet()
 	{
@@ -57,6 +57,8 @@ public:
 	virtual ~Mesh(void);
 	Mesh(std::vector<Vertex> vertices);
 	Mesh(std::string path,bool autoCenter = false);
+	Mesh() {}
+	void operator=(const Mesh& other);
 	//function to load Buffers
 	void init();
 	//draw the mesh

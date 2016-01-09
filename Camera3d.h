@@ -39,7 +39,7 @@ public:
         virtual void cameraChanged(Camera3d* camera) = 0;
 		
     };
-	void scriptCreated(Script* script);
+	void ScriptCreated(SeScript* SeScript);
 	void cameraChanged();
 	/**
     * Adds a camera listener.
@@ -97,7 +97,7 @@ public:
 	void strafeleft(const float distance = 0);
 	void straferight(const float distance = 0);
 	//checks
-	void setScript(ChaiPosition* script);
+	void setScript(ChaiPosition* SeScript);
 	void setScript(std::string Path);
 	ChaiPosition* getScript();
 	bool isBehind(Vector3 pos)

@@ -10,7 +10,15 @@ Transform::Transform(const Vector3 &Pos,const Vector3 &Rot,const Vector3 &Scale)
 	calculateMatrix();
 	
 }
-
+void Transform::set(Transform &transform)
+{
+	pos = transform.pos;
+	rot = transform.rot;
+	sca = transform.sca;
+	hasUpdate = transform.hasUpdate;
+	calculateMatrix();
+	transformChanged();
+}
 
 Transform::~Transform(void)
 {

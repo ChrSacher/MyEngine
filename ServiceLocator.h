@@ -16,6 +16,7 @@ public:
 	static LuaEngine& getLua() { return *lua; }
 	static ComponentManager& getCM() { return *manager; }
 	static EntityManager& getEM() { return *entity_; }
+	static PhysicsEngine& getPE() { return *physics_; }
 	static void initialize()
 	{
 		service_ = &nullService_;
@@ -61,6 +62,20 @@ public:
 		 manager = service;
 	  }
   }
+
+  static void provide(PhysicsEngine* service)
+  {
+	  if (service == NULL)
+	  {
+		  // Revert to null service.
+		  physics_ = &nullPhysics;
+	  }
+	  else
+	  {
+		  physics_ = service;
+	  }
+  }
+
   static void provide(Text* service)
   {
     if (service == NULL)
@@ -99,5 +114,7 @@ private:
   static ComponentManager* manager;
   static NullComponentManager nullCM;
   static NullEntityManager nullEntity;
+  static PhysicsEngine* physics_;
+  static NullPhysicsEngine nullPhysics;
 };
 

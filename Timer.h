@@ -75,7 +75,10 @@ public:
 private:
 	static float _start;
 	static float _end;
+
+	//time passed in seconds
 	static float _delta;
+
 	static unsigned int _counter;
 	static unsigned int _day;
 	static unsigned int _month;

@@ -23,9 +23,10 @@ public:
 		#param exponent = dunno
 		#param fromCache = true forload the Texture from the Cache and false for loading the Texture without entry to TextureCache 
 	*/
-	Material(std::string path = "res/Texture/white.png" ,std::string normalPath = "res/texture/normal_up.jpg", Vector3 Color = Vector3(1,1,1),float intensity = 2,float power = 32,bool fromCache = true);
+	Material(std::string path  ,std::string normalPath = "res/texture/normal_up.jpg", Vector3 Color = Vector3(1,1,1),float intensity = 2,float power = 32,bool fromCache = true);
 	Material(const Material &other);
 	void operator=(const Material &other);
+	Material() {}
 	~Material(void);
 
 	Texture texture; 

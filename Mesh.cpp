@@ -58,7 +58,14 @@ Mesh::Mesh(std::string path,bool autoCenter) : model(path)
 	loadBufferVertex();
 }
 
-
+void Mesh::operator=(const Mesh& other)
+{
+	init();
+	filePath = other.filePath;
+	model = other.model;
+	indiced = other.indiced;
+	loadBufferVertex();
+}
 Vertex::Vertex()
 {
 }
@@ -126,13 +133,14 @@ Model::Model(std::string &path)
 	  Indices.push_back(0);
 	  Indices.push_back(0);
 	  valid = false;
+	  return;
    } 
    int r = 0;
    int offset = 0;
-   for(int i = 0; i < scene->mNumMeshes;i++)
+   for(unsigned int i = 0; i < scene->mNumMeshes;i++)
    {
 		const aiMesh* mesh = scene->mMeshes[i];
-		for(int j = 0;j < mesh->mNumVertices;j++)
+		for(unsigned int j = 0;j < mesh->mNumVertices;j++)
 		{
 			const aiVector3D pos = (mesh->mVertices[j]);
 			aiVector3D normal = normal = aiVector3D(1,1,1);
@@ -166,7 +174,7 @@ Model::Model(std::string &path)
 			
 			if(Face.mNumIndices >= 3)
 			{
-				for(int c = 0; c < 3;c++)
+				for(unsigned int c = 0; c < 3;c++)
 				{
 					if(r < Face.mIndices[c]) r = Face.mIndices[c] + 1;
 					Indices.push_back(offset + Face.mIndices[c]);

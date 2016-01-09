@@ -112,6 +112,7 @@ void Scene::update()
 {
 	static int counter = 0;
 	counter++;
+	
 }
 
 void Scene::renderScene()
@@ -126,7 +127,7 @@ void Scene::renderScene()
 		util.renderInPolygone();
 	}
 	ServiceLocator::getCM().render(shader,camera);
-	//PhysicsEngine::get().world->debugDrawWorld();
+	ServiceLocator::getPE().world->debugDrawWorld();
 	glFinish();
 }; 
 
@@ -259,6 +260,7 @@ bool Scene::loadScene(std::string Path)
 													stV(lines[2],lines[3],lines[4]),
 													stV(lines[5],lines[6],lines[7]),
 													stV(lines[8],lines[9],lines[10]));
+					currentEntity->addPhysics(ServiceLocator::getCM().createPhysicComponent());
 					std::cout<<"Loading Entity"<<std::endl;
 				}
 				else std::cout<<"Broken Scene Line"<<std::endl;
@@ -323,7 +325,12 @@ bool Scene::loadScene(std::string Path)
 		}
 	}
 	if(currentEntity != NULL)
+	{
 		addEntity(currentEntity);
+		ComponentPosition* r = ServiceLocator::getCM().createPhysicComponent();
+		currentEntity->addPhysics(ServiceLocator::getCM().createPhysicComponent());
+	}
+		
 	return true;
 };
 

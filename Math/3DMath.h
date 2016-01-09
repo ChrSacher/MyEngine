@@ -54,8 +54,8 @@ struct Vector2
     bool        operator==(const Vector2& rhs) const;   // exact compare, no epsilon
     bool        operator!=(const Vector2& rhs) const;   // exact compare, no epsilon
     bool        operator<(const Vector2& rhs) const;    // comparison for sort
-    float       operator[](int index) const;            // subscript operator v[0], v[1]
-    float&      operator[](int index);                  // subscript operator v[0], v[1]
+    float       operator[](int index) const;            // subScript operator v[0], v[1]
+    float&      operator[](int index);                  // subScript operator v[0], v[1]
 
     friend Vector2 operator*(const float a, const Vector2 vec);
     friend std::ostream& operator<<(std::ostream& os, const Vector2& vec);
@@ -104,8 +104,8 @@ struct Vector3
     bool        operator!=(const Vector3& rhs) const;   // exact compare, no epsilon
     bool        operator<(const Vector3& rhs) const;    // comparison for sort
 	std::string operator<<(const Vector3& rhs) const { return std::string(std::to_string(x) + " " + std::to_string(y) + " " + std::to_string(z));}
-    float       operator[](int index) const;            // subscript operator v[0], v[1]
-    float&      operator[](int index);                  // subscript operator v[0], v[1]
+    float       operator[](int index) const;            // subScript operator v[0], v[1]
+    float&      operator[](int index);                  // subScript operator v[0], v[1]
 	
     friend Vector3 operator*(const float a, const Vector3 vec);
     friend std::ostream& operator<<(std::ostream& os, const Vector3& vec);
@@ -150,8 +150,8 @@ struct Vector4
     bool        operator==(const Vector4& rhs) const;   // exact compare, no epsilon
     bool        operator!=(const Vector4& rhs) const;   // exact compare, no epsilon
     bool        operator<(const Vector4& rhs) const;    // comparison for sort
-    float       operator[](int index) const;            // subscript operator v[0], v[1]
-    float&      operator[](int index);                  // subscript operator v[0], v[1]
+    float       operator[](int index) const;            // subScript operator v[0], v[1]
+    float&      operator[](int index);                  // subScript operator v[0], v[1]
 	
     friend Vector4 operator*(const float a, const Vector4 vec);
     friend std::ostream& operator<<(std::ostream& os, const Vector4& vec);
@@ -197,8 +197,8 @@ public:
     Matrix2&    operator*=(const Matrix2& rhs);         // multiplication: M1' = M1 * M2
     bool        operator==(const Matrix2& rhs) const;   // exact compare, no epsilon
     bool        operator!=(const Matrix2& rhs) const;   // exact compare, no epsilon
-    float       operator[](int index) const;            // subscript operator v[0], v[1]
-    float&      operator[](int index);                  // subscript operator v[0], v[1]
+    float       operator[](int index) const;            // subScript operator v[0], v[1]
+    float&      operator[](int index);                  // subScript operator v[0], v[1]
 
     friend Matrix2 operator-(const Matrix2& m);                     // unary operator (-)
     friend Matrix2 operator*(float scalar, const Matrix2& m);       // pre-multiplication
@@ -253,8 +253,8 @@ public:
     Matrix3&    operator*=(const Matrix3& rhs);         // multiplication: M1' = M1 * M2
     bool        operator==(const Matrix3& rhs) const;   // exact compare, no epsilon
     bool        operator!=(const Matrix3& rhs) const;   // exact compare, no epsilon
-    float       operator[](int index) const;            // subscript operator v[0], v[1]
-    float&      operator[](int index);                  // subscript operator v[0], v[1]
+    float       operator[](int index) const;            // subScript operator v[0], v[1]
+    float&      operator[](int index);                  // subScript operator v[0], v[1]
 
     friend Matrix3 operator-(const Matrix3& m);                     // unary operator (-)
     friend Matrix3 operator*(float scalar, const Matrix3& m);       // pre-multiplication
@@ -331,8 +331,8 @@ public:
     Matrix4&    operator*=(const Matrix4& rhs);         // multiplication: M1' = M1 * M2
     bool        operator==(const Matrix4& rhs) const;   // exact compare, no epsilon
     bool        operator!=(const Matrix4& rhs) const;   // exact compare, no epsilon
-    float       operator[](int index) const;            // subscript operator v[0], v[1]
-    float&      operator[](int index);                  // subscript operator v[0], v[1]
+    float       operator[](int index) const;            // subScript operator v[0], v[1]
+    float&      operator[](int index);                  // subScript operator v[0], v[1]
 
     friend Matrix4 operator-(const Matrix4& m);                     // unary operator (-)
     friend Matrix4 operator*(float scalar, const Matrix4& m);       // pre-multiplication

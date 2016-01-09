@@ -43,10 +43,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\Christian\Documents\GitHub\MyEngine\dep\include;$(IncludePath);</IncludePath>
-    <LibraryPath>C:\Users\Christian\Documents\GitHub\MyEngine\dep\lib\debug;$(LibraryPath);C:\Program Files (x86)\Windows Kits\8.0\Lib\win8\um\x86\</LibraryPath>
+    <IncludePath>C:\Users\Christian\Documents\GitHub\MyEngine\dep\bullet\src;C:\Program Files %28x86%29\Microsoft SDKs\Windows\v7.0A\Include;C:\Users\Christian\Documents\GitHub\MyEngine\dep\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Christian\Documents\GitHub\MyEngine\dep\bullet\lib\Debug;C:\Program Files %28x86%29\Microsoft SDKs\Windows\v7.0A\Lib;C:\Users\Christian\Documents\GitHub\MyEngine\dep\lib\debug;$(LibraryPath);C:\Program Files (x86)\Windows Kits\8.0\Lib\win8\um\x86\</LibraryPath>
     <TargetName>ProperEngine</TargetName>
     <ExecutablePath>C:\Program Files %28x86%29\Windows Kits\8.0\bin\x86\1033;$(ExecutablePath)</ExecutablePath>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -68,12 +69,16 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;OpengL32.lib;glu32.lib;freetype26d.lib;CEGUIOpenGLRenderer-0_d.lib;CEGUIBase-0_d.lib;assimp.lib;Bullet3Dynamics_Debug.lib;Bullet3Collision_Debug.lib;LinearMath_Debug.lib;Bullet3Common_Debug.lib;Bullet3Geometry_Debug.lib;Bullet3OpenCL_clew_Debug.lib;BulletFileLoader_Debug.lib;BulletSoftBody_Debug.lib;BulletWorldImporter_Debug.lib;BulletXmlWorldImporter_Debug.lib;ConvexDecomposition_Debug.lib;GIMPACTUtils_Debug.lib;HACD_Debug.lib;yse_debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;OpengL32.lib;glu32.lib;freetype26d.lib;CEGUIOpenGLRenderer-0_d.lib;CEGUIBase-0_d.lib;assimp.lib;GIMPACTUtils_Debug.lib;HACD_Debug.lib;yse_debug.lib;Bullet3Collision_Debug.lib;Bullet3Common_Debug.lib;Bullet3Dynamics_Debug.lib;Bullet3Geometry_Debug.lib;Bullet3OpenCL_clew_Debug.lib;BulletFileLoader_Debug.lib;BulletSoftBody_Debug.lib;BulletWorldImporter_Debug.lib;ConvexDecomposition_Debug.lib;LinearMath_Debug.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <EntryPointSymbol>
       </EntryPointSymbol>
       <ShowProgress>NotSet</ShowProgress>
+      <AdditionalLibraryDirectories>C:\Users\Christian\Desktop\bullet3-2.83.6\build\lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <ProjectReference />
+    <ProjectReference>
+      <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -207,6 +212,17 @@
     <None Include="res\Shaders\textureInstancedShading.vert" />
     <None Include="res\Shaders\textureShading.frag" />
     <None Include="res\Shaders\textureShading.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Desktop\bullet3-2.83.6\build\src\BulletCollision\BulletCollision.vcxproj">
+      <Project>{dd4dfd6d-25b4-41ca-821f-ed6f3d8ced55}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Desktop\bullet3-2.83.6\build\src\BulletDynamics\BulletDynamics.vcxproj">
+      <Project>{7212be76-71b5-42a3-bfcf-f11b58717545}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Desktop\bullet3-2.83.6\build\src\LinearMath\LinearMath.vcxproj">
+      <Project>{2626c432-52cd-4e28-b9f8-78d9920cf9ad}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

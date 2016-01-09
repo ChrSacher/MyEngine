@@ -11,7 +11,7 @@ void write(std::string r)
 
 Maingame::~Maingame(void)
 {
-	scene->saveFile("res/Scenes/test.sc");
+	//scene->saveFile("res/Scenes/test.sc");
 	Scene::deleteScene(scene);
 	for(unsigned int i = 0;i < entities.size();i++)
 	{
@@ -166,6 +166,7 @@ void Maingame::render()
 	//Color buffer leer machen	
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 	gui.draw();
+	
 	if(line) line->render(scene->getCamera());
 	if(scene) scene->renderScene();
 	if(ui) ui->draw();

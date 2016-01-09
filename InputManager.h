@@ -10,7 +10,7 @@
 class InputHandler :public LuaEngine::Listener
 {
 public:
-	void scriptCreated(Script* script);
+	void ScriptCreated(SeScript* SeScript);
 	InputHandler(){generateKeyMap();}
 	  ~InputHandler()
 	  {

@@ -12,6 +12,7 @@
 #include <CEGUI/RendererModules/OpenGL/GL3Renderer.h>
 #include <SDL/SDL_events.h>
 #include "Timer.h"
+#include "PhysicsEngine.h"
 enum SE_ButtonType
 {
 	UP,
@@ -124,14 +125,14 @@ public:
 	param pos2 end of Ray
 	Will load Line into Buffer and render it on next render call
 	*/
-	GLuint addLine(Vector3 pos,Vector3 pos2);
+	GLuint addLine(Vector3 &pos,Vector3 &pos2);
 	/* 
 		param pos start of Ray
 		param pos2 end of Ray
 		param time time in second
 		Will load Line into Buffer and render it on next render call after time in seconds have passed the line will be removed from the buffer
 	*/
-	GLuint addTimedLine(Vector3 pos,Vector3 pos2,float time);
+	GLuint addTimedLine(Vector3 &pos,Vector3 &pos2,float time);
 	/*
 		param camera Camera3d to render with
 		Render lines in 3d with Camera viewProjection
@@ -141,6 +142,7 @@ public:
 		param timeinms time in ms which have passed
 		Will update the timed line Buffer
 	*/
+	void clear();
 	void update(float timeinms);
 private:
 

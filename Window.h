@@ -13,7 +13,7 @@ class Window : public LuaEngine::Listener
 {
 public:
 	Window(int width, int height, const std::string& title);
-	void scriptCreated(Script* script);
+	void ScriptCreated(SeScript* SeScript);
 	class Listener
 	{
 	public:

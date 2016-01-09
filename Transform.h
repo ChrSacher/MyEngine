@@ -36,6 +36,7 @@ public:
 	void setPos(Vector3& Pos);
 	void setRot(Vector3& Rot);
 	void setScale(Vector3& Scale);
+	void set(Transform &transform);
 	inline void translate(Vector3 &trans) { pos += trans; }
 	inline void rotate(Vector3 &Rot) {rot += Rot;}
 	/*

@@ -2,13 +2,13 @@
 
 
 
-void Window::scriptCreated(Script* script)
+void Window::ScriptCreated(SeScript* Script)
 {
-	ChaiScript& Script = script->getState();
-	Script.add(user_type<Window>(), "WindowClass");
+	ChaiScript& script = Script->getState();
+	script.add(user_type<Window>(), "WindowClass");
 	Window* win = this;
-	Script.add_global(var(win), "Window");
-	Script.add(fun(&Window::SetFullScreen), "setFullscreen");
+	script.add_global(var(win), "Window");
+	script.add(fun(&Window::SetFullScreen), "setFullscreen");
 }
 
 Window::Window(int width, int height, const std::string& title) :

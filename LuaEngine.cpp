@@ -2,9 +2,9 @@
 #include "LuaEngine.h"
 #include "GameState.h"
 #include "ServiceLocator.h"
-int Script::eventHandlerID = 0;
+int SeScript::eventHandlerID = 0;
 
-Script* ChaiPosition::get()
+SeScript* ChaiPosition::get()
 {
 	return ServiceLocator::getLua().find(this);
 }
@@ -13,7 +13,7 @@ void ChaiPosition::destroy()
 	ServiceLocator::getLua().deleteScript(this);
 }
 
-Script::Script(std::string &Path) :hasTestRun(false), state(chaiscript::Std_Lib::library()), path(Path), updateS("update()"), hasUpdate(true)
+SeScript::SeScript(std::string &Path) :hasTestRun(false), state(chaiscript::Std_Lib::library()), path(Path), updateS("update()"), hasUpdate(true)
 {
 	isValid = true;
 	static unsigned int I = 0;
@@ -32,7 +32,7 @@ Script::Script(std::string &Path) :hasTestRun(false), state(chaiscript::Std_Lib:
 	}
 	for (int i = 0; i < numEvents; i++)
 	{
-		eventHandlers.push_back(std::vector<std::string>());
+		eventHandlers.push_back(std::map<int,std::string>());
 	}
 	state.add(user_type<GameState>(), "gameState");
 	state.add(fun(&GameState::cameramove), "cameraMove");
@@ -109,7 +109,7 @@ Script::Script(std::string &Path) :hasTestRun(false), state(chaiscript::Std_Lib:
 	begin();
 
 }
-void Script::end()
+void SeScript::end()
 {
 	try
 	{
@@ -119,12 +119,12 @@ void Script::end()
 	{
 	}
 }
-void Script::reload(std::string &Path)
+void SeScript::reload(std::string &Path)
 {
 	path = Path;
 	state.use(Path);
 }
-void Script::begin()
+void SeScript::begin()
 {
 	try
 	{
@@ -134,23 +134,23 @@ void Script::begin()
 	{
 	}
 }
-int Script::addEventHandler(std::string &Type, std::string &function, bool isFunction = false)
+int SeScript::addEventHandler(std::string &Type, std::string &function, bool isFunction)
 {
 
 	eventHandlers[stringToMET(Type)].insert(std::make_pair(eventHandlerID, function));
 	return eventHandlerID++;
 }
-int Script::addEventHandler(MessageEventType Type, std::string &function, bool isFunction = false)
+int SeScript::addEventHandler(MessageEventType Type, std::string &function, bool isFunction )
 {
 	eventHandlers[Type].insert(std::make_pair(eventHandlerID, function));
 	return eventHandlerID++;
 }
-void LuaEngine::scriptCreated(Script* script)
+void LuaEngine::ScriptCreated(SeScript* SeScript)
 {
 	for (std::list< LuaEngine::Listener*>::iterator &itr = _listeners.begin(); itr != _listeners.end(); ++itr)
 	{
 		 LuaEngine::Listener* listener = (*itr);
-		listener->scriptCreated(script);
+		listener->ScriptCreated(SeScript);
 	}
 }
 
@@ -176,35 +176,37 @@ void write(Vector2 x)
 {
 	std::cout << x.x << "  " << x.y << std::endl;
 }
-ChaiPosition*  LuaEngine::createScript(std::string Path)
+ChaiPosition*  LuaEngine::createScript(std::string &Path)
 {
 	Scripts.emplace_back(Path);
-	scriptCreated(&Scripts.back());
-	Scripts.back().getState().add(fun(&write), "write");
+	ScriptCreated(&Scripts[Scripts.size() - 1]);
 	ChaiPosition* temp = new ChaiPosition(Scripts.size() - 1);
 	positions.insert(std::make_pair(temp->ID, temp));
 	return temp;
 }
 
-void LuaEngine::deleteScript(ChaiPosition* script)
+void LuaEngine::deleteScript(ChaiPosition* Script)
 {
-	auto pos = positions.find(script->ID);
+	auto pos = positions.find(Script->ID);
 	if (pos != positions.end())
 	{
-		unsigned int i = (pos->second->pos);
-		for (auto &it = ++pos; it != positions.end(); it)
+		int i = (pos->second->pos);
+		Scripts[i].end();
+		//delete(Scripts[i]);
+		Scripts.erase(Scripts.begin() + i);
+		
+		for (auto &it = pos; it != positions.end(); it++)
 		{
 			it->second->pos -= 1;
 		}
-		Scripts[i].end();
-		Scripts.erase(Scripts.begin() + i);
-		positions.erase(--pos);
-		delete (script);
+		positions.erase(pos);
+		delete (Script);
+		
 		
 	}
 }
 
-Script*  LuaEngine::find(ChaiPosition* pos)
+SeScript*  LuaEngine::find(ChaiPosition* pos)
 {
 	auto r = positions.find(pos->ID);
 	if (r != positions.end()) return &Scripts[r->second->pos];
