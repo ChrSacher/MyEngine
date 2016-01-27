@@ -1,16 +1,25 @@
-﻿  Component.cpp
+﻿  Terrain.cpp
 c:\program files (x86)\microsoft sdks\windows\v7.0a\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
   c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
 c:\program files (x86)\microsoft sdks\windows\v7.0a\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
   c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
-  Macro definition of max detected - undefining
-  Macro definition of min detected - undefining
-c:\users\christian\documents\github\myengine\component.cpp(150): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-c:\users\christian\documents\github\myengine\component.cpp(187): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-c:\users\christian\documents\github\myengine\component.cpp(217): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-c:\users\christian\documents\github\myengine\component.cpp(238): warning C4244: "Argument": Konvertierung von "unsigned int" in "const float", möglicher Datenverlust
-c:\users\christian\documents\github\myengine\component.cpp(257): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-c:\users\christian\documents\github\myengine\component.cpp(308): warning C4244: "Argument": Konvertierung von "int" in "btScalar", möglicher Datenverlust
-c:\users\christian\documents\github\myengine\component.cpp(310): warning C4244: "Argument": Konvertierung von "int" in "btScalar", möglicher Datenverlust
-c:\users\christian\documents\github\myengine\component.cpp(349): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+c:\users\christian\documents\github\myengine\terrain.cpp(22): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+c:\users\christian\documents\github\myengine\terrain.cpp(135): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+c:\users\christian\documents\github\myengine\terrain.cpp(169): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(180): warning C4244: "Initialisierung": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(188): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+c:\users\christian\documents\github\myengine\terrain.cpp(193): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+c:\users\christian\documents\github\myengine\terrain.cpp(233): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+c:\users\christian\documents\github\myengine\terrain.cpp(235): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(238): warning C4244: "Argument": Konvertierung von "int" in "const btScalar", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(261): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(262): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(269): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(270): warning C4244: "Argument": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(286): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(287): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(288): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(289): warning C4244: "=": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(321): warning C4244: "=": Konvertierung von "int" in "float", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\terrain.cpp(322): warning C4244: "=": Konvertierung von "int" in "float", möglicher Datenverlust
   Javaportc++.vcxproj -> C:\Users\Christian\Documents\GitHub\MyEngine\Debug\ProperEngine.exe

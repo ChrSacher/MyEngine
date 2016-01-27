@@ -18,6 +18,7 @@
 #include "Lighting.h"
 #include "PhysicsEngine.h"
 #include "Camera3d.h"
+
 class Entity;
 class EntityManager;
 class NullEntityManager;
@@ -187,7 +188,7 @@ class PhysicsComponentSystem
 	~PhysicsComponentSystem() {};
 	PhysicsComponentSystem() {};
 	//TODO add what is needed for physics object for now its just a sphere
-	void load(PhysicsComponent& comp);
+	void load(PhysicsComponent& comp,float size = 1);
 	void unload(PhysicsComponent& comp);
 	void update(PhysicsComponent& comp);
 	void update(std::vector<PhysicsComponent>& comp);
@@ -232,6 +233,7 @@ class GraphicComponentSystem
 	void load(GraphicsComponent &r, std::string &texturePath, std::string &normalMap, std::string &ObjectPath, Vector3 color, bool autoCenter);
 	void unload(GraphicsComponent &r);
 	std::string sceneSave(GraphicsComponent &r);
+	PhysicsComponent *component; //used for camera culling
 };
 
 class SkyBoxComponentSystem

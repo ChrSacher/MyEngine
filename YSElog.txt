@@ -2041,3 +2041,10 @@ Log started: 6 Jan 2016 10:12:35pm
 (Debug)  COM library initialized
 (Debug)  YSE System object initialized
 === end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 21 Jan 2016 2:24:29pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized

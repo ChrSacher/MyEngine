@@ -278,13 +278,13 @@ DirectionalLightComponent::~DirectionalLightComponent() {};
 
 	}
 	///PHYSICS
-	void PhysicsComponentSystem::load(PhysicsComponent& comp)
+	void PhysicsComponentSystem::load(PhysicsComponent& comp,float size)
 	{
 		//TODO add MASS 
 		static int ID = 0;
 		int Mass = 1;
 		comp.groundMotionState = new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0,0,0)));
-		comp.shape = new btSphereShape(1); //radius
+		comp.shape = new btSphereShape(size); //radius
 		btVector3 fallInertia;
 		comp.shape->calculateLocalInertia(Mass, fallInertia);
 		btRigidBody::btRigidBodyConstructionInfo

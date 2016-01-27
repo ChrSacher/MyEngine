@@ -66,15 +66,7 @@ struct TerrainPatch
 	void operator=(const TerrainPatch &other);
 	TerrainPatch(const TerrainPatch &other);
 	
-	~TerrainPatch()
-	{
-		glDeleteBuffers(1, &vab);
-		glDeleteVertexArrays(1, &vao);
-		ServiceLocator::getPE().world->removeRigidBody(object);
-		delete terrainPhysics;
-		delete groundMotionState;
-		delete object;
-	}
+	~TerrainPatch();
 };
 
 class Terrain

@@ -187,13 +187,19 @@ void Maingame::gameloop()
 {
 	SDL_StartTextInput(); //text eingabe aktivieren
 	
-	
+	float mainDelta;
 	Time::begin(maxFPS);
 	while( GameState::state.playing )//Solange es nicht beended ist
 	{ 
 		Time::startFrame();
 		handleKeys();
-		if(!GameState::state.paused) update();
+		mainDelta += Time::delta;
+
+		if (!GameState::state.paused && mainDelta > 1 / maxFPS)
+		{
+			mainDelta -= 1/maxFPS;
+			update();
+		}
 		render();	
 		Time::endFrame();
 	}

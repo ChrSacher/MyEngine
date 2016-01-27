@@ -1,6 +1,15 @@
 #include "Terrain.h"
 #include "ServiceLocator.h"
 
+TerrainPatch::~TerrainPatch()
+{
+	glDeleteBuffers(1, &vab);
+	glDeleteVertexArrays(1, &vao);
+	ServiceLocator::getPE().world->removeRigidBody(object);
+	delete terrainPhysics;
+	delete groundMotionState;
+	delete object;
+}
 void TerrainPatch::load()
 {
 	glGenVertexArrays(1, &vao);
@@ -10,7 +19,7 @@ void TerrainPatch::load()
 	Vertex::loadSet();
 	glBufferData(GL_ARRAY_BUFFER, count * sizeof(Vertex), &vertices[0], GL_STATIC_DRAW);
 	btTriangleMesh *mesh = new btTriangleMesh();
-	for (int i = 0; i < vertices.size(); i++)
+	for (int i = 0; i < vertices.size() - 2; i++)
 	{
 		mesh->addTriangle(V3BF(vertices[i].pos), V3BF(vertices[i + 1].pos), V3BF(vertices[i + 2].pos));
 	}
