@@ -26,7 +26,8 @@ YSE::SOUND::interfaceObject::~interfaceObject() {
 }
 
 YSE::sound& YSE::sound::create(const char * fileName, channel * ch, Bool loop, Flt volume, Bool streaming) {
-  assert(pimpl == nullptr);
+	//TODO THIS BUGS OUT DUNNO WHY
+	// assert(pimpl == nullptr);
 
   pimpl = SOUND::Manager().addImplementation(this);
   if (ch == nullptr) ch = &CHANNEL::Manager().master();

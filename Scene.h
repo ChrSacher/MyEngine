@@ -40,7 +40,16 @@ enum Mode
 class Scene
 {
 public:
-	
+	friend class Entity;
+	friend class DirectionalLightComponent;
+	friend class AmbientLightComponent;
+	friend class PhysicsComponent;
+	friend class PhysicsWorld;
+	friend class GraphicsComponent;
+	friend class TerrainComponent;
+	friend class Component;
+	friend class SeScript;
+	friend class CollisionComponent;
 	static Scene* createScene(int Height,int Width,std::string path = "none");
 	static void deleteScene(Scene* deleteScene);
 	//Scene updates

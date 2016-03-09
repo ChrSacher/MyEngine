@@ -13,7 +13,6 @@ class ServiceLocator
 public:
 	static Audio& getAudio() { return *service_; }
 	static Text& getText() { return *text_; }
-	static LuaEngine& getLua() { return *lua; }
 	static ComponentManager& getCM() { return *manager; }
 	static EntityManager& getEM() { return *entity_; }
 	static PhysicsEngine& getPE() { return *physics_; }
@@ -21,7 +20,6 @@ public:
 	{
 		service_ = &nullService_;
 		text_ = &nullText_;
-		lua = &nullLua_;
 		manager = &nullCM;
 	}
 
@@ -37,18 +35,6 @@ public:
     {
       service_ = service;
     }
-  }
-  static void provide(LuaEngine* engine)
-  {
-	  if (engine == NULL)
-	  {
-		  // Revert to null service.
-		  lua = &nullLua_;
-	  }
-	  else
-	  {
-		  lua = engine;
-	  }
   }
   static void provide(ComponentManager* service)
   {
@@ -110,7 +96,6 @@ private:
 
   static NullText nullText_;
   static LuaEngine* lua;
-  static NullLuaEngine nullLua_;
   static ComponentManager* manager;
   static NullComponentManager nullCM;
   static NullEntityManager nullEntity;

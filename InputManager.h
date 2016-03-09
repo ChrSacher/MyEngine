@@ -5,9 +5,9 @@
 #include "Math/3DMath.h"
 #include <SDL.h>
 #include "Commands.h"
-#include "LuaEngine.h"
+#include "Component.h"
 
-class InputHandler :public LuaEngine::Listener
+class InputHandler :public ScriptComponentSystem::Listener
 {
 public:
 	void ScriptCreated(SeScript* SeScript);
@@ -36,7 +36,7 @@ bool isKeyDownS(const std::string &string);//copy because lua to c++
 bool isKeyPressedS(const std::string &string);
 bool isKeyReleasedS(const std::string &string);
 
-//this is needed for LUA
+//this is needed for CHAI
 void generateKeyMap()
 {
 	

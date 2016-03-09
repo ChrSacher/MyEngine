@@ -3,22 +3,29 @@
 void ComponentManager::initialize()
 {
 	graphics.reserve(50);
-	collisions.reserve(50);
 	directionals.reserve(5);
-	collisions.reserve(50);
 	physics.reserve(50);
 	skies.reserve(5);
 	terrains.reserve(2);
 }
 void ComponentManager::destroy()
 {
+	for (unsigned int i = 0; i < ambients.size(); i++);
 	ambients.clear();
+	for (unsigned int i = 0; i < graphics.size(); i++) GCS.unload(graphics[i]);
 	graphics.clear();
-	collisions.clear();
+	for (unsigned int i = 0; i < terrains.size(); i++) TCS.unload(terrains[i]);
 	terrains.clear();
+	for (unsigned int i = 0; i < directionals.size(); i++);
 	directionals.clear();
-	skies.clear();
+	for (unsigned int i = 0; i < physics.size(); i++) PCS.unload(physics[i]);
 	physics.clear();
+	for (unsigned int i = 0; i < skies.size(); i++) ;
+	skies.clear();
+	for (unsigned int i = 0; i < audios.size(); i++) ACS.unload(audios[i]);
+	audios.clear();
+	for (unsigned int i = 0; i < scripts.size(); i++) SCCS.unload(scripts[i]);
+	scripts.clear();
 	for (auto &i = positions.begin(); i != positions.end(); i++)
 	{
 		for (auto &k = i->second.begin(); k != i->second.end(); k++)
@@ -35,6 +42,8 @@ void ComponentManager::update()
 	GCS.update(graphics);
 	TCS.update(terrains);
 	PCS.update(physics);
+	ACS.update(audios);
+	SCCS.update(scripts);
 	
 }
 void ComponentManager::render(Shader* shader, Camera3d* camera)
@@ -71,14 +80,16 @@ ComponentPosition* ComponentManager::createAmbient(Vector3 Color)
 	positions[AMBIENT].insert(std::make_pair(r->ID, r));
 	return r;
 }
-ComponentPosition* ComponentManager::createPhysicComponent()
+ComponentPosition* ComponentManager::createPhysicComponent(PhysicsData& Data)
 {
 	physics.emplace_back();
-	PCS.load(physics[physics.size() - 1]);
+	PCS.load(physics[physics.size() - 1],Data);
 	ComponentPosition* r = new ComponentPosition(PHYSICS, physics.size() - 1);
 	positions[PHYSICS].insert(std::make_pair(r->ID, r));
 	return r;
 }
+
+
 ComponentPosition* ComponentManager::createDirectional(Vector3 Color, float Intensity, Vector3 Dir)
 {
 	//TODO directional LCS loader
@@ -103,6 +114,30 @@ ComponentPosition*  ComponentManager::createSkyBox(Vector3 color, std::string Di
 	return r;
 
 }
+ComponentPosition* ComponentManager::create2DAudio(std::string audiopath, float Volume)
+{
+	audios.emplace_back();
+	ACS.load(audios[audios.size() - 1], audiopath, Volume);
+	ComponentPosition* r = new ComponentPosition(AUDIO, audios.size() - 1);
+	positions[AUDIO].insert(std::make_pair(r->ID, r));
+	return r;
+}
+ComponentPosition* ComponentManager::create3DAudio(std::string audiopath, Vector3 position, float Volume)
+{
+	audios.emplace_back();
+	ACS.load(audios[audios.size() - 1], audiopath,position, Volume);
+	ComponentPosition* r = new ComponentPosition(AUDIO, audios.size() - 1);
+	positions[AUDIO].insert(std::make_pair(r->ID, r));
+	return r;
+}
+ComponentPosition* ComponentManager::createScript(std::string path)
+{
+	scripts.emplace_back();
+	SCCS.load(scripts[scripts.size() - 1], path);
+	ComponentPosition* r = new ComponentPosition(SCRIPT, scripts.size() - 1);
+	positions[SCRIPT].insert(std::make_pair(r->ID, r));
+	return r;
+}
 Component* ComponentManager::findComponent(ComponentPosition* Posi)
 {
 	ComponentPosition &Pos = *Posi;
@@ -112,11 +147,6 @@ Component* ComponentManager::findComponent(ComponentPosition* Posi)
 	{
 		if (Pos.position >= graphics.size()) return NULL;
 		return &graphics[Pos.position];
-	}break;
-	case COLLISIONS:
-	{
-		if (Pos.position >= collisions.size()) return NULL;
-		return &collisions[Pos.position];
 	}break;
 	case TERRAIN:
 	{
@@ -144,6 +174,16 @@ Component* ComponentManager::findComponent(ComponentPosition* Posi)
 		if (Pos.position >= physics.size()) return NULL;
 		return &physics[Pos.position];
 	}break;
+	case AUDIO:
+	{
+		if (Pos.position >= audios.size()) return NULL;
+		return &audios[Pos.position];
+	}break;
+	case SCRIPT:
+	{
+		if (Pos.position >= scripts.size()) return NULL;
+		return &scripts[Pos.position];
+	}break;
 	default:
 	{
 		return NULL;
@@ -162,11 +202,6 @@ void ComponentManager::deleteComponent(ComponentPosition* Posi)
 		GCS.unload(graphics[Pos.position]);
 		graphics.erase(graphics.begin() + Pos.position);
 
-	}break;
-	case COLLISIONS:
-	{
-		if (Pos.position >= collisions.size()) return;
-		collisions.erase(collisions.begin() + Pos.position);
 	}break;
 	case TERRAIN:
 	{
@@ -195,6 +230,18 @@ void ComponentManager::deleteComponent(ComponentPosition* Posi)
 		PCS.unload(physics[Pos.position]);
 		physics.erase(physics.begin() + Pos.position);
 	}break;
+	case AUDIO:
+	{
+		if (Pos.position >= audios.size()) return;
+		ACS.unload(audios[Pos.position]);
+		audios.erase(audios.begin() + Pos.position);
+	}break;
+	case SCRIPT:
+	{
+		if (Pos.position >= scripts.size()) return;
+		SCCS.unload(scripts[Pos.position]);
+		scripts.erase(scripts.begin() + Pos.position);
+	}
 	default:
 	{
 		return;
@@ -247,4 +294,12 @@ void ComponentManager::renderComponent(Component* comp, Shader* shader, Camera3d
 
 		}
 	}
+}
+void ComponentManager::addScriptListener(ScriptComponentSystem::Listener* r)
+{
+	SCCS.addListener(r);
+}
+void ComponentManager::removeScriptListener(ScriptComponentSystem::Listener* r)
+{
+	SCCS.removeListener(r);
 }

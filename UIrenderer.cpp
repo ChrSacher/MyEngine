@@ -167,7 +167,7 @@ void UIrenderer::loadBuffer()
 void UIrenderer::updateOrtho(float width,float height)
 {
 	ortho = Matrix4().identity().InitOrthographic(0,width,0,height,-1,1);
-	text.setProjection(width,height);
+	ServiceLocator::getText().setProjection(width,height);
 }
 
 void Skybox::loadSkybox(std::string Directory, std::string posx, std::string negx, std::string posy, std::string negy, std::string posz, std::string negz) 

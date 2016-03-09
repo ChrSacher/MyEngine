@@ -1,5 +1,6 @@
 #include "Camera3d.h"
 #include "ServiceLocator.h"
+#include "SpecComponent.h"
 const float DEG2RAD = 3.141593f / 180;
 const float RAD2DEG = 180 / 3.141593f;
 
@@ -288,18 +289,20 @@ void Camera3d::removeListener(Camera3d::Listener* listener)
 			}
 		}
 }
-void Camera3d::setScript(ChaiPosition* SeScript)
+void Camera3d::setScript(ComponentPosition* SeScript)
 {
-	if (cameraScript != NULL) ServiceLocator::getLua().deleteScript(cameraScript);
+	if (cameraScript != NULL) ServiceLocator::getCM().deleteComponent(cameraScript);
 	cameraScript = SeScript;
+	ScriptCreated(&cameraScript->getT<ScriptComponent*>()->script);
 }
 
 void Camera3d::setScript(std::string Path)
 {
-	if (cameraScript != NULL) ServiceLocator::getLua().deleteScript(cameraScript);
-	cameraScript = ServiceLocator::getLua().createScript(Path);
+	if (cameraScript != NULL) ServiceLocator::getCM().deleteComponent(cameraScript);
+	cameraScript = ServiceLocator::getCM().createScript(Path);
+	ScriptCreated(&cameraScript->getT<ScriptComponent*>()->script);
 }
-ChaiPosition* Camera3d::getScript()
+ComponentPosition* Camera3d::getScript()
 {
 	return cameraScript;
 }

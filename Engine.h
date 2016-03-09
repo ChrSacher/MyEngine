@@ -22,8 +22,6 @@ public:
 		audio->initialize();
 		text =  new Text();
 		text->initialize();
-		lua = new LuaEngine();
-		lua->initialize();
 		CM = new ComponentManager();
 		CM->initialize();
 		EM = new EntityManager();
@@ -35,17 +33,14 @@ public:
 		ServiceLocator::provide(CM);
 		ServiceLocator::provide(audio);
 		ServiceLocator::provide(text);
-		ServiceLocator::provide(lua);
 		ServiceLocator::provide(EM);
 		ServiceLocator::provide(PE);
 		//PE->world->getDebugDrawer()->setDebugMode(btIDebugDraw::DBG_DrawWireframe);
-		lua->addListener( &InputHandler::get());
-		
+		CM->addScriptListener( &InputHandler::get());
 
 	};	
 	static void update()
 	{
-		lua->update();
 		audio->update();
 		text->update();
 		CM->update();
@@ -57,7 +52,6 @@ public:
 
 		text->destroy();
 		audio->destroy();
-		lua->destroy();
 		CM->destroy();
 		TextureCache::deleteCache();
 		GUI::deleteRenderer();

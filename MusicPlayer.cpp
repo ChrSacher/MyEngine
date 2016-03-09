@@ -15,16 +15,20 @@ MusicPlayer::MusicPlayer(std::string path)
 	paused = false;
 	currentID = 0;
 	timer = 0;
+	currentSong = new YSE::sound();
 	loadSongList(path);
 	play(songList[currentID].path);
 }
 void MusicPlayer::update()
 {
-	if (currentSong == NULL) return; //if(currentSong->isStopped()) nextSong();
+	if (currentSong == NULL) return;
+	if(currentSong->isReady() && (timer + 500 > Time::getTick()) ) if( currentSong->isStopped()) nextSong();
 }
 MusicPlayer::~MusicPlayer()
 {
-	if (currentSong == NULL) return; currentSong->stop();
+	if (currentSong == NULL) return; 
+	currentSong->stop();
+	delete currentSong;
 }
 void MusicPlayer::pause()
 {
@@ -45,14 +49,14 @@ void MusicPlayer::play(std::string path)
 {
 	if(paused)
 	{
-		currentSong = ServiceLocator::getAudio().play2D(path,true,1.0f);
+		ServiceLocator::getAudio().play2D(currentSong,path,1.0f);
 		currentSong->play();
 	}
 	else
 	{
-		currentSong = ServiceLocator::getAudio().play2D(path, true, 1.0f);
+		ServiceLocator::getAudio().play2D(currentSong,path,  1.0f);
 		currentSong->play();
-		timer = SDL_GetTicks();
+		timer = Time::getTick();
 	}
 	
 }
@@ -67,9 +71,9 @@ void MusicPlayer::previousSong()
 {
 	if (currentSong != NULL) currentSong->stop();
 	
-	if(timer + 5 > SDL_GetTicks())
+	if(timer + 5000 > Time::getTick())
 	{
-		ServiceLocator::getAudio().play2D(songList[currentID].path);
+		currentSong->restart();
 	}
 	else
 	{

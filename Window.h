@@ -8,8 +8,9 @@
 #include "Debugger.h"
 #include "Errors.h"
 #include "Camera3d.h"
-#include "LuaEngine.h"
-class Window : public LuaEngine::Listener
+#include "SpecComponent.h"
+
+class Window : public ScriptComponentSystem::Listener
 {
 public:
 	Window(int width, int height, const std::string& title);

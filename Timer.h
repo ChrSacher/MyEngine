@@ -12,8 +12,8 @@ public:
 
 
 	static void begin(int FPS);
-		static void startFrame();
-
+	static void startFrame();
+	static unsigned int getTick();
 	static void updateSystemTime()
 	{
 		struct tm timeinfo;

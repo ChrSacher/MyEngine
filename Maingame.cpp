@@ -37,8 +37,8 @@ Maingame::~Maingame(void)
 void Maingame::init()
 {
 	
-	__screenH = cfg.getValueOfKey<float>("height",480.0f);
-	__screenW = cfg.getValueOfKey<float>("width",640.0f);
+	__screenH = cfg.getValueOfKey<int>("height",480);
+	__screenW = cfg.getValueOfKey<int>("width",640);
 	GameState::state.playing=true;
 	GameState::state.paused=false;
 	GameState::state.cameramove = true;
@@ -187,7 +187,7 @@ void Maingame::gameloop()
 {
 	SDL_StartTextInput(); //text eingabe aktivieren
 	
-	float mainDelta;
+	float mainDelta = 0;
 	Time::begin(maxFPS);
 	while( GameState::state.playing )//Solange es nicht beended ist
 	{ 
@@ -195,7 +195,7 @@ void Maingame::gameloop()
 		handleKeys();
 		mainDelta += Time::delta;
 
-		if (!GameState::state.paused && mainDelta > 1 / maxFPS)
+		if (!GameState::state.paused && (mainDelta > 1 / maxFPS))
 		{
 			mainDelta -= 1/maxFPS;
 			update();
@@ -228,6 +228,7 @@ void Maingame::createObjects()
 {
 	
 	scene = Scene::createScene(__screenH,__screenW,"res/Scenes/test.sc");
+	//scene->saveFile("res/Scenes/test.sc");
 	AudioListener::getInstance()->setCamera(scene->getCamera());
 	auto it  = scene->getEntityVector();
 	entities.insert(entities.begin(),it.begin(),it.end());
@@ -247,8 +248,7 @@ void Maingame::createObjects()
 	listbox->addItem(listboxi);
 	listbox->addItem(new CEGUI::ListboxTextItem("text22",1));
     gui.setMouseCursor("TaharezLook/MouseArrow");
-	ServiceLocator::getLua().addListener(scene->getCamera());
-	ServiceLocator::getLua().addListener(window);
+	ServiceLocator::getCM().addScriptListener(window);
 	scene->getCamera()->setScript("res/Scripts/Camera.chai");
 }
 

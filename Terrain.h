@@ -52,11 +52,14 @@ struct TerrainPatch
 {
 	GLuint vao, vab, count;
 	Material material;
-	std::vector<Vertex> vertices;
+	std::vector<Vertex> vertices;//this should be moved into a physicscomponent
 	btDefaultMotionState* groundMotionState;
 	btRigidBody* object;
 	btBvhTriangleMeshShape* terrainPhysics;
 	Vector3 scale;
+	//Vector3 trans;
+
+
 	btVector3 V3BF(Vector3 &r)
 	{
 		return btVector3(r.x, r.y, r.z);
@@ -65,9 +68,11 @@ struct TerrainPatch
 	TerrainPatch(std::vector<Vertex> &Vertices, Material &material2, Vector3& v);
 	void operator=(const TerrainPatch &other);
 	TerrainPatch(const TerrainPatch &other);
-	
+//	void setTrans(Vector3 vec) { trans = vec; }
 	~TerrainPatch();
 };
+
+
 
 class Terrain
 {
@@ -92,8 +97,10 @@ public:
 	void operator=(const Terrain& other);
 	void start(std::string Path, std::string Texture, Vector3 Scale, bool Center = false, int NumPatches = 2);
 
-	///////////////////////////////////////////////////////////
-	//TODO IMPORTANT REPLACE PIXELWIDTH,PIXELHEIGHT WITH TRANSFORM SCALE
+
+	//prolly needs rework each terrainpatch has 
+	
+	//load patch physics into this
 private: 
 	int width,height,numComponents,count;
 	TerrainIndex* Index;
@@ -111,3 +118,7 @@ private:
 	unsigned char* data;
 };
 
+class TerrainLoader
+{
+	static void loadTerrain(Terrain* terrain);
+};

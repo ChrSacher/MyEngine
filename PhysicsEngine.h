@@ -6,8 +6,34 @@
 #include <bullet\btBulletCollisionCommon.h>
 #include "Timer.h"
 #include "Math\3DMath.h"
+#include "Mesh.h"
+enum PhysicsType
+{
+	PTBOX,
+	PTSPHERE,
+	PTCYLINDER,
+	PTCAPSULE,
+	PTCONE,
+	PTCONVEXHULL,
+	PTCONVEXTRIANGLE,
+	PTTRIANGLEMESH,
+	PTPLANE,
+	PTEMPTY
+};
 
-
+struct PhysicsData
+{
+	PhysicsData() :type(PTSPHERE) { data.push_back(1.0f); vertices.push_back(Vertex(Vector3(1, 1, 1), Vector2(1, 1), Vector3(0, 1, 0), Vector3(0, 1, 0))); filePath = ""; mass = 1.0f; };
+	PhysicsData(PhysicsType Type, float Mass = 0, std::vector<float> Data = std::vector<float>(), std::string Path = "", std::vector<Vertex>& Vert = std::vector<Vertex>());
+	PhysicsType type;
+	std::string filePath;
+	std::vector<Vertex> vertices;
+	bool hasVertices;
+	float mass;
+	std::vector<float> data; //will have different meaning depening on type is sued for collision shapes if simple
+	static std::string typeToString(PhysicsType Type);
+	static PhysicsType stringToType(std::string Type);
+};
 class MyDebugDraw : public btIDebugDraw 
 {
 	int m_debugMode;

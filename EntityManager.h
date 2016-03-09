@@ -1,6 +1,6 @@
 #pragma once
 #include "Entity.h"
-
+#include <map>
 class EntityManager
 {
 	friend Entity;

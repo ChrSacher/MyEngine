@@ -5,10 +5,8 @@ TerrainPatch::~TerrainPatch()
 {
 	glDeleteBuffers(1, &vab);
 	glDeleteVertexArrays(1, &vao);
-	ServiceLocator::getPE().world->removeRigidBody(object);
-	delete terrainPhysics;
-	delete groundMotionState;
-	delete object;
+	
+	
 }
 void TerrainPatch::load()
 {
@@ -18,19 +16,7 @@ void TerrainPatch::load()
 	glBindBuffer(GL_ARRAY_BUFFER, vab);
 	Vertex::loadSet();
 	glBufferData(GL_ARRAY_BUFFER, count * sizeof(Vertex), &vertices[0], GL_STATIC_DRAW);
-	btTriangleMesh *mesh = new btTriangleMesh();
-	for (int i = 0; i < vertices.size() - 2; i++)
-	{
-		mesh->addTriangle(V3BF(vertices[i].pos), V3BF(vertices[i + 1].pos), V3BF(vertices[i + 2].pos));
-	}
-	terrainPhysics = new btBvhTriangleMeshShape(mesh, false);
-	terrainPhysics->setLocalScaling(V3BF(scale));
-	btTransform tr;
-	tr.setIdentity();
-	tr.setOrigin(btVector3(0, 0, 0));
-	groundMotionState = new btDefaultMotionState(tr);
-	object = new btRigidBody(0, groundMotionState, terrainPhysics);
-	ServiceLocator::getPE().world->addRigidBody(object);
+	
 }
 TerrainPatch::TerrainPatch(std::vector<Vertex> &Vertices, Material &material2, Vector3& v) :vertices(Vertices)
 {
@@ -235,7 +221,7 @@ void Terrain::loadTerrain()
 				vertices[i].pos = vertices[i].pos + Vector3(numX * PatchSize, 0, numY * PatchSize);
 			}
 			patches.push_back(TerrainPatch(vertices, m,Vector3(transform.getScale()))); //should use emplace back but doesn't work
-			patches[patches.size() - 1].object->translate(btVector3(numX * PatchSize / 2, 0, numY * PatchSize / 2));
+		//	patches[patches.size() - 1].setTrans(Vector3(numX * PatchSize / 2, 0, numY * PatchSize / 2));
 			vertices.clear();
 			subsetVec.clear();
 			subsetNormal.clear();
@@ -287,7 +273,7 @@ float Terrain::getHeight(float X,float Z)
 		height2 = heightMap[minX][maxY] * (1 - (X - minY)) + heightMap[minX][maxY] * (X - minY);
 		height3 = heightMap[minX][maxY] * (1 - (Z - minX)) + heightMap[maxX][maxY] * (Z - minX);
 		height4 = heightMap[maxX][maxY] * (1 - (X - minY)) + heightMap[maxX][maxY] * (X - minY);
-		return ((height1+height2+height3+height4)/4+ 1) * transform.getScale().y ;
+		return ((height1+height2+height3+height4)/4 + 1) * transform.getScale().y ;
 	}
 	else
 	{
@@ -388,4 +374,5 @@ void Terrain::calculateHeightMap(std::string Path)
 void Terrain::resizeTerrain(Vector3 Scale)
 {
 	transform.setScale(Scale);
+	for (unsigned int i = 0; i < patches.size(); i++) patches[i].terrainPhysics->setLocalScaling(patches[i].V3BF(Scale));
 }

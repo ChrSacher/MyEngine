@@ -13,9 +13,8 @@ void Audio::initialize()
 	YSE::System().init();
 	YSE::System().update();
 	last = 0;
-	dummy.create("res/sound/Music/MUS_Aint_That_A_Kick_In_the_Head.mp3");
-	dummy.play();
-	dummy.pause();
+	dummy.create("");
+
 	auto r = YSE::System().getDevices();
 
 	return;
@@ -26,11 +25,8 @@ void Audio::initialize()
 	void Audio::destroy()
 	{
 		YSE::System().close();
-		for (auto &it = info.begin(); it != info.end(); it++)
-		{
-			delete(it->second);
-		}
-		info.clear();
+		for (unsigned int i = 0; i < empty.size(); i++) delete(empty[i]);
+		empty.clear();
 	}
 	Audio::~Audio(void)
 	{
@@ -41,42 +37,54 @@ void Audio::initialize()
 	//Play 2d Sound
 	// #return will return an Int with location of the current sound
 	// if -1 then sound couldn't be loaded
-	YSE::sound* Audio::play2D(std::string audiopath, bool store, float Volume)
+	void Audio::play2D(YSE::sound* sound , std::string audiopath, float Volume)
 	{
-		YSE::sound *temp = new YSE::sound();
-		temp->create(audiopath.c_str(),nullptr ,false,Volume,true);
-		if (temp->isValid())
+		if (!sound)
 		{
+			YSE::sound* temp = new YSE::sound;
 			temp->setVolume(Volume);
-			temp->set2D(true);
 			temp->play();
-			if (store) info.insert(std::make_pair(++last, temp));
-			else empty.insert(std::make_pair(++last, temp));
+			empty.push_back(temp);
 			update();
-			return temp;
+			return;
 		}
-		return &dummy;
+		sound->stop();
+		sound->create(audiopath.c_str(),nullptr ,false,Volume,false);
+		if (sound->isValid())
+		{
+			sound->setVolume(Volume);
+			sound->set2D(true);
+			sound->play();
+			update();
+			return ;
+		}
+		return;
 
 	}
 	//Play 3d Sound
 	// #return will return an Int with location of the current sound
 	// if -1 then sound couldn't be loaded
-	YSE::sound* Audio::play3D(std::string audiopath, Vector3 position, float Volume, bool store)
+	void  Audio::play3D(YSE::sound* sound,std::string audiopath, Vector3 position, float Volume)
 	{
-		YSE::sound *temp = new YSE::sound();
-		temp->create(audiopath.c_str());
-		if (temp->isValid())
+		if (!sound)
 		{
-
+			YSE::sound* temp = new YSE::sound;
 			temp->setVolume(Volume);
-			temp->setPosition(Vec(position));
 			temp->play();
-			if (store) info.insert(std::make_pair(++last, temp));
-			else empty.insert(std::make_pair(++last, temp));
+			empty.push_back(temp);
 			update();
-			return temp;
+			return;
 		}
-		return &dummy;
+		sound->stop();
+		sound->create(audiopath.c_str(), nullptr, false, Volume, false);
+		if (sound->isValid())
+		{
+			sound->setVolume(Volume);
+			sound->play();
+			update();
+			return;
+		}
+		return;
 	}
 	void Audio::stopSounds()
 	{
@@ -96,9 +104,13 @@ void Audio::initialize()
 	void Audio::update()
 	{
 		YSE::System().update();
-		for (auto &it = empty.begin(); it != empty.end(); it++)
+		for (unsigned int i = 0; i < empty.size(); i++)
 		{
-			if (it->second->isStopped()) delete(it->second);
+			if (empty[i]->isStopped()) 
+			{
+				delete(empty[i]);
+				empty.erase(empty.begin() + i);
+			}
 		}
 	}
 
@@ -115,45 +127,52 @@ void Audio::initialize()
 	{
 
 	}
-	YSE::sound* LoggedAudio::play2D(std::string audiopath, bool store, float Volume)
+	void LoggedAudio::play2D(YSE::sound* sound, std::string audiopath, float Volume)
 	{
-		YSE::sound *temp = new YSE::sound();
-		temp->create(audiopath.c_str());
-		if (temp->isValid())
+		if (!sound)
 		{
-
+			YSE::sound* temp = new YSE::sound;
 			temp->setVolume(Volume);
-			temp->set2D(true);
 			temp->play();
-			std::cout << "Loading Sound " + audiopath << std::endl;
-
-			if (store) info.insert(std::make_pair(++last, temp));
-			else empty.insert(std::make_pair(++last, temp));
+			empty.push_back(temp);
 			update();
-			return temp;
+			return;
 		}
-		std::cout << "Failed Loading Sound " + audiopath << std::endl;
-		return &dummy;
+		//sound->stop();
+		sound->create(audiopath.c_str(), nullptr, false, Volume, false);
+		if (sound->isValid())
+		{
+			sound->setVolume(Volume);
+			sound->set2D(true);
+			sound->play();
+			update();
+			return;
+		}
+		return;
 
 
 	}
-	YSE::sound* LoggedAudio::play3D(std::string audiopath, Vector3 position, float Volume, bool store)
+	void LoggedAudio::play3D(YSE::sound* sound, std::string audiopath, Vector3 position, float Volume)
 	{
-		YSE::sound *temp = new YSE::sound();
-		temp->create(audiopath.c_str());
-		if (temp->isValid())
+		if (!sound)
 		{
-			temp->setPosition(Vec(position));
+			YSE::sound* temp = new YSE::sound;
 			temp->setVolume(Volume);
 			temp->play();
-			std::cout << "Loading Sound " + audiopath << std::endl;
-			if (store) info.insert(std::make_pair(++last, temp));
-			else empty.insert(std::make_pair(++last, temp));
+			empty.push_back(temp);
 			update();
-			return temp;
+			return;
 		}
-		std::cout << "Failed Loading Sound " + audiopath << std::endl;
-		return &dummy;
+		//sound->stop();
+		sound->create(audiopath.c_str(), nullptr, false, Volume, false);
+		if (sound->isValid())
+		{
+			sound->setVolume(Volume);
+			sound->play();
+			update();
+			return;
+		}
+		return;
 	}
 	void LoggedAudio::stopSounds()
 	{

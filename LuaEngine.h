@@ -10,12 +10,16 @@
 using namespace chaiscript;
 //a SeScript which will be used by the Engine and regulary updated
 class ChaiEngine;
+
 class SeScript
 {
 public:
-	friend ChaiEngine;
+	friend class ChaiEngine;
+	friend class Scene;
+	friend class ScriptComponent;
+	friend class ScriptComponentSystem;
 	//Path to LuaScript which will be used
-	SeScript(std::string &Path);
+	SeScript();
 	// start the startUp function if exists
 	void begin();
 	int addEventHandler(std::string &Type, std::string &function, bool isFunction = false);
@@ -59,6 +63,7 @@ public:
 	chaiscript::ChaiScript& getState() { return state; }
 	SeScript& operator=(const SeScript& other) { return *this; };
 	SeScript(const SeScript& other) {};
+
 protected:
 	unsigned int ID;
 	chaiscript::ChaiScript state;
@@ -75,69 +80,9 @@ private:
 	
 };
 
-struct ChaiPosition
-{
-	ChaiPosition(unsigned int Pos): pos(Pos){ static unsigned int id = 0; ID = id++; }
-	unsigned int pos;
-	unsigned int ID;
-	SeScript* get();
-	void destroy();
-};
-//Class for keeping track and updating all Scripts
-class LuaEngine
-{
-public:
-	friend SeScript;
-	LuaEngine();
-	~LuaEngine() {}
-	bool init;
-	ChaiPosition* createScript(std::string &Path);
-	class Listener
-	{
-	public:
-		Listener() { static unsigned int i = 0; ListenerID = i++; }
-		unsigned int ListenerID;
-		virtual ~Listener() { }
-		virtual void ScriptCreated(SeScript* Script) = 0;
-	};
-	void ScriptCreated(SeScript* Script);
-	void addListener(LuaEngine::Listener* listener);
-	void removeListener(LuaEngine::Listener* listener);
-	void deleteScript(ChaiPosition* SeScript);
-	SeScript* find(ChaiPosition* pos);
-	void initialize();
-	void update();
-	void destroy();
-protected:
-	std::vector<SeScript> Scripts;
-	std::map<unsigned int, ChaiPosition*> positions;
-	std::list<LuaEngine::Listener*> _listeners;
-};
 
-class NullLuaEngine : public LuaEngine
-{
-public:
-	NullLuaEngine() {}
-	~NullLuaEngine() {}
-	ChaiPosition* createScript(std::string Path)
-	{
-		return NULL;
-	}
-	void deleteScript(SeScript* SeScript)
-	{
-	}
-	void initialize()
-	{
 
-	}
-	void update()
-	{
-		
-	}
-	void destroy()
-	{
-	}
-};
+
 
 
 

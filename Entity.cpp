@@ -44,32 +44,15 @@ Entity* Entity::removeComponent(ComponentPosition* component)
 		
 }
 
-Entity*  Entity::addScript(ChaiPosition* chai)
-{
-	Scripts.push_back(chai);
-	ChaiScript *ref = &chai->get()->getState();
-	return this;
-}
-Entity* Entity::removeScript(ChaiPosition* chai)
-{
-	for (unsigned int i = 0; i < Scripts.size(); i++)
-	{
-		if (Scripts[i]->ID == chai->ID)
-		{
-			chai->destroy();
-			Scripts.erase(Scripts.begin() + i);
-		}
-	}
-	return this;
-}
+
 //add a Component to the Entity
 Entity* Entity::addPhysics(ComponentPosition* component)
 {
 	removePhysics();
 	component->get()->SetParent(this);
 	physics = component;
-	PhysicsComponent* r = physics->getT<PhysicsComponent*>();
-	r->set(transform);
+
+	component->get()->setTransform(transform);
 	return this;
 }
 //remove a Component from the Entity
@@ -97,17 +80,6 @@ Entity::~Entity()
 	{
 		components[i]->destroy();
 	}
-	for (unsigned int i = 0; i < Scripts.size(); i++)
-	{
-		Scripts[i]->destroy();
-	}
-}
-void Entity::render(Shader* shader,Camera3d* camera)
-{
-	for(unsigned int i = 0;i < components.size();i++)
-	{
-		components[i]->get()->render(shader,camera);
-	}
 }
 int Entity::getID()
 {
@@ -121,16 +93,5 @@ Entity::Entity(std::string Name,Vector3 pos,Vector3 rot,Vector3 skal):transform(
 	physics = NULL;
 }
 
-std::string Entity::saveScene()
-{
-	std::string returnS = "E "	+ name + " "+ std::to_string(transform.getPos().x)		+ " " +std::to_string(transform.getPos().y)	+ " " +std::to_string(transform.getPos().z) + " "
-								+ std::to_string(transform.getRot().x)		+ " " +std::to_string(transform.getRot().y)	+ " " +std::to_string(transform.getRot().z) + " "
-								+ std::to_string(transform.getScale().x)	+ " " +std::to_string(transform.getScale().y)	+ " " +std::to_string(transform.getScale().z) + "\n";
 
-	for(unsigned int i = 0;i < components.size();i++)
-	{
-		returnS += components[i]->get()->sceneSave();
-	}
-	return returnS;
-}
 

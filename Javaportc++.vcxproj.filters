@@ -114,9 +114,6 @@
     <ClInclude Include="Engine.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Component.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="Entity.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -139,6 +136,12 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="MessageEvent.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="SpecComponent.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
@@ -230,9 +233,6 @@
     <ClCompile Include="Engine.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="Component.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="Entity.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
@@ -256,6 +256,12 @@
     </ClCompile>
     <ClCompile Include="MessageEvent.cpp">
       <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="SpecComponent.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Headerdateien</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

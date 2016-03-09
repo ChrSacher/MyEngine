@@ -1,5 +1,49 @@
 #include "PhysicsEngine.h"
 #include "Entity.h"
+PhysicsData::PhysicsData(PhysicsType Type, float Mass, std::vector<float> Data , std::string Path, std::vector<Vertex>& Vert) 
+	:data(Data), type(Type), vertices(Vert), mass(Mass) {};
+
+
+std::string PhysicsData::typeToString(PhysicsType Type)
+{
+	static std::map< PhysicsType, std::string> types{
+		std::make_pair(PTBOX,"PTBOX"),
+		std::make_pair(PTSPHERE,"PTSPHERE"),
+		std::make_pair(PTCYLINDER,"PTCYLINDER"),
+		std::make_pair(PTCAPSULE,"PTCAPSULE"),
+		std::make_pair(PTCONE,"PTCONE"),
+		std::make_pair(PTCONVEXHULL,"PTCONVEXHULL"),
+		std::make_pair(PTCONVEXTRIANGLE,"PTCONVEXTRIANGLE"),
+		std::make_pair(PTTRIANGLEMESH,"PTTRIANGLEMESH"),
+		std::make_pair(PTPLANE,"PTPLANE"),
+		std::make_pair(PTEMPTY,"PTEMPTY")
+	};
+	auto x = types.find(Type);
+	if (x == types.end()) return "PTSPHERE";
+	return x->second;
+
+
+}
+
+PhysicsType PhysicsData::stringToType(std::string Type)
+{
+	static std::map<std::string, PhysicsType> types{
+		std::make_pair("PTBOX",PTBOX),
+		std::make_pair("PTSPHERE",PTSPHERE),
+		std::make_pair("PTCYLINDER",PTCYLINDER),
+		std::make_pair("PTCAPSULE",PTCAPSULE),
+		std::make_pair("PTCONE",PTCONE),
+		std::make_pair("PTCONVEXHULL",PTCONVEXHULL),
+		std::make_pair("PTCONVEXTRIANGLE",PTCONVEXTRIANGLE),
+		std::make_pair("PTTRIANGLEMESH",PTTRIANGLEMESH),
+		std::make_pair("PTPLANE",PTPLANE),
+		std::make_pair("PTEMPTY",PTEMPTY)
+	};
+	auto x = types.find(Type);
+	if (x == types.end()) return PTSPHERE;
+	return x->second;
+}
+
 
 PhysicsEngine::PhysicsEngine(void)
 {

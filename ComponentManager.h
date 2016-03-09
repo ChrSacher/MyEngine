@@ -1,4 +1,4 @@
-#include "Component.h"
+#include "SpecComponent.h"
 
 //Component Manager needs to be a static thing inside the Engine ...done
 //TODO IMPLEMENT A SYSTEM WHERE I CAN STORE RAW DATA IN THOSE VECTORS
@@ -21,6 +21,8 @@ public:
 	friend class SkyboxComponentSystem;
 	friend class LightComponentSystem;
 	friend class PhysicsComponentSystem;
+	friend class AudioComponentSystem;
+	friend class ScriptComponentSystem;
 	//start the Manager
 	void initialize();
 	//destroy Manager and all components
@@ -40,24 +42,36 @@ public:
 	ComponentPosition* createAmbient(Vector3 Color);
 	ComponentPosition* createDirectional(Vector3 Color = Vector3(1.0f, 1.0f, 1.0f), float Intensity = 0.2f, Vector3 Dir = Vector3(1.0f, 1.0f, 1.0f));
 	ComponentPosition* createSkyBox(Vector3 color, std::string Directory, std::string posx, std::string negx, std::string posy, std::string negy, std::string posz, std::string negz);
-	ComponentPosition* createPhysicComponent();
+	ComponentPosition* createPhysicComponent(PhysicsData& Data);
+	ComponentPosition* create2DAudio(std::string audiopath = "", float Volume = 1.0f);
+	ComponentPosition* create3DAudio(std::string audiopath = "", Vector3 position = Vector3(), float Volume = 1.0f);
+	ComponentPosition* createScript(std::string path);
+
 	void deleteComponent(ComponentPosition* Posi);
 	void renderComponent(ComponentPosition* comp, Shader* shader, Camera3d* camera);
 	void renderComponent(Component* comp, Shader* shader, Camera3d* camera);
 	Component* findComponent(ComponentPosition* Posi);
+
+
+	void addScriptListener(ScriptComponentSystem::Listener* r);
+	void removeScriptListener(ScriptComponentSystem::Listener* r);
+private:
 	GraphicComponentSystem GCS;
 	LightComponentSystem LCS;
 	SkyBoxComponentSystem SCS;
 	TerrainComponentSystem TCS;
 	PhysicsComponentSystem PCS;
-private:
+	AudioComponentSystem  ACS;
+	ScriptComponentSystem SCCS;
+
 	std::vector<GraphicsComponent> graphics;
-	std::vector<CollisionComponent> collisions;
 	std::vector<TerrainComponent> terrains;
 	std::vector<AmbientLightComponent> ambients;
 	std::vector<DirectionalLightComponent> directionals;
 	std::vector<PhysicsComponent> physics;
 	std::vector<SkyBoxComponent> skies;
+	std::vector<AudioComponent> audios;
+	std::vector<ScriptComponent> scripts;
 	std::map<ComponentType, std::map<unsigned int, ComponentPosition*>> positions; //positions begin at 0
 
 

@@ -2,17 +2,48 @@
 
 #include <glew.h>
 #include <GL/GLu.h>
-#include "Math/3DMath.h"
-#include "Transform.h"
-#include "Shader.h"
-#include "Texture.h"
-#include "Camera3d.h"
-#include "Text.h"
 #include <CEGUI/CEGUI.h>
 #include <CEGUI/RendererModules/OpenGL/GL3Renderer.h>
 #include <SDL/SDL_events.h>
-#include "Timer.h"
-#include "PhysicsEngine.h"
+#include "Camera3d.h"
+#include "Material.h"
+
+class Skybox
+{
+public:
+	/*
+	param Directory there place where the files are stored Example: res/texture/skybox/standard/
+	param Rest invidual names
+	Will load the skybox with Vetices Texture and Shader
+	*/
+	void loadSkybox(std::string Directory, std::string posx = "posx.png", std::string negx = "negx.png", std::string posy = "posy.png", std::string negy = "negy.png", std::string posz = "posz.png", std::string negz = "negz.png");
+	/*
+	param Directory there place where the files are stored Example: res/texture/skybox/standard/
+	param Rest invidual names
+	Will set the cube Texture
+	*/
+	void setSkyboxTexture(std::string Directory, std::string posx = "posx.png", std::string negx = "negx.png", std::string posy = "posy.png", std::string negy = "negy.png", std::string posz = "posz.png", std::string negz = "negz.png");
+	/* Render The Skybox with its own Shader and matrices and textures*/
+	void renderSkybox(Camera3d* camera);
+	/*Make Skybox and attach Camera to it and give it a color(use other than white for different shaded sky)*/
+	Skybox(Vector3 Color = Vector3(1, 1, 1));
+	~Skybox();
+	void setColor(Vector3 Color);
+	Vector3 getColor() { return color; }
+	void setPos(Vector3 Pos);
+	void setRot(Vector3 Rot);
+	void setScale(Vector3 Scale);
+	std::vector<std::string> getDirAndFile();
+private:
+	Shader* shader;
+	GLuint vao, vbo;
+	CubemapTexture cube;
+	Transform transform;
+	Vector3 color;
+	std::string Dir;
+	std::string fileNames[6];
+};
+
 enum SE_ButtonType
 {
 	UP,
@@ -65,56 +96,14 @@ public:
 		TEXTUREVB,
 		NUMBUFFERS
 	};
-	Text text;
 	GLuint vab[NUMBUFFERS];
 	void loadBuffer();
 };
 
-class Skybox 
-{ 
-public:
-	/*
-		param Directory there place where the files are stored Example: res/texture/skybox/standard/
-		param Rest invidual names
-		Will load the skybox with Vetices Texture and Shader
-	*/
-   void loadSkybox(std::string Directory, std::string posx = "posx.png", std::string negx = "negx.png", std::string posy = "posy.png", std::string negy = "negy.png", std::string posz = "posz.png", std::string negz= "negz.png"); 
-  /*
-		param Directory there place where the files are stored Example: res/texture/skybox/standard/
-		param Rest invidual names
-		Will set the cube Texture
-	*/
-   void setSkyboxTexture(std::string Directory, std::string posx = "posx.png", std::string negx = "negx.png", std::string posy = "posy.png", std::string negy = "negy.png", std::string posz = "posz.png", std::string negz= "negz.png"); 
-   /* Render The Skybox with its own Shader and matrices and textures*/
-   void renderSkybox(Camera3d* camera); 
-   /*Make Skybox and attach Camera to it and give it a color(use other than white for different shaded sky)*/
-   Skybox(Vector3 Color = Vector3(1,1,1));
-   ~Skybox();
-   void setColor(Vector3 Color);
-   Vector3 getColor(){return color;}
-   void setPos(Vector3 Pos);
-   void setRot(Vector3 Rot);
-   void setScale(Vector3 Scale);
-   std::vector<std::string> getDirAndFile();
-private: 
-	Shader* shader;
-	GLuint vao,vbo;
-	CubemapTexture cube;
-	Transform transform;
-	Vector3 color;
-	std::string Dir;
-	std::string fileNames[6];
-};
 
 
-struct TimeRay
-{
 
-	TimeRay(Ray r = Ray(Vector3(),Vector3()),float ttl = 0,GLuint off = 0){ray = r; TTL = ttl;offset = off;}
-	Ray ray;
-	float TTL;
-	GLuint offset;
-};
+
 class LineRenderer
 {
 public:

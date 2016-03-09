@@ -28,3 +28,8 @@ void Time::startFrame()
 	Time::_start = SDL_GetTicks();
 	Time::_delta = (Time::_start - Time::_end) / 1000;
 }
+
+unsigned int  Time::getTick()
+{
+	return  SDL_GetTicks();
+}

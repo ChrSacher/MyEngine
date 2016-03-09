@@ -1,29 +1,46 @@
-#pragma once
 
+
+#ifndef __CAMERA3d_H
+#define __CAMERA3d_H
+#pragma once
 // Std. Includes
 #include <vector>
 
 // GL Includes
 #include <GL\glew.h>
- 
- 
-#include "Math/3DMath.h"
-#include "Transform.h"
 #include <math.h>
-#include "Shader.h"
-#include "Audio.h"
-#include "LuaEngine.h"
 
+#include "Component.h"
+#include "LuaEngine.h"
 #define PI 3.14159265358979323846f
+
+class Listener;
+class ScriptComponentSystem;
+class ScriptComponent;
+class ScriptComponentSystemListener;
+class Entity;
+class SeScript;
+
 struct Ray
 {
 	Vector3 pos;
 	Vector3 dir;
 	Ray(Vector3 x = Vector3(),Vector3 y = Vector3()){ pos = x; dir = y;}
 };
-class Camera3d :public LuaEngine::Listener
+
+struct TimeRay
+{
+
+	TimeRay(Ray r = Ray(Vector3(), Vector3()), float ttl = 0, GLuint off = 0) { ray = r; TTL = ttl; offset = off; }
+	Ray ray;
+	float TTL;
+	GLuint offset;
+};
+
+class Camera3d 
 {
 public:
+	friend class ScriptComponent;
 	class Listener
     {
     public:
@@ -97,9 +114,9 @@ public:
 	void strafeleft(const float distance = 0);
 	void straferight(const float distance = 0);
 	//checks
-	void setScript(ChaiPosition* SeScript);
+	void setScript(ComponentPosition* SeScript);
 	void setScript(std::string Path);
-	ChaiPosition* getScript();
+	ComponentPosition* getScript();
 	bool isBehind(Vector3 pos)
 	{
 		return (pos - this->pos).dot(dir) <= 0;
@@ -116,8 +133,10 @@ private:
     int windowHeight;
 	float zNear,zFar;
     float AngleH;
-	ChaiPosition* cameraScript;
+	ComponentPosition* cameraScript;
     float AngleV;
 	std::list<Camera3d::Listener*> _listeners;
 	static Camera3d *currentCamera;
 };
+
+#endif

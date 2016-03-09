@@ -2048,3 +2048,379 @@ Log started: 21 Jan 2016 2:24:29pm
 
 (Debug)  COM library initialized
 (Debug)  YSE System object initialized
+
+**********************************************************
+=== start of YSE log ===
+Log started: 17 Feb 2016 4:30:31pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+
+**********************************************************
+=== start of YSE log ===
+Log started: 17 Feb 2016 4:33:07pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 17 Feb 2016 4:36:31pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 17 Feb 2016 11:00:33pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Feb 2016 3:59:48am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Feb 2016 4:01:40am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Feb 2016 4:03:22am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Feb 2016 4:04:19am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Feb 2016 4:07:39am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Feb 2016 4:08:52am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Feb 2016 4:14:37am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Feb 2016 4:15:37am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Feb 2016 4:18:21am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Feb 2016 4:21:22am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Feb 2016 4:23:08am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Feb 2016 4:23:46am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Feb 2016 4:25:40am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Feb 2016 7:42:30pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Feb 2016 7:43:26pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Feb 2016 8:57:42pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 22 Feb 2016 1:05:07am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 6 Mar 2016 12:25:29am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 6 Mar 2016 12:26:35am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 6 Mar 2016 12:28:31am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 7 Mar 2016 6:11:23pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 8 Mar 2016 2:48:12pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 8 Mar 2016 2:53:38pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 8 Mar 2016 2:55:17pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 8 Mar 2016 2:57:48pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 8 Mar 2016 3:06:41pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 8 Mar 2016 3:07:34pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 8 Mar 2016 3:09:05pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 8 Mar 2016 3:11:02pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 8 Mar 2016 3:14:33pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 8 Mar 2016 3:15:35pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 8 Mar 2016 3:15:42pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 8 Mar 2016 3:16:34pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 8 Mar 2016 5:31:59pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 8 Mar 2016 6:31:38pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 8 Mar 2016 6:32:58pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 8 Mar 2016 6:34:19pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 8 Mar 2016 6:35:21pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 9 Mar 2016 12:55:10am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 9 Mar 2016 12:58:00am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 9 Mar 2016 1:01:22am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 9 Mar 2016 1:02:22am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 9 Mar 2016 1:03:23am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 9 Mar 2016 1:06:59am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
