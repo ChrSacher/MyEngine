@@ -18,10 +18,7 @@ Transform* Entity::getTransform()
 {
 	return &transform; 
 }
-const Transform& Entity::getTransform() const
-{ 
-	return transform; 
-}
+
 Entity* Entity::addComponent(ComponentPosition* component)
 {
 	components.push_back(component);
@@ -51,7 +48,6 @@ Entity* Entity::addPhysics(ComponentPosition* component)
 	removePhysics();
 	component->get()->SetParent(this);
 	physics = component;
-
 	component->get()->setTransform(transform);
 	return this;
 }

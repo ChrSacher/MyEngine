@@ -22,6 +22,8 @@ struct RayTracer
 
 	static Entity* getFirstEntityOnRay(std::vector<Entity*> objs,Camera3d* cam,Ray ray);
 	static std::vector<Entity*> getEntitiesOnRay(std::vector<Entity*> objs,Camera3d* cam,Ray ray);
+	static Entity* getFirstEntityOnRay(Ray ray);
+	static std::vector<Entity*> getEntitiesOnRay(Ray ray);
 };
 
 class Picker
@@ -32,10 +34,14 @@ public:
 	
 	void pick(std::vector<Entity*> objs,Ray ray,Camera3d* cam);
 	void pick(int x, int y , std::vector<Entity*> objs,Camera3d* cam);
+	void pick(Ray ray);
 	Entity* getPick(){return currentObject;};
 private:
 	Vector3 lastColor;
 	Entity* currentObject;
 	Entity* lastObject;
+	Entity* pickerEntity;
+	ComponentPosition* comp;
+	void select();
 };
 

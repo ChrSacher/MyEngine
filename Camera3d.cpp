@@ -45,6 +45,7 @@ Camera3d::Camera3d(Vector3 &Pos, float fov, int width, int height, float zNear, 
 	cameraspeed = 1;
 	this->fov = fov;
 	currentCamera = this;
+	cameraScript = NULL;
 	init();
 }
 

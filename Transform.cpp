@@ -15,7 +15,7 @@ void Transform::set(Transform &transform)
 	pos = transform.pos;
 	rot = transform.rot;
 	sca = transform.sca;
-	hasUpdate = transform.hasUpdate;
+	hasUpdate = true;
 	calculateMatrix();
 	transformChanged();
 }
@@ -26,30 +26,21 @@ Transform::~Transform(void)
 void Transform::transformChanged()
 {
 
-	for (std::list<Transform::Listener*>::iterator &itr = _listeners.begin(); itr != _listeners.end(); ++itr)
+	for (auto &itr = _listeners.begin(); itr != _listeners.end(); ++itr)
 	{
-		Transform::Listener* listener = (*itr);
-		listener->transformChanged(*this);
+		
+		itr->second->transformChanged(*this);
 	}
 }
 
 void Transform::addListener(Transform::Listener* listener)
 {
-	_listeners.push_back(listener);
+	_listeners.insert(std::make_pair(listener->ListenerID,listener));
 }
 
 void Transform::removeListener(Transform::Listener* listener)
 {
-
-	
-		for (std::list<Transform::Listener*>::iterator &itr = _listeners.begin(); itr != _listeners.end(); ++itr)
-		{
-			if ((*itr) == listener)
-			{
-				_listeners.erase(itr);
-				break;
-			}
-		}
+	_listeners.erase(listener->ListenerID);
 	
 }
 
@@ -67,6 +58,13 @@ Matrix4* Transform::getMatrix()
 
 void Transform::calculateMatrix()
 {
+	//probaply a better way for this
+	if (rot.x > 360) rot.x - 360;
+	if (rot.y > 360) rot.y - 360;
+	if (rot.z > 360) rot.z - 360;
+	if (rot.x < 0) rot.x + 360;
+	if (rot.y < 0) rot.y + 360;
+	if (rot.z < 0) rot.x + 360;
 	modelMatrix = Matrix4().identity().scale(sca).rotateX(rot.x).rotateY(rot.y).rotateZ(rot.z).translate(pos);
 	Matrix4 temp;
 	temp.identity().rotateX(rot.x).rotateY(rot.y).rotateZ(rot.z);

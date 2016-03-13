@@ -7,7 +7,6 @@
 //This class will hold all kinds of services for audio logging and so on
 //This allows for fast new binding of different things
 
-class LuaEngine;
 class ServiceLocator
 {
 public:
@@ -95,7 +94,6 @@ private:
   static EntityManager* entity_;
 
   static NullText nullText_;
-  static LuaEngine* lua;
   static ComponentManager* manager;
   static NullComponentManager nullCM;
   static NullEntityManager nullEntity;

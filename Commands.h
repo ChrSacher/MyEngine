@@ -88,7 +88,7 @@ struct SceneAddObject :public SceneCommand
 	virtual void execute()
 	{
 		Entity* newEntity = ServiceLocator::getEM().create("BOX",scene->getCamera()->getPos());
-		newEntity->addComponent(ServiceLocator::getCM().createGraphics("","res/Texture/normal_map.jpg","res/models/box.obj"));
+		newEntity->addComponent(ServiceLocator::getCM().createGraphics(std::string(""), std::string("res/Texture/normal_map.jpg"), std::string("res/models/box.obj")));
 		scene->addEntity(newEntity);
 	}
 };

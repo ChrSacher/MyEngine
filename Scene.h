@@ -52,6 +52,7 @@ public:
 	friend class CollisionComponent;
 	static Scene* createScene(int Height,int Width,std::string path = "none");
 	static void deleteScene(Scene* deleteScene);
+	
 	//Scene updates
 	void renderScene();
 	void renderGeometry();//used for deferred
@@ -95,6 +96,7 @@ private:
 	FBO *fbo;
 	Picker picker;//TODO MAKE THIS A COMPONENT
 	GLuint drawnEntities;
+	static char seperatingCharacter;
 };
 
 

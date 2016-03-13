@@ -1,25 +1,51 @@
 #include "Picker.h"
-
+#include "ServiceLocator.h"
 
 Picker::Picker(void)
 {
 	lastObject = NULL;
 	currentObject = NULL;
+	pickerEntity = ServiceLocator::getEM().create("pickerEntity");
+	comp = ServiceLocator::getCM().createGraphics(std::string(), std::string(), std::string("res/models/Picker.obj"),Vector3(1.0f,1.0f,1.0f));
+	pickerEntity->addComponent(comp);
+	comp->getT<GraphicsComponent*>()->setRenderable(false);
 }
 
 
 Picker::~Picker(void)
 {
+	ServiceLocator::getEM().deleteEntity(pickerEntity);
+
 }
+
+Entity* RayTracer::getFirstEntityOnRay(Ray ray)
+{
+	
+	auto x = ServiceLocator::getPE().rayCast(ray.pos,ray.pos +  ray.dir * 1000);
+	std::vector<Entity*> c;
+	for (unsigned int i = 0; i < x.size(); i++)
+	{
+		c.push_back(static_cast<Entity*>(x[0]->getUserPointer()));
+		if(x[i] != NULL) return static_cast<Entity*>(x[0]->getUserPointer());
+	}
+	return NULL;
+}
+std::vector<Entity*> RayTracer::getEntitiesOnRay(Ray ray)
+{
+	std::vector<Entity*> c;
+	auto x = ServiceLocator::getPE().rayCast(ray.pos, ray.dir);
+	for (unsigned int i = 0; i < x.size(); i++)
+	{
+		c.push_back(static_cast<Entity*>(x[0]->getUserPointer()));
+	}
+	return c;
+}
+
 
 Entity* RayTracer::getFirstEntityOnRay(std::vector<Entity*> objs,Camera3d* cam,Ray ray)
 {
 	
 	Vector3 currentPos;
-	if(ray.dir.x < 0.001 && ray.dir.y < 0.001 && ray.dir.z < 0.001 )
-	{
-			std::cout<< "Ray.dir is empty in getFirstObjectOnRay Function"<<std::endl;
-	}
 	 //remove stuff behind camera
 	for(unsigned int i = 0; i < objs.size();i++)
 	{
@@ -117,25 +143,33 @@ void Picker::pick(std::vector<Entity*> objs,Ray ray,Camera3d* cam)
 {
 	lastObject = currentObject;
 	currentObject = RayTracer::getFirstEntityOnRay(objs,cam,ray);
-	/*if(lastObject == NULL && currentObject == NULL) return;
-
-	if(lastObject == NULL && currentObject != NULL)
-	{
-		lastColor = currentObject->material.getColor();
-		currentObject->material.setColor(Vector3(1,0,0));
-	}
-	if( lastObject != NULL && currentObject == NULL)
-	{
-		lastObject->material.setColor(lastColor);
-	}
-	if(lastObject != NULL && currentObject  != NULL)
-	{
-		lastObject->material.setColor(lastColor);
-		lastColor = currentObject->material.getColor();
-		currentObject->material.setColor(Vector3(1,0,0));
-	}*/
+	select();
 }
 
+void Picker::pick(Ray ray)
+{
+	lastObject = currentObject;
+	currentObject = RayTracer::getFirstEntityOnRay(ray);
+	select();
+}
+
+void Picker::select()
+{
+	if (lastObject == NULL && currentObject == NULL) return;
+
+	if (currentObject != NULL)
+	{
+		if (lastObject != NULL) lastObject->getTransform()->removeListener(pickerEntity);
+		comp->getT<GraphicsComponent*>()->setRenderable(true);
+	    pickerEntity->setTransform(*currentObject->getTransform());
+		currentObject->getTransform()->addListener(pickerEntity);
+	}
+	else
+	{
+		if (lastObject != NULL) lastObject->getTransform()->removeListener(pickerEntity);
+		//comp->getT<GraphicsComponent*>()->setRenderable(false);
+	}
+}
 void Picker::pick(int x, int y , std::vector<Entity*> objs,Camera3d* cam)
 {
 	Ray ray = cam->getDirClick(x,y);

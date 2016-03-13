@@ -57,13 +57,11 @@ public:
 		GUI::deleteRenderer();
 		delete(audio);
 		delete(text);
-		delete(lua);
 		delete(CM);
 		delete(PE);
 	};
 	static Audio* audio;
 	static Text* text;
-	static LuaEngine* lua;
 	static ComponentManager* CM;
 	static EntityManager* EM;
 	static PhysicsEngine* PE;

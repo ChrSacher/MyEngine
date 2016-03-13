@@ -67,7 +67,7 @@ PhysicsEngine::PhysicsEngine(void)
 }
 void PhysicsEngine::update()
 {
-	world->stepSimulation(Time::delta, 10);
+	world->stepSimulation(Time::delta,10);
 	int numManifolds = world->getDispatcher()->getNumManifolds();
 	for (int i = 0; i<numManifolds; i++)
 	{
@@ -89,7 +89,21 @@ void PhysicsEngine::update()
 		}
 	}
 }
-
+btVector3 cast(Vector3 &x) { return btVector3(x.x, x.y, x.z); }
+std::vector<const btCollisionObject*> PhysicsEngine::rayCast(Vector3 start, Vector3 end)
+{
+	std::vector<const btCollisionObject*> x;
+	btCollisionWorld::AllHitsRayResultCallback RayCallback(cast(start), cast(end));
+	world->rayTest(cast(start), cast(end), RayCallback);
+	if (RayCallback.hasHit())
+	{
+		
+		for (unsigned int i = 0; i < RayCallback.m_collisionObjects.size(); i++)
+			x.push_back(RayCallback.m_collisionObjects[i]);
+		
+	}
+	return x;
+}
 PhysicsEngine::~PhysicsEngine(void)
 {
 	world->removeRigidBody(groundRigidBody);

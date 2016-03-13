@@ -77,6 +77,7 @@ struct TerrainPatch
 class Terrain
 {
 	friend class TerrainComponentSystem;
+	friend class TerrainComponent;
 public:
 	Terrain(std::string Path,std::string Texture,Vector3 Scale,bool Center = false,int NumPatches = 2);
 	Terrain() {};

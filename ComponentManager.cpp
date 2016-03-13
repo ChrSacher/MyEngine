@@ -55,7 +55,7 @@ void ComponentManager::render(Shader* shader, Camera3d* camera)
 	TCS.render(terrains,shader);
 	
 }
-ComponentPosition* ComponentManager::createGraphics(std::string texturePath, std::string normalMap, std::string ObjectPath, Vector3 color, bool autoCenter)
+ComponentPosition* ComponentManager::createGraphics(std::string &texturePath, std::string &normalMap, std::string &ObjectPath, Vector3 color, bool autoCenter)
 {
 
 	graphics.emplace_back();

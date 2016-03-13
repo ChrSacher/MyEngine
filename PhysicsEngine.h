@@ -63,6 +63,7 @@ public:
 	void initialize() {};
 	void update();
 	MyDebugDraw* draw;
+	std::vector<const btCollisionObject*> rayCast(Vector3 start, Vector3 end);
 private:
 
 	btDefaultCollisionConfiguration* collisionConfiguration;
@@ -78,6 +79,8 @@ private:
 
 	std::vector<btCollisionShape *> collisionShapes;
 	std::map<unsigned int, btRigidBody *> physicsAccessors;
+
+	
 	
 
 };

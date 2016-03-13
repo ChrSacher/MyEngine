@@ -45,6 +45,7 @@ void Audio::initialize()
 			temp->setVolume(Volume);
 			temp->play();
 			empty.push_back(temp);
+
 			update();
 			return;
 		}
@@ -71,6 +72,7 @@ void Audio::initialize()
 			YSE::sound* temp = new YSE::sound;
 			temp->setVolume(Volume);
 			temp->play();
+			temp->setOcclusion(true);
 			empty.push_back(temp);
 			update();
 			return;
@@ -80,7 +82,9 @@ void Audio::initialize()
 		if (sound->isValid())
 		{
 			sound->setVolume(Volume);
+			sound->setOcclusion(true);
 			sound->play();
+			
 			update();
 			return;
 		}
@@ -159,7 +163,7 @@ void Audio::initialize()
 			YSE::sound* temp = new YSE::sound;
 			temp->setVolume(Volume);
 			temp->play();
-			empty.push_back(temp);
+			temp->setOcclusion(true);			empty.push_back(temp);
 			update();
 			return;
 		}

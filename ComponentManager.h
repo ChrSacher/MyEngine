@@ -37,7 +37,7 @@ public:
 	~ComponentManager()
 	{
 	}
-	ComponentPosition* createGraphics(std::string texturePath, std::string normalMap, std::string ObjectPath, Vector3 color = Vector3(1.0f, 1.0f, 1.0f), bool autoCenter = false);
+	ComponentPosition* createGraphics(std::string &texturePath, std::string &normalMap, std::string &ObjectPath, Vector3 color = Vector3(1.0f, 1.0f, 1.0f), bool autoCenter = false);
 	ComponentPosition* createTerrain(std::string Path, std::string Texture, Vector3 Scale = Vector3(1.0f, 1.0f, 1.0f), bool Center = false);
 	ComponentPosition* createAmbient(Vector3 Color);
 	ComponentPosition* createDirectional(Vector3 Color = Vector3(1.0f, 1.0f, 1.0f), float Intensity = 0.2f, Vector3 Dir = Vector3(1.0f, 1.0f, 1.0f));
@@ -91,7 +91,7 @@ public:
 	//render all Components
 	void render(Shader* shader, Camera3d* camera) {};
 
-	ComponentPosition* createGraphics(std::string texturePath, std::string normalMap, std::string ObjectPath, Vector3 color = Vector3(1.0f, 1.0f, 1.0f), bool autoCenter = false) {};
+	ComponentPosition* createGraphics(std::string &texturePath, std::string &normalMap, std::string &ObjectPath, Vector3 color = Vector3(1.0f, 1.0f, 1.0f), bool autoCenter = false) {};
 	ComponentPosition* createTerrain(std::string Path, std::string Texture, Vector3 Scale = Vector3(1.0f, 1.0f, 1.0f), bool Center = false) {};
 	ComponentPosition* createAmbient(Vector3 Color) {};
 	ComponentPosition* createDirectional(Vector3 Color = Vector3(1.0f, 1.0f, 1.0f), float Intensity = 0.2f, Vector3 Dir = Vector3(1.0f, 1.0f, 1.0f)) {};

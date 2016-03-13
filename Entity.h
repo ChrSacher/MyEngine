@@ -26,9 +26,9 @@ class Entity :public Transform::Listener
 public:
 	friend class EntityManager;
 	friend class Scene;
+	friend class Component;
 	void transformChanged(Transform& transform);
 	Transform* getTransform();
-	const Transform& getTransform() const;
 	//add a Component to the Entity
 	Entity* addComponent(ComponentPosition* component);
 	//remove a Component from the Entity
@@ -46,6 +46,7 @@ public:
 	~Entity();
 	ComponentPosition* getPhysics() { return physics; }
 	int getID();
+	std::string getName() { return name; }
 private:
 	static int id;
 	int ID;

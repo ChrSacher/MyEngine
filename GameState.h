@@ -9,5 +9,7 @@ struct GameState
 	bool drawgrid;
 	bool cameramove;
 	bool ray;
+	bool render;
+	bool update;
 	static GameState state;
 };

@@ -76,7 +76,7 @@ Texture NormalCache::getTexture(const std::string &texturePath)
     if (mit == normalMap.end()) 
 	{
         //Load the texture
-		 Texture newTexture = TextureLoader::load(texturePath);
+		 Texture newTexture = TextureLoader::loadNormal(texturePath);
 		 
         //Insert it into the map
 		normalMap.insert(make_pair(texturePath, TextureAndCount(newTexture,1)));
@@ -134,9 +134,8 @@ Texture TextureLoader::loadNormal(std::string filepath)
 	texture.texturepath=filepath.c_str();
 	if(data ==NULL)
 	{
-		printf("Couldn't load normalMap %s\nLoading Backup normalMap\n",filepath.c_str());
+		std::cout << "Couldn't load normalMap" << filepath.c_str() << "\n Loading Backup normalMap\n";
 		data = (char*)stbi_load("res/Texture/normal_up.jpg",&width,&height,&numComponents,4);
-
 		texture.texturepath="res/Texture/normal_up.jpg";
 		if(data == NULL)
 		{

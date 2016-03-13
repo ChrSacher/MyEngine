@@ -21,6 +21,7 @@ enum ComponentType
 class Component
 
 {
+	friend class Entity;
 public:
 	Component() :
 		parent(NULL),
@@ -39,12 +40,13 @@ public:
 	inline const Transform& GetTransform() const;
 	void setTransform(Transform& Transform)
 	{
-		transform = Transform;
+		transform.set(Transform);
 	};
 	ComponentType getType() { return type; }
 	void notify(int eventType, Entity* entityInteractedWith = NULL);
 	void receive(int eventType, Component* sender, Entity* entityInteractedWith = NULL);
 	void SetParent(Entity* Parent);
+	virtual void load(Entity* Parent) {};
 protected:
 	Entity* parent;
 	Component(const Component& other) {}

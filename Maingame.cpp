@@ -43,13 +43,15 @@ void Maingame::init()
 	GameState::state.paused=false;
 	GameState::state.cameramove = true;
 	GameState::state.ray = false;
+	GameState::state.update = true;
+	GameState::state.render = true;
 	maxFPS=60;
 	ui = NULL;
 	scene = NULL;
 	line = NULL;
+	std::printf("***   OpenGL Version: %s   ***\n", glGetString(GL_VERSION));
 	window = new Window(__screenW,__screenH,"My Engine");
 	Engine::startUp();
-	std::printf("***   OpenGL Version: %s   ***\n", glGetString(GL_VERSION));
 	util.initGraphics();	
 	createObjects();
 	fpsLimiter.init(maxFPS); 
@@ -89,12 +91,13 @@ void Maingame::handleKeys()
 			};break;
 			case SDL_WINDOWEVENT_FOCUS_LOST:
 			{
-				bool alt = true;
-				while (alt)
-				{
-					SDL_PollEvent(&event);
-					if (event.window.event == SDL_WINDOWEVENT_FOCUS_GAINED) alt = false;
-				};
+				GameState::state.update = false;
+				GameState::state.render = false;
+			}; break;
+			case SDL_WINDOWEVENT_FOCUS_GAINED:
+			{
+				GameState::state.update = true;
+				GameState::state.render = true;
 			}; break;
 		}
 	}
@@ -128,6 +131,10 @@ void Maingame::handleKeys()
 	{
 		GameState::state.playing=false;
 	}
+	if (InputHandler::get().isKeyDown(SDLK_t))
+	{
+		scene->saveFile("res/Scenes/config.sc");
+	}
 	if(InputHandler::get().isKeyPressed(SDLK_SPACE))
 	{
 		static bool windowed = true;
@@ -137,9 +144,11 @@ void Maingame::handleKeys()
 			GameState::state.cameramove = false;
 			GameState::state.ray = true;
 			gui.showMouseCursor();
+			
 		}
 		else
 		{
+			SDL_WarpMouseInWindow(window->GetSDLWindow(), __screenW / 2, __screenH / 2);
 			windowed = true;
 			GameState::state.cameramove = true;
 			gui.hideMouseCursor();
@@ -165,7 +174,6 @@ void Maingame::render()
 {
 	//Color buffer leer machen	
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
-	gui.draw();
 	
 	if(line) line->render(scene->getCamera());
 	if(scene) scene->renderScene();
@@ -198,9 +206,9 @@ void Maingame::gameloop()
 		if (!GameState::state.paused && (mainDelta > 1 / maxFPS))
 		{
 			mainDelta -= 1/maxFPS;
-			update();
+			if(GameState::state.update) update();
 		}
-		render();	
+		if(GameState::state.update) render();
 		Time::endFrame();
 	}
 	SDL_StopTextInput();	//Text Eingabe anhalten
