@@ -3,7 +3,7 @@
 def update()
 {
 	var cspeed = 30;
-	if (Input.isKeyDown("w")) 
+	/*if (Input.isKeyDown("w")) 
 	{
 		Camera.moveForward(cspeed * delta);
 	}
@@ -30,6 +30,6 @@ def update()
 	if(state.cameraMove) 
 	{
 		Camera.onMouse(Input.getMouseCoords());
-	}
+	}*/
 
 }

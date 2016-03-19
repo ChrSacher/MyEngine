@@ -144,6 +144,9 @@
     <ClInclude Include="Component.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="EntityComponentGui.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Errors.cpp">
@@ -260,8 +263,11 @@
     <ClCompile Include="SpecComponent.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="EntityComponentGui.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
     <ClCompile Include="Component.cpp">
-      <Filter>Headerdateien</Filter>
+      <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

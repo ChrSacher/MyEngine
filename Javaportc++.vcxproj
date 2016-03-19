@@ -106,6 +106,7 @@
     <ClInclude Include="Camera3d.h" />
     <ClInclude Include="Commands.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="EntityComponentGui.h" />
     <ClInclude Include="SpecComponent.h" />
     <ClInclude Include="ComponentManager.h" />
     <ClInclude Include="Entity.h" />
@@ -150,6 +151,7 @@
     <ClCompile Include="AudioListener.cpp" />
     <ClCompile Include="Camera3d.cpp" />
     <ClCompile Include="Component.cpp" />
+    <ClCompile Include="EntityComponentGui.cpp" />
     <ClCompile Include="SpecComponent.cpp" />
     <ClCompile Include="ComponentManager.cpp" />
     <ClCompile Include="Engine.cpp" />

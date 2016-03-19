@@ -12,6 +12,15 @@
 #include <gl/glew.h>
 #include <gl/GL.h>
 
+enum
+{
+	CHMASTER,
+	CHAMBIENT,
+	CHFX,
+	CHGUI,
+	CHVOICE,
+	CHMUSIC
+};
 //#pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
 inline YSE::Vec Vec(Vector3 x)
 {
@@ -35,10 +44,13 @@ public:
 	// #return will return an Int with location of the current sound
 	// if -1 then sound couldn't be loaded
 	virtual void play2D(YSE::sound* sound = NULL, std::string audiopath = "", float Volume = 1.0f);
+	void playSound2D(std::string audiopath = "", float Volume = 1.0f);
+	
 	//Play 3d Sound
 	// #return will return an Int with location of the current sound
 	// if -1 then sound couldn't be loaded
 	virtual void play3D(YSE::sound* sound = NULL, std::string audiopath = "", Vector3 position = Vector3(), float Volume = 1.0f);
+	void playSound3D(std::string audiopath = "", Vector3 position = Vector3(), float Volume = 1.0f);
 	void stopSounds();
 	void pauseSounds(bool paused);
 	void setPos(Vector3 Pos = Vector3(), Vector3 Dir = Vector3(0, 0, -1), Vector3 Vel = Vector3(), Vector3 Up = Vector3(0, 0, 1));

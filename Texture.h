@@ -81,7 +81,7 @@ class CubemapTexture
 {
 public:
 
-    CubemapTexture(const std::string& Directory,
+    CubemapTexture(
         const std::string& PosXFilename,
         const std::string& NegXFilename,
         const std::string& PosYFilename,
@@ -93,7 +93,7 @@ public:
 	CubemapTexture(){}
     bool Load();
     void bind(GLuint unit = 0);
-	void addFiles(std::string Directory, std::string posx, std::string negx, std::string posy, std::string negy, std::string posz, std::string negz);
+	void addFiles( std::string posx, std::string negx, std::string posy, std::string negy, std::string posz, std::string negz);
 	void releaseCubemap();
 private:
 

@@ -1,1213 +1,4 @@
 
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Four_Seasons_No_4_The_Winter.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Goin_Under.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Hallo_Mister_X.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Happy_Times.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Heartaches_by_the_Number.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_HomeOnTheWastes.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_In_The_Shadow_Of_The_Valley.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Its_A_Sin_To_Tell_A_Lie.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_Movin_Out.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_So_Blue.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Blues_GT.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Club_Blues_CAS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jingle_Jangle_Jingle.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Joe_Cool_CAS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Johnny_Guitar.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lazy_Day_Blues.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Let_s_Ride_Into_The_Sunset_Together.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lone_Star.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Love_Me_As_Though_No_Tomorrow.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Mad_About_The_Boy.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Manhattan.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_NewVegasValley.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Piano_Concerto_No_21__Elvira_Madigan.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Ride_Of_The_Valkyries_01.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Roundhouse_Rock.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sit_And_Dream.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sleepy_Town_Blues_CAS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Bounce.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Sax_KOS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Somethings_Gotta_Give.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Spring_Song_KPMC.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Stars_Of_The_Midnight_Range.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Strahlende_Trompete.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_StreetsOfNewReno.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Von_Spanien_Nach_S_damerika.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Where_Have_You_Been_All_My_Life.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Why_Dont_You_Do_Right.mp3
-
-**********************************************************
-=== start of YSE log ===
-Log started: 9 Dec 2015 11:13:23pm
-
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_American_Swing.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Big_Iron.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blues_For_You.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blue_Moon.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Cobwebs_and_Rainbows.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_For_2_Vl_Str_In_D_Minor.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_01.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_02.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_EddyArnold_Rca_ItsASin.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Flower_Duet_Lakm_KPM.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Four_Seasons_No_4_The_Winter.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Goin_Under.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Hallo_Mister_X.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Happy_Times.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Heartaches_by_the_Number.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_HomeOnTheWastes.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_In_The_Shadow_Of_The_Valley.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Its_A_Sin_To_Tell_A_Lie.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_Movin_Out.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_So_Blue.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Blues_GT.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Club_Blues_CAS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jingle_Jangle_Jingle.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Joe_Cool_CAS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Johnny_Guitar.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lazy_Day_Blues.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Let_s_Ride_Into_The_Sunset_Together.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lone_Star.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Love_Me_As_Though_No_Tomorrow.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Mad_About_The_Boy.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Manhattan.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_NewVegasValley.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Piano_Concerto_No_21__Elvira_Madigan.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Ride_Of_The_Valkyries_01.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Roundhouse_Rock.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sit_And_Dream.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sleepy_Town_Blues_CAS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Bounce.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Sax_KOS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Somethings_Gotta_Give.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Spring_Song_KPMC.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Stars_Of_The_Midnight_Range.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Strahlende_Trompete.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_StreetsOfNewReno.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Von_Spanien_Nach_S_damerika.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Where_Have_You_Been_All_My_Life.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Why_Dont_You_Do_Right.mp3
-
-**********************************************************
-=== start of YSE log ===
-Log started: 9 Dec 2015 11:13:37pm
-
-
-**********************************************************
-=== start of YSE log ===
-Log started: 9 Dec 2015 11:16:29pm
-
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_American_Swing.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Big_Iron.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blues_For_You.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blue_Moon.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Cobwebs_and_Rainbows.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_For_2_Vl_Str_In_D_Minor.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_01.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_02.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_EddyArnold_Rca_ItsASin.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Flower_Duet_Lakm_KPM.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Four_Seasons_No_4_The_Winter.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Goin_Under.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Hallo_Mister_X.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Happy_Times.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Heartaches_by_the_Number.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_HomeOnTheWastes.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_In_The_Shadow_Of_The_Valley.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Its_A_Sin_To_Tell_A_Lie.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_Movin_Out.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_So_Blue.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Blues_GT.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Club_Blues_CAS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jingle_Jangle_Jingle.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Joe_Cool_CAS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Johnny_Guitar.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lazy_Day_Blues.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Let_s_Ride_Into_The_Sunset_Together.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lone_Star.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Love_Me_As_Though_No_Tomorrow.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Mad_About_The_Boy.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Manhattan.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_NewVegasValley.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Piano_Concerto_No_21__Elvira_Madigan.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Ride_Of_The_Valkyries_01.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Roundhouse_Rock.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sit_And_Dream.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sleepy_Town_Blues_CAS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Bounce.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Sax_KOS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Somethings_Gotta_Give.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Spring_Song_KPMC.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Stars_Of_The_Midnight_Range.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Strahlende_Trompete.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_StreetsOfNewReno.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Von_Spanien_Nach_S_damerika.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Where_Have_You_Been_All_My_Life.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Why_Dont_You_Do_Right.mp3
-
-**********************************************************
-=== start of YSE log ===
-Log started: 9 Dec 2015 11:19:13pm
-
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_American_Swing.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Big_Iron.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blues_For_You.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blue_Moon.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Cobwebs_and_Rainbows.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_For_2_Vl_Str_In_D_Minor.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_01.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_02.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_EddyArnold_Rca_ItsASin.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Flower_Duet_Lakm_KPM.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Four_Seasons_No_4_The_Winter.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Goin_Under.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Hallo_Mister_X.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Happy_Times.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Heartaches_by_the_Number.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_HomeOnTheWastes.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_In_The_Shadow_Of_The_Valley.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Its_A_Sin_To_Tell_A_Lie.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_Movin_Out.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_So_Blue.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Blues_GT.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Club_Blues_CAS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jingle_Jangle_Jingle.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Joe_Cool_CAS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Johnny_Guitar.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lazy_Day_Blues.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Let_s_Ride_Into_The_Sunset_Together.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lone_Star.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Love_Me_As_Though_No_Tomorrow.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Mad_About_The_Boy.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Manhattan.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_NewVegasValley.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Piano_Concerto_No_21__Elvira_Madigan.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Ride_Of_The_Valkyries_01.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Roundhouse_Rock.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sit_And_Dream.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sleepy_Town_Blues_CAS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Bounce.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Sax_KOS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Somethings_Gotta_Give.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Spring_Song_KPMC.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Stars_Of_The_Midnight_Range.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Strahlende_Trompete.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_StreetsOfNewReno.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Von_Spanien_Nach_S_damerika.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Where_Have_You_Been_All_My_Life.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Why_Dont_You_Do_Right.mp3
-
-**********************************************************
-=== start of YSE log ===
-Log started: 9 Dec 2015 11:21:14pm
-
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_American_Swing.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Big_Iron.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blues_For_You.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blue_Moon.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Cobwebs_and_Rainbows.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_For_2_Vl_Str_In_D_Minor.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_01.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_02.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_EddyArnold_Rca_ItsASin.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Flower_Duet_Lakm_KPM.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Four_Seasons_No_4_The_Winter.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Goin_Under.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Hallo_Mister_X.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Happy_Times.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Heartaches_by_the_Number.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_HomeOnTheWastes.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_In_The_Shadow_Of_The_Valley.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Its_A_Sin_To_Tell_A_Lie.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_Movin_Out.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_So_Blue.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Blues_GT.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Club_Blues_CAS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jingle_Jangle_Jingle.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Joe_Cool_CAS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Johnny_Guitar.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lazy_Day_Blues.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Let_s_Ride_Into_The_Sunset_Together.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lone_Star.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Love_Me_As_Though_No_Tomorrow.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Mad_About_The_Boy.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Manhattan.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_NewVegasValley.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Piano_Concerto_No_21__Elvira_Madigan.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Ride_Of_The_Valkyries_01.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Roundhouse_Rock.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sit_And_Dream.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sleepy_Town_Blues_CAS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Bounce.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Sax_KOS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Somethings_Gotta_Give.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Spring_Song_KPMC.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Stars_Of_The_Midnight_Range.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Strahlende_Trompete.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_StreetsOfNewReno.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Von_Spanien_Nach_S_damerika.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Where_Have_You_Been_All_My_Life.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Why_Dont_You_Do_Right.mp3
-
-**********************************************************
-=== start of YSE log ===
-Log started: 9 Dec 2015 11:21:59pm
-
-
-**********************************************************
-=== start of YSE log ===
-Log started: 9 Dec 2015 11:48:21pm
-
-
-**********************************************************
-=== start of YSE log ===
-Log started: 9 Dec 2015 11:48:37pm
-
-
-**********************************************************
-=== start of YSE log ===
-Log started: 9 Dec 2015 11:51:35pm
-
-
-**********************************************************
-=== start of YSE log ===
-Log started: 9 Dec 2015 11:52:25pm
-
-
-**********************************************************
-=== start of YSE log ===
-Log started: 9 Dec 2015 11:53:37pm
-
-
-**********************************************************
-=== start of YSE log ===
-Log started: 9 Dec 2015 11:58:17pm
-
-
-**********************************************************
-=== start of YSE log ===
-Log started: 9 Dec 2015 11:58:40pm
-
-
-**********************************************************
-=== start of YSE log ===
-Log started: 9 Dec 2015 11:59:32pm
-
-
-**********************************************************
-=== start of YSE log ===
-Log started: 10 Dec 2015 12:01:24am
-
-
-**********************************************************
-=== start of YSE log ===
-Log started: 10 Dec 2015 12:10:39am
-
-
-**********************************************************
-=== start of YSE log ===
-Log started: 10 Dec 2015 12:11:21am
-
-
-**********************************************************
-=== start of YSE log ===
-Log started: 10 Dec 2015 12:12:00am
-
-
-**********************************************************
-=== start of YSE log ===
-Log started: 10 Dec 2015 12:12:15am
-
-
-**********************************************************
-=== start of YSE log ===
-Log started: 10 Dec 2015 12:22:57am
-
-
-**********************************************************
-=== start of YSE log ===
-Log started: 10 Dec 2015 12:29:02am
-
-
-**********************************************************
-=== start of YSE log ===
-Log started: 10 Dec 2015 12:33:21am
-
-
-**********************************************************
-=== start of YSE log ===
-Log started: 10 Dec 2015 12:33:54am
-
-
-**********************************************************
-=== start of YSE log ===
-Log started: 10 Dec 2015 12:35:21am
-
-
-**********************************************************
-=== start of YSE log ===
-Log started: 10 Dec 2015 12:36:06am
-
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 3:47:09am
-
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_American_Swing.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Big_Iron.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blues_For_You.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blue_Moon.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Cobwebs_and_Rainbows.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_For_2_Vl_Str_In_D_Minor.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_01.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_02.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_EddyArnold_Rca_ItsASin.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Flower_Duet_Lakm_KPM.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Four_Seasons_No_4_The_Winter.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Goin_Under.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Hallo_Mister_X.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Happy_Times.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Heartaches_by_the_Number.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_HomeOnTheWastes.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_In_The_Shadow_Of_The_Valley.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Its_A_Sin_To_Tell_A_Lie.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_Movin_Out.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_So_Blue.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Blues_GT.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Club_Blues_CAS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jingle_Jangle_Jingle.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Joe_Cool_CAS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Johnny_Guitar.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lazy_Day_Blues.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Let_s_Ride_Into_The_Sunset_Together.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lone_Star.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Love_Me_As_Though_No_Tomorrow.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Mad_About_The_Boy.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Manhattan.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_NewVegasValley.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Piano_Concerto_No_21__Elvira_Madigan.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Ride_Of_The_Valkyries_01.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Roundhouse_Rock.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sit_And_Dream.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sleepy_Town_Blues_CAS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Bounce.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Sax_KOS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Somethings_Gotta_Give.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Spring_Song_KPMC.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Stars_Of_The_Midnight_Range.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Strahlende_Trompete.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_StreetsOfNewReno.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Von_Spanien_Nach_S_damerika.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Where_Have_You_Been_All_My_Life.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Why_Dont_You_Do_Right.mp3
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 3:51:53am
-
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 3:52:54am
-
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 3:55:06am
-
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_American_Swing.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Big_Iron.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blues_For_You.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blue_Moon.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Cobwebs_and_Rainbows.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_For_2_Vl_Str_In_D_Minor.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_01.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_02.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_EddyArnold_Rca_ItsASin.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Flower_Duet_Lakm_KPM.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Four_Seasons_No_4_The_Winter.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Goin_Under.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Hallo_Mister_X.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Happy_Times.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Heartaches_by_the_Number.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_HomeOnTheWastes.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_In_The_Shadow_Of_The_Valley.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Its_A_Sin_To_Tell_A_Lie.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_Movin_Out.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_I_m_So_Blue.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Blues_GT.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jazz_Club_Blues_CAS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Jingle_Jangle_Jingle.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Joe_Cool_CAS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Johnny_Guitar.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lazy_Day_Blues.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Let_s_Ride_Into_The_Sunset_Together.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Lone_Star.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Love_Me_As_Though_No_Tomorrow.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Mad_About_The_Boy.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Manhattan.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_NewVegasValley.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Piano_Concerto_No_21__Elvira_Madigan.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Ride_Of_The_Valkyries_01.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Roundhouse_Rock.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sit_And_Dream.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Sleepy_Town_Blues_CAS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Bounce.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Slow_Sax_KOS.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Somethings_Gotta_Give.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Spring_Song_KPMC.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Stars_Of_The_Midnight_Range.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Strahlende_Trompete.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_StreetsOfNewReno.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Von_Spanien_Nach_S_damerika.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Where_Have_You_Been_All_My_Life.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Why_Dont_You_Do_Right.mp3
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 3:56:41am
-
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 3:59:26am
-
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_American_Swing.mp3
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 3:59:54am
-
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 4:01:10am
-
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 4:01:45am
-
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 4:02:29am
-
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 4:03:38am
-
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 4:06:37am
-
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 4:07:22am
-
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_American_Swing.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Big_Iron.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blues_For_You.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Blue_Moon.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Cobwebs_and_Rainbows.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_For_2_Vl_Str_In_D_Minor.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_01.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Concerto_Grosso_In_B_Minor_Allegro_02.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_EddyArnold_Rca_ItsASin.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Flower_Duet_Lakm_KPM.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Four_Seasons_No_4_The_Winter.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Goin_Under.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Hallo_Mister_X.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Happy_Times.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Heartaches_by_the_Number.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_HomeOnTheWastes.mp3
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 4:15:55am
-
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
-(Error) File reader:  Unable to read C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 4:19:59am
-
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 4:42:04am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 4:50:52am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 4:51:53am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 4:53:41am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 1:41:21pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\sound\MUS_Aint_That_A_Kick_In_the_Head.mp3
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 1:41:49pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 1:44:21pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 1:45:06pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Aint_That_A_Kick_In_the_Head.mp3;
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_American_Swing.mp3;
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Big_Iron.mp3;
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Blues_For_You.mp3;
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Blue_Moon.mp3;
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Blues_For_You.mp3;
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Big_Iron.mp3;
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_American_Swing.mp3;
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Aint_That_A_Kick_In_the_Head.mp3;
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_American_Swing.mp3;
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Big_Iron.mp3;
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Blues_For_You.mp3;
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Blue_Moon.mp3;
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Cobwebs_and_Rainbows.mp3;
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Concerto_For_2_Vl_Str_In_D_Minor.mp3;
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Cobwebs_and_Rainbows.mp3;
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Blue_Moon.mp3;
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Blues_For_You.mp3;
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Big_Iron.mp3;
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_American_Swing.mp3;
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Aint_That_A_Kick_In_the_Head.mp3;
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Why_Dont_You_Do_Right.mp3;
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 1:46:34pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Aint_That_A_Kick_In_the_Head.mp3;
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 1:49:23pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 1:50:10pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 1:54:31pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Aint_That_A_Kick_In_the_Head.mp3; 
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_American_Swing.mp3; 
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Aint_That_A_Kick_In_the_Head.mp3; 
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_American_Swing.mp3; 
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 1:59:10pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Aint_That_A_Kick_In_the_Head.mp3; 
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_American_Swing.mp3; 
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 2:01:05pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 2:03:32pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 2:05:22pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Aint_That_A_Kick_In_the_Head.mp3;
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_American_Swing.mp3;
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Big_Iron.mp3;
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 2:06:06pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\res\Sound\Music\MUS_Aint_That_A_Kick_In_the_Head.mp3;
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 2:06:58pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 2:08:54pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 2:10:02pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 19 Dec 2015 2:11:01pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 20 Dec 2015 7:13:26pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 20 Dec 2015 7:14:48pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 20 Dec 2015 7:15:42pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 20 Dec 2015 7:17:18pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 20 Dec 2015 7:18:00pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 20 Dec 2015 7:19:24pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 20 Dec 2015 7:20:18pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 20 Dec 2015 7:21:33pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 20 Dec 2015 7:25:08pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 23 Dec 2015 1:55:55pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 23 Dec 2015 1:57:36pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 25 Dec 2015 4:54:17pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 25 Dec 2015 4:59:01pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 25 Dec 2015 5:01:31pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 25 Dec 2015 5:02:14pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 25 Dec 2015 5:06:42pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 25 Dec 2015 5:07:44pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 25 Dec 2015 5:07:57pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 25 Dec 2015 5:09:43pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 25 Dec 2015 5:10:36pm
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 3:34:49am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 3:35:21am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 3:36:31am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 3:38:37am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 3:40:23am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 3:41:40am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 3:44:38am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 3:47:37am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 3:48:37am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 3:49:42am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 3:50:44am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 3:51:12am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 3:51:49am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 3:52:57am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 3:53:32am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 3:55:28am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 3:55:52am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 3:56:58am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 3:57:37am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 3:58:40am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 4:00:06am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 4:00:37am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 4:01:08am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 4:02:36am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 4:03:07am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 4:03:32am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 4:05:00am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 4:05:19am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 4:05:52am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 4:06:15am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 4:07:19am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 4:07:34am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 4:07:56am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 4:09:30am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 4:10:15am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 4:13:13am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 4:15:26am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-=== end of YSE log ===
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 4:16:06am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 4:17:28am
-
-(Debug)  COM library initialized
-(Debug)  YSE System object initialized
-
-**********************************************************
-=== start of YSE log ===
-Log started: 1 Jan 2016 4:18:08am
-
-(Debug)  COM library initialized
 (Debug)  YSE System object initialized
 
 **********************************************************
@@ -3038,3 +1829,1935 @@ Log started: 13 Mar 2016 5:26:53am
 (Debug)  YSE System object initialized
 (Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
 === end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 3:51:31pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 3:54:06pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 3:55:05pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 3:56:50pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 4:04:14pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 5:30:44pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 5:32:19pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 5:33:38pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 5:35:44pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 5:40:54pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 5:59:29pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 6:04:43pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 6:06:18pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 6:09:22pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 6:10:07pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 6:11:09pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 6:11:53pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 6:12:37pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 6:13:52pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 6:14:42pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 6:15:17pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 6:15:50pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 6:16:41pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 6:17:44pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 6:19:24pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 6:20:00pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 6:21:00pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 6:22:37pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 6:23:52pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 6:24:43pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 13 Mar 2016 6:27:15pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 14 Mar 2016 3:50:59pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 14 Mar 2016 3:53:55pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 14 Mar 2016 11:21:19pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 14 Mar 2016 11:23:40pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 14 Mar 2016 11:25:27pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 14 Mar 2016 11:27:11pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 14 Mar 2016 11:28:39pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 14 Mar 2016 11:31:02pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 14 Mar 2016 11:32:10pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 14 Mar 2016 11:33:03pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 14 Mar 2016 11:41:46pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 14 Mar 2016 11:45:21pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 14 Mar 2016 11:50:31pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 2:06:52am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 2:25:14am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 2:26:57am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 2:28:31am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 2:32:36am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 2:33:34am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 2:34:18am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 2:37:02am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 2:38:09am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 2:41:36am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 2:43:04am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 2:44:25am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 2:45:25am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 2:50:20am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 3:04:51am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 3:07:38am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 3:09:37am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 2:58:17pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 3:06:55pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 3:17:04pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 3:23:06pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 3:24:06pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 3:25:35pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 3:31:27pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 3:36:11pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 3:38:04pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 3:39:36pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 3:43:12pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 3:44:15pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 3:45:03pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 3:45:54pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 3:47:31pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 3:48:23pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 3:48:53pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 3:51:04pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 3:51:38pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 3:56:05pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 4:04:56pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 4:07:06pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 4:07:54pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 4:08:49pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 4:09:49pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 4:10:55pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 4:12:31pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 4:13:59pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 4:14:27pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 4:20:41pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 4:26:39pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 4:27:30pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 4:28:52pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 4:32:58pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 7:44:28pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 7:46:55pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 7:48:22pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 7:49:00pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 7:53:07pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 7:54:23pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 7:55:01pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 8:02:24pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 8:07:28pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 8:14:10pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 8:21:04pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 8:23:33pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 8:24:37pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 15 Mar 2016 8:32:35pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 12:20:02am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 12:28:38am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 12:36:35am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 12:39:26am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 12:40:59am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 12:43:18am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 12:51:38am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 12:53:17am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 12:55:32am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 12:57:22am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 12:59:10am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 1:00:56am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 1:02:23am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 1:13:06am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 1:24:47am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 1:26:59am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 1:29:06am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 1:30:22am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 1:30:47am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 1:32:20am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 1:34:06am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 1:35:10am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 1:36:54am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 1:38:17am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 1:39:21am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 1:42:38am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 1:50:05am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 1:51:06am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\Aint_That_A_Kick_In_the_Head
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 1:53:01am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine\Aint_That_A_Kick_In_the_Head
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 1:54:34am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 4:00:19pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 4:14:13pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 4:39:20pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 4:42:16pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 4:49:31pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 4:56:14pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 4:57:43pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 4:57:54pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 5:04:31pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 5:06:54pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 5:08:53pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 5:11:32pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 5:21:49pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 5:26:27pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 5:30:21pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 5:31:12pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 5:36:50pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 5:40:57pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 5:41:56pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 5:54:11pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 6:09:42pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 6:23:49pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 6:26:52pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 6:27:34pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 6:28:52pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 6:29:46pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 6:41:49pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 6:43:28pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 6:54:56pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 6:57:17pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 6:58:33pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 6:58:48pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 7:00:21pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 7:02:58pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 7:08:16pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 7:09:44pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 7:11:50pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 7:16:19pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 7:17:33pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 7:19:05pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 7:21:39pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 7:23:30pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 7:26:03pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 16 Mar 2016 7:27:04pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 2:26:11am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 2:28:41am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 2:36:13am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 2:40:00am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 2:40:48am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 2:43:22am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 2:44:11am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 2:45:20am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 2:46:23am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 3:19:29am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 3:47:06am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 3:49:52am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 3:51:12am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 3:52:27am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 3:54:47am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 3:57:41am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 5:33:26pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 8:18:22pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 8:21:52pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 8:23:26pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 8:24:38pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 8:34:23pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 8:41:38pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 8:47:17pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 8:51:13pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 8:52:06pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 8:54:07pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 8:57:20pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 8:58:12pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 9:00:04pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 18 Mar 2016 9:00:38pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Mar 2016 3:41:01am
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Mar 2016 5:12:18pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Mar 2016 5:35:04pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Mar 2016 5:37:46pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+=== end of YSE log ===
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Mar 2016 5:39:32pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Mar 2016 5:49:40pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Mar 2016 5:53:20pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Mar 2016 5:56:11pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Mar 2016 5:58:07pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Mar 2016 6:06:51pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Mar 2016 6:12:58pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Mar 2016 6:17:29pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine
+
+**********************************************************
+=== start of YSE log ===
+Log started: 19 Mar 2016 6:20:23pm
+
+(Debug)  COM library initialized
+(Debug)  YSE System object initialized
+(Warning) Error while loading file:  file not found for C:\Users\Christian\Documents\GitHub\MyEngine

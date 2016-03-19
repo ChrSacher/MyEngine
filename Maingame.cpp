@@ -3,6 +3,7 @@
 
 Maingame::Maingame(void):cfg(std::string("res/config.cfg"))
 {
+
 }
 void write(std::string r)
 {
@@ -15,12 +16,12 @@ Maingame::~Maingame(void)
 	Scene::deleteScene(scene);
 	for(unsigned int i = 0;i < entities.size();i++)
 	{
-		delete(entities[i]);
+		ServiceLocator::getEM().deleteEntity(entities[i]);
 	}
 	if(ui) delete(ui);
 	if(line) delete(line);
+	
 	gui.destroy();
-
 	util.~RenderUtil();
 	Engine::shutDown();
 	if(window) delete(window);
@@ -43,14 +44,15 @@ void Maingame::init()
 	GameState::state.paused=false;
 	GameState::state.cameramove = true;
 	GameState::state.ray = false;
-	GameState::state.update = true;
+	GameState::state.update = false;
 	GameState::state.render = true;
 	maxFPS=60;
 	ui = NULL;
 	scene = NULL;
 	line = NULL;
-	std::printf("***   OpenGL Version: %s   ***\n", glGetString(GL_VERSION));
+	
 	window = new Window(__screenW,__screenH,"My Engine");
+	std::printf("***   OpenGL Version: %s   ***\n", glGetString(GL_VERSION));
 	Engine::startUp();
 	util.initGraphics();	
 	createObjects();
@@ -72,7 +74,7 @@ void Maingame::handleKeys()
 			__screenW = window->GetWidth();
 			__screenH = window->GetHeight();
 		}
-		gui.onSDLEvent(event);
+		gui.gui.onSDLEvent(event);
 		switch(event.type)
 		{
 			case SDL_QUIT://Fenster wird geschlossen
@@ -102,10 +104,17 @@ void Maingame::handleKeys()
 		}
 	}
 	InputHandler::get().generate_input(command_queue);
-	if (GameState::state.ray && InputHandler::get().isKeyPressed(1))
+	static bool waitingForRightClick;
+	if (GameState::state.ray && InputHandler::get().isKeyPressed(1) && !waitingForRightClick)
 	{
 		scene->pick(InputHandler::get().getMouseCoords().x, InputHandler::get().getMouseCoords().y);
-
+		waitingForRightClick = true;
+	}
+	if (GameState::state.ray && InputHandler::get().isKeyPressed(3) && waitingForRightClick)
+	{
+		//scene->pick(InputHandler::get().getMouseCoords().x, InputHandler::get().getMouseCoords().y);
+		waitingForRightClick = false;
+		scene->picker.reset();
 	}
 
 
@@ -131,10 +140,52 @@ void Maingame::handleKeys()
 	{
 		GameState::state.playing=false;
 	}
-	if (InputHandler::get().isKeyDown(SDLK_t))
+	if (InputHandler::get().isKeyPressed(SDLK_t))
 	{
 		scene->saveFile("res/Scenes/config.sc");
 	}
+	if (InputHandler::get().isKeyPressed(SDLK_p))
+	{
+		music->saveSongList("res/sound/Music/test.mf");
+	}
+
+
+	float cspeed = 30;
+	if (InputHandler::get().isKeyDown(SDLK_w))
+	{
+		scene->getCamera()->moveforward(cspeed * Time::delta);
+	}
+	if (InputHandler::get().isKeyDown(SDLK_s))
+	{
+		scene->getCamera()->movebackward(cspeed * Time::delta);
+	}
+	if (InputHandler::get().isKeyDown(SDLK_a))
+	{
+		scene->getCamera()->strafeleft(cspeed * Time::delta);
+	}
+	if (InputHandler::get().isKeyDown(SDLK_d))
+	{
+		scene->getCamera()->straferight(cspeed * Time::delta);
+	}
+	if (InputHandler::get().isKeyDown(SDLK_q))
+	{
+		scene->getCamera()->raise(cspeed * Time::delta);
+	}
+	if (InputHandler::get().isKeyDown(SDLK_e))
+	{
+		scene->getCamera()->sink(cspeed * Time::delta);
+	}
+	if (GameState::state.cameramove)
+	{
+		scene->getCamera()->onMouse(InputHandler::get().getMouseCoords());
+	}
+
+
+
+
+
+
+
 	if(InputHandler::get().isKeyPressed(SDLK_SPACE))
 	{
 		static bool windowed = true;
@@ -143,16 +194,17 @@ void Maingame::handleKeys()
 			windowed = false;
 			GameState::state.cameramove = false;
 			GameState::state.ray = true;
-			gui.showMouseCursor();
-			
+			//gui.gui.showMouseCursor();
+			SDL_ShowCursor(SDL_TRUE);
 		}
 		else
 		{
 			SDL_WarpMouseInWindow(window->GetSDLWindow(), __screenW / 2, __screenH / 2);
 			windowed = true;
 			GameState::state.cameramove = true;
-			gui.hideMouseCursor();
+			//gui.gui.hideMouseCursor();
 			GameState::state.ray = false;
+			SDL_ShowCursor(SDL_FALSE);
 		}
 	}
 	if(GameState::state.cameramove) SDL_WarpMouseInWindow(window->GetSDLWindow(), __screenW / 2, __screenH / 2);
@@ -165,8 +217,11 @@ void Maingame::update()
 {
 	scene->update();
 	music->update();
-	Engine::update();
-	gui.update();
+	ServiceLocator::getAudio().update();
+	ServiceLocator::getText().update();
+	ServiceLocator::getCM().update();
+	ServiceLocator::getPE().update();
+	gui.gui.update();
 }
 
 
@@ -178,16 +233,9 @@ void Maingame::render()
 	if(line) line->render(scene->getCamera());
 	if(scene) scene->renderScene();
 	if(ui) ui->draw();
-	
-	static std::string fps = "60";
-	if(Time::counter%60 == 0) fps = std::to_string((int)(1/(Time::delta + 0.0001)));
-	ServiceLocator::getText().renderText("FPS " + fps,890,0,100,30,Vector3(1,1,1));
-	ServiceLocator::getText().renderText("Frametime " + std::to_string(Time::delta) + " ms",890,30,100,30,Vector3(1,1,1));
-	ServiceLocator::getText().renderText("# Objects " + std::to_string(scene->getEntityDrawCount()),890,60,100,30,Vector3(1,1,1));
-	ServiceLocator::getText().renderText("Time " + std::to_string(SDL_GetTicks()/1000),890,90,100,30,Vector3(1,1,1));
 	std::string temp = std::to_string(music->getSongNumber()) + " " +  music->getCurrentTitle();
 	ServiceLocator::getText().renderText(temp,convertSTT(__screenW,__screenW) - 155.0f,convertSTT(__screenW,__screenW) - 30.0f,140.0f,30.0f,Vector3(1,1,1));
-	if(GameState::state.ray) gui.draw();
+	if(GameState::state.ray) gui.gui.draw();
 	window->SwapBuffers();
 
 }
@@ -206,9 +254,9 @@ void Maingame::gameloop()
 		if (!GameState::state.paused && (mainDelta > 1 / maxFPS))
 		{
 			mainDelta -= 1/maxFPS;
-			if(GameState::state.update) update();
+			if (GameState::state.update) update();
 		}
-		if(GameState::state.update) render();
+		if(GameState::state.render) render();
 		Time::endFrame();
 	}
 	SDL_StopTextInput();	//Text Eingabe anhalten
@@ -235,7 +283,8 @@ void Maingame::run()
 void Maingame::createObjects()
 {
 	
-	scene = Scene::createScene(__screenH,__screenW,"res/Scenes/test.sc");
+	scene = Scene::createScene(__screenH,__screenW,"res/Scenes/config.sc");
+
 	//scene->saveFile("res/Scenes/test.sc");
 	AudioListener::getInstance()->setCamera(scene->getCamera());
 	auto it  = scene->getEntityVector();
@@ -243,19 +292,12 @@ void Maingame::createObjects()
 	ui = new UIrenderer();
 	line = new LineRenderer();
 	//ui->addOverlay(Vector2(0,0),Vector2(100,100),Vector4(1,0,1,1),true,"","Button","Text",RIGHTUP);
-	music = new MusicPlayer("res/Sound/Music/Music.mf");
-	gui.init("res/GUI");
-	gui.loadScheme("TaharezLook.scheme");
-    gui.setFont("Jura-13");
-    CEGUI::PushButton* testButton = static_cast<CEGUI::PushButton*>(gui.createWidget("TaharezLook/Button", Vector4(0.5f, 0.5f, 0.1f, 0.05f), Vector4(), "TestButton"));
-    testButton->setText("Hello World!");
-    CEGUI::Combobox* TestCombobox = static_cast<CEGUI::Combobox*>(gui.createWidget("TaharezLook/Combobox", Vector4(0.2f, 0.2f, 0.1f, 0.05f), Vector4(), "TestCombobox"));
-	CEGUI::Listbox* listbox = static_cast<CEGUI::Listbox*>(gui.createWidget("TaharezLook/Listbox",Vector4(0.0f,0.7f,0.3f,0.3f),Vector4(),"test"));
-	CEGUI::ListboxItem* listboxi = new CEGUI::ListboxTextItem("text",0);
-	listboxi->setSelectionColours(CEGUI::ColourRect(CEGUI::Colour(1.0f,0.5f,0.5f,1.0f)));
-	listbox->addItem(listboxi);
-	listbox->addItem(new CEGUI::ListboxTextItem("text22",1));
-    gui.setMouseCursor("TaharezLook/MouseArrow");
+	music = new MusicPlayer("res/sound/Music/test.mf");
+	gui.start();
+	gui.setScene(scene);
+	gui.updateButton = static_cast<CEGUI::PushButton*>(gui.gui.createWidget("TaharezLook/Button", Vector4(0.0f, 0.0f, 0.1f, 0.05f), Vector4(), "Update"));
+	gui.updateButton->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&Maingame::onUpdateClick, this));
+	gui.updateButton->setText("Update");
 	ServiceLocator::getCM().addScriptListener(window);
 	scene->getCamera()->setScript("res/Scripts/Camera.chai");
 }
@@ -274,4 +316,9 @@ void Maingame::executeCommands()
 		if(executedCommands.size() > 50) executedCommands.erase(executedCommands.begin());
         command_queue.pop_back();
 	}
+}
+
+void Maingame::onUpdateClick(const CEGUI::EventArgs& args)
+{
+	GameState::state.update = !GameState::state.update;
 }

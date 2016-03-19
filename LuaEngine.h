@@ -63,7 +63,7 @@ public:
 	chaiscript::ChaiScript& getState() { return state; }
 	SeScript& operator=(const SeScript& other) { return *this; };
 	SeScript(const SeScript& other) {};
-
+	std::string getPath() { return path; }
 protected:
 	unsigned int ID;
 	chaiscript::ChaiScript state;

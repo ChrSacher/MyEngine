@@ -24,11 +24,12 @@ class Component
 	friend class Entity;
 public:
 	Component() :
-		parent(NULL),
-		transform()
+		parent(NULL)
+		
 	{
 		static int id = 0;
 		ID = id++;
+		enabled = true;
 	}
 	virtual ~Component() {}
 
@@ -36,24 +37,22 @@ public:
 	virtual void processInput() {} //not inputmanager but input subclass
 								   //update the Component
 	int getID() { return ID; }
-	inline Transform* GetTransform();
-	inline const Transform& GetTransform() const;
-	void setTransform(Transform& Transform)
-	{
-		transform.set(Transform);
-	};
 	ComponentType getType() { return type; }
+	virtual void setTransform(Transform& Trans) {}; //used for components which need to set something somewhere else like physics
 	void notify(int eventType, Entity* entityInteractedWith = NULL);
 	void receive(int eventType, Component* sender, Entity* entityInteractedWith = NULL);
 	void SetParent(Entity* Parent);
+	void setEnabled(bool ena) { enabled = ena; }
+	bool getEnabled() { return enabled; }
 	virtual void load(Entity* Parent) {};
 protected:
+	Transform* transform;
 	Entity* parent;
 	Component(const Component& other) {}
 	void operator=(const Component& other) {}
 	int ID;
+	bool enabled;
 	ComponentType type;
-	Transform transform;
 };
 
 //register all listeners inside the ComPos and then update through it
@@ -61,7 +60,7 @@ struct ComponentPosition
 {
 	ComponentType type;
 	unsigned int position;
-	unsigned int ID;
+	
 	ComponentPosition(ComponentType Type, unsigned int Pos) :type(Type), position(Pos) { static unsigned int id = 0; ID = id++; };
 	Component* get();
 	template <typename ValueType>
@@ -70,4 +69,7 @@ struct ComponentPosition
 		return static_cast<ValueType>(get());
 	}
 	void destroy();
+	unsigned int getID() { return ID; }
+private:
+	unsigned int ID;
 };

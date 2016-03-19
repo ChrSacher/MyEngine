@@ -508,7 +508,7 @@ struct Quaternion
      * rotation if the quaternion is non-unit.
      */
     Matrix3 rotationMatrix() const;
-
+	Matrix4 rotation4x4() const;
 
     /**
      * @brief Returns a vector rotated by this quaternion.

@@ -41,7 +41,7 @@
 #include "Timer.h"
 #include "AudioListener.h"
 #include "GameState.h"
-
+#include "EntityComponentGui.h"
 
 class Maingame
 {
@@ -63,7 +63,8 @@ class Maingame
 		void executeCommands();
 		//funktionen
 		
-
+		//GUI STUFF
+		void onUpdateClick(const CEGUI::EventArgs& args);
 		//verschiede eingabenhandler für übersichtlichkeit
 		void resizefull();
 		void checkinput();
@@ -73,12 +74,13 @@ class Maingame
 		//setters
 
 		
+		
 private:
 		SDL_Event event;
 		Window *window;
-		GUI gui;
-		UIrenderer *ui;
 		
+		UIrenderer *ui;
+		EntityComponentGui gui;
 		FpsLimiter fpsLimiter;
 		Scene* scene;
 		MusicPlayer* music;

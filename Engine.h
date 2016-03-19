@@ -41,10 +41,7 @@ public:
 	};	
 	static void update()
 	{
-		audio->update();
-		text->update();
-		CM->update();
-		PE->update();
+		
 	}
 	//shutdown the Engine
 	static void shutDown()

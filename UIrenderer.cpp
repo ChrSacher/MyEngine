@@ -170,14 +170,18 @@ void UIrenderer::updateOrtho(float width,float height)
 	ServiceLocator::getText().setProjection(width,height);
 }
 
-void Skybox::loadSkybox(std::string Directory, std::string posx, std::string negx, std::string posy, std::string negy, std::string posz, std::string negz) 
+void Skybox::loadSkybox(std::string posx, std::string negx, std::string posy, std::string negy, std::string posz, std::string negz) 
 { 
-	cube.addFiles(Directory,  posx, negx,  posy,  negy, posz, negz);
+	cube.addFiles( posx, negx,  posy,  negy, posz, negz);
 	cube.Load();
 	color = Vector3(1,1,1);
+	if (vao > 0|| vbo> 0 )
+	{
+		glDeleteVertexArrays(1, &vao);
+		glDeleteBuffers(1, &vbo);
+	}
    glGenVertexArrays(1, &vao); 
    glBindVertexArray(vao); 
-		Dir = Directory;
 	fileNames[0] = posx;
 	fileNames[1] = negx;
 	fileNames[2] = posy;
@@ -232,10 +236,9 @@ void Skybox::loadSkybox(std::string Directory, std::string posx, std::string neg
 	transform.setScale(Vector3(200,200,200));
 }
 
-void Skybox::setSkyboxTexture(std::string Directory, std::string posx, std::string negx, std::string posy, std::string negy, std::string posz, std::string negz) 
+void Skybox::setSkyboxTexture(std::string posx, std::string negx, std::string posy, std::string negy, std::string posz, std::string negz) 
 { 
-	cube.addFiles(Directory,  posx, negx,  posy,  negy, posz, negz);
-	Dir = Directory;
+	cube.addFiles( posx, negx,  posy,  negy, posz, negz);
 	fileNames[0] = posx;
 	fileNames[1] = negx;
 	fileNames[2] = posy;
@@ -245,14 +248,9 @@ void Skybox::setSkyboxTexture(std::string Directory, std::string posx, std::stri
 	cube.Load();
 }
 
-Skybox::Skybox(Vector3 Color)
+Skybox::Skybox()
 {
-	shader = new Shader();
-	shader->addVertexShader("res/Shaders/Skybox.vert");
-	shader->addFragmentShader( "res/Shaders/Skybox.frag");
-	shader->addAttribute("position");
-	shader->linkShaders();
-	color = Color;
+	
 }
 
 void Skybox::renderSkybox(Camera3d* camera)
@@ -274,11 +272,7 @@ void Skybox::renderSkybox(Camera3d* camera)
 }
  Skybox::~Skybox()
  {
-	glDeleteVertexArrays(1, &vao);
-	glDeleteBuffers(1,&vbo);
-	cube.releaseCubemap();
-	delete(shader);
-	shader = NULL;
+	
  }
 
    void  Skybox::setColor(Vector3 Color)
@@ -300,7 +294,6 @@ void Skybox::renderSkybox(Camera3d* camera)
   std::vector<std::string>  Skybox::getDirAndFile()
 {
 	std::vector<std::string> names;
-	names.push_back(Dir);
 	names.push_back(fileNames[0]);
 	names.push_back(fileNames[1]);
 	names.push_back(fileNames[2]);
@@ -576,102 +569,135 @@ CEGUI::Key::Scan SDLKeyToCEGUIKey(SDL_Keycode key) {
         case SDLK_UP:           return Key::ArrowUp;
         case SDLK_DOWN:         return Key::ArrowDown;
         case SDLK_RIGHT:        return Key::ArrowRight;
-        case SDLK_LEFT:         return Key::ArrowLeft;
-        case SDLK_INSERT:       return Key::Insert;
-        case SDLK_HOME:         return Key::Home;
-        case SDLK_END:          return Key::End;
-        case SDLK_PAGEUP:       return Key::PageUp;
-        case SDLK_PAGEDOWN:     return Key::PageDown;
-        case SDLK_F1:           return Key::F1;
-        case SDLK_F2:           return Key::F2;
-        case SDLK_F3:           return Key::F3;
-        case SDLK_F4:           return Key::F4;
-        case SDLK_F5:           return Key::F5;
-        case SDLK_F6:           return Key::F6;
-        case SDLK_F7:           return Key::F7;
-        case SDLK_F8:           return Key::F8;
-        case SDLK_F9:           return Key::F9;
-        case SDLK_F10:          return Key::F10;
-        case SDLK_F11:          return Key::F11;
-        case SDLK_F12:          return Key::F12;
-        case SDLK_F13:          return Key::F13;
-        case SDLK_F14:          return Key::F14;
-        case SDLK_F15:          return Key::F15;
-        case SDLK_RSHIFT:       return Key::RightShift;
-        case SDLK_LSHIFT:       return Key::LeftShift;
-        case SDLK_RCTRL:        return Key::RightControl;
-        case SDLK_LCTRL:        return Key::LeftControl;
-        case SDLK_RALT:         return Key::RightAlt;
-        case SDLK_LALT:         return Key::LeftAlt;
-        case SDLK_SYSREQ:       return Key::SysRq;
-        case SDLK_MENU:         return Key::AppMenu;
-        case SDLK_POWER:        return Key::Power;
-        default:                return Key::Unknown;
-    }
+		case SDLK_LEFT:         return Key::ArrowLeft;
+		case SDLK_INSERT:       return Key::Insert;
+		case SDLK_HOME:         return Key::Home;
+		case SDLK_END:          return Key::End;
+		case SDLK_PAGEUP:       return Key::PageUp;
+		case SDLK_PAGEDOWN:     return Key::PageDown;
+		case SDLK_F1:           return Key::F1;
+		case SDLK_F2:           return Key::F2;
+		case SDLK_F3:           return Key::F3;
+		case SDLK_F4:           return Key::F4;
+		case SDLK_F5:           return Key::F5;
+		case SDLK_F6:           return Key::F6;
+		case SDLK_F7:           return Key::F7;
+		case SDLK_F8:           return Key::F8;
+		case SDLK_F9:           return Key::F9;
+		case SDLK_F10:          return Key::F10;
+		case SDLK_F11:          return Key::F11;
+		case SDLK_F12:          return Key::F12;
+		case SDLK_F13:          return Key::F13;
+		case SDLK_F14:          return Key::F14;
+		case SDLK_F15:          return Key::F15;
+		case SDLK_RSHIFT:       return Key::RightShift;
+		case SDLK_LSHIFT:       return Key::LeftShift;
+		case SDLK_RCTRL:        return Key::RightControl;
+		case SDLK_LCTRL:        return Key::LeftControl;
+		case SDLK_RALT:         return Key::RightAlt;
+		case SDLK_LALT:         return Key::LeftAlt;
+		case SDLK_SYSREQ:       return Key::SysRq;
+		case SDLK_MENU:         return Key::AppMenu;
+		case SDLK_POWER:        return Key::Power;
+		default:                return Key::Unknown;
+	}
 }
 
-CEGUI::MouseButton SDLButtonToCEGUIButton(Uint8 sdlButton) 
+CEGUI::MouseButton SDLButtonToCEGUIButton(Uint8 sdlButton)
 {
-    switch (sdlButton) 
+	switch (sdlButton)
 	{
-        case SDL_BUTTON_LEFT: return CEGUI::MouseButton::LeftButton;
-        case SDL_BUTTON_MIDDLE: return CEGUI::MouseButton::MiddleButton;
-        case SDL_BUTTON_RIGHT: return CEGUI::MouseButton::RightButton;
-        case SDL_BUTTON_X1: return CEGUI::MouseButton::X1Button;
-        case SDL_BUTTON_X2: return CEGUI::MouseButton::X2Button;
-    }
-    return CEGUI::MouseButton::NoButton;
+	case SDL_BUTTON_LEFT: return CEGUI::MouseButton::LeftButton;
+	case SDL_BUTTON_MIDDLE: return CEGUI::MouseButton::MiddleButton;
+	case SDL_BUTTON_RIGHT: return CEGUI::MouseButton::RightButton;
+	case SDL_BUTTON_X1: return CEGUI::MouseButton::X1Button;
+	case SDL_BUTTON_X2: return CEGUI::MouseButton::X2Button;
+	}
+	return CEGUI::MouseButton::NoButton;
 }
 
-void GUI::onSDLEvent(SDL_Event& evnt) 
+void GUI::onSDLEvent(SDL_Event& evnt)
 {
-    CEGUI::utf32 codePoint;
-    switch (evnt.type)
+	CEGUI::utf32 codePoint;
+	switch (evnt.type)
 	{
-		case SDL_WINDOWEVENT:
+	case SDL_WINDOWEVENT:
+	{
+		switch (evnt.window.event)
 		{
-			switch (evnt.window.event)
-			{
-				case SDL_WINDOWEVENT_RESIZED:
-				{
-					renderer->setDisplaySize(CEGUI::Sizef(evnt.window.data1, evnt.window.data2));
-					renderer->grabTextures();
-					renderer->restoreTextures();
-				}
-			}
-		}break;
+		case SDL_WINDOWEVENT_RESIZED:
+		{
+			renderer->setDisplaySize(CEGUI::Sizef(evnt.window.data1, evnt.window.data2));
+			renderer->grabTextures();
+			renderer->restoreTextures();
+		}
+		}
+	}break;
 
-        case SDL_MOUSEMOTION:
-            context->injectMousePosition(evnt.motion.x, evnt.motion.y);
-            break;
-        case SDL_KEYDOWN:
-            context->injectKeyDown(SDLKeyToCEGUIKey(evnt.key.keysym.sym));
-            break;
-        case SDL_KEYUP:
-            context->injectKeyUp(SDLKeyToCEGUIKey(evnt.key.keysym.sym));
-            break;
-        case SDL_TEXTINPUT:
-            codePoint = 0;
-            for (int i = 0; evnt.text.text[i] != '\0'; i++) {
-                codePoint |= (((CEGUI::utf32 )evnt.text.text[i]) << (i * 8));
-            }
-            context->injectChar(codePoint);
-            break;
-        case SDL_MOUSEBUTTONDOWN:
-            context->injectMouseButtonDown(SDLButtonToCEGUIButton(evnt.button.button));
-            break;
-        case SDL_MOUSEBUTTONUP:
-            context->injectMouseButtonUp(SDLButtonToCEGUIButton(evnt.button.button));
-            break;
-		
-    }
+	case SDL_MOUSEMOTION:
+		context->injectMousePosition(evnt.motion.x, evnt.motion.y);
+		break;
+	case SDL_KEYDOWN:
+		context->injectKeyDown(SDLKeyToCEGUIKey(evnt.key.keysym.sym));
+		break;
+	case SDL_KEYUP:
+		context->injectKeyUp(SDLKeyToCEGUIKey(evnt.key.keysym.sym));
+		break;
+	case SDL_TEXTINPUT:
+		codePoint = 0;
+		for (int i = 0; evnt.text.text[i] != '\0'; i++) {
+			codePoint |= (((CEGUI::utf32)evnt.text.text[i]) << (i * 8));
+		}
+		context->injectChar(codePoint);
+		break;
+	case SDL_MOUSEBUTTONDOWN:
+		context->injectMouseButtonDown(SDLButtonToCEGUIButton(evnt.button.button));
+		break;
+	case SDL_MOUSEBUTTONUP:
+		context->injectMouseButtonUp(SDLButtonToCEGUIButton(evnt.button.button));
+		break;
+
+	}
 }
 
-void GUI::loadScheme(const std::string& schemeFile) 
+void GUI::loadScheme(const std::string& schemeFile)
 {
-    CEGUI::SchemeManager::getSingleton().createFromFile(schemeFile);
+	CEGUI::SchemeManager::getSingleton().createFromFile(schemeFile);
 }
 
+
+void recursiveNameSetter(CEGUI::Window* window, std::string prefix)
+{
+	static_cast<CEGUI::Window*>(window)->setName(prefix + static_cast<CEGUI::Window*>(window)->getName());
+	std::cout << static_cast<CEGUI::Window*>(window)->getName() << std::endl;
+	for (unsigned int i = 0; i < window->getChildCount(); i++)
+	{
+
+		recursiveNameSetter(static_cast<CEGUI::Window*>(window->getChildElementAtIdx(i)),prefix);
+	}
+}
+
+
+CEGUI::Window* GUI::getChild(CEGUI::Window* parent, std::string path)
+{
+	try
+	{
+		return parent->getChild(path);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+		return NULL;
+	}
+}
+CEGUI::Window*  GUI::loadLayoutFromFile(std::string Path, std::string prefix, const Vector4& destRectPerc, const Vector4& destRectPix)
+{
+	CEGUI::Window* temp = CEGUI::WindowManager::getSingleton().loadLayoutFromFile(Path);
+	setWidgetDestRect(temp, destRectPerc,destRectPix);
+	static_cast<CEGUI::Window*>(temp)->setName(prefix + static_cast<CEGUI::Window*>(temp)->getName());
+	getRoot()->addChild(temp);
+	return temp;
+}
 CEGUI::Window* GUI::createWidget(const std::string& type, const Vector4& destRectPerc, const Vector4& destRectPix, const std::string& name /*= ""*/) 
 {
     CEGUI::Window* newWindow = CEGUI::WindowManager::getSingleton().createWindow(type, name);

@@ -11,22 +11,18 @@
 class Skybox
 {
 public:
-	/*
-	param Directory there place where the files are stored Example: res/texture/skybox/standard/
-	param Rest invidual names
-	Will load the skybox with Vetices Texture and Shader
-	*/
-	void loadSkybox(std::string Directory, std::string posx = "posx.png", std::string negx = "negx.png", std::string posy = "posy.png", std::string negy = "negy.png", std::string posz = "posz.png", std::string negz = "negz.png");
+	friend class SkyBoxComponentSystem;
+	friend class SkyBoxComponent;
 	/*
 	param Directory there place where the files are stored Example: res/texture/skybox/standard/
 	param Rest invidual names
 	Will set the cube Texture
 	*/
-	void setSkyboxTexture(std::string Directory, std::string posx = "posx.png", std::string negx = "negx.png", std::string posy = "posy.png", std::string negy = "negy.png", std::string posz = "posz.png", std::string negz = "negz.png");
+	void setSkyboxTexture(std::string posx = "posx.png", std::string negx = "negx.png", std::string posy = "posy.png", std::string negy = "negy.png", std::string posz = "posz.png", std::string negz = "negz.png");
 	/* Render The Skybox with its own Shader and matrices and textures*/
 	void renderSkybox(Camera3d* camera);
 	/*Make Skybox and attach Camera to it and give it a color(use other than white for different shaded sky)*/
-	Skybox(Vector3 Color = Vector3(1, 1, 1));
+	Skybox();
 	~Skybox();
 	void setColor(Vector3 Color);
 	Vector3 getColor() { return color; }
@@ -35,12 +31,17 @@ public:
 	void setScale(Vector3 Scale);
 	std::vector<std::string> getDirAndFile();
 private:
+	/*
+	param Directory there place where the files are stored Example: res/texture/skybox/standard/
+	param Rest invidual names
+	Will load the skybox with Vetices Texture and Shader
+	*/
+	void loadSkybox(std::string posx = "posx.png", std::string negx = "negx.png", std::string posy = "posy.png", std::string negy = "negy.png", std::string posz = "posz.png", std::string negz = "negz.png");
 	Shader* shader;
 	GLuint vao, vbo;
 	CubemapTexture cube;
 	Transform transform;
 	Vector3 color;
-	std::string Dir;
 	std::string fileNames[6];
 };
 
@@ -177,6 +178,8 @@ private:
 		#desRectPix is offset Vector4(same as above) in Pixels
 		#name is name for the button inside cegui use different for everything
 		*/
+		CEGUI::Window* getChild(CEGUI::Window* parent, std::string path);
+		CEGUI::Window* loadLayoutFromFile(std::string Path, std::string prefix ,const Vector4& destRectPerc, const Vector4& destRectPix);
         CEGUI::Window* createWidget(const std::string& type, const Vector4& destRectPerc, const Vector4& destRectPix, const std::string& name = "");
         static void setWidgetDestRect(CEGUI::Window* widget, const Vector4& destRectPerc, const Vector4& destRectPix);
 
@@ -184,6 +187,7 @@ private:
         static CEGUI::OpenGL3Renderer* getRenderer() { return renderer; }
         const CEGUI::GUIContext* getContext() { return context; }
 		static void deleteRenderer(){CEGUI::OpenGL3Renderer::destroy(*renderer);}
+		CEGUI::Window* getRoot() { return root; }
     private:
         static CEGUI::OpenGL3Renderer* renderer;
         CEGUI::GUIContext* context ;

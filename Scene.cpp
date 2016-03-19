@@ -1,6 +1,7 @@
 #include "Scene.h"
 #include "ServiceLocator.h"
 #include <libconfig\libconfig.hh>
+#include <cstdio>
 #define TERRAINSIZE 6
 #define OBJECTSIZE 17
 #define POINTLIGHTSIZE 12
@@ -104,17 +105,36 @@ void Scene::deleteScene(Scene* deleteScene)
 	deleteScene->camera =NULL;deleteScene->shader = NULL;
 	delete(deleteScene);
 }
+
+
+
+
+
+
+void Scene::sceneChanged()
+{
+
+	for (auto &itr = _listeners.begin(); itr != _listeners.end(); ++itr)
+	{
+
+		itr->second->sceneChanged(this);
+	}
+}
+
+void Scene::addListener(Scene::Listener* listener)
+{
+	_listeners.insert(std::make_pair(listener->ListenerID, listener));
+}
+
+void Scene::removeListener(Scene::Listener* listener)
+{
+	_listeners.erase(listener->ListenerID);
+
+}
 Ray Scene::getClick(int x,int y)
 {
-	/*int i = 0;
-	fbo->activate();
-	//i += pipeline->renderColor(shader,camera,Vector3(0.2,0.2,0.2));//render objects in color
-	glFinish();
-	//now read the stuff under pixel
-	//glReadPixels(x,y,camera->getSize().x,camera->getSize().y,GL_RGB,GL_FLOAT,NULL);
-	glBindFramebuffer(GL_FRAMEBUFFER, 0);
-    glViewport(0, 0, camera->getSize().x, camera->getSize().y);*/
-	return Ray();
+	
+	return camera->getDirClick(x, y);
 }
 
 void Scene::update()
@@ -134,207 +154,7 @@ void Scene::renderScene()
 	glFinish();
 }; 
 
-void Scene::saveFile(std::string name)
-{
-	using namespace libconfig;
-	Config config;
 
-	Setting& root = config.getRoot();
-	root.add("numEntities", Setting::TypeInt) = (int)entities.size();
-	int i = 0;
-	for (auto &it = entities.begin(); it != entities.end(); it++)
-	{
-		Entity* ent = it->second;
-		Setting &current = root.add("Entity" + std::to_string(i++), Setting::TypeGroup);
-
-		current.add("Name", Setting::TypeString) = ent->getName();
-		Setting& pos = current.add("Position", Setting::TypeArray);
-		pos.add(Setting::TypeFloat) = ent->transform.getPos().x;
-		pos.add(Setting::TypeFloat) = ent->transform.getPos().y;
-		pos.add(Setting::TypeFloat) = ent->transform.getPos().z;
-		Setting& rot = current.add("Rotation", Setting::TypeArray);
-		rot.add(Setting::TypeFloat) = ent->transform.getRot().x;
-		rot.add(Setting::TypeFloat) = ent->transform.getRot().y;
-		rot.add(Setting::TypeFloat) = ent->transform.getRot().z;
-		Setting& scale = current.add("Scale", Setting::TypeArray);
-		scale.add(Setting::TypeFloat) = ent->transform.getScale().x;
-		scale.add(Setting::TypeFloat) = ent->transform.getScale().y;
-		scale.add(Setting::TypeFloat) = ent->transform.getScale().z;
-		current.add("numComponents", Setting::TypeInt) = (int)ent->components.size();
-		int j = 0;
-		for (unsigned int i = 0; i < ent->components.size(); i++)
-		{
-			switch (ent->components[i]->type)
-			{
-			case GRAPHICS:
-			{
-				auto* s = ent->components[i]->getT<GraphicsComponent*>();
-				Setting& comp = current.add("Component" + std::to_string(j++), Setting::TypeGroup);
-				comp.add("Type", Setting::TypeString) = "Graphics";
-				comp.add("Texturepath", Setting::TypeString) = s->material.texture.texturepath;
-				comp.add("Normalpath" , Setting::TypeString) = s->material.normalMap.texturepath;
-				comp.add("Meshpath", Setting::TypeString) = s->mesh.getPath();
-				Setting& color = comp.add("Color", Setting::TypeArray);
-				color.add(Setting::TypeFloat) = s->material.color.x;
-				color.add(Setting::TypeFloat) = s->material.color.y;
-				color.add(Setting::TypeFloat) = s->material.color.z;
-			}break;
-			case AMBIENT:
-			{
-				auto* s = ent->components[i]->getT<AmbientLightComponent*>();
-				Setting& comp = current.add("Component" + std::to_string(j++), Setting::TypeGroup);
-				comp.add("Type", Setting::TypeString) = "Ambient";
-				Setting& color = comp.add("Color", Setting::TypeArray);
-				color.add(Setting::TypeFloat) = s->ambient.getAmbient().x;
-				color.add(Setting::TypeFloat) = s->ambient.getAmbient().y;
-				color.add(Setting::TypeFloat) = s->ambient.getAmbient().z;
-				
-				
-			}; break;
-			case TERRAIN:
-			{
-				auto* s = ent->components[i]->getT<TerrainComponent*>();
-				Setting& comp = current.add("Component" + std::to_string(j++), Setting::TypeGroup);
-				comp.add("Type", Setting::TypeString) = "Terrain";
-				comp.add("Terrainpath", Setting::TypeString) = s->terrain.getPath();
-				comp.add("Texturepath",Setting::TypeString) = s->terrain.getMaterial()->texture.texturepath;
-				Setting& r = comp.add("Scale", Setting::TypeArray);
-				r.add(Setting::TypeFloat) = s->terrain.getTransform()->getScale().x;
-				r.add(Setting::TypeFloat) = s->terrain.getTransform()->getScale().y;
-				r.add(Setting::TypeFloat) = s->terrain.getTransform()->getScale().z;
-				comp.add("Centered", Setting::TypeBoolean) = s->terrain.isCentered();
-			}; break;
-			case DIRECTIONAL:
-			{
-				auto* s = ent->components[i]->getT<DirectionalLightComponent*>();
-				Setting& comp = current.add("Component" + std::to_string(j++), Setting::TypeGroup);
-				comp.add("Type", Setting::TypeString) = "Directional";
-				Setting& color = comp.add("Color", Setting::TypeArray);
-				color.add(Setting::TypeFloat) = s->light.getBaseLight().getColor().x;
-				color.add(Setting::TypeFloat) = s->light.getBaseLight().getColor().y;
-				color.add(Setting::TypeFloat) = s->light.getBaseLight().getColor().z;
-				comp.add("Intensity", Setting::TypeFloat) = s->light.getBaseLight().getIntensity();
-				Setting& dir = comp.add("Direction", Setting::TypeArray);
-				dir.add(Setting::TypeFloat) = s->light.getDirection().x;
-				dir.add(Setting::TypeFloat) = s->light.getDirection().y;
-				dir.add(Setting::TypeFloat) = s->light.getDirection().z;
-
-			}; break;
-			case SKYBOX:
-			{
-				auto* s = ent->components[i]->getT<SkyBoxComponent*>();
-				auto r = s->skyBox.getDirAndFile();
-				Setting& comp = current.add("Component" + std::to_string(j++), Setting::TypeGroup);
-				comp.add("Type", Setting::TypeString) = "Skybox";
-				Setting& color = comp.add("Color", Setting::TypeArray);
-				color.add(Setting::TypeFloat) = s->skyBox.getColor().x;
-				color.add(Setting::TypeFloat) = s->skyBox.getColor().y;
-				color.add(Setting::TypeFloat) = s->skyBox.getColor().z;
-				comp.add("Directory", Setting::TypeString) = r[0];
-				Setting& files = comp.add("Files", Setting::TypeArray);
-				for (int w = 1; w < 7;w++) files.add(Setting::TypeString) = r[w];
-			}; break;
-			case PHYSICS:
-			{
-				auto* s = ent->components[i]->getT<PhysicsComponent*>();
-				Setting& comp = current.add("Component" + std::to_string(j++), Setting::TypeGroup);
-				comp.add("Type", Setting::TypeString) = "Physics";
-				comp.add("Physicstype", Setting::TypeString) = PhysicsData::typeToString(s->data.type);
-				comp.add("Mass", Setting::TypeFloat) = std::to_string(s->data.mass);
-			}break;
-			case AUDIO:
-			{
-				auto* s = ent->components[i]->getT<AudioComponent*>();
-				Setting& comp = current.add("Component" + std::to_string(j++), Setting::TypeGroup);
-				comp.add("Type", Setting::TypeString) = "Audio";
-				comp.add("Path", Setting::TypeString) = s->path;
-				comp.add("Volume", Setting::TypeFloat) = s->sound.getVolume();
-				comp.add("is2D", Setting::TypeBoolean) = s->is2D;
-			}break;
-			case SCRIPT:
-			{
-				auto* s = ent->components[i]->getT<ScriptComponent*>();
-				Setting& comp = current.add("Component" + std::to_string(j++), Setting::TypeGroup);
-				comp.add("Type", Setting::TypeString) = "Script";
-				comp.add("Path", Setting::TypeString) = s->script.path;
-			}; break;
-			default:
-			{
-				
-			}break;
-			}
-		}
-	}//remove
-	config.writeFile(name.c_str());
-
-
-
-
-
-	/*std::ofstream myFile;
-	myFile.open (name);
-	for (auto &it = entities.begin(); it != entities.end(); it++)
-	{
-	
-		Entity* ent = it->second;
-		myFile << "E " + ent->getName() + Scene::seperatingCharacter + std::to_string(ent->transform.getPos().x) + Scene::seperatingCharacter + std::to_string(ent->transform.getPos().y) + Scene::seperatingCharacter + std::to_string(ent->transform.getPos().z) + Scene::seperatingCharacter
-			+ std::to_string(ent->transform.getRot().x) + Scene::seperatingCharacter + std::to_string(ent->transform.getRot().y) + Scene::seperatingCharacter + std::to_string(ent->transform.getRot().z) + Scene::seperatingCharacter
-			+ std::to_string(ent->transform.getScale().x) + Scene::seperatingCharacter + std::to_string(ent->transform.getScale().y) + Scene::seperatingCharacter + std::to_string(ent->transform.getScale().z) + "\n";
-		for (unsigned int i = 0; i < ent->components.size(); i++)
-		{
-			switch (ent->components[i]->type)
-			{
-				case GRAPHICS:
-				{
-					auto* s = ent->components[i]->getT<GraphicsComponent*>();
-					myFile <<  "G " + s->material.texture.texturepath + Scene::seperatingCharacter + s->material.normalMap.texturepath + Scene::seperatingCharacter + s->mesh.getPath() + Scene::seperatingCharacter + std::to_string(s->material.color.x) + Scene::seperatingCharacter + std::to_string(s->material.color.y) + Scene::seperatingCharacter + std::to_string(s->material.color.z) + "\n";
-				}break;
-				case AMBIENT:
-				{
-					auto* s = ent->components[i]->getT<AmbientLightComponent*>();
-					myFile<< "A " + std::to_string(s->ambient.getAmbient().x) + Scene::seperatingCharacter + std::to_string(s->ambient.getAmbient().y) + Scene::seperatingCharacter + std::to_string(s->ambient.getAmbient().z) + "\n";
-				}; break;
-				case TERRAIN:
-				{
-					auto* s = ent->components[i]->getT<TerrainComponent*>();
-					myFile << "T " + s->terrain.getPath() + Scene::seperatingCharacter + s->terrain.getMaterial()->texture.texturepath + Scene::seperatingCharacter + std::to_string(s->terrain.getTransform()->getScale().x) + Scene::seperatingCharacter + std::to_string(s->terrain.getTransform()->getScale().y) + Scene::seperatingCharacter + std::to_string(s->terrain.getTransform()->getScale().z) + Scene::seperatingCharacter + BTS(s->terrain.isCentered()) + "\n";
-				}; break;
-				case DIRECTIONAL:
-				{
-					auto* s = ent->components[i]->getT<DirectionalLightComponent*>();
-					myFile<< "D " + std::to_string(s->light.getBaseLight().getColor().x) + Scene::seperatingCharacter + std::to_string(s->light.getBaseLight().getColor().y) + Scene::seperatingCharacter + std::to_string(s->light.getBaseLight().getColor().z) + Scene::seperatingCharacter + std::to_string(s->light.getBaseLight().getIntensity()) + Scene::seperatingCharacter
-						+ std::to_string(s->light.getDirection().x) + Scene::seperatingCharacter + std::to_string(s->light.getDirection().y) + Scene::seperatingCharacter + std::to_string(s->light.getDirection().z) + "\n";
-				}; break;
-				case SKYBOX:
-				{
-					auto* s = ent->components[i]->getT<SkyBoxComponent*>();
-					auto r = s->skyBox.getDirAndFile();
-					myFile <<  "S " + std::to_string(s->skyBox.getColor().x) + Scene::seperatingCharacter + std::to_string(s->skyBox.getColor().y) + Scene::seperatingCharacter + std::to_string(s->skyBox.getColor().z) + Scene::seperatingCharacter + r[0] + Scene::seperatingCharacter + r[1] + Scene::seperatingCharacter + r[2] + Scene::seperatingCharacter + r[3] + Scene::seperatingCharacter + r[4] + Scene::seperatingCharacter + r[5] + Scene::seperatingCharacter + r[6] + "\n";
-				}; break;
-				case PHYSICS:
-				{
-					auto* s = ent->components[i]->getT<PhysicsComponent*>();
-					myFile << "P " + PhysicsData::typeToString(s->data.type) + Scene::seperatingCharacter + std::to_string(s->data.mass) + "\n";
-				}break;
-				case AUDIO:
-				{
-					auto* s = ent->components[i]->getT<AudioComponent*>();
-					myFile << "AU " + BTS(s->is2D) + "  " + s->path +Scene::seperatingCharacter + std::to_string(s->sound.getVolume())+ "\n";
-				}break;
-				case SCRIPT:
-				{
-					auto* s = ent->components[i]->getT<ScriptComponent*>();
-					myFile << "SC " + s->script.path + "\n";
-				}; break;
-				default:
-				{
-					std::cout << "BROKEN SCNE SAVE COMPONENT \n";
-				}break;
-			}
-		}
-	}*/
-	
-}
 
 void Scene::addEntity(Entity* object)
 {
@@ -414,9 +234,426 @@ void brokenSceneLine(std::string &path)
 {
 	std::cout << "Broken Scene Line: " << path << std::endl;
 }
+
+
+
+template <typename ValueType>
+bool look(libconfig::Setting& setting,std::string place,ValueType &value)
+{
+	if (setting.exists(place))
+	{
+		return setting.lookupValue(place, value);
+
+	}
+	else std::cout << setting.getPath() + place << " does not exist. Value remains unchanged." << std::endl;
+	return false;
+}
+
+bool look(libconfig::Setting& current, std::string place ,Vector3& vec,std::string ent)
+{
+	using namespace libconfig;
+	if (current.exists(place))
+	{
+		Setting& posit = current.lookup(place);
+		vec[0] = posit[0];
+		vec[1] = posit[1];
+		vec[2] = posit[2];
+		return true;
+	}
+	else
+	{
+		std::cout << place<<" error in " << ent << std::endl;
+		return false;
+	}
+}
+
+void Scene::saveFile(std::string name)
+{
+	using namespace libconfig;
+	Config config;
+
+	Setting& root = config.getRoot();
+	root.add("Version", Setting::TypeFloat) = 1.0f;
+	root.add("numEntities", Setting::TypeInt) = (int)entities.size();
+	int i = 0;
+	for (auto &it = entities.begin(); it != entities.end(); it++)
+	{
+		Entity* ent = it->second;
+		Setting &current = root.add("Entity" + std::to_string(i++), Setting::TypeGroup);
+
+		current.add("Name", Setting::TypeString) = ent->getName();
+		Setting& pos = current.add("Position", Setting::TypeArray);
+		pos.add(Setting::TypeFloat) = ent->transform.getPos().x;
+		pos.add(Setting::TypeFloat) = ent->transform.getPos().y;
+		pos.add(Setting::TypeFloat) = ent->transform.getPos().z;
+		Setting& rot = current.add("Rotation", Setting::TypeArray);
+		rot.add(Setting::TypeFloat) = ent->transform.getRot().x;
+		rot.add(Setting::TypeFloat) = ent->transform.getRot().y;
+		rot.add(Setting::TypeFloat) = ent->transform.getRot().z;
+		Setting& scale = current.add("Scale", Setting::TypeArray);
+		scale.add(Setting::TypeFloat) = ent->transform.getScale().x;
+		scale.add(Setting::TypeFloat) = ent->transform.getScale().y;
+		scale.add(Setting::TypeFloat) = ent->transform.getScale().z;
+
+		if (ent->getPhysics() != NULL) current.add("numComponents", Setting::TypeInt) = (int)ent->components.size() + 1;
+		else current.add("numComponents", Setting::TypeInt) = (int)ent->components.size();
+		int j = 0;
+		for (unsigned int i = 0; i < ent->components.size(); i++)
+		{
+			switch (ent->components[i]->type)
+			{
+			case GRAPHICS:
+			{
+				auto* s = ent->components[i]->getT<GraphicsComponent*>();
+				Setting& comp = current.add("Component" + std::to_string(j++), Setting::TypeGroup);
+				comp.add("Type", Setting::TypeString) = "Graphics";
+				comp.add("Texturepath", Setting::TypeString) = s->material.texture.texturepath;
+				comp.add("Normalpath", Setting::TypeString) = s->material.normalMap.texturepath;
+				comp.add("Meshpath", Setting::TypeString) = s->mesh.getPath();
+				Setting& color = comp.add("Color", Setting::TypeArray);
+				color.add(Setting::TypeFloat) = s->material.color.x;
+				color.add(Setting::TypeFloat) = s->material.color.y;
+				color.add(Setting::TypeFloat) = s->material.color.z;
+
+			}break;
+			case AMBIENT:
+			{
+				auto* s = ent->components[i]->getT<AmbientLightComponent*>();
+				Setting& comp = current.add("Component" + std::to_string(j++), Setting::TypeGroup);
+				comp.add("Type", Setting::TypeString) = "Ambient";
+				Setting& color = comp.add("Color", Setting::TypeArray);
+				color.add(Setting::TypeFloat) = s->getAmbient().x;
+				color.add(Setting::TypeFloat) = s->getAmbient().y;
+				color.add(Setting::TypeFloat) = s->getAmbient().z;
+
+
+			}; break;
+			case TERRAIN:
+			{
+				auto* s = ent->components[i]->getT<TerrainComponent*>();
+				Setting& comp = current.add("Component" + std::to_string(j++), Setting::TypeGroup);
+				comp.add("Type", Setting::TypeString) = "Terrain";
+				comp.add("Terrainpath", Setting::TypeString) = s->terrain.getPath();
+				comp.add("Texturepath", Setting::TypeString) = s->terrain.getMaterial()->texture.texturepath;
+				Setting& r = comp.add("Scale", Setting::TypeArray);
+				r.add(Setting::TypeFloat) = s->terrain.getTransform()->getScale().x;
+				r.add(Setting::TypeFloat) = s->terrain.getTransform()->getScale().y;
+				r.add(Setting::TypeFloat) = s->terrain.getTransform()->getScale().z;
+				comp.add("Centered", Setting::TypeBoolean) = s->terrain.isCentered();
+			}; break;
+			case DIRECTIONAL:
+			{
+				auto* s = ent->components[i]->getT<DirectionalLightComponent*>();
+				Setting& comp = current.add("Component" + std::to_string(j++), Setting::TypeGroup);
+				comp.add("Type", Setting::TypeString) = "Directional";
+				Setting& color = comp.add("Color", Setting::TypeArray);
+				color.add(Setting::TypeFloat) = s->getBaseLight().getColor().x;
+				color.add(Setting::TypeFloat) = s->getBaseLight().getColor().y;
+				color.add(Setting::TypeFloat) = s->getBaseLight().getColor().z;
+				comp.add("Intensity", Setting::TypeFloat) = s->getBaseLight().getIntensity();
+				Setting& dir = comp.add("Direction", Setting::TypeArray);
+				dir.add(Setting::TypeFloat) = s->getDirection().x;
+				dir.add(Setting::TypeFloat) = s->getDirection().y;
+				dir.add(Setting::TypeFloat) = s->getDirection().z;
+
+			}; break;
+			case SKYBOX:
+			{
+				auto* s = ent->components[i]->getT<SkyBoxComponent*>();
+				auto r = s->getDirAndFile();
+				Setting& comp = current.add("Component" + std::to_string(j++), Setting::TypeGroup);
+				comp.add("Type", Setting::TypeString) = "Skybox";
+				Setting& color = comp.add("Color", Setting::TypeArray);
+				color.add(Setting::TypeFloat) = s->getColor().x;
+				color.add(Setting::TypeFloat) = s->getColor().y;
+				color.add(Setting::TypeFloat) = s->getColor().z;
+				Setting& files = comp.add("Files", Setting::TypeArray);
+				for (int w = 0; w <6; w++) files.add(Setting::TypeString) = r[w];
+			}; break;
+			case PHYSICS:
+			{
+
+			}break;
+			case AUDIO:
+			{
+				auto* s = ent->components[i]->getT<AudioComponent*>();
+				Setting& comp = current.add("Component" + std::to_string(j++), Setting::TypeGroup);
+				comp.add("Type", Setting::TypeString) = "Audio";
+				comp.add("Path", Setting::TypeString) = s->path;
+				comp.add("Volume", Setting::TypeFloat) = s->sound.getVolume();
+				comp.add("is2D", Setting::TypeBoolean) = s->is2D;
+				Setting& pos = comp.add("Position", Setting::TypeArray);
+				pos.add(Setting::TypeFloat) = s->sound.getPosition().x;
+				pos.add(Setting::TypeFloat) = s->sound.getPosition().y;
+				pos.add(Setting::TypeFloat) = s->sound.getPosition().z;
+			}break;
+			case SCRIPT:
+			{
+				auto* s = ent->components[i]->getT<ScriptComponent*>();
+				Setting& comp = current.add("Component" + std::to_string(j++), Setting::TypeGroup);
+				comp.add("Type", Setting::TypeString) = "Script";
+				comp.add("Path", Setting::TypeString) = s->script.path;
+			}; break;
+			default:
+			{
+
+			}break;
+			}
+		}
+		if (ent->getPhysics() != NULL)
+		{
+			auto* s = ent->getPhysics()->getT<PhysicsComponent*>();
+
+			Setting& comp = current.add("Component" + std::to_string(j++), Setting::TypeGroup);
+			comp.add("Type", Setting::TypeString) = "Physics";
+			comp.add("Physicstype", Setting::TypeString) = PhysicsData::typeToString(s->data.type);
+			comp.add("Mass", Setting::TypeFloat) = s->data.mass;
+		}
+	}//remove
+	config.writeFile(name.c_str());
+
+}
+
 bool Scene::loadScene(std::string Path)
 {
-	std::cout << "Loading Scene" << Path<<std::endl;
+	using namespace libconfig;
+	FILE* file = fopen(Path.c_str(),"r");
+	if (file == NULL)
+	{
+		perror("Error opening file");
+		return false;
+	}
+	Config config;
+	try
+	{
+		config.read(file);
+	}
+	catch (const FileIOException &fioex)
+	{
+		std::cerr << "I/O error while reading file." << fioex.what() << std::endl;
+		return(EXIT_FAILURE);
+	}
+	catch (const ParseException &pex)
+	{
+		std::cerr << "Parse error at " << pex.getFile() << ":" << pex.getLine()
+			<< " - " << pex.getError() << std::endl;
+		return(EXIT_FAILURE);
+	}
+	Setting& root = config.getRoot();
+
+	static std::map<std::string, ComponentType> type{
+		std::make_pair("Entity",ENTITY),
+		std::make_pair("Graphics",GRAPHICS),
+		std::make_pair("Ambient",AMBIENT),
+		std::make_pair("Directional",DIRECTIONAL),
+		std::make_pair("Terrain",TERRAIN),
+		std::make_pair("Skybox",SKYBOX),
+		std::make_pair("Physics", PHYSICS),
+		std::make_pair("Script", SCRIPT),
+		std::make_pair("Audio", AUDIO) };
+
+	bool numEntitiesSpecified = true;
+	int numEnt = 1000000;
+	numEntitiesSpecified = look<int>(root, "numEntities", numEnt);
+	
+
+	for (int i = 0; i < numEnt; i++)
+	{
+		std::string currentEntityName = "Entity" + std::to_string(i);
+		if (!config.exists(currentEntityName))
+		{
+			
+			if (numEntitiesSpecified)
+			{
+				std::cout << "Entity" + std::to_string(i) << " does not exist. Loading next Entity" << std::endl;
+				continue;
+			}
+			else
+			{
+				std::cout << "Entity" + std::to_string(i) << " does not exist. Aborting loading due to non specified numEntities" << std::endl;
+				return false;
+			}
+		}
+		Setting& current = root.lookup("Entity" + std::to_string(i));
+		std::string name;
+		Vector3 pos = Vector3(), rot = Vector3(), scale = Vector3();
+
+
+		if (!(current.lookupValue("Name", name)))
+		{
+			std::cout << "Entity without name in sceneLoad" << std::endl;
+			break;
+		}
+		
+		look(current, "Position", pos, currentEntityName);
+		look(current, "Rotation", rot, currentEntityName);
+		look(current, "Scale", scale, currentEntityName);
+	
+		Entity* ent = ServiceLocator::getEM().create(name, pos, rot, scale);
+		addEntity(ent);
+
+		//load Components
+		int numComponents = 1000;
+		bool numComponentsSpecified = true;
+		numComponentsSpecified = look<int>(current, "numComponents", numComponents);
+		for (int i = 0; i < numComponents; i++)
+		{
+			std::string currentCompName = "Component" + std::to_string(i);
+			if (!current.exists(currentCompName))
+			{
+
+				if (numComponentsSpecified)
+				{
+					std::cout << currentCompName << " does not exist. Loading next Component." << std::endl;
+					continue;
+				}
+				else
+				{
+					std::cout << currentCompName << " does not exist. Aborting Component loading due to non specified numComponents." << std::endl;
+					return false;
+				}
+			}
+
+			Setting& comp = current.lookup(currentCompName);
+			ComponentType temp = NUMCOMPONENT;
+			auto it = type.find(comp.lookup("Type"));
+			if (it != type.end()) temp = it->second;
+
+			switch (temp)
+			{
+				case GRAPHICS:
+				{
+					std::string texturePath(""), normalPath(""), objectPath("");
+					Vector3 color(1.0f,1.0f,1.0f);
+					bool autocenter = false;
+					look(comp,"Texturepath", texturePath);
+					look(comp,"Normalpath", normalPath);
+					look(comp,"Meshpath", objectPath);
+					look(comp, "Color", color,currentEntityName +  currentCompName);
+					ent->addComponent(ServiceLocator::getCM().createGraphics(texturePath, normalPath, objectPath,color,autocenter));
+				}break;
+				case AMBIENT:
+				{
+					Vector3 ambient(0.5f, 0.5f, 0.5f);
+					look(comp, "Color", ambient, currentEntityName + currentCompName);
+					ent->addComponent(ServiceLocator::getCM().createAmbient(ambient));
+				}; break;
+				case TERRAIN:
+				{
+					std::string path(""), texturepath("");
+					Vector3 scale;
+					bool centered = false;
+					
+					look(comp, "Terrainpath", path);
+					look(comp, "Texturepath", texturepath);
+					look(comp, "Scale", scale, currentEntityName + currentCompName);
+					look(comp, "Centered", centered);
+
+					ent->addComponent(ServiceLocator::getCM().createTerrain(path, texturepath, scale, centered));
+				}; break;
+				case DIRECTIONAL:
+				{
+					Vector3 color(1.0f, 1.0f, 1.0f), direction(0.0f, 1.0f, 0.0f);
+					float intensity = 100.0f;
+
+					look(comp, "Color", color, currentEntityName + currentCompName);
+					look(comp, "Direction", direction, currentEntityName + currentCompName);
+					look(comp, "Intensity", intensity);
+
+					ent->addComponent(ServiceLocator::getCM().createDirectional(color, intensity, direction));
+
+				}; break;
+				case SKYBOX:
+				{
+					Vector3 color(1.0f, 1.0f, 1.0f);
+					std::vector<std::string> files;
+					if (comp.exists("Files"))
+					{
+						Setting& f = comp.lookup("Files");
+						files.push_back(f[0]);
+						files.push_back(f[1]);
+						files.push_back(f[2]);
+						files.push_back(f[3]);
+						files.push_back(f[4]);
+						files.push_back(f[5]);
+					}
+					look(comp, "Color", color, currentEntityName + currentCompName);
+					ent->addComponent(ServiceLocator::getCM().createSkyBox(color, files[0], files[1], files[2], files[3], files[4], files[5]));
+				}; break;
+				case PHYSICS:
+				{
+					PhysicsData data;
+					std::string type;
+					look(comp, "Physicstype", type);
+					data.type = PhysicsData::stringToType(type);
+					look(comp, "Mass", data.mass);
+					ent->getPhysics()->getT<PhysicsComponent*>()->reload(data);
+				}break;
+				case AUDIO:
+				{
+					
+					
+					bool is2D = false;
+					Vector3 pos(0.0f,0.0f,0.0f);
+					std::string path("");
+					float Volume = 1.0f;
+					look(comp, "is2D", is2D);
+					look(comp, "Path", path);
+					look(comp, "Volume", Volume);
+					look(comp, "Position", pos, currentEntityName + currentCompName);
+					if (is2D)
+					{
+						ent->addComponent(ServiceLocator::getCM().create2DAudio(path, Volume));
+					}
+					else
+					{
+						ent->addComponent(ServiceLocator::getCM().create3DAudio(path, pos, Volume));
+					}
+					
+				}break;
+				case SCRIPT:
+				{
+					std::string path("");
+					look(comp, "Path", path);
+					ent->addComponent(ServiceLocator::getCM().createScript(path));
+				}; break;
+				default:
+				{
+					std::cout << "BROKEN SCENE SAVE COMPONENT \n";
+				}break;
+				
+			}
+		}
+	}
+	return true;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/*std::cout << "Loading Scene" << Path<<std::endl;
 	std::ifstream encodefile(Path.c_str());
     
 	static std::map<std::string, ComponentType> type{
@@ -561,7 +798,7 @@ bool Scene::loadScene(std::string Path)
 		addEntity(currentEntity);
 	}
 		
-	return true;
+	return true;*/
 };
 
 

@@ -50,9 +50,34 @@ public:
 	friend class Component;
 	friend class SeScript;
 	friend class CollisionComponent;
+	friend class EntityComponentGui;
 	static Scene* createScene(int Height,int Width,std::string path = "none");
 	static void deleteScene(Scene* deleteScene);
 	
+
+	class Listener
+	{
+	public:
+		Listener()
+		{
+			static unsigned int id = 0;
+			ListenerID = id++;
+		}
+		virtual ~Listener() { }
+
+		/**
+		* Handles when an camera settings change.
+		*
+		* @param camera The camera that was changed.
+		*/
+		virtual void sceneChanged(Scene* scene) = 0;
+		unsigned int ListenerID;
+	};
+	void addListener(Scene::Listener* listener);
+	void removeListener(Scene::Listener* listener);
+	void sceneChanged();
+
+
 	//Scene updates
 	void renderScene();
 	void renderGeometry();//used for deferred
@@ -83,8 +108,9 @@ public:
 	void pick(int x,int y);
 	//loading parsing and saving scene
 	void saveFile(std::string name);
-	
+	Picker picker;//TODO MAKE THIS A COMPONENT
 private:
+	std::map<unsigned int, Scene::Listener*> _listeners;
 	Scene(){}; 
 	~Scene(void);
 	std::map<int,Entity*> entities;
@@ -94,7 +120,7 @@ private:
 	Camera3d* camera;//TODO MAKE THIS A COMPONENT
 	GLuint entityCount;
 	FBO *fbo;
-	Picker picker;//TODO MAKE THIS A COMPONENT
+	
 	GLuint drawnEntities;
 	static char seperatingCharacter;
 };

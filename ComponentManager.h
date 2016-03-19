@@ -18,11 +18,21 @@ public:
 
 	friend class GraphicComponentSystem;
 	friend class TerrainComponentSystem;
-	friend class SkyboxComponentSystem;
+	friend class SkyBoxComponentSystem;
 	friend class LightComponentSystem;
 	friend class PhysicsComponentSystem;
 	friend class AudioComponentSystem;
 	friend class ScriptComponentSystem;
+
+	friend class GraphicsComponent;
+	friend class TerrainComponent;
+	friend class SkyBoxComponent;
+	friend class DirectionalLightComponent;
+	friend class AmbientLightComponent;
+	friend class PhysicsComponent;
+	friend class AudioComponent;
+	friend class ScriptComponent;
+
 	//start the Manager
 	void initialize();
 	//destroy Manager and all components
@@ -41,12 +51,11 @@ public:
 	ComponentPosition* createTerrain(std::string Path, std::string Texture, Vector3 Scale = Vector3(1.0f, 1.0f, 1.0f), bool Center = false);
 	ComponentPosition* createAmbient(Vector3 Color);
 	ComponentPosition* createDirectional(Vector3 Color = Vector3(1.0f, 1.0f, 1.0f), float Intensity = 0.2f, Vector3 Dir = Vector3(1.0f, 1.0f, 1.0f));
-	ComponentPosition* createSkyBox(Vector3 color, std::string Directory, std::string posx, std::string negx, std::string posy, std::string negy, std::string posz, std::string negz);
+	ComponentPosition* createSkyBox(Vector3 color, std::string posx, std::string negx, std::string posy, std::string negy, std::string posz, std::string negz);
 	ComponentPosition* createPhysicComponent(PhysicsData& Data);
 	ComponentPosition* create2DAudio(std::string audiopath = "", float Volume = 1.0f);
 	ComponentPosition* create3DAudio(std::string audiopath = "", Vector3 position = Vector3(), float Volume = 1.0f);
 	ComponentPosition* createScript(std::string path);
-
 	void deleteComponent(ComponentPosition* Posi);
 	void renderComponent(ComponentPosition* comp, Shader* shader, Camera3d* camera);
 	void renderComponent(Component* comp, Shader* shader, Camera3d* camera);

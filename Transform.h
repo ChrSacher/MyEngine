@@ -17,14 +17,14 @@ public:
 			static unsigned int id = 0;
 			ListenerID = id++;
 		}
-		virtual ~Listener() { }
+		~Listener() { }
 
 		/**
 		* Handles when an camera settings change.
 		*
 		* @param camera The camera that was changed.
 		*/
-		virtual void transformChanged(Transform& transform) = 0;
+		virtual void transformChanged(Transform* transform) = 0;
 		unsigned int ListenerID;
 	};
 	void addListener(Transform::Listener* listener);
@@ -43,6 +43,11 @@ public:
 	void setRot(Vector3& Rot);
 	void setScale(Vector3& Scale);
 	void set(Transform &transform);
+
+	void setLockPos(bool x) { lockedPos = x; transformChanged(); }
+	void setLockRot(bool x) { lockedRot = x; transformChanged();}
+	void setLockSca(bool x) { lockedSca = x; transformChanged();}
+
 	inline void translate(Vector3 &trans) { pos += trans; }
 	inline void rotate(Vector3 &Rot) {rot += Rot;}
 	/*
@@ -61,11 +66,15 @@ public:
 	Vector3 down;
 	Vector3 up;
 	Vector3 left;
+	bool operator!=(Transform& other);
 private:
 	std::map<unsigned int,Transform::Listener*> _listeners;
 	Vector3 pos;
 	Vector3 rot;
 	Vector3 sca;
 	Matrix4 modelMatrix;
+
+	//if true will dissallow any changes to these
+	bool lockedPos, lockedRot, lockedSca;
 };
 

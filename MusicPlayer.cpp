@@ -1,4 +1,5 @@
 #include "MusicPlayer.h"
+#include <libconfig\libconfig.hh>
 //removes leading and trailing whitespace
 void trim(std::string& s)
 {
@@ -86,37 +87,69 @@ void MusicPlayer::previousSong()
 	}
 	
 }
-void MusicPlayer::loadSongList(std::string path)
+template <typename ValueType>
+bool look(libconfig::Setting& setting, std::string place, ValueType &value)
 {
-	songList.clear();
-	std::string line;
-	std::ifstream encodefile(path.c_str());
-	while (std::getline(encodefile, line))
+	if (setting.exists(place))
 	{
-		auto pos = line.rfind(";");
-		if (pos != std::string::npos)
-		{
-			line.erase(pos);
+		return setting.lookupValue(place, value);
 
-		}
-		pos = line.rfind("//");
-		if (pos != std::string::npos)
-		{
-			line.erase(pos);
-		}
-		std::vector<std::string> lines;
-		split(line, ',', lines);
-		if (lines.size() < 3) continue;
-		
-		trim(lines[0]);
-		trim(lines[1]);
-		trim(lines[2]); //lazy
-		songList.push_back(SongInformation(lines[1], lines[2], std::stoi(lines[0])));
 	}
-	return;
-	
+	else std::cout << setting.getPath() + place << " does not exist. Value remains unchanged." << std::endl;
+	return false;
 }
 
+/*bool look(libconfig::Setting& current, std::string place, Vector3& vec, std::string ent)
+{
+	using namespace libconfig;
+	if (current.exists(place))
+	{
+		Setting& posit = current.lookup(place);
+		vec[0] = posit[0];
+		vec[1] = posit[1];
+		vec[2] = posit[2];
+		return true;
+	}
+	else
+	{
+		std::cout << place << " error in " << ent << std::endl;
+		return false;
+	}
+}*/
+
+void MusicPlayer::loadSongList(std::string path)
+{
+	using namespace libconfig;
+	Config cfg;
+	cfg.readFile(path.c_str());
+	Setting& root = cfg.getRoot();
+	if (!root.exists("Songs")) return;
+	for (unsigned int i = 0; i < root["Songs"].getLength(); i++)
+	{
+		Setting& place = root["Songs"][i];
+		std::string path = "", title = "";
+		look(place, "Path", path);
+		look(place, "Title", title);
+		songList.push_back(SongInformation(path,title));
+	}
+}
+
+void MusicPlayer::saveSongList(std::string path)
+{
+	using namespace libconfig;
+	Config cfg;
+	Setting& root = cfg.getRoot();
+	root.add("Version", Setting::TypeFloat) = 1.0f;
+	
+	Setting&  list = root.add("Songs",Setting::TypeList);
+	for (unsigned int i = 0; i < songList.size(); i++)
+	{
+		Setting& r = list.add(Setting::TypeGroup);
+		r.add("Path",Setting::TypeString) = songList[i].path;
+		r.add("Title",Setting::TypeString) = songList[i].title;
+	}
+	cfg.writeFile(path.c_str());
+}
 inline void MusicPlayer::split(const std::string& s, char c, std::vector<std::string>& v)
 {
    std::string::size_type i = 0;

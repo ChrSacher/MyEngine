@@ -2,12 +2,12 @@
 
 
 Audio::Audio(void)
-	{
+{
 
-	};
-	/* Start the Engine and load all necessary things
-	*/
-void Audio::initialize() 
+};
+/* Start the Engine and load all necessary things
+*/
+void Audio::initialize()
 {
 
 	YSE::System().init();
@@ -19,34 +19,51 @@ void Audio::initialize()
 
 	return;
 };
-	/*
-	Destroy all loaded things and all sounds which are currently loaded
-	*/
-	void Audio::destroy()
-	{
-		YSE::System().close();
-		for (unsigned int i = 0; i < empty.size(); i++) delete(empty[i]);
-		empty.clear();
-	}
-	Audio::~Audio(void)
-	{
+/*
+Destroy all loaded things and all sounds which are currently loaded
+*/
+void Audio::destroy()
+{
+	YSE::System().close();
+	for (unsigned int i = 0; i < empty.size(); i++) delete(empty[i]);
+	empty.clear();
+}
+Audio::~Audio(void)
+{
 
 
 
-	}
-	//Play 2d Sound
-	// #return will return an Int with location of the current sound
-	// if -1 then sound couldn't be loaded
+}
+//Play 2d Sound
+// #return will return an Int with location of the current sound
+// if -1 then sound couldn't be loaded
+void Audio::playSound3D(std::string audiopath, Vector3 position, float Volume)
+{
+	YSE::sound* temp = new YSE::sound;
+	temp->setVolume(Volume);
+	temp->play();
+	temp->setPosition(YSE::Vec(position.x, position.y, position.z));
+	empty.push_back(temp);
+
+	update();
+	return;
+}
+void Audio::playSound2D(std::string audiopath, float Volume)
+{
+	YSE::sound* temp = new YSE::sound;
+	temp->setVolume(Volume);
+	temp->play();
+	temp->set2D(true);
+	empty.push_back(temp);
+
+	update();
+	return;
+}
 	void Audio::play2D(YSE::sound* sound , std::string audiopath, float Volume)
 	{
 		if (!sound)
 		{
-			YSE::sound* temp = new YSE::sound;
-			temp->setVolume(Volume);
-			temp->play();
-			empty.push_back(temp);
-
-			update();
+			playSound2D(audiopath, Volume);
 			return;
 		}
 		sound->stop();
@@ -69,12 +86,7 @@ void Audio::initialize()
 	{
 		if (!sound)
 		{
-			YSE::sound* temp = new YSE::sound;
-			temp->setVolume(Volume);
-			temp->play();
-			temp->setOcclusion(true);
-			empty.push_back(temp);
-			update();
+			playSound3D(audiopath, position, Volume);
 			return;
 		}
 		sound->stop();

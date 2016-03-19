@@ -1,6 +1,6 @@
 #include "Picker.h"
 #include "ServiceLocator.h"
-
+#include "Component.h"
 Picker::Picker(void)
 {
 	lastObject = NULL;
@@ -9,9 +9,37 @@ Picker::Picker(void)
 	comp = ServiceLocator::getCM().createGraphics(std::string(), std::string(), std::string("res/models/Picker.obj"),Vector3(1.0f,1.0f,1.0f));
 	pickerEntity->addComponent(comp);
 	comp->getT<GraphicsComponent*>()->setRenderable(false);
+	pickerEntity->getTransform()->setLockRot(true);
+}
+
+void Picker::pickerChanged()
+{
+
+	for (auto &itr = _listeners.begin(); itr != _listeners.end(); ++itr)
+	{
+
+		itr->second->pickerChanged(this);
+	}
+}
+
+void Picker::addListener(Picker::Listener* listener)
+{
+	_listeners.insert(std::make_pair(listener->ListenerID, listener));
+}
+
+void Picker::removeListener(Picker::Listener* listener)
+{
+	_listeners.erase(listener->ListenerID);
+
 }
 
 
+void Picker::reset()
+{
+	lastObject = currentObject ;
+	currentObject = NULL; 
+	select();
+}
 Picker::~Picker(void)
 {
 	ServiceLocator::getEM().deleteEntity(pickerEntity);
@@ -21,22 +49,22 @@ Picker::~Picker(void)
 Entity* RayTracer::getFirstEntityOnRay(Ray ray)
 {
 	
-	auto x = ServiceLocator::getPE().rayCast(ray.pos,ray.pos +  ray.dir * 1000);
+	auto &x = ServiceLocator::getPE().rayCast(ray.pos,ray.pos +  ray.dir * 1000);
 	std::vector<Entity*> c;
-	for (unsigned int i = 0; i < x.size(); i++)
+	for (unsigned int i = 0; i < x.m_collisionObjects.size(); i++)
 	{
-		c.push_back(static_cast<Entity*>(x[0]->getUserPointer()));
-		if(x[i] != NULL) return static_cast<Entity*>(x[0]->getUserPointer());
+		c.push_back(static_cast<Entity*>(x.m_collisionObjects[0]->getUserPointer()));
+		if(x.m_collisionObjects[0]->getUserPointer() != NULL) return static_cast<Entity*>(x.m_collisionObjects[0]->getUserPointer());
 	}
 	return NULL;
 }
 std::vector<Entity*> RayTracer::getEntitiesOnRay(Ray ray)
 {
 	std::vector<Entity*> c;
-	auto x = ServiceLocator::getPE().rayCast(ray.pos, ray.dir);
-	for (unsigned int i = 0; i < x.size(); i++)
+	auto &x = ServiceLocator::getPE().rayCast(ray.pos, ray.dir);
+	for (unsigned int i = 0; i < x.m_collisionObjects.size(); i++)
 	{
-		c.push_back(static_cast<Entity*>(x[0]->getUserPointer()));
+		c.push_back(static_cast<Entity*>(x.m_collisionObjects[0]->getUserPointer()));
 	}
 	return c;
 }
@@ -145,7 +173,12 @@ void Picker::pick(std::vector<Entity*> objs,Ray ray,Camera3d* cam)
 	currentObject = RayTracer::getFirstEntityOnRay(objs,cam,ray);
 	select();
 }
-
+void Picker::setEntity(Entity* ent)
+{
+	lastObject = currentObject;
+	currentObject = ent;
+	select();
+}
 void Picker::pick(Ray ray)
 {
 	lastObject = currentObject;
@@ -155,8 +188,9 @@ void Picker::pick(Ray ray)
 
 void Picker::select()
 {
-	if (lastObject == NULL && currentObject == NULL) return;
-
+	
+	if (lastObject == currentObject) return;
+	pickerChanged();
 	if (currentObject != NULL)
 	{
 		if (lastObject != NULL) lastObject->getTransform()->removeListener(pickerEntity);
@@ -167,7 +201,7 @@ void Picker::select()
 	else
 	{
 		if (lastObject != NULL) lastObject->getTransform()->removeListener(pickerEntity);
-		//comp->getT<GraphicsComponent*>()->setRenderable(false);
+		comp->getT<GraphicsComponent*>()->setRenderable(false);
 	}
 }
 void Picker::pick(int x, int y , std::vector<Entity*> objs,Camera3d* cam)

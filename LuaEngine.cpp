@@ -6,7 +6,7 @@ int SeScript::eventHandlerID = 0;
 
 
 
-SeScript::SeScript() :hasTestRun(false), state(chaiscript::Std_Lib::library()), path(""), updateS("update()"), hasUpdate(true)
+SeScript::SeScript() : state(chaiscript::Std_Lib::library()), path(""), updateS("update()")
 {
 
 }
@@ -23,8 +23,7 @@ void SeScript::end()
 }
 void SeScript::reload(std::string &Path)
 {
-	path = Path;
-	state.use(Path);
+
 }
 void SeScript::begin()
 {

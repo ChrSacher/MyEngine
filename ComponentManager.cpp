@@ -61,7 +61,7 @@ ComponentPosition* ComponentManager::createGraphics(std::string &texturePath, st
 	graphics.emplace_back();
 	GCS.load(graphics[graphics.size() - 1], texturePath, normalMap, ObjectPath, color, autoCenter);
 	ComponentPosition* r = new ComponentPosition(GRAPHICS, graphics.size() - 1);
-	positions[GRAPHICS].insert(std::make_pair(r->ID, r));
+	positions[GRAPHICS].insert(std::make_pair(r->getID(), r));
 	return r;
 }
 ComponentPosition* ComponentManager::createTerrain(std::string Path, std::string Texture, Vector3 Scale, bool Center)
@@ -69,7 +69,7 @@ ComponentPosition* ComponentManager::createTerrain(std::string Path, std::string
 	terrains.emplace_back();
 	TCS.load(terrains[terrains.size() - 1], Path, Texture, Scale, Center, 2);
 	ComponentPosition* r = new ComponentPosition(TERRAIN, terrains.size() - 1);
-	positions[TERRAIN].insert(std::make_pair(r->ID, r));
+	positions[TERRAIN].insert(std::make_pair(r->getID(), r));
 	return r;
 }
 ComponentPosition* ComponentManager::createAmbient(Vector3 Color)
@@ -77,7 +77,7 @@ ComponentPosition* ComponentManager::createAmbient(Vector3 Color)
 	ambients.emplace_back();
 	LCS.load(ambients[ambients.size() - 1], Color);
 	ComponentPosition* r = new ComponentPosition(AMBIENT, ambients.size() - 1);
-	positions[AMBIENT].insert(std::make_pair(r->ID, r));
+	positions[AMBIENT].insert(std::make_pair(r->getID(), r));
 	return r;
 }
 ComponentPosition* ComponentManager::createPhysicComponent(PhysicsData& Data)
@@ -85,32 +85,33 @@ ComponentPosition* ComponentManager::createPhysicComponent(PhysicsData& Data)
 	physics.emplace_back();
 	PCS.load(physics[physics.size() - 1],Data);
 	ComponentPosition* r = new ComponentPosition(PHYSICS, physics.size() - 1);
-	positions[PHYSICS].insert(std::make_pair(r->ID, r));
+	positions[PHYSICS].insert(std::make_pair(r->getID(), r));
 	return r;
 }
 
 
 ComponentPosition* ComponentManager::createDirectional(Vector3 Color, float Intensity, Vector3 Dir)
 {
-	//TODO directional LCS loader
-	directionals.emplace_back(BaseLight(Color, Intensity), Dir);
+	
+	directionals.emplace_back();
 	ComponentPosition* r = new ComponentPosition(DIRECTIONAL, directionals.size() - 1);
-	positions[DIRECTIONAL].insert(std::make_pair(r->ID, r));
+	LCS.load(directionals[directionals.size() - 1], BaseLight(Color, Intensity), Dir);
+	positions[DIRECTIONAL].insert(std::make_pair(r->getID(), r));
 	return r;
 }
-ComponentPosition*  ComponentManager::createSkyBox(Vector3 color, std::string Directory, std::string posx, std::string negx, std::string posy, std::string negy, std::string posz, std::string negz)
+ComponentPosition*  ComponentManager::createSkyBox(Vector3 color, std::string posx, std::string negx, std::string posy, std::string negy, std::string posz, std::string negz)
 {
 	std::vector<std::string> paths;
-	paths.push_back(Directory);
 	paths.push_back(posx);
 	paths.push_back(negx);
 	paths.push_back(posy);
 	paths.push_back(negy);
 	paths.push_back(posz);
 	paths.push_back(negz);
-	skies.emplace_back(color, paths);//emplace back only accepts certtain number of variables for whatever reason
+	skies.emplace_back();//emplace back only accepts certtain number of variables for whatever reason
 	ComponentPosition* r = new ComponentPosition(SKYBOX, skies.size() - 1);
-	positions[SKYBOX].insert(std::make_pair(r->ID, r));
+	SCS.load(skies[skies.size() - 1],color, paths);
+	positions[SKYBOX].insert(std::make_pair(r->getID(), r));
 	return r;
 
 }
@@ -119,7 +120,7 @@ ComponentPosition* ComponentManager::create2DAudio(std::string audiopath, float 
 	audios.emplace_back();
 	ACS.load(audios[audios.size() - 1], audiopath, Volume);
 	ComponentPosition* r = new ComponentPosition(AUDIO, audios.size() - 1);
-	positions[AUDIO].insert(std::make_pair(r->ID, r));
+	positions[AUDIO].insert(std::make_pair(r->getID(), r));
 	return r;
 }
 ComponentPosition* ComponentManager::create3DAudio(std::string audiopath, Vector3 position, float Volume)
@@ -127,7 +128,7 @@ ComponentPosition* ComponentManager::create3DAudio(std::string audiopath, Vector
 	audios.emplace_back();
 	ACS.load(audios[audios.size() - 1], audiopath,position, Volume);
 	ComponentPosition* r = new ComponentPosition(AUDIO, audios.size() - 1);
-	positions[AUDIO].insert(std::make_pair(r->ID, r));
+	positions[AUDIO].insert(std::make_pair(r->getID(), r));
 	return r;
 }
 ComponentPosition* ComponentManager::createScript(std::string path)
@@ -135,7 +136,7 @@ ComponentPosition* ComponentManager::createScript(std::string path)
 	scripts.emplace_back();
 	SCCS.load(scripts[scripts.size() - 1], path);
 	ComponentPosition* r = new ComponentPosition(SCRIPT, scripts.size() - 1);
-	positions[SCRIPT].insert(std::make_pair(r->ID, r));
+	positions[SCRIPT].insert(std::make_pair(r->getID(), r));
 	return r;
 }
 Component* ComponentManager::findComponent(ComponentPosition* Posi)
@@ -222,6 +223,7 @@ void ComponentManager::deleteComponent(ComponentPosition* Posi)
 	case SKYBOX:
 	{
 		if (Pos.position >= skies.size()) return;
+		SCS.unload(skies[Pos.position]);
 		skies.erase(skies.begin() + Pos.position);
 	}break;
 	case PHYSICS:
@@ -248,12 +250,12 @@ void ComponentManager::deleteComponent(ComponentPosition* Posi)
 	}
 	}
 	auto r = positions.find(Pos.type);
-	for (auto i = r->second.find(Pos.ID); i != r->second.end(); i++)
+	for (auto i = r->second.find(Pos.getID()); i != r->second.end(); i++)
 	{
 		i->second->position -= 1;
 	}
 
-	r->second.erase(r->second.find(Pos.ID));
+	r->second.erase(r->second.find(Pos.getID()));
 }
 
 void ComponentManager::renderComponent(ComponentPosition* comp, Shader* shader, Camera3d* camera)
@@ -303,3 +305,4 @@ void ComponentManager::removeScriptListener(ScriptComponentSystem::Listener* r)
 {
 	SCCS.removeListener(r);
 }
+

@@ -1,9 +1,107 @@
-﻿  Scene.cpp
+﻿  PhysicsEngine.cpp
+c:\users\christian\documents\github\myengine\physicsengine.cpp(55): warning C4305: "Argument": Verkürzung von "double" in "const btScalar"
+  Maingame.cpp
 c:\program files (x86)\microsoft sdks\windows\v7.0a\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
   c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
 c:\program files (x86)\microsoft sdks\windows\v7.0a\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
   c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
-c:\users\christian\documents\github\myengine\dep\include\libconfig\libconfig.h++(51): warning C4275: class "std::exception" ist keine DLL-Schnittstelle und wurde als Basisklasse für die DLL-Schnittstelle class "libconfig::ConfigException" verwendet
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\vcruntime_exception.h(43): note: Siehe Deklaration von "std::exception"
-  c:\users\christian\documents\github\myengine\dep\include\libconfig\libconfig.h++(51): note: Siehe Deklaration von "libconfig::ConfigException"
+c:\users\christian\documents\github\myengine\dep\include\chaiscript\language\chaiscript_parser.hpp(2441): warning C4602: #pragma pop_macro: "min" Kein vorangehendes "#pragma push_macro" für diesen Bezeichner definiert
+c:\users\christian\documents\github\myengine\dep\include\chaiscript\language\chaiscript_parser.hpp(2442): warning C4602: #pragma pop_macro: "max" Kein vorangehendes "#pragma push_macro" für diesen Bezeichner definiert
+c:\users\christian\documents\github\myengine\maingame.cpp(110): warning C4244: "Argument": Konvertierung von "float" in "int", möglicher Datenverlust
+c:\users\christian\documents\github\myengine\maingame.cpp(247): warning C4244: "Argument": Konvertierung von "float" in "int", möglicher Datenverlust
+  EntityComponentGui.cpp
+c:\program files (x86)\microsoft sdks\windows\v7.0a\include\sal_supp.h(57): warning C4005: "__useHeader": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2886): note: Siehe vorherige Definition von "__useHeader"
+c:\program files (x86)\microsoft sdks\windows\v7.0a\include\specstrings_supp.h(77): warning C4005: "__on_failure": Makro-Neudefinition
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2896): note: Siehe vorherige Definition von "__on_failure"
+c:\users\christian\documents\github\myengine\entitycomponentgui.cpp(418): warning C4390: ";": Leere kontrollierte Anweisung aufgetreten; ist dies beabsichtigt?
+c:\users\christian\documents\github\myengine\entitycomponentgui.cpp(476): warning C4101: "e": Unreferenzierte lokale Variable
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\utility(158): warning C4244: "Initialisierung": Konvertierung von "int" in "float", möglicher Datenverlust
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xmemory0(655): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::pair<const _Kty,_Ty>::pair<ComponentType,int,void>(std::pair<ComponentType,int> &&) noexcept".
+          with
+          [
+              _Kty=ComponentType,
+              _Ty=float
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xmemory0(655): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::pair<const _Kty,_Ty>::pair<ComponentType,int,void>(std::pair<ComponentType,int> &&) noexcept".
+          with
+          [
+              _Kty=ComponentType,
+              _Ty=float
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xmemory0(773): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::allocator<_Other>::construct<_Objty,_Ty>(_Objty *,_Ty &&)".
+          with
+          [
+              _Other=std::_Tree_node<std::pair<const ComponentType,float>,void *>,
+              _Objty=std::pair<const ComponentType,float>,
+              _Ty=std::pair<ComponentType,int>
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xmemory0(773): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::allocator<_Other>::construct<_Objty,_Ty>(_Objty *,_Ty &&)".
+          with
+          [
+              _Other=std::_Tree_node<std::pair<const ComponentType,float>,void *>,
+              _Objty=std::pair<const ComponentType,float>,
+              _Ty=std::pair<ComponentType,int>
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xmemory0(918): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::allocator_traits<_Alloc>::construct<_Ty,std::pair<ComponentType,int>>(std::allocator<_Other> &,_Objty *,std::pair<ComponentType,int> &&)".
+          with
+          [
+              _Alloc=std::allocator<std::_Tree_node<std::pair<const ComponentType,float>,void *>>,
+              _Ty=std::pair<const ComponentType,float>,
+              _Other=std::_Tree_node<std::pair<const ComponentType,float>,void *>,
+              _Objty=std::pair<const ComponentType,float>
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xmemory0(917): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::allocator_traits<_Alloc>::construct<_Ty,std::pair<ComponentType,int>>(std::allocator<_Other> &,_Objty *,std::pair<ComponentType,int> &&)".
+          with
+          [
+              _Alloc=std::allocator<std::_Tree_node<std::pair<const ComponentType,float>,void *>>,
+              _Ty=std::pair<const ComponentType,float>,
+              _Other=std::_Tree_node<std::pair<const ComponentType,float>,void *>,
+              _Objty=std::pair<const ComponentType,float>
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xtree(896): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Wrap_alloc<std::allocator<_Other>>::construct<_Ty,std::pair<ComponentType,int>>(_Ty *,std::pair<ComponentType,int> &&)".
+          with
+          [
+              _Other=std::_Tree_node<std::pair<const ComponentType,float>,void *>,
+              _Ty=std::pair<const ComponentType,float>
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xtree(894): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "void std::_Wrap_alloc<std::allocator<_Other>>::construct<_Ty,std::pair<ComponentType,int>>(_Ty *,std::pair<ComponentType,int> &&)".
+          with
+          [
+              _Other=std::_Tree_node<std::pair<const ComponentType,float>,void *>,
+              _Ty=std::pair<const ComponentType,float>
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xtree(1093): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::_Tree_node<std::pair<const _Kty,_Ty>,void *> *std::_Tree_comp_alloc<_Traits>::_Buynode<std::pair<ComponentType,int>>(std::pair<ComponentType,int> &&)".
+          with
+          [
+              _Kty=ComponentType,
+              _Ty=float,
+              _Traits=std::_Tmap_traits<ComponentType,float,std::less<ComponentType>,std::allocator<std::pair<const ComponentType,float>>,false>
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xtree(1093): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::_Tree_node<std::pair<const _Kty,_Ty>,void *> *std::_Tree_comp_alloc<_Traits>::_Buynode<std::pair<ComponentType,int>>(std::pair<ComponentType,int> &&)".
+          with
+          [
+              _Kty=ComponentType,
+              _Ty=float,
+              _Traits=std::_Tmap_traits<ComponentType,float,std::less<ComponentType>,std::allocator<std::pair<const ComponentType,float>>,false>
+          ]
+  c:\users\christian\documents\github\myengine\entitycomponentgui.cpp(7): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::pair<std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _Kty,_Ty>>>>,bool> std::_Tree<std::_Tmap_traits<_Kty,_Ty,_Pr,_Alloc,false>>::insert<std::pair<ComponentType,int>>(_Valty &&)".
+          with
+          [
+              _Kty=ComponentType,
+              _Ty=float,
+              _Pr=std::less<ComponentType>,
+              _Alloc=std::allocator<std::pair<const ComponentType,float>>,
+              _Valty=std::pair<ComponentType,int>
+          ]
+  c:\users\christian\documents\github\myengine\entitycomponentgui.cpp(7): note: Siehe Verweis auf die Instanziierung der gerade kompilierten Funktions-template "std::pair<std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const _Kty,_Ty>>>>,bool> std::_Tree<std::_Tmap_traits<_Kty,_Ty,_Pr,_Alloc,false>>::insert<std::pair<ComponentType,int>>(_Valty &&)".
+          with
+          [
+              _Kty=ComponentType,
+              _Ty=float,
+              _Pr=std::less<ComponentType>,
+              _Alloc=std::allocator<std::pair<const ComponentType,float>>,
+              _Valty=std::pair<ComponentType,int>
+          ]
+  Code wird generiert...
   Javaportc++.vcxproj -> C:\Users\Christian\Documents\GitHub\MyEngine\Debug\ProperEngine.exe

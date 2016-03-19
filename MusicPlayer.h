@@ -5,15 +5,13 @@
 
 struct SongInformation
 {
-	SongInformation(std::string &string, std::string &string2, unsigned int Num)
+	SongInformation(std::string &Path, std::string &Title)
 	{
-		title = string;
-		path = string2;
-		number = Num;
+		title =Title;
+		path = Path;
 	}
 	std::string title;
 	std::string path;
-	unsigned int number;
 };
 //litteraly the thing it says
 class MusicPlayer
@@ -27,6 +25,7 @@ public:
 	void nextSong();
 	void previousSong();
 	void loadSongList(std::string path);
+	void saveSongList(std::string path);
 	void update();
 	//getters
 	//returns the song number geinning from 1

@@ -27,26 +27,47 @@ public:
 	friend class EntityManager;
 	friend class Scene;
 	friend class Component;
-	void transformChanged(Transform& transform);
+	class Listener
+	{
+	public:
+		Listener()
+		{
+			static unsigned int id = 0;
+			ListenerID = id++;
+		}
+		virtual ~Listener() { }
+
+		/**
+		* Handles when an camera settings change.
+		*
+		* @param camera The camera that was changed.
+		*/
+		virtual void entityChanged(Entity* ent) = 0;
+		unsigned int ListenerID;
+	};
+	void addListener(Entity::Listener* listener);
+	void removeListener(Entity::Listener* listener);
+	void entityChanged();
+
+	void transformChanged(Transform* transform);
 	Transform* getTransform();
 	//add a Component to the Entity
 	Entity* addComponent(ComponentPosition* component);
 	//remove a Component from the Entity
 	Entity* removeComponent(ComponentPosition* component);
 
-	//add a Component to the Entity
-	Entity* addPhysics(ComponentPosition* component);
-	//remove a Component from the Entity
-	Entity* removePhysics();
+	void setPhysicsEnabled(bool x);
 	void setTransform(Transform& transformV);
 	//tells all components that something happend
 	void notify(int eventType, Component* sender ,Entity* entityInteractedWith = NULL); //this can be enchanched with Commands
 	//receive message froma component
 	void receive(int eventType, Component* sender,Entity* entityInteractedWith = NULL);
+	std::vector<ComponentPosition*> getComponents() { return components; }
 	~Entity();
 	ComponentPosition* getPhysics() { return physics; }
 	int getID();
 	std::string getName() { return name; }
+	void setName(std::string Name) { name = Name; }
 private:
 	static int id;
 	int ID;
@@ -56,7 +77,7 @@ private:
 	ComponentPosition* physics;
 	Transform transform;
 
-
+	std::map<unsigned int, Entity::Listener*> _listeners;
 	Entity(const Entity& other);
 	void operator=(const Entity& other);
 };

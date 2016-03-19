@@ -295,21 +295,21 @@ void CubemapTexture::bind(GLuint unit)
 	util.bindTexture(ID,unit,GL_TEXTURE_CUBE_MAP); 
 }
 
-void CubemapTexture::addFiles(std::string Directory, std::string posx, std::string negx, std::string posy, std::string negy, std::string posz, std::string negz)
+void CubemapTexture::addFiles(std::string posx, std::string negx, std::string posy, std::string negy, std::string posz, std::string negz)
 {
-	fileNames[0] = Directory + posx;
-	fileNames[1] = Directory + negx;
-	fileNames[2] = Directory +  posy;
-	fileNames[3] = Directory +  negy;
-	fileNames[4] = Directory +  posz;
-	fileNames[5] = Directory +  negz;
+	fileNames[0] =posx;
+	fileNames[1] = negx;
+	fileNames[2] =  posy;
+	fileNames[3] = negy;
+	fileNames[4] =  posz;
+	fileNames[5] = negz;
 }
 
-CubemapTexture::CubemapTexture(const std::string& Directory, const std::string& PosXFilename, const std::string& NegXFilename,
+CubemapTexture::CubemapTexture( const std::string& PosXFilename, const std::string& NegXFilename,
 							   const std::string& PosYFilename, const std::string& NegYFilename,  const std::string& PosZFilename, const std::string& NegZFilename)
 
 {
-	addFiles(Directory,PosXFilename,NegXFilename,PosYFilename,NegYFilename,PosZFilename, NegZFilename);
+	addFiles(PosXFilename,NegXFilename,PosYFilename,NegYFilename,PosZFilename, NegZFilename);
 	Load();
 }
 void CubemapTexture::releaseCubemap()

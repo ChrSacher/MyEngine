@@ -1934,6 +1934,11 @@ Matrix4 Matrix4::lookAt(Vector3 const &eye,Vector3 const &center,Vector3 const &
       return Matrix3(m);
     }
 
+	Matrix4 Quaternion::rotation4x4() const
+	{
+		Matrix3 x = rotationMatrix();
+		return Matrix4(x[0], x[1], x[2], 0, x[3], x[4], x[5], 0, x[6], x[7], x[8], 0, 0, 0, 0, 1);
+	}
 
     /**
      * @brief Returns a vector rotated by this quaternion.
