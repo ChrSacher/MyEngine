@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="WindowsLook/FrameWindow" name="FrameWindow" >
+        <Property name="Area" value="{{0,0},{0,0},{0.3,563},{0.3,156}}" />
+        <Property name="Text" value="Graphics Component" />
+        <Window type="WindowsLook/Editbox" name="ColorXEditbox" >
+            <Property name="Area" value="{{0,226},{0,221},{0,321},{0,253}}" />
+            <Property name="TooltipText" value="Number between 0 and 255" />
+            <Property name="ValidationString" value="^[-+]?\d*\.?\d*$" />
+        </Window>
+        <Window type="WindowsLook/Editbox" name="ColorYEditbox" >
+            <Property name="Area" value="{{0,401},{0,221},{0,496},{0,253}}" />
+            <Property name="TooltipText" value="Number between 0 and 255" />
+            <Property name="ValidationString" value="^[-+]?\d*\.?\d*$" />
+        </Window>
+        <Window type="WindowsLook/Editbox" name="ColorZEditbox" >
+            <Property name="Area" value="{{0,575},{0,221},{0,670},{0,253}}" />
+            <Property name="TooltipText" value="Number between 0 and 255" />
+            <Property name="ValidationString" value="^[-+]?\d*\.?\d*$" />
+        </Window>
+        <Window type="WindowsLook/RadioButton" name="EnabledRadioButton" >
+            <Property name="Area" value="{{0,227},{0,9},{0,483},{0,41}}" />
+            <Property name="Text" value="Enabled" />
+        </Window>
+        <Window type="WindowsLook/Label" name="Label" >
+            <Property name="Area" value="{{0,1},{0,70},{0,176},{0,102}}" />
+            <Property name="Text" value="Meshpath" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="WindowsLook/Label" name="Label2" >
+            <Property name="Area" value="{{0,1},{0,119},{0,176},{0,151}}" />
+            <Property name="Text" value="Texturepath" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="WindowsLook/Label" name="Label3" >
+            <Property name="Area" value="{{0,1},{0,170},{0,176},{0,202}}" />
+            <Property name="Text" value="Normalmappath" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="WindowsLook/Label" name="Label4" >
+            <Property name="Area" value="{{0,-1},{0,220},{0,174},{0,252}}" />
+            <Property name="Text" value="Color" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="WindowsLook/Label" name="Label5" >
+            <Property name="Area" value="{{0,0},{0,271},{0,175},{0,303}}" />
+            <Property name="Text" value="Specular Intensity" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="WindowsLook/Label" name="Label6" >
+            <Property name="Area" value="{{0,364},{0,272},{0,539},{0,304}}" />
+            <Property name="Text" value="Specular power" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="WindowsLook/Editbox" name="MeshpathEditbox" >
+            <Property name="Area" value="{{0,184},{0,70},{0,704},{0,102}}" />
+        </Window>
+        <Window type="WindowsLook/Editbox" name="NormalpathEditbox" >
+            <Property name="Area" value="{{0,184},{0,170},{0,705},{0,202}}" />
+        </Window>
+        <Window type="WindowsLook/Button" name="ReturnButton" >
+            <Property name="Area" value="{{0,5},{0,4},{0,178},{0,48}}" />
+            <Property name="Text" value="Delete Component" />
+        </Window>
+        <Window type="WindowsLook/Editbox" name="SpecularEditbox" >
+            <Property name="Area" value="{{0,576},{0,272},{0,671},{0,304}}" />
+            <Property name="TooltipText" value="Number between 0 and 255" />
+            <Property name="ValidationString" value="^[-+]?\d*\.?\d*$" />
+        </Window>
+        <Window type="WindowsLook/Editbox" name="SpecularIntensityEditbox" >
+            <Property name="Area" value="{{0,226},{0,271},{0,321},{0,303}}" />
+            <Property name="TooltipText" value="Number between 0 and 255" />
+            <Property name="ValidationString" value="^[-+]?\d*\.?\d*$" />
+        </Window>
+        <Window type="WindowsLook/Editbox" name="TexturepathEditbox" >
+            <Property name="Area" value="{{0,184},{0,119},{0,705},{0,151}}" />
+        </Window>
+    </Window>
+</GUILayout>

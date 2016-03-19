@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="WindowsLook/FrameWindow" name="FrameWindow" >
+        <Property name="Area" value="{{0,0},{0,0},{0.3,562},{0.3,420}}" />
+        <Property name="Text" value="Physics Compont" />
+    </Window>
+</GUILayout>

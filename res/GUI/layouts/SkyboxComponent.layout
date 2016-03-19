@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="WindowsLook/FrameWindow" name="FrameWindow" >
+        <Property name="Area" value="{{0,0},{0,0},{0.3,562},{0.3,422}}" />
+        <Property name="Text" value="SkyboxComponent" />
+        <Window type="WindowsLook/Button" name="Button" >
+            <Property name="Area" value="{{0,8},{0,8},{0,157},{0,54}}" />
+            <Property name="Text" value="Delete Component" />
+        </Window>
+        <Window type="WindowsLook/Editbox" name="ColorXEditbox" >
+            <Property name="Area" value="{{0,192},{0,345},{0,287},{0,377}}" />
+            <Property name="TooltipText" value="Number between 0 and 255" />
+            <Property name="ValidationString" value="^[-+]?\d*\.?\d*$" />
+        </Window>
+        <Window type="WindowsLook/Editbox" name="ColorYEditbox" >
+            <Property name="Area" value="{{0,367},{0,345},{0,462},{0,377}}" />
+            <Property name="TooltipText" value="Number between 0 and 255" />
+            <Property name="ValidationString" value="^[-+]?\d*\.?\d*$" />
+        </Window>
+        <Window type="WindowsLook/Editbox" name="ColorZEditbox" >
+            <Property name="Area" value="{{0,541},{0,345},{0,636},{0,377}}" />
+            <Property name="TooltipText" value="Number between 0 and 255" />
+            <Property name="ValidationString" value="^[-+]?\d*\.?\d*$" />
+        </Window>
+        <Window type="WindowsLook/Editbox" name="PosXEditbox" >
+            <Property name="Area" value="{{0,147},{0,88},{0,714},{0,120}}" />
+        </Window>
+        <Window type="WindowsLook/Editbox" name="PosYEditbox" >
+            <Property name="Area" value="{{0,148},{0,173},{0,715},{0,205}}" />
+        </Window>
+        <Window type="WindowsLook/Editbox" name="NegYEditbox" >
+            <Property name="Area" value="{{0,148},{0,217},{0,715},{0,249}}" />
+        </Window>
+        <Window type="WindowsLook/Editbox" name="PosZEditbox" >
+            <Property name="Area" value="{{0,147},{0,259},{0,714},{0,291}}" />
+        </Window>
+        <Window type="WindowsLook/Editbox" name="NegZEditbox" >
+            <Property name="Area" value="{{0,146},{0,299},{0,713},{0,331}}" />
+        </Window>
+        <Window type="WindowsLook/Editbox" name="NegXEditbox" >
+            <Property name="Area" value="{{0,148},{0,131},{0,715},{0,163}}" />
+        </Window>
+        <Window type="WindowsLook/RadioButton" name="EnabledRadioButton" >
+            <Property name="Area" value="{{0,227},{0,9},{0,483},{0,41}}" />
+            <Property name="Text" value="Enabled" />
+        </Window>
+        <Window type="WindowsLook/Label" name="Label" >
+            <Property name="Area" value="{{0,7},{0,173},{0,135},{0,205}}" />
+            <Property name="Text" value="Positive Y" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="WindowsLook/Label" name="Label2" >
+            <Property name="Area" value="{{0,6},{0,88},{0,134},{0,120}}" />
+            <Property name="Text" value="Positive X" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="WindowsLook/Label" name="Label3" >
+            <Property name="Area" value="{{0,7},{0,131},{0,135},{0,163}}" />
+            <Property name="Text" value="Negative X" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="WindowsLook/Label" name="Label4" >
+            <Property name="Area" value="{{0,7},{0,217},{0,135},{0,249}}" />
+            <Property name="Text" value="Negative Y" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="WindowsLook/Label" name="Label5" >
+            <Property name="Area" value="{{0,6},{0,259},{0,134},{0,291}}" />
+            <Property name="Text" value="Positive Z" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="WindowsLook/Label" name="Label6" >
+            <Property name="Area" value="{{0,5},{0,299},{0,133},{0,331}}" />
+            <Property name="Text" value="Negative Z" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="WindowsLook/Label" name="Label7" >
+            <Property name="Area" value="{{0,5},{0,345},{0,133},{0,377}}" />
+            <Property name="Text" value="Color" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+    </Window>
+</GUILayout>

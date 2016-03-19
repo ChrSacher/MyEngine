@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="GlossySerpentFHD/FrameWindow" name="FrameWindow" >
+        <Property name="Area" value="{{0,0},{0,0},{0.3,561},{0.3,261}}" />
+        <Property name="Text" value="Entity #xx Name:xx" />
+        <Property name="MaxSize" value="{{1,800},{1,600}}" />
+        <Property name="MinSize" value="{{0,0},{0,0}}" />
+        <Property name="SizingEnabled" value="false" />
+        <Property name="AutoRenderingSurface" value="true" />
+        <AutoWindow namePath="__auto_titlebar__" >
+            <Property name="NonClient" value="true" />
+            <Property name="AlwaysOnTop" value="false" />
+        </AutoWindow>
+        <AutoWindow namePath="__auto_closebutton__" >
+            <Property name="NonClient" value="true" />
+            <Property name="AlwaysOnTop" value="true" />
+        </AutoWindow>
+        <Window type="GlossySerpentFHD/RadioButton" name="EnabledRadioButton" >
+            <Property name="Area" value="{{0,20},{0,278},{0,273},{0,310}}" />
+            <Property name="Text" value="Enabled" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label" >
+            <Property name="Area" value="{{0,21},{0,75},{0,149},{0,107}}" />
+            <Property name="Text" value="EntityName" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label2" >
+            <Property name="Area" value="{{0,115},{0,123},{0,243},{0,155}}" />
+            <Property name="Text" value="Transform" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label3" >
+            <Property name="Area" value="{{0,16},{0,161},{0,144},{0,191}}" />
+            <Property name="Text" value="Position" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label32" >
+            <Property name="Area" value="{{0,16},{0,231},{0,144},{0,263}}" />
+            <Property name="Text" value="Scale" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label4" >
+            <Property name="Area" value="{{0,16},{0,195},{0,144},{0,227}}" />
+            <Property name="Text" value="Rotation" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label5" >
+            <Property name="Area" value="{{0,149},{0,37},{0,252},{0,69}}" />
+            <Property name="Text" value="Mass" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Label6" >
+            <Property name="Area" value="{{0,274},{0,123},{0,565},{0,155}}" />
+            <Property name="Text" value="Scaling Level" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="GlossySerpentFHD/Editbox" name="MassEditbox" >
+            <Property name="Area" value="{{0,262},{0,38},{0,390},{0,68}}" />
+        </Window>
+        <Window type="GlossySerpentFHD/Button" name="MassMinusButton" >
+            <Property name="Area" value="{{0,391},{0,53},{0,421},{0,68}}" />
+            <Property name="Text" value="-" />
+        </Window>
+        <Window type="GlossySerpentFHD/Button" name="MassPlusButton" >
+            <Property name="Area" value="{{0,391},{0,38},{0,421},{0,53}}" />
+            <Property name="Text" value="+" />
+        </Window>
+        <Window type="GlossySerpentFHD/Editbox" name="NameEditbox" >
+            <Property name="Area" value="{{0,155},{0,75},{0,646},{0,105}}" />
+            <Property name="Text" value="Name" />
+        </Window>
+        <Window type="GlossySerpentFHD/Checkbox" name="PhysicsRadioButton" >
+            <Property name="Area" value="{{0,21},{0,37},{0,149},{0,69}}" />
+            <Property name="Text" value="Physics" />
+        </Window>
+        <Window type="GlossySerpentFHD/Editbox" name="PosXEditbox" >
+            <Property name="Area" value="{{0,-162.5},{0,162},{0,-16.5},{0,192}}" />
+            <Property name="ValidationString" value="^[-+]?\d*\.?\d*$" />
+            <Property name="HorizontalAlignment" value="Centre" />
+        </Window>
+        <Window type="GlossySerpentFHD/Editbox" name="PosZEditbox" >
+            <Property name="Area" value="{{0,247},{0,162},{0,392},{0,192}}" />
+            <Property name="ValidationString" value="^[-+]?\d*\.?\d*$" />
+            <Property name="HorizontalAlignment" value="Centre" />
+        </Window>
+        <Window type="GlossySerpentFHD/Button" name="ReloadButton" >
+            <Property name="Area" value="{{0,18},{0,314},{0,420},{0,346}}" />
+            <Property name="Text" value="Reload" />
+        </Window>
+        <Window type="GlossySerpentFHD/Button" name="RemoveEntityButton" >
+            <Property name="Area" value="{{0,18},{0,352},{0,418},{0,384}}" />
+            <Property name="Text" value="Remove Entity" />
+        </Window>
+        <Window type="GlossySerpentFHD/Editbox" name="RotXEditbox" >
+            <Property name="Area" value="{{0,-164},{0,197},{0,-19},{0,227}}" />
+            <Property name="ValidationString" value="^[-+]?\d*\.?\d*$" />
+            <Property name="HorizontalAlignment" value="Centre" />
+        </Window>
+        <Window type="GlossySerpentFHD/Editbox" name="RotYEditbox" >
+            <Property name="Area" value="{{0,42},{0,197},{0,187},{0,227}}" />
+            <Property name="ValidationString" value="^[-+]?\d*\.?\d*$" />
+            <Property name="HorizontalAlignment" value="Centre" />
+        </Window>
+        <Window type="GlossySerpentFHD/Editbox" name="RotZEditbox" >
+            <Property name="Area" value="{{0,247},{0,197},{0,392},{0,227}}" />
+            <Property name="ValidationString" value="^[-+]?\d*\.?\d*$" />
+            <Property name="HorizontalAlignment" value="Centre" />
+        </Window>
+        <Window type="GlossySerpentFHD/Editbox" name="ScaleXEditbox" >
+            <Property name="Area" value="{{0,-163},{0,232},{0,-18},{0,262}}" />
+            <Property name="ValidationString" value="^[-+]?\d*\.?\d*$" />
+            <Property name="HorizontalAlignment" value="Centre" />
+        </Window>
+        <Window type="GlossySerpentFHD/Editbox" name="ScaleYEditbox" >
+            <Property name="Area" value="{{0,42},{0,232},{0,187},{0,262}}" />
+            <Property name="ValidationString" value="^[-+]?\d*\.?\d*$" />
+            <Property name="HorizontalAlignment" value="Centre" />
+        </Window>
+        <Window type="GlossySerpentFHD/Editbox" name="ScaleZEditbox" >
+            <Property name="Area" value="{{0,247},{0,232},{0,392},{0,262}}" />
+            <Property name="ValidationString" value="^[-+]?\d*\.?\d*$" />
+            <Property name="HorizontalAlignment" value="Centre" />
+        </Window>
+        <Window type="GlossySerpentFHD/Editbox" name="ScalingEditbox" >
+            <Property name="Area" value="{{0,573},{0,125},{0,718},{0,155}}" />
+            <Property name="Text" value="0.1" />
+            <Property name="ValidationString" value="^[-+]?\d*\.?\d*$" />
+        </Window>
+        <Window type="GlossySerpentFHD/Editbox" name="PosYEditbox" >
+            <Property name="Area" value="{{0,42},{0,162},{0,187},{0,192}}" />
+            <Property name="ValidationString" value="^[-+]?\d*\.?\d*$" />
+            <Property name="HorizontalAlignment" value="Centre" />
+        </Window>
+    </Window>
+</GUILayout>

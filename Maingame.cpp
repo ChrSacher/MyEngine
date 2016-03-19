@@ -283,7 +283,7 @@ void Maingame::run()
 void Maingame::createObjects()
 {
 	
-	scene = Scene::createScene(__screenH,__screenW,"res/Scenes/config.sc");
+	scene = Scene::createScene(__screenH,__screenW,"res/Scenes/main.sc");
 
 	//scene->saveFile("res/Scenes/test.sc");
 	AudioListener::getInstance()->setCamera(scene->getCamera());

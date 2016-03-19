@@ -1,0 +1,8 @@
+﻿  grammar.c
+  libconfig.c
+libconfig.c(694): warning C4133: "Funktion": Inkompatible Typen - von "stat *" zu "_stat64i32 *"
+  scanctx.c
+  scanner.c
+  strbuf.c
+  Code wird generiert...
+  libconfig.vcxproj -> C:\Users\Christian\Desktop\libconfig\Debug\libconfig.lib

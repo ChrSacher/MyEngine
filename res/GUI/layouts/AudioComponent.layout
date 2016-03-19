@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="WindowsLook/FrameWindow" name="FrameWindow" >
+        <Property name="Area" value="{{0,0},{0,0},{0.3,561},{0.3,292}}" />
+        <Property name="Text" value="Audio Component" />
+        <Window type="WindowsLook/RadioButton" name="2DRadioButton" >
+            <Property name="Area" value="{{0,286},{0,275},{0,542},{0,307}}" />
+            <Property name="Text" value=" 2D audio" />
+        </Window>
+        <Window type="WindowsLook/Editbox" name="AudioPathEditbox" >
+            <Property name="Area" value="{{0,159},{0,63},{0,766},{0,95}}" />
+        </Window>
+        <Window type="WindowsLook/Label" name="AudioPathLabel" >
+            <Property name="Area" value="{{0,17},{0,63},{0,145},{0,95}}" />
+            <Property name="Text" value="AudioPath" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="WindowsLook/Combobox" name="ChannelCombobox" >
+            <Property name="Area" value="{{0,160},{0,111},{0,398},{0,273}}" />
+            <Property name="Text" value="Channel::Master" />
+            <Property name="ReadOnly" value="true" />
+            <Property name="SortList" value="true" />
+            <AutoWindow namePath="__auto_editbox__" >
+                <Property name="Text" value="Channel::Master" />
+                <Property name="ReadOnly" value="true" />
+            </AutoWindow>
+            <AutoWindow namePath="__auto_droplist__" >
+                <Property name="Sort" value="true" />
+                <AutoWindow namePath="__auto_hscrollbar__" >
+                    <AutoWindow namePath="__auto_incbtn__" >
+                        <Property name="RestoreOldCapture" value="true" />
+                    </AutoWindow>
+                    <AutoWindow namePath="__auto_decbtn__" >
+                        <Property name="RestoreOldCapture" value="true" />
+                    </AutoWindow>
+                    <AutoWindow namePath="__auto_thumb__" >
+                        <Property name="RestoreOldCapture" value="true" />
+                    </AutoWindow>
+                </AutoWindow>
+                <AutoWindow namePath="__auto_vscrollbar__" >
+                    <AutoWindow namePath="__auto_incbtn__" >
+                        <Property name="RestoreOldCapture" value="true" />
+                    </AutoWindow>
+                    <AutoWindow namePath="__auto_decbtn__" >
+                        <Property name="RestoreOldCapture" value="true" />
+                    </AutoWindow>
+                    <AutoWindow namePath="__auto_thumb__" >
+                        <Property name="RestoreOldCapture" value="true" />
+                    </AutoWindow>
+                </AutoWindow>
+            </AutoWindow>
+        </Window>
+        <Window type="WindowsLook/Label" name="ChannelLabel" >
+            <Property name="Area" value="{{0,19},{0,108},{0,147},{0,140}}" />
+            <Property name="Text" value="Channel" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="WindowsLook/RadioButton" name="DopplerRadioButton" >
+            <Property name="Area" value="{{0,19},{0,273},{0,275},{0,305}}" />
+            <Property name="Text" value="Doppler Effect" />
+        </Window>
+        <Window type="WindowsLook/RadioButton" name="EnabledRadioButton" >
+            <Property name="Area" value="{{0,227},{0,9},{0,483},{0,41}}" />
+            <Property name="Text" value="Enabled" />
+        </Window>
+        <Window type="WindowsLook/RadioButton" name="LoopingRadioButton" >
+            <Property name="Area" value="{{0,286},{0,313},{0,542},{0,345}}" />
+            <Property name="Text" value="Looping" />
+        </Window>
+        <Window type="WindowsLook/RadioButton" name="OcclusionRadioButton" >
+            <Property name="Area" value="{{0,19},{0,313},{0,275},{0,345}}" />
+            <Property name="Text" value="Occlusion" />
+        </Window>
+        <Window type="WindowsLook/Button" name="PauseButton" >
+            <Property name="Area" value="{{0,200},{0,368},{0,362},{0,437}}" />
+            <Property name="Text" value="Pause" />
+        </Window>
+        <Window type="WindowsLook/Button" name="PlayButton" >
+            <Property name="Area" value="{{0,18},{0,366},{0,180},{0,435}}" />
+            <Property name="Text" value="Play" />
+        </Window>
+        <Window type="WindowsLook/Button" name="ReturnButton" >
+            <Property name="Area" value="{{0,0},{0,0},{0,175},{0,45}}" />
+            <Property name="Text" value="Delete Component" />
+        </Window>
+        <Window type="WindowsLook/Editbox" name="SpeedEditbox" >
+            <Property name="Area" value="{{0,186},{0,202},{0,281},{0,234}}" />
+            <Property name="TooltipText" value="Number between 0 and 255" />
+            <Property name="ValidationString" value="^[-+]?\d*\.?\d*$" />
+        </Window>
+        <Window type="WindowsLook/Label" name="SpeedLabel" >
+            <Property name="Area" value="{{0,18},{0,201},{0,146},{0,233}}" />
+            <Property name="Text" value="Speed" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="WindowsLook/Button" name="StopButton" >
+            <Property name="Area" value="{{0,384},{0,368},{0,546},{0,437}}" />
+            <Property name="Text" value="Stop" />
+        </Window>
+        <Window type="WindowsLook/Editbox" name="VolumeEditbox" >
+            <Property name="Area" value="{{0,189},{0,146},{0,284},{0,178}}" />
+            <Property name="TooltipText" value="Number between 0 and 255" />
+            <Property name="ValidationString" value="^[-+]?\d*\.?\d*$" />
+        </Window>
+        <Window type="WindowsLook/Label" name="VolumeLabel" >
+            <Property name="Area" value="{{0,19},{0,146},{0,147},{0,178}}" />
+            <Property name="Text" value="Volume" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+    </Window>
+</GUILayout>
