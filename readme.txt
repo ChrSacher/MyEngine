@@ -1,7 +1,28 @@
-This Project started out as a school project which got abandoned (because lazy people). It is now being made into a proper Entity Component Engine.
-I plan to make a Game at some point with this but before i actually need to finish it.
-At its current Stage it has alot of groundlevel stuff like Models/Textures/NormalMaps/Script(ChaiScript)/Gui(used CEGUI)/Audio(Irrklang).
-Its still in  a rather early age and needs to be more streamlined and the communication between system is still in the works.
+MyEngine is a self-made game engine based on an entity-component framework.
+It features:
+Entity-Component System  
+3d Sound  
+UI System  
+Physics  
+Terrain with physics Collision + Callbacks  
+Scripting system  
+OpenGL rendering  
+Model Importer  
+Lighting  
+Skyboxes  
+
+
+
+
+It uses:
+YSE Sound: 3d sound library  
+ChaiScript: C++ like scripting language  
+OpenGL: Rendering engine  
+Assimp: 3d model importer  
+Bullet: Bullet physics  
+CEGUI: GUI library  
+Freetype: Font library  
+SDL: Base of the engine
 
 
 Lib/DLL List:
